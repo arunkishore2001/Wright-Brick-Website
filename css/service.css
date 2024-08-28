@@ -1,0 +1,152 @@
+.services-section {
+    padding: 50px 0;
+}
+
+.service-heading h6{
+    color: #000;
+font-family: Syne;
+
+font-weight: 500;
+
+}
+.services-title {
+    
+    font-weight: bold;
+    color: #e0e0e0;
+    text-transform: uppercase;
+}
+.service-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.service-item:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+.service-icon {
+    width: 50px;
+    margin-right: 20px;
+}
+.service-text {
+    flex-grow: 1;
+}
+.service-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+.divider {
+    background-color: #e0e0e0;
+    height: 100%;
+    width: 4px;
+    margin: 0 20px;
+}
+
+
+
+.arch-line {
+    width: 30%;
+    height: 3px;
+    background: #C40000;
+    margin-bottom: 1rem;
+}
+
+.arch-img {
+    width: 100%;
+    position: relative;
+}
+
+.arch-img img {
+ 
+    width: 100%;
+    height: auto; 
+    max-height: 250px; 
+    border-radius: 11px;
+    background: linear-gradient(126deg, rgba(0, 0, 0, 0.00) 46.06%, #000 106.53%), url(<path-to-image>) lightgray 50% / cover no-repeat, #D9D9D9;
+}
+
+.arch-box {
+    width: 80%;
+    height: 80px;
+    background-color: #000;
+    border-radius: 37px;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
+    margin-bottom: 1rem; 
+}
+
+.arch-no h3{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 100px;
+    color: white;
+font-family: Montserrat;
+font-weight: 700;
+}
+
+.arch-right-box{
+    justify-content: flex-end;
+}
+.arch-main-line{
+    display: flex;
+    justify-content: flex-end;
+}
+.arch-right-heading h2{
+    margin-right: -100px;
+    color: #000;
+}
+
+.arch-heading h2 {
+    color: black;
+    margin-left: -120px; 
+}
+
+.arch-right {
+    text-align: center; 
+}
+
+.arch-para {
+    margin-top: 10rem;
+    
+}
+
+
+@media (max-width: 768px) {
+    .arch-line {
+        width: 50%;
+    }
+
+    .arch-img img {
+        max-height: 200px;
+    }
+
+    .arch-heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .arch-para {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .arch-line {
+        width: 70%;
+    }
+
+    .arch-img img {
+        max-height: 150px; 
+    }
+
+    .arch-heading h2 {
+        font-size: 1.2rem;
+    }
+
+    .arch-para {
+        font-size: 0.8rem;
+    }
+}
