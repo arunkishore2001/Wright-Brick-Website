@@ -1,23 +1,16 @@
-function animateStackCards() {
-  var top = this.element.getBoundingClientRect().top;
-  var offsetTop = 100,
-      cardHeight = 100, // Adjusted to match the card height
-      marginY = 14; // Adjusted margin
+document.addEventListener("DOMContentLoaded", function () {
+  const stepRight = document.querySelector(".step-right");
+  const cardDeck = document.querySelector(".scard-deck-js");
 
-  for (var i = 0; i < this.items.length; i++) {
-    var scrolling = offsetTop - top - i * (cardHeight + marginY);
+  window.addEventListener("scroll", function () {
+    const cardDeckRect = cardDeck.getBoundingClientRect();
 
-    if (scrolling > 0) {
-      this.items[i].setAttribute(
-        "style",
-        "transform: translateY(" +
-          marginY * i +
-          "px) scale(" +
-          (cardHeight - scrolling * 0.05) / cardHeight +
-          ");"
-      );
+    // You may still check for conditions if you need further behavior changes
+    if (cardDeckRect.bottom <= window.innerHeight) {
+      stepRight.style.position = "relative";
+    } else {
+      stepRight.style.position = "sticky";
+      stepRight.style.top = "20px";
     }
-  }
-
-  this.scrolling = false;
-}
+  });
+});

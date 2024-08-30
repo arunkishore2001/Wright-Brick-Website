@@ -16,58 +16,54 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/index.css" />
   </head>
 
   <body>
-    <header>
+    <header class="header">
       <div class="container-fluid">
-        <div class="navigation mt-4 d-flex justify-content-between">
+        <div class="navigation d-flex justify-content-between align-items-center">
           <div class="nav-image">
-            <img src="./img/logo.png" alt="" />
+            <img src="./img/logo.png" alt="Logo" />
           </div>
-
-          <div class="nav-link d-md-flex align-items-center">
-            <nav class="d-md-flex">
-              <a href="">Home</a>
-              <a href="">About Us</a>
-              <a href="">Services</a>
-              <a href="">Projects</a>
-              <a href="">Gallery</a>
-            </nav>
-          </div>
-
+    
+          <input class="menu-btn" type="checkbox" id="menu-btn" />
+          <label class="menu-icon" for="menu-btn">
+            <span class="navicon"></span>
+          </label>
+    
+          <nav class="nav-link">
+            <ul class="menu">
+              <li><a href="">Home</a></li>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Services</a></li>
+              <li><a href="">Projects</a></li>
+              <li><a href="">Gallery</a></li>
+            </ul>
+          </nav>
+    
           <div class="contact-btn">
             <a href="">Contact Us</a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-            >
-              <path
-                d="M7 17.5L17 7.5M17 7.5H7M17 7.5V17.5"
-                stroke="#D50F1C"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+              <path d="M7 17.5L17 7.5M17 7.5H7M17 7.5V17.5" stroke="#D50F1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
         </div>
       </div>
+    </header>
+    
+    
 
       <div class="container-fluid-max">
         <div class="landing-img">
           <img src="./img/landing.png" alt="" />
         </div>
       </div>
-    </header>
+    
 
-    <div class="container-fluid">
+    <div class="container-fluid best-design">
       <div class="row">
         <div class="col-md-6">
           <div class="left-header d-flex align-items-center">
@@ -105,7 +101,12 @@
       </div>
     </div>
 </div>
-    <div class="container">
+<div class="container">
+  <div class="crafting-heading  my-4">
+    <h1>Crafting Luxury, Redefining <br> Spaces</h1>
+  </div>
+</div>
+    <div class="container experience">
       <div class="experience-box">
         <div class="exp-content">
           <div class="exp-count">
@@ -251,7 +252,7 @@
             </p>
           </div>
 
-          <div class="about-contact-btn mt-5">
+          <div class="about-contact-btn  mt-5">
             <a href="">Contact Us &rarr;</a>
           </div>
         </div>
@@ -461,7 +462,7 @@
       </div>
     </div>
 
-    <!-- <div class="container-fluid-max step-count">
+    <div class="container-fluid-max step-count">
       <div class="container stacking">
         <div class="row">
           <div class="col-md-6">
@@ -594,7 +595,7 @@
         </div>
       </div>
     </div>
- -->
+
 
     <div class="container mt-5">
       <div class="row">
@@ -711,13 +712,15 @@
 
     
       <div class="container-fluid-max project-grid">
+        <div class="project-heading">
+          <h1>OUR PROJECTS</h1>
+        </div>
         <div class="grid-background">
           <div class="container-fluid  ">
+            
             <div class="row">
               <div class="col-md-6">
-                <div class="project-heading">
-                  <h1>OUR PROJECTS</h1>
-                </div>
+               
 
                 <div class="project-img mt-5">
                   <img src="./img/pro.png" alt="">
@@ -957,158 +960,139 @@
               <a href="">Contact Us <span class="arrow">&rarr;</span></a>
             </div>
           </div>
-          <div class="col-md-6"></div>
+          
+
+          <div class="col-md-6">
+            <div class="container-fluid">
+                <div class="testimonial">
+                    <div class="testimonial-bg">
+                        <img src="./img/about.png" alt="">
+                        <div class="testimonial-bg-heading">
+                            <h3>Testimonials</h3>
+                        </div>
+                    </div>
+                    <div class="testimonial-main">
+                        <div class="testimonial-box">
+                            <div class="testimonial-inner">
+                                <div class="red-heading">
+                                    <h3>Our Client Says</h3>
+                                </div>
+                            </div>
+                            <div class="testimonial-middle">
+                                <div class="testimonial-para">
+                                    <p id="text">Vorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-lower">
+                                <div class="testimonial-details">
+                                    <div class="user-photo">
+                                        <img id="pic" src="./img/user-photo.png" alt="">
+                                    </div>
+                                    <div class="user-name">
+                                        <h6 id="name">Dhanush</h6>
+                                        <p id="role">CEO, Macro Tech</p>
+                                    </div>
+                                    <div class="whole-movable-arrow">
+                                        <div class="moveable-arrow">
+                                            <div class="left-arrow">
+                                                <i class="fa fa-chevron-circle-left btn-left" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="right-arrow">
+                                                <i class="fa fa-chevron-circle-right btn-right" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
         </div>
       </div>
 
      
-      <!-- <div class="container-fluid-max">
-
-        <div class="footer-section">
-        <div class="container">
-            <div class="footer-img">
-                <img src="./img/footer-img.png" alt="Interior Design Image">
-                <div class="overlay-text">
-                    Have A Project In Mind?
-                </div>
-            </div>
-        </div>
-        <div class="whole-footer">
-
-       
-        <div class="footer-bg">
-            <div class="footer-content">
-                <div class="left-footer">
-                    <p>WE WONDER TO CREATE INTERIORS</p>
-                    <p>Founded in 2007, Sparch is specializing in providing innovative services...</p>
-                    <p>Call our office<br>+91 99985 97497</p>
-                    <p>Send a message<br>info@wrightbrick.com</p>
-                </div>
-                <div class="right-footer">
-                    <div>
-                        <p>Company</p>
-                        <ul>
-                            <li>Home</li>
-                            <li>About Us</li>
-                            <li>Projects</li>
-                            <li>Portfolio</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p>Follow Us</p>
-                        <ul>
-                            <li>Facebook</li>
-                            <li>Instagram</li>
-                            <li>LinkedIn</li>
-                            <li>YouTube</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+   
+  <div class="container-fluid-max">
+    <div class="whole-footer">
+      <div class="footer-bg">
+        <div class="footer-img">
+          <img src="./img/footer-img.png" alt="">
+          <div class="overlay-footer-text">
+            <h1>Have A Project In Mind?</h1>
+          </div>
         </div>
       </div>
-    </div>
-
-  </div> -->
-    
-  <div class="container-fluid-max ">
-    <div class="whole-footer">
-      <div class="footer-bg mt-5">
-          <div class="footer-img">
-            <img src="./img/footer-img.png" alt="">
-            <div class="overlay-footer-text">
-              <h1>Have A Project In Mind ?</h1>
-            </div>
-          </div>
-
-         
-        
     </div>
   </div>
-</div>
-
-
-<div class="container-fluid-max">
-  <div class="end-footer-bg">
-    <div class="container">
-      <div class="end-top-footer">
-        <div class="end-left-intro">
-          <div class="end-text">
-            <h4>WE WONDER TO CREATE INTERIORS</h4>
-          </div>
-          <div class="end-para">
-            <p>Founded in 2007, Sparch is specializing in providing innovative services such as websites. Founded in 2007.</p>
-          </div>
-        </div>
-
-        <div class="links d-flex">
-          <div class="company-link">
-            <p>Company</p>
-            <ul>
-              <li>Home</li>
-              <li>About Us</li>
-              <li>Projects</li>
-              <li>Portfolio</li>
-            </ul>
+  
+  <div class="container-fluid-max">
+    <div class="end-footer-bg">
+      <div class="container">
+        <div class="end-top-footer">
+          <div class="end-left-intro">
+            <div class="end-text">
+              <h4>WE WONDER TO CREATE INTERIORS</h4>
+            </div>
+            <div class="end-para">
+              <p>Founded in 2007, Sparch is specializing in providing innovative services such as websites. Founded in 2007.</p>
+            </div>
           </div>
   
-          <div class="follow-us-link">
-            <p>Follow Us</p>
-            <ul>
-              <li>Facebook</li>
-              <li>Instagram</li>
-              <li>LinkedIn</li>
-              <li>YouTube</li>
-            </ul>
+          <div class="links d-flex">
+            <div class="company-link">
+              <p>Company</p>
+              <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Projects</li>
+                <li>Portfolio</li>
+              </ul>
+            </div>
+  
+            <div class="follow-us-link">
+              <p>Follow Us</p>
+              <ul>
+                <li>Facebook</li>
+                <li>Instagram</li>
+                <li>LinkedIn</li>
+                <li>YouTube</li>
+              </ul>
+            </div>
           </div>
         </div>
-        
-
       </div>
-
-     
-
-    </div>
-    <div class="end-line">
-      <div class="end-line-svg">
-        <svg xmlns="http://www.w3.org/2000/svg" width="293" height="323" viewBox="0 0 293 323" fill="none">
-          <path d="M6.53888 123.313C7.71042 120.965 10.8033 117.258 15.6455 112.445C20.4232 107.697 26.7211 102.048 34.0824 95.8428C48.801 83.4362 67.6867 68.879 86.9718 54.981C106.259 41.0818 125.911 27.8661 142.163 18.1341C150.293 13.2662 157.538 9.28958 163.444 6.53658C166.397 5.15983 168.985 4.10334 171.161 3.39447C173.366 2.67584 175.022 2.3573 176.152 2.3573C177.28 2.3573 178.91 2.67448 181.066 3.39083C183.193 4.09778 185.713 5.15207 188.581 6.52725C194.316 9.2772 201.318 13.2508 209.152 18.1172C224.813 27.8457 243.662 41.0583 262.093 54.9553C280.521 68.8512 298.496 83.4049 312.41 95.8066C319.37 102.009 325.291 107.654 329.738 112.395C334.254 117.209 337.051 120.888 338.017 123.193C339.001 125.54 339.83 130.408 340.447 137.447C341.055 144.387 341.439 153.171 341.649 163.149C342.069 183.1 341.789 207.719 341.228 231.693C340.668 255.663 339.827 278.965 339.126 296.278C338.775 304.933 338.46 312.09 338.232 317.083C338.118 319.579 338.026 321.535 337.963 322.865C337.96 322.911 337.958 322.956 337.956 323H6.63742C6.63457 322.95 6.63166 322.899 6.62871 322.847C6.55314 321.517 6.44366 319.562 6.30809 317.066C6.03695 312.074 5.66149 304.917 5.24429 296.262C4.40984 278.951 3.40868 255.651 2.74131 231.685C2.07377 207.713 1.74096 183.1 2.24055 163.157C2.49042 153.182 2.94783 144.408 3.67049 137.48C4.40469 130.441 5.38756 125.62 6.53888 123.313Z" stroke="#272727" stroke-width="4"/>
-        </svg>
-      </div>
-
-      <div class="container">
-
+  
+      <div class="end-line">
         <div class="message">
           <div class="call">
-            <h6>Call our Office</h6>
+            <h6>Call our office</h6>
             <p>+91 999999999</p>
           </div>
   
           <div class="send">
-            <h6>Call our Office</h6>
+            <h6>Send a message</h6>
             <p>info@gmail.com</p>
           </div>
         </div>
-
-       
-
       </div>
-     
-    
     </div>
     
-  </div>
-  <div class="copyrights">
-    <p class="text-center">Copyright 2024 © All Right Reserved @ High On Code</p>
+    <div class="copyrights">
+      <p class="text-center">Copyright 2024 © All Right Reserved @ High On Code</p>
+    </div>
   </div>
   
-</div>
 
     
 
     <script src="js/stack.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/jQuery.js"></script>
+    <script src="js/testmonial.js"></script>
    
     <script>
       jQuery(document).ready(function ($) {
@@ -1130,5 +1114,7 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+
+   
   </body>
 </html>
