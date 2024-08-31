@@ -41,6 +41,15 @@ p {
   font-family: Montserrat;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Syne;
+}
+
 .grey-text {
   color: #c7c7c7 !important;
 }
@@ -460,7 +469,7 @@ p {
 
 @media (max-width: 768px) {
   .standout-container {
-    grid-template-columns: repeat(2, 44%);
+    grid-template-columns: repeat(2, 48%);
     width: 100%;
   }
   .standout-box {
@@ -737,9 +746,6 @@ p {
   }
 }
 @media (max-width: 468px) {
-  h1 {
-    font-size: 20px;
-  }
   .step-right-subheading h5::after{
     min-width: 58px;
     margin-left: 4px;
@@ -826,9 +832,6 @@ p {
 
 /* Project Section  */
 
-.project-heading {
-  padding: 30px;
-}
 .project-heading h1 {
   color: #000;
   font-family: Syne;
