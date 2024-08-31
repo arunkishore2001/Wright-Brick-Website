@@ -33,82 +33,59 @@
         <div
           class="navigation mt-4 d-flex justify-content-between align-items-center"
         >
-          <div class="nav-image d-md-block">
-            <img src="./img/logo.png" alt="Logo" />
-          </div>
-
-          <div
-            class="nav-link navigation-pages-wrapper d-md-flex align-items-center"
-          >
-            <nav class="d-md-flex">
-              <a class="active-nav" href="">Home</a>
-              <a href="">About Us</a>
-              <a href="">Services</a>
-              <a href="">Projects</a>
-              <a href="">Gallery</a>
-            </nav>
-          </div>
-
-          <div class="contact-btn">
-            <a href="">Contact Us</a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-            >
-              <path
-                d="M7 17.5L17 7.5M17 7.5H7M17 7.5V17.5"
-                stroke="#D50F1C"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-
-          <!-- Burger Menu Button -->
-          <div class="burger-menu d-md-none" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <div class="mobile-nav d-md-none">
-          <div
-            class="mobile-nav-header d-flex justify-content-between align-items-center"
-          >
-            <div class="nav-image">
+          <div class="nav-main-wrapper">
+            <div class="nav-image d-md-block">
               <img src="./img/logo.png" alt="Logo" />
             </div>
-            <div class="close-menu" onclick="toggleMenu()">
+
+            <div
+              class="nav-link navigation-pages-wrapper d-md-flex align-items-center"
+            >
+              <nav class="d-md-flex">
+                <a class="active-nav" href="">Home</a>
+                <a href="">About Us</a>
+                <a href="">Services</a>
+                <a href="">Projects</a>
+                <a href="">Gallery</a>
+              </nav>
+            </div>
+
+            <div class="contact-btn">
+              <a href="">Contact Us</a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
-                height="24"
-                viewBox="0 0 24 24"
+                height="25"
+                viewBox="0 0 24 25"
                 fill="none"
-                stroke="#000"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
               >
-                <path d="M18 6L6 18" />
-                <path d="M6 6L18 18" />
+                <path
+                  d="M7 17.5L17 7.5M17 7.5H7M17 7.5V17.5"
+                  stroke="#D50F1C"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </div>
+
+            <!-- Burger Menu Button -->
+            <div class="burger-menu d-md-none" onclick="toggleMenu()">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
-          <nav>
-            <a href="">Home</a>
-            <a href="">About Us</a>
-            <a href="">Services</a>
-            <a href="">Projects</a>
-            <a href="">Gallery</a>
-            <a href="">Contact Us</a>
-          </nav>
+
+          <div class="nav-menu-wrapper">
+            <div class="flex-column d-flex d-md-none align-items-center">
+              <a class="nav-item active-nav" href="">Home</a>
+              <a class="nav-item" href="">About Us</a>
+              <a class="nav-item" href="">Services</a>
+              <a class="nav-item" href="">Projects</a>
+              <a class="nav-item" href="">Gallery</a>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -1393,8 +1370,10 @@
 
     <script>
       function toggleMenu() {
-        const mobileNav = document.querySelector(".mobile-nav");
+        const mobileNav = document.querySelector(".nav-menu-wrapper");
+        const burgerMenu = document.querySelector(".burger-menu");
         mobileNav.classList.toggle("active");
+        burgerMenu.classList.toggle("active");
       }
     </script>
 

@@ -45,13 +45,21 @@ p {
 
 .navigation {
   width: 100%;
-  height: 58px;
+  height: 100%;
   backdrop-filter: blur(4.65px);
   box-shadow: 0px 3px 23px #f1f1f1;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.9);
   padding: 10px 18px;
   display: flex;
+  flex-direction: column;
+}
+
+.nav-main-wrapper {
+  width: 100%;
+  height: 58px;
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
@@ -137,38 +145,45 @@ input {
 }
 
 /* Mobile Navigation Menu */
-.mobile-nav {
+
+.nav-menu-wrapper {
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 5;
-  transform: translateY(-100%);
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  height: 100%;
+  border-top: 0.2px solid #c7c7c7;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.nav-menu-wrapper a {
+  padding: 12px 0px 12px 10px;
+  width: 100%;
+  text-decoration: none;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.burger-menu span {
+  transition: 0.3s ease-in-out;
+}
+
+.burger-menu.active :first-child {
+  transform: rotate(45deg) translateY(12px);
+}
+
+.burger-menu.active :nth-child(2) {
+  transform: translateX(-100%);
   opacity: 0;
 }
 
-.mobile-nav.active {
-  display: block;
-  transform: translateY(0);
-  opacity: 1;
+.burger-menu.active :last-child {
+  transform: rotate(-45deg) translateY(-12px);
 }
 
-.mobile-nav-header {
+.nav-menu-wrapper.active {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.mobile-nav-header .nav-image img {
-  width: 120px;
-  height: auto;
 }
 
 .close-menu {
@@ -181,30 +196,39 @@ input {
   stroke: #000;
 }
 
-/* Mobile Navigation Links */
-.mobile-nav nav {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.nav-menu-wrapper .nav-item {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideInNav 0.4s ease forwards;
 }
 
-.mobile-nav a {
-  display: block;
-  padding: 15px;
-  text-decoration: none;
-  color: #11090e;
-  font-family: Montserrat;
-  font-weight: 400;
-  text-align: center;
-  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-  border-radius: 8px;
+.nav-menu-wrapper .nav-item:nth-child(1) {
+  animation-delay: 0.15s;
 }
 
-.mobile-nav a:hover {
-  color: #c40000;
-  background-color: rgba(0, 0, 0, 0.1);
-  transform: scale(1.05);
+.nav-menu-wrapper .nav-item:nth-child(2) {
+  animation-delay: 0.3s;
 }
+
+.nav-menu-wrapper .nav-item:nth-child(3) {
+  animation-delay: 0.45s;
+}
+
+.nav-menu-wrapper .nav-item:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.nav-menu-wrapper .nav-item:nth-child(5) {
+  animation-delay: 0.75s;
+}
+
+@keyframes slideInNav {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* Burger Menu */
 .burger-menu {
@@ -286,7 +310,6 @@ input {
   animation: slideFromTop 1s ease-in-out;
 }
 
-
 .landing-img {
   width: 100%;
   height: 100vh;
@@ -297,16 +320,6 @@ input {
   height: 100vh;
   object-fit: cover;
 }
-
-
-
-
-
-
-
-
-
-
 
 .slider-container {
   position: relative;
@@ -352,11 +365,6 @@ input {
 .next {
   right: 10px;
 }
-
-
-
-
-
 
 /* Right Header */
 
@@ -463,7 +471,7 @@ button[type="submit"]:hover {
   background-color: #a80015;
 }
 
-.country-code-input{
+.country-code-input {
   border: none !important;
   margin-bottom: 0 !important;
   padding-right: 0 !important;
