@@ -101,23 +101,54 @@
       </div>
     </header>
     
-      <div class="container-fluid-max">
-        <div class="landing-img">
-          <img src="./img/landing.png" alt="" />
+      <div class="container-fluid-max whole-slider">
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slide">
+              <img src="./img/landing.png" alt="Slide 1">
+            </div>
+            <div class="slide">
+              <img src="./img/pro.png" alt="Slide 2">
+            </div>
+            <div class="slide">
+              <img src="./img/footer-img.png" alt="Slide 3">
+            </div>
+
+            <div class="slide">
+              <img src="./img/landing.png" alt="Slide 1">
+            </div>
+            <div class="slide">
+              <img src="./img/pro.png" alt="Slide 2">
+            </div>
+            <div class="slide">
+              <img src="./img/footer-img.png" alt="Slide 3">
+            </div>
+
+            
+          </div>
         </div>
+
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+  <button class="next" onclick="nextSlide()">&#10095;</button>
       </div>
+
+
+    
     
     <div class="container-fluid best-design">
       <div class="row">
         <div class="col-md-8">
           <div class="left-landing-wrapper d-flex flex-column justify-content-center h-100 w-100">
             <div class="left-header d-flex align-items-center">
-              <h1 class="slide">
-                Best <span class="highlight" id="dynamic-text">Interiors</span> In
-                Bangalore
-              </h1>
+                <h1 class="slide">
+                    Best <span class="highlight" id="dynamic-text">Interiors</span> In Bangalore
+                </h1>
             </div>
-          </div>
+        </div>
+        
+        
+          
+          
         </div>
         <div class="col-md-4 d-md-flex d-none justify-content-end mt-5">
           <div class="right-header">
@@ -156,7 +187,7 @@
       <div class="experience-box">
         <div class="exp-content">
           <div class="exp-count">
-            <h5>5+ <span class="count-year">YEARS</span></h5>
+            <h5><span class="count" data-target="5">0</span>+ <span class="count-year">YEARS</span></h5>
           </div>
 
           <div class="exp-value">
@@ -193,7 +224,7 @@
 
         <div class="exp-content">
           <div class="exp-count">
-            <h5>5+ <span class="count-year">YEARS</span></h5>
+            <h5><span class="count" data-target="5">0</span>+ <span class="count-year">YEARS</span></h5>
           </div>
 
           <div class="exp-value">
@@ -242,7 +273,7 @@
 
         <div class="exp-content">
           <div class="exp-count">
-            <h5>5+ <span class="count-year">YEARS</span></h5>
+            <h5><span class="count" data-target="5">0</span>+ <span class="count-year">YEARS</span></h5>
           </div>
 
           <div class="exp-value">
@@ -1024,15 +1055,18 @@
                             </div>
                             <div class="testimonial-lower">
                                 <div class="testimonial-details">
+                                  <div class="photo-name">
                                     <div class="user-photo">
-                                        <img id="pic" src="./img/user-photo.png" alt="">
-                                    </div>
-                                    <div class="user-arrow">
+                                      <img id="pic" src="./img/user-photo.png" alt="">
+                                  </div>
+                                  
 
-                                      <div class="user-name">
-                                        <h6 id="name">Dhanush</h6>
-                                        <p id="role">CEO, Macro Tech</p>
-                                    </div>
+                                    <div class="user-name">
+                                      <h6 id="name">Dhanush</h6>
+                                      <p id="role">CEO, Macro Tech</p>
+                                  </div>
+                                  </div>
+                                   
                                     <div class="whole-movable-arrow">
                                         <div class="moveable-arrow">
                                             <div class="left-arrow">
@@ -1045,7 +1079,7 @@
 
                                     </div>
                                     
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -1130,9 +1164,9 @@
     </div>
   </div>
   
-
-    
-
+    <script src="js/counting.js"></script>
+    <script src="js/landing-slide.js"></script>
+    <script src="js/textslide.js"></script>
     <script src="js/stack.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/jQuery.js"></script>
@@ -1176,7 +1210,19 @@
       }
     </script>
     
-    
+    <script>
+     window.addEventListener('load', function() {
+  const words = ['interior', 'arch', 'turnkey'];
+  
+  words.forEach((word, index) => {
+    const element = document.getElementById(word);
+    setTimeout(() => {
+      element.classList.add('active');
+    }, index * 2000); // Adjust delay for each word to create a staggered effect
+  });
+});
+
+    </script>
    
   </body>
 </html>

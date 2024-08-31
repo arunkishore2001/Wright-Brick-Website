@@ -35,39 +35,39 @@ const btnPrevious = document.querySelector(".btn-left");
 const name = document.querySelector("#name");
 const role = document.querySelector("#role");
 const text = document.querySelector("#text");
-let index = 0;
+let currentIndex = 0;
 
 window.addEventListener("DOMContentLoaded", function () {
-    loadTestimonial(data[index]);
+    loadTestimonial(data[currentIndex]);
 });
 
 function loadTestimonial(testimonial) {
     img.src = testimonial.img;
     name.textContent = testimonial.name;
     role.textContent = testimonial.job;
-    text.textContent = testimonial.text; // Set text directly without any extra HTML
+    text.textContent = testimonial.text;
 }
 
 btnNext.addEventListener("click", function () {
-    index++;
-    if (index > data.length - 1) {
-        index = 0;
+    currentIndex++;
+    if (currentIndex > data.length - 1) {
+        currentIndex = 0;
     }
-    loadTestimonial(data[index]);
+    loadTestimonial(data[currentIndex]);
 });
 
 btnPrevious.addEventListener("click", function () {
-    index--;
-    if (index < 0) {
-        index = data.length - 1;
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = data.length - 1;
     }
-    loadTestimonial(data[index]);
+    loadTestimonial(data[currentIndex]);
 });
 
 setInterval(function () {
-    index++;
-    if (index > data.length - 1) {
-        index = 0;
+    currentIndex++;
+    if (currentIndex > data.length - 1) {
+        currentIndex = 0;
     }
-    loadTestimonial(data[index]);
+    loadTestimonial(data[currentIndex]);
 }, 3000);

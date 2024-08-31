@@ -247,6 +247,7 @@ input {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(7.65px);
 }
+
 .left-header h1 {
   color: #000;
   font-family: Syne;
@@ -280,9 +281,11 @@ input {
   }
 }
 
-.slide {
+.highlight {
+  display: inline-block; /* Ensure the text is inline-block to allow transform */
   animation: slideFromTop 1s ease-in-out;
 }
+
 
 .landing-img {
   width: 100%;
@@ -294,6 +297,66 @@ input {
   height: 100vh;
   object-fit: cover;
 }
+
+
+
+
+
+
+
+
+
+
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 300%; /* 100% per slide multiplied by the number of slides */
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  width: 100%; /* Each slide takes up the full viewport width */
+  flex: 0 0 100%;
+  box-sizing: border-box;
+}
+
+.slide img {
+  width: 100%;
+  height: 100vh; /* Full height of the viewport */
+  object-fit: cover; /* Cover the slide area */
+}
+
+.whole-slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+
+
+
+
 
 /* Right Header */
 
