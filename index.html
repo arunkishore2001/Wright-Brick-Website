@@ -31,7 +31,7 @@
     <header class="nav-bar-container">
       <div class="container-fluid">
         <div
-          class="navigation mt-4 d-flex justify-content-between align-items-center"
+          class="navigation mt-3 d-flex justify-content-between align-items-center"
         >
           <div class="nav-main-wrapper">
             <div class="nav-image d-md-block">
@@ -77,13 +77,15 @@
             </div>
           </div>
 
-          <div class="nav-menu-wrapper">
-            <div class="flex-column d-flex d-md-none align-items-center">
-              <a class="nav-item active-nav" href="">Home</a>
-              <a class="nav-item" href="">About Us</a>
-              <a class="nav-item" href="">Services</a>
-              <a class="nav-item" href="">Projects</a>
-              <a class="nav-item" href="">Gallery</a>
+          <div class="mobile-nav-wrapper d-md-none">
+            <div class="nav-menu-wrapper">
+              <div class="flex-column d-flex d-md-none align-items-center">
+                <a class="nav-item active-nav" href="">Home</a>
+                <a class="nav-item" href="">About Us</a>
+                <a class="nav-item" href="">Services</a>
+                <a class="nav-item" href="">Projects</a>
+                <a class="nav-item" href="">Gallery</a>
+              </div>
             </div>
           </div>
         </div>
@@ -169,7 +171,7 @@
       </div>
     </div>
     <div class="container">
-      <div class="crafting-heading my-4">
+      <div class="crafting-heading my-5">
         <h1>
           Crafting Luxury, Redefining <br />
           Spaces
@@ -826,7 +828,7 @@
     <!-- </div> -->
 
     <div class="container-fluid-max project-grid">
-      <div class="grid-background">
+      <div class="grid-background py-5">
         <div class="container-fluid">
           <div class="project-heading">
             <h1>OUR PROJECTS</h1>
@@ -880,7 +882,6 @@
           </div>
         </div>
 
-<<<<<<< Updated upstream
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-6 order-md-1">
@@ -893,10 +894,6 @@
                 <div class="project-date">
                   <p>21st May 2024</p>
                 </div>
-=======
-          
-
->>>>>>> Stashed changes
 
                 <div class="project-right-line mt-5"></div>
 
@@ -938,6 +935,108 @@
         <div class="project-view-btn">
           <div class="about-contact-btn project-inner-btn mt-5">
             <a href="">View More &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt-5 pt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="connect-now">
+            <div class="project-heading mb-5">
+              <h1>CONNECT NOW</h1>
+            </div>
+
+            <div class="connect-field">
+              <form class="contact-form">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  class="half-width"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  class="half-width"
+                />
+                <input
+                  type="text"
+                  name="mobile"
+                  placeholder="Mobile Number"
+                  class="full-width"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  rows="5"
+                  class="full-width"
+                ></textarea>
+              </form>
+            </div>
+          </div>
+          <div class="about-contact-btn project-inner-btn mt-5">
+            <a href="">Contact Us <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-5 mt-md-0">
+          <div class="testimonial">
+            <div class="testimonial-bg">
+              <img src="./img/about.png" alt="" />
+              <div class="testimonial-bg-heading">
+                <h3>Testimonials</h3>
+              </div>
+            </div>
+            <div class="testimonial-main">
+              <div class="testimonial-box">
+                <div class="testimonial-inner">
+                  <div class="red-heading">
+                    <h3>Our Client Says</h3>
+                  </div>
+                </div>
+                <div class="testimonial-middle">
+                  <div class="testimonial-para">
+                    <p id="text">
+                      Vorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    </p>
+                  </div>
+                </div>
+                <div class="testimonial-lower">
+                  <div class="testimonial-details">
+                    <div class="photo-name">
+                      <div class="user-photo">
+                        <img id="pic" src="./img/user-photo.png" alt="" />
+                      </div>
+
+                      <div class="user-name">
+                        <h6 id="name">Dhanush</h6>
+                        <p id="role">CEO, Macro Tech</p>
+                      </div>
+                    </div>
+
+                    <div class="whole-movable-arrow">
+                      <div class="moveable-arrow">
+                        <div class="left-arrow">
+                          <i
+                            class="fa-solid fa-arrow-left-long btn-left"
+                            style="color: #080808"
+                          ></i>
+                        </div>
+                        <div class="right-arrow">
+                          <i
+                            class="fa-solid fa-arrow-right-long btn-right"
+                            style="color: #080808"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1132,108 +1231,6 @@
       </div>
     </div>
 
-    <div class="container mt-5 pt-4">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="connect-now">
-            <div class="project-heading mb-5">
-              <h1>CONNECT NOW</h1>
-            </div>
-
-            <div class="connect-field">
-              <form class="contact-form">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  class="half-width"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  class="half-width"
-                />
-                <input
-                  type="text"
-                  name="mobile"
-                  placeholder="Mobile Number"
-                  class="full-width"
-                />
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  rows="5"
-                  class="full-width"
-                ></textarea>
-              </form>
-            </div>
-          </div>
-          <div class="about-contact-btn project-inner-btn mt-5">
-            <a href="">Contact Us <span class="arrow">&rarr;</span></a>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="container-fluid">
-            <div class="testimonial">
-              <div class="testimonial-bg">
-                <img src="./img/about.png" alt="" />
-                <div class="testimonial-bg-heading">
-                  <h3>Testimonials</h3>
-                </div>
-              </div>
-              <div class="testimonial-main">
-                <div class="testimonial-box">
-                  <div class="testimonial-inner">
-                    <div class="red-heading">
-                      <h3>Our Client Says</h3>
-                    </div>
-                  </div>
-                  <div class="testimonial-middle">
-                    <div class="testimonial-para">
-                      <p id="text">
-                        Vorem ipsum dolor sit amet, consectetur adipiscing
-                        elit...
-                      </p>
-                    </div>
-                  </div>
-                  <div class="testimonial-lower">
-                    <div class="testimonial-details">
-                      <div class="photo-name">
-                        <div class="user-photo">
-                          <img id="pic" src="./img/user-photo.png" alt="" />
-                        </div>
-
-                                    <div class="user-name">
-                                      <h6 id="name">Dhanush</h6>
-                                      <p id="role">CEO, Macro Tech</p>
-                                  </div>
-                                  </div>
-                                   
-                                    <div class="whole-movable-arrow">
-                                        <div class="moveable-arrow">
-                                            <div class="left-arrow">
-                                              <i class="fa-solid fa-arrow-left-long btn-left" style="color: #080808;"></i>
-                                            </div>
-                                            <div class="right-arrow">
-                                              <i class="fa-solid fa-arrow-right-long btn-right" style="color: #080808;"></i>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-
     <div class="container-fluid-max">
       <div class="whole-footer">
         <div class="footer-bg">
@@ -1372,7 +1369,7 @@
 
     <script>
       function toggleMenu() {
-        const mobileNav = document.querySelector(".nav-menu-wrapper");
+        const mobileNav = document.querySelector(".mobile-nav-wrapper");
         const burgerMenu = document.querySelector(".burger-menu");
         mobileNav.classList.toggle("active");
         burgerMenu.classList.toggle("active");

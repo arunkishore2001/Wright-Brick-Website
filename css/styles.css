@@ -11,7 +11,7 @@
   max-width: 100%;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -59,7 +59,7 @@ h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Syne", sans-serif;
-  font-size: 86px;
+  font-size: 76px;
   font-style: normal;
   font-weight: 600;
   margin: 0;
@@ -465,6 +465,10 @@ h6 {
     padding: 0;
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .testimonial-main{
+    margin-top: -40px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -614,11 +618,6 @@ h6 {
     padding: 10px;
   }
 
-  .card {
-    margin-bottom: 20px;
-    transform: none !important;
-  }
-
   .card-title {
     font-size: 1.2rem;
   }
@@ -635,12 +634,7 @@ h6 {
   .scard-deck-js {
     display: flex;
     flex-direction: column;
-    padding-bottom: 0;
     padding-top: 30px;
-  }
-
-  .card:nth-child(n) {
-    transform: translateY(0);
   }
 
   .step-right {
@@ -746,13 +740,13 @@ h6 {
   }
 }
 @media (max-width: 468px) {
-  .step-right-subheading h5::after{
+  .step-right-subheading h5::after {
     min-width: 58px;
     margin-left: 4px;
     margin-top: 11px;
   }
 
-  .faq-subheading p::after{
+  .faq-subheading p::after {
     max-width: 66px;
     margin-left: 10px;
   }
@@ -777,20 +771,6 @@ h6 {
     position: absolute;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .view-more {
   border: 1px solid #000;
@@ -1180,7 +1160,11 @@ h6 {
   font-weight: 700;
   text-align: center;
   z-index: 2;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
+}
+
+.overlay-footer-text h1{
+  font-size: 3.5rem;
 }
 
 /* End Footer Styling */
@@ -1266,7 +1250,7 @@ h6 {
   padding-top: 10px;
 }
 
-.message h6{
+.message h6 {
   font-size: 16px;
   margin-bottom: 10px;
 }
@@ -1279,7 +1263,7 @@ h6 {
   font-size: 12px;
 }
 
-.footer-background-svg{
+.footer-background-svg {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -1305,7 +1289,7 @@ h6 {
 
 @media (max-width: 480px) {
   .whole-footer {
-    margin-top: 300px;
+    margin-top: 100px;
   }
   .footer-img {
     margin-top: -100px;
@@ -1347,24 +1331,24 @@ h6 {
   cursor: pointer;
 }
 
-.left-arrow{
+.left-arrow {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 35px;
-padding: 6px;
+  padding: 6px;
   border: 1px solid #606060;
   margin-right: 10px;
 }
 
-.right-arrow{
+.right-arrow {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 35px;
-padding: 6px;
+  padding: 6px;
   border: 1px solid #606060;
   margin-right: 10px;
 }
@@ -1372,29 +1356,27 @@ padding: 6px;
 /* General Enhancements */
 .testimonial {
   position: relative;
-
-
 }
 
-.photo-name{
+.photo-name {
   display: flex;
   gap: 15px;
   align-items: center;
 }
 .testimonial-bg-heading h3 {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 20px;
   color: #fff;
   font-family: Syne;
   font-size: 40px;
-
   font-weight: 700;
 }
+
 .testimonial-main {
-  padding: 40px;
-  position: absolute;
-  top: 20%;
+  padding: 0px 10px;
+  margin-top: -120px;
+  position: relative;
 }
 .testimonial-bg {
   width: 100%;
@@ -1445,27 +1427,17 @@ padding: 6px;
 .testimonial-para p {
   color: #fff;
   font-family: Montserrat, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   text-align: justify;
- 
 }
 
-.testimonial-middle{
+.testimonial-middle {
   padding: 20px;
   height: 294px;
 }
 
 /* Media Queries for Responsive Design */
 @media (max-width: 1200px) {
-  .testimonial-main {
-    padding: 20px;
-    margin: 0;
-  }
-
-  .testimonial-bg img {
-    border-radius: 0;
-  }
-
   .testimonial-bg-heading h3 {
     font-size: 30px;
     padding: 15px;
@@ -1489,9 +1461,13 @@ padding: 6px;
   }
 }
 
-@media (max-width: 768px) {
- 
+@media (max-width: 1000px) {
+  .testimonial-main{
+    margin-top: -60px;
+  }
+}
 
+@media (max-width: 768px) {
   .testimonial-inner {
     align-items: flex-start;
   }
@@ -1504,6 +1480,10 @@ padding: 6px;
     font-size: 14px;
   }
 
+  .testimonial-main{
+    margin-top: -120px;
+  }
+
   .user-name h6 {
     font-size: 16px;
   }
@@ -1514,17 +1494,22 @@ padding: 6px;
 }
 
 @media (max-width: 576px) {
-  .testimonial-middle{
-      height: 294px;
-  }
- 
-  .testimonial-inner {
-    padding: 10px;
+  .testimonial-middle {
+    height: 294px;
   }
 
   .testimonial-para p {
     padding: 5px;
     font-size: 12px;
+  }
+  
+  .testimonial-bg img{
+    height: 180px;
+    border-radius: 0 0 0 50px;
+  }
+
+  .testimonial-main{
+    margin-top: -80px;
   }
 
   .user-name h6 {
