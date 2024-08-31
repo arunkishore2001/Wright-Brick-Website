@@ -22,37 +22,87 @@
   </head>
 
   <body>
-    <header class="header">
+    <header>
       <div class="container-fluid">
-        <div class="navigation d-flex justify-content-between align-items-center">
-          <div class="nav-image">
+        <div class="navigation mt-4 d-flex justify-content-between align-items-center">
+          <div class="nav-image d-md-block">
             <img src="./img/logo.png" alt="Logo" />
           </div>
     
-          <input class="menu-btn" type="checkbox" id="menu-btn" />
-          <label class="menu-icon" for="menu-btn">
-            <span class="navicon"></span>
-          </label>
+          <div class="nav-link d-md-flex align-items-center">
+            <nav class="d-md-flex">
+              <a href="">Home</a>
+              <a href="">About Us</a>
+              <a href="">Services</a>
+              <a href="">Projects</a>
+              <a href="">Gallery</a>
+            </nav>
+          </div>
     
-          <nav class="nav-link">
-            <ul class="menu">
-              <li><a href="">Home</a></li>
-              <li><a href="">About Us</a></li>
-              <li><a href="">Services</a></li>
-              <li><a href="">Projects</a></li>
-              <li><a href="">Gallery</a></li>
-            </ul>
-          </nav>
-    
-          <div class="contact-btn">
+          <div class="contact-btn d-md-block">
             <a href="">Contact Us</a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-              <path d="M7 17.5L17 7.5M17 7.5H7M17 7.5V17.5" stroke="#D50F1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+            >
+              <path
+                d="M7 17.5L17 7.5M17 7.5H7M17 7.5V17.5"
+                stroke="#D50F1C"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </div>
+    
+          <!-- Burger Menu Button -->
+          <div class="burger-menu d-md-none" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+    
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav d-md-none">
+          <div class="mobile-nav-header d-flex justify-content-between align-items-center">
+            <div class="nav-image">
+              <img src="./img/logo.png" alt="Logo" />
+            </div>
+            <div class="close-menu" onclick="toggleMenu()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 6L6 18" />
+                <path d="M6 6L18 18" />
+              </svg>
+            </div>
+          </div>
+          <nav>
+            <a href="">Home</a>
+            <a href="">About Us</a>
+            <a href="">Services</a>
+            <a href="">Projects</a>
+            <a href="">Gallery</a>
+            <a href="">Contact Us</a>
+          </nav>
         </div>
       </div>
     </header>
+    
+    
+    
     
     
 
@@ -1115,6 +1165,14 @@
       crossorigin="anonymous"
     ></script>
 
+    <script>
+      function toggleMenu() {
+        const mobileNav = document.querySelector('.mobile-nav');
+        mobileNav.classList.toggle('active');
+      }
+    </script>
+    
+    
    
   </body>
 </html>
