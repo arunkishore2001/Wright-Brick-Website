@@ -6,11 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardDeckRect = cardDeck.getBoundingClientRect();
 
     // You may still check for conditions if you need further behavior changes
-    if (cardDeckRect.bottom <= window.innerHeight) {
-      stepRight.style.position = "relative";
-    } else {
+    if (cardDeckRect.top - 100 <= 0) {
       stepRight.style.position = "sticky";
-      stepRight.style.top = "20px";
+      stepRight.style.top = `100px`;
+    } else {
+      stepRight.style.position = "relative";
+      stepRight.style.top = `0px`;
     }
   });
 });
