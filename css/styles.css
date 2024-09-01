@@ -250,6 +250,11 @@ h6 {
   align-items: center;
 }
 
+.about-contact-btn svg{
+  margin-left: 20px;
+  margin-top: 2px;
+}
+
 .about-contact-btn a {
   text-decoration: none;
   color: white;
@@ -889,11 +894,22 @@ h6 {
   stroke: #fff;
 }
 
+.right-whole-project {
+  position: relative;
+  overflow: hidden; 
+}
+
 .project-right {
+  position: absolute;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: transform 10ms ease-out; 
 }
+
+
+
 .project-view-btn {
   display: flex;
   justify-content: center;
