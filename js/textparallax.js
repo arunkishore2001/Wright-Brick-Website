@@ -4,7 +4,7 @@ window.addEventListener("scroll", () => {
 
   elements.forEach((element) => {
     const elementRect = element.getBoundingClientRect();
-    if (elementRect.top < window.innerHeight) {
+    if (elementRect.top < window.innerHeight && window.innerWidth > 768) {
       const reducedHeight = window.innerHeight - elementRect.top;
       const translateValue = (reducedHeight / window.innerHeight) * 80;
       element.style.transform = `translateY(-${Math.min(
