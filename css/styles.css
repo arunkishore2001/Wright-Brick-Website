@@ -995,11 +995,6 @@ h6 {
   width: 8px;
 }
 
-.arrow {
-  font-size: 1.5em;
-  display: inline-block;
-  transform: scaleX(1.5);
-}
 
 .faq-whole::-webkit-scrollbar-thumb {
   background-color: var(--primary-text);
