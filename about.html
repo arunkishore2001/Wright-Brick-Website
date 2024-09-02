@@ -206,7 +206,7 @@
             <div class="col-md-6">
               <div class="about-img">
                 <img
-                  src="./img/about.png"
+                  src="./img/mission.png"
                   alt="Interior Design"
                   class="img-fluid mt-3"
                 />
@@ -237,7 +237,7 @@
             <div class="col-md-6 order-md-1">
               <div class="about-img">
                 <img
-                  src="./img/about.png"
+                  src="./img/vission.png"
                   alt="Interior Design"
                   class="img-fluid mt-3"
                 />
@@ -263,7 +263,7 @@
       <div class="container-fluid-max mt-5 pt-4">
         <div class="dream-build">
           <div class="dream-image left-image">
-            <img src="./img/about.png" alt="Interior design image left" />
+            <img src="./img/dream.png" alt="Interior design image left" />
           </div>
 
           <div class="middle-content my-5">
@@ -295,7 +295,7 @@
           </div>
 
           <div class="dream-image right-image mt-0 pt-0">
-            <img src="./img/about.png" alt="Interior design image right" />
+            <img src="./img/build.png" alt="Interior design image right" />
           </div>
         </div>
       </div>
@@ -456,6 +456,14 @@
       function toggleMenu() {
         const mobileNav = document.querySelector(".mobile-nav");
         mobileNav.classList.toggle("active");
+      }
+    </script>
+    <script>
+      function toggleMenu() {
+        const mobileNav = document.querySelector(".mobile-nav-wrapper");
+        const burgerMenu = document.querySelector(".burger-menu");
+        mobileNav.classList.toggle("active");
+        burgerMenu.classList.toggle("active");
       }
     </script>
   </body>
