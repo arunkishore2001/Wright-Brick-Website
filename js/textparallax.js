@@ -1,13 +1,16 @@
-window.addEventListener('scroll', () => {
-    let scrollY = window.scrollY;
-    let maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    let translateValue = -300 + (scrollY / maxScroll) * 480;
+window.addEventListener("scroll", () => {
+  // Select all elements with the class 'project-right'
+  let elements = document.querySelectorAll(".project-right");
 
-    // Select all elements with the class 'project-right'
-    let elements = document.querySelectorAll('.project-right');
-
-    // Apply the transformation to each element
-    elements.forEach(element => {
-      element.style.transform = `translateY(${translateValue * 2}px)`;
-    });
+  elements.forEach((element) => {
+    const elementRect = element.getBoundingClientRect();
+    if (elementRect.top < window.innerHeight && window.innerWidth > 768) {
+      const reducedHeight = window.innerHeight - elementRect.top;
+      const translateValue = (reducedHeight / window.innerHeight) * 80;
+      element.style.transform = `translateY(-${Math.min(
+        100,
+        translateValue
+      )}px)`;
+    }
   });
+});
