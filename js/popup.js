@@ -151,3 +151,109 @@ window.addEventListener('click', function(event) {
         leftModal.style.display = "block"; // Optionally show the left modal
     }
 });
+
+
+
+// Get the thank-you modal
+var thankYouModal = document.getElementById("thankYouModal");
+
+// Get the close button in the thank-you modal
+var closeThankYouButton = document.querySelector('.close-thank-you');
+
+// Get the 'Submit' button in the right modal
+var submitButton = document.querySelector('.btn-next');
+
+// Function to open the thank-you modal
+function openThankYouModal() {
+    thankYouModal.style.display = "block";
+}
+
+// Function to close the thank-you modal
+function closeThankYouModal() {
+    thankYouModal.style.display = "none";
+}
+
+// When the user clicks the close button in the thank-you modal, close it
+closeThankYouButton.addEventListener('click', closeThankYouModal);
+
+// When the user clicks anywhere outside the thank-you modal, close it
+window.addEventListener('click', function(event) {
+    if (event.target === thankYouModal) {
+        closeThankYouModal();
+    }
+});
+
+// Handle 'Submit' button click to show the thank-you modal
+submitButton.addEventListener('click', function() {
+    // Here you can add your form submission logic
+    // For example, making an AJAX request to submit the form data
+
+    // After successful submission, show the thank-you modal
+    openThankYouModal();
+});
+
+
+// Get all modals
+var modals = {
+    main: document.getElementById("popupModal"),
+    thankYou: document.getElementById("thankYouModal"),
+    left: document.querySelector('.left-modal'),
+    right: document.querySelector('.right-modal')
+};
+
+// Get close buttons
+var closeThankYouButton = document.querySelector('.close-thank-you');
+var closeButtons = document.querySelectorAll('.close');
+
+// Function to open the thank-you modal
+function openThankYouModal() {
+    modals.thankYou.style.display = "block";
+    modals.main.style.display = "none";
+    modals.left.style.display = "none";
+    modals.right.style.display = "none";
+}
+
+// Function to close all modals
+function closeAllModals() {
+    for (var key in modals) {
+        if (modals[key]) {
+            modals[key].style.display = "none";
+        }
+    }
+}
+
+// Function to reopen the main modal
+function reopenMainModal() {
+    modals.main.style.display = "block";
+}
+
+// When the user clicks the close button in the thank-you modal, close all modals
+closeThankYouButton.addEventListener('click', function() {
+    closeAllModals();
+    // Optionally, you can perform other actions here if needed
+});
+
+// When the user clicks any close button (including in other modals), close all modals
+closeButtons.forEach(function(button) {
+    button.addEventListener('click', closeAllModals);
+});
+
+// When the user clicks anywhere outside any modal, close all modals
+window.addEventListener('click', function(event) {
+    if (event.target === modals.main || event.target === modals.thankYou) {
+        closeAllModals();
+    }
+});
+
+// Handle 'Submit' button click to open the thank-you modal
+var submitButton = document.querySelector('.btn-next');
+submitButton.addEventListener('click', function() {
+    // Simulate form submission logic
+    setTimeout(function() {
+        openThankYouModal();
+    }, 500); // Delay to simulate form submission
+});
+
+// Handle reopening of the main modal
+var reopenButton = document.getElementById("reopenButton"); // Assuming you have a button to reopen the main modal
+reopenButton.addEventListener('click', reopenMainModal);

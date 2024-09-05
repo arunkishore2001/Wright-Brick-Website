@@ -1130,9 +1130,13 @@
       <div class="form-content">
         <div class="left-section">
           <p class="section-title">I own a...</p>
-          <button class="property-type" id="apartment">Apartment</button>
-          <button class="property-type" id="villa">Villa</button>
-          <button class="property-type" id="independent-home">Independent Home</button>
+          <div class="own-a">
+
+            <button class="property-type" id="apartment">Apartment</button>
+            <button class="property-type" id="villa">Villa</button>
+            <button class="property-type" id="independent-home">Independent Home</button>
+          </div>
+         
 
           <p class="section-title">My Property Type...</p>
           <div class="input-container">
@@ -1220,7 +1224,7 @@
 
           <div class="buttons-step-2">
             <button class="btn-back">BACK</button>
-            <button class="btn-next">NEXT</button>
+            <button class="btn-next">Submit</button>
           </div>
         </div>
       </div>
@@ -1236,6 +1240,14 @@
 
 </div>
 
+<!-- Thank You Modal -->
+<div id="thankYouModal" class="thank-you-modal">
+  <div class="modal-content">
+      <span class="close-thank-you">&times;</span>
+      <h2>Thank You!</h2>
+      <p>Thank you so much for your submission. We will contact you soon.</p>
+  </div>
+</div>
 
 
 
@@ -1525,6 +1537,8 @@
         </p>
       </div>
     </div>
+
+    <script src="js/contact-detail.js"></script>
 
     <script src="js/popup.js"></script>
     <script src="js/counting.js"></script>
