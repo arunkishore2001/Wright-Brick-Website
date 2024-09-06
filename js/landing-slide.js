@@ -23,29 +23,54 @@ slider.style.transform = `translateX(-${currentSlide * 100}%)`;
 slider.offsetHeight; // Force reflow to apply initial positioning
 slider.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
 
+// Dots setup
+const dotsContainer = document.querySelector('.dots-container');
+const actualSlides = totalSlides; // Only actual slides, not the clones
+
+function createDots() {
+  for (let i = 0; i < actualSlides -1; i++) {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    dot.setAttribute('onclick', `goToSlide(${i + 1})`);
+    dotsContainer.appendChild(dot);
+  }
+}
+
+function updateDots() {
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', currentSlide === index + 1);
+  });
+}
+
 function showSlide(index) {
   slider.style.transform = `translateX(-${index * 100}%)`;
 
-  // Adjust for the cloned slides at the boundaries
-  if (index === newTotalSlides - 2) { // if it's the clone of the first slide
+  if (index === newTotalSlides - 2) {
     setTimeout(() => {
-      slider.style.transition = 'none'; // Disable transition for instant jump
-      slider.style.transform = `translateX(-${100}%)`; // Jump to the actual first slide
-      slider.offsetHeight; // Force reflow
-      slider.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
-    }, 500); // Match the timeout with the transition duration
-    currentSlide = 1; // Reset to the first actual slide
-  } else if (index === 0) { // if it's the clone of the last slide
+      slider.style.transition = 'none';
+      slider.style.transform = `translateX(-${100}%)`;
+      slider.offsetHeight;
+      slider.style.transition = 'transform 0.5s ease-in-out';
+    }, 500);
+    currentSlide = 1;
+  } else if (index === 0) {
     setTimeout(() => {
-      slider.style.transition = 'none'; // Disable transition for instant jump
-      slider.style.transform = `translateX(-${(newTotalSlides - 2) * 100}%)`; // Jump to the actual last slide
-      slider.offsetHeight; // Force reflow
-      slider.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
-    }, 500); // Match the timeout with the transition duration
-    currentSlide = newTotalSlides - 2; // Reset to the last actual slide
+      slider.style.transition = 'none';
+      slider.style.transform = `translateX(-${(newTotalSlides - 2) * 100}%)`;
+      slider.offsetHeight;
+      slider.style.transition = 'transform 0.5s ease-in-out';
+    }, 500);
+    currentSlide = newTotalSlides - 2;
   } else {
-    currentSlide = index; // Regular slide transition
+    currentSlide = index;
   }
+
+  updateDots(); // Update dot active state
+}
+
+function goToSlide(index) {
+  showSlide(index);
 }
 
 function nextSlide() {
@@ -54,3 +79,7 @@ function nextSlide() {
 
 // Automatically move to the next slide every few seconds
 setInterval(nextSlide, slideInterval);
+
+// Initialize dots on page load
+createDots();
+updateDots();
