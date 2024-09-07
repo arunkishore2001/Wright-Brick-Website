@@ -1446,7 +1446,8 @@ h6 {
 
 .testimonial-middle {
   padding: 20px;
-  height: 294px;
+  height: 100%;
+  min-height: 200px;
 }
 
 /* Media Queries for Responsive Design */
@@ -1508,7 +1509,8 @@ h6 {
 
 @media (max-width: 576px) {
   .testimonial-middle {
-    height: 294px;
+    height: 100%;
+    min-height: 250px;
   }
 
   .testimonial-para p {

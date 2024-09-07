@@ -13,12 +13,10 @@
 .own-a {
     display: flex;
     column-gap: 10px;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .property-type {
-    flex: 1 1 30%;
     padding: 20px 20px;
     font-size: 16px;
     border: none;
@@ -28,23 +26,12 @@
     transition: background-color 0.3s ease;
 }
 
-
-
-@media (max-width: 768px) {
-    .property-type {
-        flex: 1 1 45%; 
-    }
-}
-
 @media (max-width: 480px) {
     .property-type {
-        flex: 1 1 100%; 
         font-size: 14px;
         padding: 8px 15px;
     }
 }
-
-
 
 @media (max-width: 768px) {
     .own-a {
@@ -58,7 +45,7 @@
 
 .modal-content {
     background-color: #fff;
-  margin: 1% auto;
+  margin: 2% auto;
     padding: 20px;
     border-radius: 8px;
     width: 80%;
@@ -71,6 +58,9 @@
     color: #aaa;
     float: right;
     font-size: 28px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -112,7 +102,7 @@
 
 .section-title {
     font-size: 18px;
-    margin: 15px 0;
+    margin: 15px 0 7px 0;
     font-weight: bold;
 }
 
@@ -120,7 +110,9 @@
     display: block;
     padding: 10px;
     margin: 10px 0;
-    width: 100%;
+    width: min-content;
+    height: min-content;
+    text-wrap: nowrap;
     border: 1px solid #ddd;
     background-color: #fff;
     text-align: left;
@@ -154,9 +146,10 @@
 }
 
 .buttons-step-2 button {
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 5px 20px;
     border: 1px solid red;
+    border-radius: 5px;
     background-color: #fff;
 }
 
@@ -181,7 +174,7 @@
 
 input[type="text"] {
     padding: 10px;
-    width: calc(100% - 22px);
+    width: 100%;
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -199,6 +192,8 @@ input[type="text"] {
 
 .form-group select {
     padding: 10px;
+    width: 100%;
+    border-radius: 5px;
 }
 
 .right-section img {
@@ -252,11 +247,13 @@ input[type="text"] {
     display: block;
     padding: 10px;
     margin: 10px 0;
-    width: 100%;
+    width: min-content;
     border: 1px solid #ddd;
     background-color: #fff;
     text-align: left;
     font-size: 16px;
+    text-wrap: nowrap;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -272,7 +269,6 @@ input[type="text"] {
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 10px;
 }
 
 .floorplan-type {

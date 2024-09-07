@@ -962,12 +962,9 @@
           </div>
          
 
-          <p class="section-title">My Property Type...</p>
+          <p class="section-title">My property type...</p>
           <div class="input-container">
-            <input type="text" id="property-name" placeholder="Search your property" style="padding-left: 30px; width: calc(100% - 30px);">
-            <svg style="position: absolute; left: 3%; top: 53%; transform: translateY(-50%); width: 20px; height: 20px; fill: #888;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 2.52 1.12 5.47 3.35 8.25L12 21l3.65-3.75C17.88 14.47 19 11.52 19 9c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
-            </svg>
+            <input type="text" id="property-name" placeholder="Property type">
           </div>
 
           <p class="section-title">My floorplan type is...</p>
@@ -1001,15 +998,15 @@
     <span class="close">&times;</span>
 
     <!-- Right Modal Content -->
-    <h2 class="step-header text-center">Usage</h2>
-    <h3 class="step-subheader text-center">STEP 2 of 3</h3>
+    <h2 class="step-header">Usage</h2>
+    <h3 class="step-subheader">STEP 2 of 3</h3>
 
     <div class="form-content">
       <div class="left-section">
         <div class="right-modal-form">
           <div class="form-group ">
             <p class="section-title">I am planning to..</p>
-            <div class="planning-form">
+            <div class="planning-form own-a">
                 <button class="planning-type" id="move-in">Move In</button>
                 <button class="planning-type" id="move-out">Move Out</button>
                 <button class="planning-type" id="renovate">Renovate</button>
@@ -1018,7 +1015,7 @@
 
           <div class="form-group">
             <p class="section-title">I am looking for..</p>
-            <div class="looking-form">
+            <div class="looking-form own-a">
               <button class="looking-type" id="end-to-end">End to End Interior</button>
               <button class="looking-type" id="kitchen-wardrobe">Kitchen and Wardrobes</button>
               <button class="looking-type" id="only-kitchen">Only Kitchen</button>

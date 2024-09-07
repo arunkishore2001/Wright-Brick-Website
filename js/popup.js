@@ -24,6 +24,9 @@ var rightModal = document.querySelector('.right-modal');
 link.onclick = function(event) {
     event.preventDefault();  // Prevent default link behavior
     modal.style.display = "block";
+
+    // Show the right modal content
+    rightModal.style.display = "none";
 }
 
 // When the user clicks on <span> (x), close the modal

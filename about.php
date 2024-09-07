@@ -26,8 +26,8 @@
   <body>
    
     <main>
-      <div class="container mt-5">
-        <div class="entry-screen">
+      <div class="container pt-5">
+        <div class="entry-screen mt-5 ">
           <div class="entry-left">
             <div class="entry-heading">
               <h2>ABOUT US</h2>
