@@ -21,26 +21,27 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/about.css" />
+    <link rel="stylesheet" href="./css/aos.css" />
   </head>
 
   <body>
    
     <main>
       <div class="container pt-5">
-        <div class="entry-screen mt-5 ">
+        <div class="entry-screen mt-5 " data-animation="slideInRight" data-animation-delay="200ms">
           <div class="entry-left">
-            <div class="entry-heading">
+            <div class="entry-heading" data-animation="slideInRight" data-animation-delay="200ms">
               <h2>ABOUT US</h2>
             </div>
 
-            <div class="entry-link">
+            <div class="entry-link" data-animation="slideInRight" data-animation-delay="400ms">
               <h6>Home</h6>
               <p></p>
               <h6>About Us</h6>
             </div>
           </div>
 
-          <div class="entry-right">
+          <div class="entry-right" data-animation="slideInLeft" data-animation-delay="700ms">
             <div class="entry-img">
               <img src="./img/entry-img.png" alt="" />
             </div>
@@ -50,17 +51,17 @@
 
       <div class="container text-entity mt-5 pt-4">
         <div class="work-entry">
-          <div class="para-entry">
+          <div class="para-entry" data-animation="slideInRight">
             <p>Wright Brick</p>
           </div>
-          <div class="design-entry">
+          <div class="design-entry" data-animation="slideInUp">
             <h4>
               We care a lot,<br />
               about our craft
             </h4>
           </div>
 
-          <div class="main-entry-para">
+          <div class="main-entry-para" data-animation="slideInLeft">
             <p>
               Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
               turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
@@ -71,7 +72,7 @@
       </div>
 
       <div class="container-fluid-max mt-5">
-        <div class="entry-whole-image">
+        <div class="entry-whole-image" data-animation="slideInDown" data-animation-delay="200ms">
           <img src="./img/about.png" alt="" />
         </div>
       </div>
@@ -80,18 +81,18 @@
         <div class="row">
           <div class="col-md-6">
             <div class="about-subheading">
-              <div class="about-text">
+              <div class="about-text" data-animation="slideInRight" >
                 <h6>About Us</h6>
                 <p></p>
               </div>
             </div>
-            <div class="left-about my-5">
+            <div class="left-about my-5" data-animation="slideInRight" data-animation-delay="200ms">
               <div class="text-image-container">
                 <img src="./img/text-img.png" alt="" />
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" data-animation="slideInLeft" data-animation-delay="200ms">
             <div class="right-about">
               <div class="right-about-heading mt-2 mb-5">
                 <h2>
@@ -115,7 +116,7 @@
         </div>
       </div>
 
-      <div class="container-fluid-max rolling-text my-5">
+      <div class="container-fluid-max rolling-text my-5" data-animation="slideInUp" data-animation-delay="200ms">
         <div class="wrapper">
           <ul class="tabs-box">
             <li class="tab">FARM LAND</li>
@@ -138,12 +139,12 @@
       </div>
 
       <div class="container-fluid-max">
-        <div class="mission-title"><h5>MISSION</h5></div>
+        <div class="mission-title" data-animation="slideInRight" data-animation-delay="600ms"><h5>MISSION</h5></div>
         <div class="container">
           <div class="row mission-row align-items-center">
             <!-- Column 1: Image and Mission Title -->
             <div class="col-md-6">
-              <div class="about-img">
+              <div class="about-img" data-animation="slideInRight" >
                 <img
                   src="./img/mission.png"
                   alt="Interior Design"
@@ -152,7 +153,7 @@
               </div>
             </div>
             <!-- Column 2: Paragraph Text -->
-            <div class="col-md-6 mt-0">
+            <div class="col-md-6 mt-0" data-animation="slideInLeft" data-animation-delay="200ms">
               <div class="mission-description">
                 <h2>It Engage Us Everytime</h2>
                 <h6 class="my-4"></h6>
@@ -169,12 +170,12 @@
       </div>
 
       <div class="container-fluid-max vision mt-5">
-        <div class="mission-title vision-title"><h5>VISION</h5></div>
+        <div class="mission-title vision-title"  data-animation="slideInLeft" data-animation-delay="600ms"><h5>VISION</h5></div>
         <div class="container">
           <div class="row mission-row align-items-center">
             <!-- Column 1: Image and Mission Title -->
             <div class="col-md-6 order-md-1">
-              <div class="about-img">
+              <div class="about-img" data-animation="slideInLeft">
                 <img
                   src="./img/vission.png"
                   alt="Interior Design"
@@ -183,7 +184,7 @@
               </div>
             </div>
             <!-- Column 2: Paragraph Text -->
-            <div class="col-md-6 order-md-0 mt-0">
+            <div class="col-md-6 order-md-0 mt-0" data-animation="slideInRight">
               <div class="mission-description">
                 <h2>It Engage Us Everytime</h2>
                 <h6 class="my-4"></h6>
@@ -201,11 +202,11 @@
 
       <div class="container-fluid-max mt-5 pt-4">
         <div class="dream-build">
-          <div class="dream-image left-image">
+          <div class="dream-image left-image"  data-animation="slideInRight">
             <img src="./img/dream.png" alt="Interior design image left" />
           </div>
 
-          <div class="middle-content my-5">
+          <div class="middle-content my-5" data-animation="slideInDown" data-animation-delay="500ms">
             <div class="dream-heading">
               <h4>
                 If You Can <span class="dream-color">Dream</span> It,
@@ -214,7 +215,7 @@
               </h4>
             </div>
 
-            <div class="dream-para my-1">
+            <div class="dream-para my-1" data-animation="slideInDown" data-animation-delay="800ms">
               <p>
                 A leading interior design firm offering End-to-End Tech enabled
                 services, delivering exceptional luxury interiors with a focus
@@ -222,7 +223,7 @@
               </p>
             </div>
 
-            <div class="about-contact-btn">
+            <div class="about-contact-btn" data-animation="slideInDown" data-animation-delay="1000ms">
               <a href="#">Contact Us</a>
 
               <svg xmlns="http://www.w3.org/2000/svg" width="41" height="19" viewBox="0 0 41 19" fill="none">
@@ -233,19 +234,19 @@
             </div>
           </div>
 
-          <div class="dream-image right-image mt-0 pt-0">
+          <div class="dream-image right-image mt-0 pt-0"  data-animation="slideInLeft">
             <img src="./img/build.png" alt="Interior design image right" />
           </div>
         </div>
       </div>
 
       <div class="container mt-5">
-        <div class="partner-heading">
+        <div class="partner-heading"  data-animation="slideInUp">
           <h4 class="text-center">OUR TRUSTED PARTNER</h4>
         </div>
       </div>
 
-      <div class="scroll-container my-5 py-5">
+      <div class="scroll-container my-5 py-5"  data-animation="slideInDown">
         <div class="scroll-inner">
           <div class="partner-detail">
             <img loading="lazy" src="./img/partnership.png" />
@@ -273,6 +274,7 @@
     <?php include 'footer.php'; ?>
     <!-- Bootstrap JavaScript Libraries -->
 
+    <script src="js/aos.js"></script>
     <script src="js/counting.js"></script>
     <script src="js/landing-slide.js"></script>
     <script src="js/textslide.js"></script>

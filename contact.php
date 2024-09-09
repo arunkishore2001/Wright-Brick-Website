@@ -21,63 +21,64 @@
   <link rel="stylesheet" href="./css/about.css" />
   <link rel="stylesheet" href="./css/gallery.css" />
   <link rel="stylesheet" href="./css/contact.css" />
+  <link rel="stylesheet" href="./css/aos.css" />
 </head>
 
 <body>
   <main>
-    <div class="container pt-5">
-      <div class="entry-screen mt-5 ">
-        <div class="entry-left">
-          <div class="entry-heading">
-            <h2>CONTACT</h2>
+  <div class="container pt-5">
+        <div class="entry-screen mt-5 " data-animation="slideInRight" data-animation-delay="200ms">
+          <div class="entry-left">
+            <div class="entry-heading" data-animation="slideInRight" data-animation-delay="200ms">
+              <h2>ABOUT US</h2>
+            </div>
+
+            <div class="entry-link" data-animation="slideInRight" data-animation-delay="400ms">
+              <h6>Home</h6>
+              <p></p>
+              <h6>About Us</h6>
+            </div>
           </div>
 
-          <div class="entry-link">
-            <h6>Home</h6>
-            <p></p>
-            <h6>Contact</h6>
-          </div>
-        </div>
-
-        <div class="entry-right">
-          <div class="entry-img">
-            <img src="./img/entry-img.png" alt="" />
+          <div class="entry-right" data-animation="slideInLeft" data-animation-delay="700ms">
+            <div class="entry-img">
+              <img src="./img/entry-img.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="container text-entity mt-5 pt-4">
-      <div class="work-entry">
-        <div class="para-entry">
-          <p>Wright Brick</p>
-        </div>
-        <div class="design-entry">
-          <h4>
-            We care a lot,<br />
-            about our craft
-          </h4>
-        </div>
+      <div class="container text-entity mt-5 pt-4">
+        <div class="work-entry">
+          <div class="para-entry" data-animation="slideInRight">
+            <p>Wright Brick</p>
+          </div>
+          <div class="design-entry" data-animation="slideInUp">
+            <h4>
+              We care a lot,<br />
+              about our craft
+            </h4>
+          </div>
 
-        <div class="main-entry-para">
-          <p>
-            Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-            t
-          </p>
+          <div class="main-entry-para" data-animation="slideInLeft">
+            <p>
+              Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+              turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+              t
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="container-fluid-max mt-5">
-      <div class="entry-whole-image">
-        <img src="./img/about.png" alt="" />
+      <div class="container-fluid-max mt-5">
+        <div class="entry-whole-image" data-animation="slideInDown" data-animation-delay="200ms">
+          <img src="./img/about.png" alt="" />
+        </div>
       </div>
-    </div>
 
     <div class="container-fluid mt-5">
       <div class="contact-page">
-        <div class="contact-page-box">
+        <div class="contact-page-box" data-animation="slideInRight" data-animation-delay="100ms">
           <div class="contact-page-icon">
             <img src="./img/sale.png" alt="">
           </div>
@@ -87,7 +88,7 @@
             <a href="#">sales@wright-brick.com</a>
           </div>
         </div>
-        <div class="contact-page-box">
+        <div class="contact-page-box" data-animation="slideInRight" data-animation-delay="300ms">
           <div class="contact-page-icon">
             <i class="fa-regular fa-comments" style="color: #000000;"></i>
           </div>
@@ -97,7 +98,7 @@
             <a href="#">sales@wright-brick.com</a>
           </div>
         </div>
-        <div class="contact-page-box">
+        <div class="contact-page-box" data-animation="slideInLeft" data-animation-delay="100ms">
           <div class="contact-page-icon">
             <img src="./img/location.png" alt="">
           </div>
@@ -107,7 +108,7 @@
             <a href="#">sales@wright-brick.com</a>
           </div>
         </div>
-        <div class="contact-page-box">
+        <div class="contact-page-box" data-animation="slideInLeft" data-animation-delay="300ms">
           <div class="contact-page-icon">
             <img src="./img/phone.png" alt="">
           </div>
@@ -122,11 +123,11 @@
 
     <div class="container-fluid mt-5 ">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5" data-animation="slideInRight" >
           <?php include 'contact-form.php'; ?>
         </div>
 
-        <div class="col-md-7">
+        <div class="col-md-7" data-animation="slideInLeft">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31085.5132289791!2d80.12800637742859!3d13.118868027364718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5263ba9a487b3f%3A0x1e923f00f5206296!2sAmbattur%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1725286167381!5m2!1sen!2sin"
             width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"
@@ -139,10 +140,10 @@
 
     <div class="container mt-5">
       <div class="row">
-        <div class="faq-heading">
+        <div class="faq-heading" data-animation="slideInRight" data-animation-delay="200ms">
           <h1>FAQs</h1>
         </div>
-        <div class="faq-subheading">
+        <div class="faq-subheading" data-animation="slideInRight" data-animation-delay="200ms">
           <p>People commonly asks</p>
         </div>
       </div>
@@ -153,16 +154,26 @@
             <div class="w-lg-50 mx-auto">
               <div class="accordion accordion-flush" id="accordionExample">
                 <!-- 1: coll1 -->
-                <div class="accordion-item">
+                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="200ms">
                   <h2 class="accordion-header">
                     <!--   data-bs-target="#coll1",  controls="coll1", id="coll1", aria-expanded="true"      -->
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#coll1"
-                      aria-expanded="true" aria-controls="coll1">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#coll1"
+                      aria-expanded="true"
+                      aria-controls="coll1"
+                    >
                       <h5>What is Semantic HTML and how does it work?</h5>
                     </button>
                   </h2>
                   <!-- show : by default Always open -->
-                  <div id="coll1" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div
+                    id="coll1"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#accordionExample"
+                  >
                     <div class="accordion-body">
                       Semantic HTML refers to a method of coding where HTML
                       markup is used to emphasise the meaning or semantics of
@@ -172,15 +183,25 @@
                 </div>
 
                 <!-- 2: coll2 -->
-                <div class="accordion-item">
+                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="400ms">
                   <h2 class="accordion-header">
                     <!--       collapsed,   aria-expanded="false"   -->
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#coll2" aria-expanded="false" aria-controls="coll2">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#coll2"
+                      aria-expanded="false"
+                      aria-controls="coll2"
+                    >
                       <h5>What do you know about the Box Sizing property?</h5>
                     </button>
                   </h2>
-                  <div id="coll2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div
+                    id="coll2"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
                     <div class="accordion-body">
                       The Box Sizing property in CSS defines how developers
                       should calculate the width and height of a box. Content
@@ -196,17 +217,27 @@
                 </div>
 
                 <!-- 3: coll3 -->
-                <div class="accordion-item">
+                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="600ms">
                   <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#coll3" aria-expanded="false" aria-controls="coll3">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#coll3"
+                      aria-expanded="false"
+                      aria-controls="coll3"
+                    >
                       <h5>
                         Define the ways in which you can hide an element using
                         CSS.
                       </h5>
                     </button>
                   </h2>
-                  <div id="coll3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div
+                    id="coll3"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
                     <div class="accordion-body">
                       There are three ways to hide elements with CSS.
                       display:none can hide the content so that it doesn’t get
@@ -219,15 +250,25 @@
                 </div>
 
                 <!-- 4: coll4 -->
-                <div class="accordion-item">
+                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="800ms">
                   <h2 class="accordion-header">
                     <!--   target="#coll4",  id="coll4"  -->
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#coll4" aria-expanded="false" aria-controls="coll4">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#coll4"
+                      aria-expanded="false"
+                      aria-controls="coll4"
+                    >
                       <h5>What does Callback mean in JavaScript?</h5>
                     </button>
                   </h2>
-                  <div id="coll4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div
+                    id="coll4"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
                     <div class="accordion-body">
                       Callback is a JavaScript function that developers send as
                       a parameter or argument to other functions. You can call
@@ -238,18 +279,28 @@
                 </div>
 
                 <!-- 5: coll5 -->
-                <div class="accordion-item">
+                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="1000ms">
                   <h2 class="accordion-header">
                     <!--   target="#coll5",  id="coll5"  -->
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#coll5" aria-expanded="false" aria-controls="coll5">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#coll5"
+                      aria-expanded="false"
+                      aria-controls="coll5"
+                    >
                       <h5>
                         Differences between Undefined, Undeclared and Null in
                         JavaScript.
                       </h5>
                     </button>
                   </h2>
-                  <div id="coll5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div
+                    id="coll5"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                  >
                     <div class="accordion-body">
                       Undefined refers to a situation where a variable is
                       declared but no value has been assigned to the variable
@@ -284,6 +335,7 @@
   <?php include 'footer.php'; ?>
   <!-- Bootstrap JavaScript Libraries -->
 
+  <script src="js/aos.js"></script>
   <script src="js/counting.js"></script>
   <script src="js/landing-slide.js"></script>
   <script src="js/textslide.js"></script>

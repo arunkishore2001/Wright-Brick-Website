@@ -22,73 +22,75 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/about.css" />
     <link rel="stylesheet" href="./css/gallery.css" />
+    <link rel="stylesheet" href="./css/aos.css" />
   </head>
 
   <body>
    
 
-    <div class="container pt-5">
-      <div class="entry-screen mt-5">
-        <div class="entry-left">
-          <div class="entry-heading">
-            <h2>PROJECTS</h2>
+  <div class="container pt-5">
+        <div class="entry-screen mt-5 " data-animation="slideInRight" data-animation-delay="200ms">
+          <div class="entry-left">
+            <div class="entry-heading" data-animation="slideInRight" data-animation-delay="200ms">
+              <h2>ABOUT US</h2>
+            </div>
+
+            <div class="entry-link" data-animation="slideInRight" data-animation-delay="400ms">
+              <h6>Home</h6>
+              <p></p>
+              <h6>About Us</h6>
+            </div>
           </div>
 
-          <div class="entry-link">
-            <h6>Home</h6>
-            <p></p>
-            <h6>Projects</h6>
-          </div>
-        </div>
-
-        <div class="entry-right">
-          <div class="entry-img">
-            <img src="./img/entry-img.png" alt="" />
+          <div class="entry-right" data-animation="slideInLeft" data-animation-delay="700ms">
+            <div class="entry-img">
+              <img src="./img/entry-img.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="container text-entity mt-5 pt-4">
-      <div class="work-entry">
-        <div class="para-entry">
-          <p>Wright Brick</p>
-        </div>
-        <div class="design-entry">
-          <h4>
-            We care a lot,<br />
-            about our craft
-          </h4>
-        </div>
+      <div class="container text-entity mt-5 pt-4">
+        <div class="work-entry">
+          <div class="para-entry" data-animation="slideInRight">
+            <p>Wright Brick</p>
+          </div>
+          <div class="design-entry" data-animation="slideInUp">
+            <h4>
+              We care a lot,<br />
+              about our craft
+            </h4>
+          </div>
 
-        <div class="main-entry-para">
-          <p>
-            Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus t
-          </p>
+          <div class="main-entry-para" data-animation="slideInLeft">
+            <p>
+              Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+              turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+              t
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="container-fluid-max mt-5">
-      <div class="entry-whole-image">
-        <img src="./img/about.png" alt="" />
+      <div class="container-fluid-max mt-5">
+        <div class="entry-whole-image" data-animation="slideInDown" data-animation-delay="200ms">
+          <img src="./img/about.png" alt="" />
+        </div>
       </div>
-    </div>
 
     <div class="container-fluid-max project-grid">
       <div class="grid-background py-5">
         <div class="container-fluid">
-          <div class="project-heading">
+          <div class="project-heading" data-animation="slideInRight" >
             <h1>OUR PROJECTS</h1>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" data-animation="slideInRight">
               <div class="project-img mt-5">
                 <img src="./img/pro.png" alt="" />
               </div>
             </div>
-            <div class="col-md-6 mt-5 right-whole-project">
+            <div class="col-md-6 mt-5 right-whole-project" data-animation="slideInLeft">
               <div id="project-right" class="project-right mt-5 pt-lg-5">
                 <div class="project-date">
                   <p>21st May 2024</p>
@@ -133,12 +135,12 @@
 
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-6 order-md-1">
+            <div class="col-md-6 order-md-1" data-animation="slideInLeft" data-animation-delay="100ms">
               <div class="project-img mt-5">
                 <img src="./img/pro.png" alt="" />
               </div>
             </div>
-            <div class="col-md-6 mt-5 right-whole-project">
+            <div class="col-md-6 mt-5 right-whole-project" data-animation="slideInRight" data-animation-delay="100ms">
               <div
                 id="project-right"
                 class="project-right mt-3 mt-md-5 pt-lg-5"
@@ -160,7 +162,7 @@
                   </p>
                 </div>
 
-                <div class="view-more view-project mt-4">
+                <div class="view-more view-project mt-4" >
                   <p>View More</p>
 
                   <svg
@@ -184,7 +186,7 @@
           </div>
         </div>
 
-        <div class="project-view-btn">
+        <div class="project-view-btn" data-animation="slideInUp" data-animation-delay="100ms">
           <div class="about-contact-btn project-inner-btn mt-5">
             <a href="">View More</a>
             <svg
@@ -216,11 +218,11 @@
     </div>
 
     <div class="container-fluid mt-5">
-      <div class="project-heading my-5">
+      <div class="project-heading my-5" data-animation="slideInRight">
         <h1>Gallery</h1>
       </div>
 
-      <section class="main-gallery">
+      <section class="main-gallery" data-animation="slideInUp">
         <div id="gallery" class="container-lg">
           <img loading="lazy" src="./img/1.png" class="img-responsive" />
           <img loading="lazy" src="./img/2.png" class="img-responsive" />
@@ -269,6 +271,7 @@
     <?php include 'footer.php'; ?>
     <!-- Bootstrap JavaScript Libraries -->
 
+    <script src="js/aos.js"></script>
     <script src="js/stack.js"></script>
     <script src="js/jQuery.js"></script>
     <script src="js/footerImg.js"></script>

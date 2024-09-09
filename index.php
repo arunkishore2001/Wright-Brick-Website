@@ -29,11 +29,35 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/popup.css" />
+    <link rel="stylesheet" href="./css/aos.css" />
+    <link rel="stylesheet" href="./css/preloader.css" />
   </head>
 
   <body>
   
+  <section>
+        <div id="preloader" class="ctn-preloader">
+            <div id="ctn-preloader" class="ctn-preloader">
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                    <div class="txt-loading">
+                        <span data-text-preloader="L" class="letters-loading">L</span>
+                        <span data-text-preloader="O" class="letters-loading">O</span>
+                        <span data-text-preloader="A" class="letters-loading">A</span>
+                        <span data-text-preloader="D" class="letters-loading">D</span>
+                        <span data-text-preloader="I" class="letters-loading">I</span>
+                        <span data-text-preloader="N" class="letters-loading">N</span>
+                        <span data-text-preloader="G" class="letters-loading">G</span>
+                    </div>
+                </div>
+                <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+            </div>
+        </div>
+    </section>
+
   <?php include 'header.php';?>
+
 
     <div class="container-fluid-max whole-slider">
       <div class="slider-container">
@@ -64,7 +88,7 @@
           <div
             class="left-landing-wrapper d-flex flex-column justify-content-center h-100 w-100"
           >
-            <div class="left-header d-flex align-items-center">
+            <div class="left-header d-flex align-items-center" data-animation="slideInRight" data-animation-delay="1000ms">
               <h1 class="slide">
                 Best
                 <span class="highlight" id="dynamic-text">Interiors</span> In
@@ -73,13 +97,13 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 d-md-flex d-none justify-content-end mt-5">
+        <div class="col-md-4 d-md-flex d-none justify-content-end mt-5" data-animation="slideInLeft" data-animation-delay="1000ms">
         <?php include 'contact-form.php'; ?>
         </div>
       </div>
     </div>
     <div class="container">
-      <div class="crafting-heading my-5">
+      <div class="crafting-heading my-5 " data-animation="slideInDown">
         <h1>
           Crafting Luxury, Redefining <br />
           Spaces
@@ -87,16 +111,16 @@
       </div>
     </div>
     <div class="container experience">
-      <div class="experience-box">
-        <div class="exp-content">
-          <div class="exp-count">
+      <div class="experience-box" data-animation="slideInUp">
+        <div class="exp-content" data-animation="slideInRight" data-animation-delay="300ms">
+          <div class="exp-count" >
             <h5>
               <span class="count" data-target="5">0</span>+
               <span class="count-year">YEARS</span>
             </h5>
           </div>
 
-          <div class="exp-value">
+          <div class="exp-value" data-animation="slideInRight" data-animation-delay="600ms">
             <h6>EXPERIENCE</h6>
           </div>
 
@@ -130,8 +154,8 @@
 
         
 
-        <div class="exp-content">
-          <div class="exp-count">
+        <div class="exp-content" data-animation="slideInRight" data-animation-delay="900ms">
+          <div class="exp-count" >
             <h5>
               <span class="count" data-target="5">0</span>+
               <span class="count-year">YEARS</span>
@@ -182,7 +206,7 @@
           </div>
         </div>
 
-        <div class="exp-content">
+        <div class="exp-content" data-animation="slideInRight" data-animation-delay="1200ms">
           <div class="exp-count">
             <h5>
               <span class="count" data-target="5">0</span>+
@@ -225,7 +249,7 @@
 
     <div class="container my-5 py-md-4">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" data-animation="slideInRight">
           <div class="about-heading mb-5">
             <h2>About Wright Brick</h2>
           </div>
@@ -271,7 +295,7 @@
             </svg>
           </div>
         </div>
-        <div class="col-md-6 mt-5 mt-md-0">
+        <div class="col-md-6 mt-5 mt-md-0" data-animation="slideInLeft">
           <section class="">
             <div class="slider-images">
               <div class="slider-img slider-img-b active">
@@ -298,7 +322,7 @@
       </div>
     </div>
 
-    <div class="container-fluid-max rolling-text">
+    <div class="container-fluid-max rolling-text" data-animation="slideInUp" data-animation-delay="900ms">
       <div class="wrapper">
         <ul class="tabs-box">
           <li class="tab">FARM LAND</li>
@@ -323,12 +347,12 @@
     <div class="container-fluid-max mt-5">
       <div class="grid-background py-5">
         <div class="container-fluid">
-          <div class="standout-heading">
+          <div class="standout-heading" data-animation="slideInDown">
             <h2 class="text-center">What Makes Us Standout ?</h2>
           </div>
 
-          <div class="standout-container jumping-container mt-5">
-            <div class="standout-box jumping-div">
+          <div class="standout-container jumping-container mt-5 " data-animation="slideInDown" data-animation-delay="200ms">
+            <div class="standout-box jumping-div" >
               <div class="box-img">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -356,7 +380,7 @@
               </div>
             </div>
 
-            <div class="standout-box jumping-div">
+            <div class="standout-box jumping-div" >
               <div class="box-img">
                 <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75" fill="none">
                   <path d="M29.5642 59.8702C33.8073 58.4086 36.0617 58.7342 36.9785 61.4027C37.8975 64.069 35.2002 67.4152 30.9571 68.8746C26.7141 70.3362 22.7921 70.1169 22.1853 68.3497C21.5785 66.5825 25.3211 61.3318 29.5642 59.8702ZM17.8537 55.264C21.8576 55.1466 23.6956 56.0214 23.7687 58.5393C23.844 61.055 20.6595 63.1943 16.6534 63.3116C12.6495 63.4312 9.36311 62.2066 9.31439 60.539C9.26345 58.8715 13.8498 55.3836 17.8537 55.264ZM11.8301 46.1445C15.2737 46.9794 16.6357 48.1553 16.1108 50.3211C15.586 52.4847 12.3682 53.5632 8.92684 52.7305C5.48322 51.8957 2.96529 50.0819 3.31297 48.6491C3.66065 47.2141 8.38649 45.3096 11.8301 46.1445Z" fill="black"/>
@@ -371,7 +395,7 @@
               </div>
             </div>
 
-            <div class="standout-box jumping-div">
+            <div class="standout-box jumping-div" >
               <div class="box-img">
                 <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75" fill="none">
                   <path d="M70.3125 35.1562C71.6016 35.1562 72.6562 34.1016 72.6562 32.8125C72.6562 31.5234 71.6016 30.4688 70.3125 30.4688H58.5938V25.7812H63.2812C64.5703 25.7812 65.625 24.7266 65.625 23.4375V21.0938H70.3125C71.6016 21.0938 72.6562 20.0391 72.6562 18.75C72.6562 17.4609 71.6016 16.4062 70.3125 16.4062H63.2812C61.9922 16.4062 60.9375 17.4609 60.9375 18.75V21.0938H58.5938V18.75C58.5938 17.4609 57.5391 16.4062 56.25 16.4062H53.9062V14.0625H56.25C56.8828 14.0625 57.4687 13.8047 57.9141 13.3828C58.3594 12.9609 58.5938 12.3516 58.5938 11.7188V4.6875C58.5938 3.39844 57.5391 2.34375 56.25 2.34375C54.9609 2.34375 53.9062 3.39844 53.9062 4.6875V9.375H51.5625C50.2734 9.375 49.2188 10.4297 49.2188 11.7188V16.4062H44.5312V4.6875C44.5312 3.39844 43.4766 2.34375 42.1875 2.34375C40.8984 2.34375 39.8438 3.39844 39.8438 4.6875V16.4062H35.1562V4.6875C35.1562 3.39844 34.1016 2.34375 32.8125 2.34375C31.5234 2.34375 30.4688 3.39844 30.4688 4.6875V16.4062H25.7812V11.7188C25.7812 10.4297 24.7266 9.375 23.4375 9.375H21.0938V4.6875C21.0938 3.39844 20.0391 2.34375 18.75 2.34375C17.4609 2.34375 16.4062 3.39844 16.4062 4.6875V11.7188C16.4062 13.0078 17.4609 14.0625 18.75 14.0625H21.0938V16.4062H18.75C17.4609 16.4062 16.4062 17.4609 16.4062 18.75V21.0938H14.0625V18.75C14.0625 17.4609 13.0078 16.4062 11.7188 16.4062H4.6875C3.39844 16.4062 2.34375 17.4609 2.34375 18.75C2.34375 20.0391 3.39844 21.0938 4.6875 21.0938H9.375V23.4375C9.375 24.7266 10.4297 25.7812 11.7188 25.7812H16.4062V30.4688H4.6875C3.39844 30.4688 2.34375 31.5234 2.34375 32.8125C2.34375 34.1016 3.39844 35.1562 4.6875 35.1562H16.4062V39.8438H4.6875C3.39844 39.8438 2.34375 40.8984 2.34375 42.1875C2.34375 43.4766 3.39844 44.5312 4.6875 44.5312H16.4062V49.2188H11.7188C10.4297 49.2188 9.375 50.2734 9.375 51.5625V53.9062H4.6875C3.39844 53.9062 2.34375 54.9609 2.34375 56.25C2.34375 57.5391 3.39844 58.5938 4.6875 58.5938H11.7188C12.0274 58.5969 12.3336 58.5384 12.6194 58.4217C12.9051 58.305 13.1648 58.1325 13.383 57.9143C13.6013 57.696 13.7738 57.4364 13.8905 57.1506C14.0072 56.8648 14.0656 56.5587 14.0625 56.25V53.9062H16.4062V56.25C16.4062 57.5391 17.4609 58.5938 18.75 58.5938H21.0938V60.9375H18.75C17.4609 60.9375 16.4062 61.9922 16.4062 63.2812V70.3125C16.4062 71.6016 17.4609 72.6562 18.75 72.6562C20.0391 72.6562 21.0938 71.6016 21.0938 70.3125V65.625H23.4375C24.7266 65.625 25.7812 64.5703 25.7812 63.2812V58.5938H30.4688V70.3125C30.4688 71.6016 31.5234 72.6562 32.8125 72.6562C34.1016 72.6562 35.1562 71.6016 35.1562 70.3125V58.5938H39.8438V70.3125C39.8438 71.6016 40.8984 72.6562 42.1875 72.6562C43.4766 72.6562 44.5312 71.6016 44.5312 70.3125V58.5938H49.2188V63.2812C49.2188 64.5703 50.2734 65.625 51.5625 65.625H53.9062V70.3125C53.9062 71.6016 54.9609 72.6562 56.25 72.6562C57.5391 72.6562 58.5938 71.6016 58.5938 70.3125V63.2812C58.5969 62.9726 58.5384 62.6664 58.4217 62.3806C58.305 62.0949 58.1325 61.8352 57.9143 61.617C57.696 61.3987 57.4364 61.2262 57.1506 61.1095C56.8648 60.9928 56.5587 60.9344 56.25 60.9375H53.9062V58.5938H56.25C57.5391 58.5938 58.5938 57.5391 58.5938 56.25V53.9062H60.9375V56.25C60.9375 56.8828 61.1953 57.4687 61.6172 57.9141C62.0391 58.3594 62.6484 58.5938 63.2812 58.5938H70.3125C71.6016 58.5938 72.6562 57.5391 72.6562 56.25C72.6562 54.9609 71.6016 53.9062 70.3125 53.9062H65.625V51.5625C65.625 50.2734 64.5703 49.2188 63.2812 49.2188H58.5938V44.5312H70.3125C71.6016 44.5312 72.6562 43.4766 72.6562 42.1875C72.6562 40.8984 71.6016 39.8438 70.3125 39.8438H58.5938V35.1562H70.3125ZM53.9062 53.9062H21.0938V21.0938H53.9062V53.9062Z" fill="black"/>
@@ -384,7 +408,7 @@
               </div>
             </div>
 
-            <div class="standout-box jumping-div">
+            <div class="standout-box jumping-div" >
               <div class="box-img">
                 <svg xmlns="http://www.w3.org/2000/svg" width="66" height="78" viewBox="0 0 66 78" fill="none">
                   <path d="M32.4154 3C21.8526 13.2565 16.7335 15.7335 2 17.3973C2.99297 45.2787 9.49322 54.771 32.4154 75.3293C53.4961 56.2018 62.4082 46.5894 63.9435 17.3973C50.0585 15.1746 41.3812 12.342 32.4154 3Z" stroke="black" stroke-width="3.56098"/>
@@ -395,7 +419,7 @@
               </div>
             </div>
 
-            <div class="standout-box jumping-div">
+            <div class="standout-box jumping-div" >
               <div class="box-img">
                 <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" fill="none">
                   <g clip-path="url(#clip0_3_73)">
@@ -422,7 +446,7 @@
     <div class="container-fluid-max step-count py-5">
       <div class="container-fluid stacking">
         <div class="row">
-          <div class="col-md-6 order-1 order-md-0">
+          <div class="col-md-6 order-1 order-md-0" data-animation="slideInRight" >
             <div class="scard-deck-js">
               <div class="card">
                 <div class="card-img">
@@ -522,7 +546,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 order-0 order-md-1">
+          <div class="col-md-6 order-0 order-md-1" data-animation="slideInLeft">
             <div class="step-right">
               <div class="step-right-heading">
                 <h2>Just A Few Step</h2>
@@ -575,7 +599,7 @@
 
     <div class="container-fluid mt-5">
       <div class="row">
-        <div class="service-container">
+        <div class="service-container" data-animation="slideInRight">
           <h1>
             We Provide The Services <br />
             <span class="service-line">At Top Most Level</span>
@@ -585,7 +609,7 @@
     </div>
 
     <div class="container-fluid interior-section mt-5 pt-2">
-      <div class="interior-design py-4">
+      <div class="interior-design py-4" data-animation="slideInRight" data-animation-delay="200ms">
         <div class="interior-heading">
           <h3 class="text-center">Architecture</h3>
         </div>
@@ -623,7 +647,7 @@
         </div>
       </div>
 
-      <div class="interior-design py-4">
+      <div class="interior-design py-4" data-animation="slideInRight" data-animation-delay="400ms">
         <div class="interior-heading">
           <h3 class="text-center">Architecture</h3>
         </div>
@@ -661,7 +685,7 @@
         </div>
       </div>
 
-      <div class="interior-design py-4">
+      <div class="interior-design py-4" data-animation="slideInRight" data-animation-delay="600ms">
         <div class="interior-heading">
           <h3 class="text-center">Architecture</h3>
         </div>
@@ -701,12 +725,12 @@
     </div>
 
     <div class="container mt-5">
-      <div class="partner-heading">
+      <div class="partner-heading" data-animation="slideInDown">
         <h4 class="text-center">OUR TRUSTED PARTNER</h4>
       </div>
     </div>
 
-    <div class="scroll-container my-5 py-5">
+    <div class="scroll-container my-5 py-5" data-animation="slideInUp">
       <div class="scroll-inner">
         <div class="partner-detail">
           <img loading="lazy" src="./img/partnership.png" />
@@ -735,16 +759,16 @@
     <div class="container-fluid-max project-grid">
       <div class="grid-background py-5">
         <div class="container-fluid">
-          <div class="project-heading">
+          <div class="project-heading" data-animation="slideInRight" >
             <h1>OUR PROJECTS</h1>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" data-animation="slideInRight" data-animation-delay="200ms">
               <div class="project-img mt-5">
                 <img src="./img/pro.png" alt="" />
               </div>
             </div>
-            <div class="col-md-6 mt-5 right-whole-project">
+            <div class="col-md-6 mt-5 right-whole-project" data-animation="slideInLeft" data-animation-delay="200ms">
 
               <div id="project-right" class="project-right mt-5">
                 <div class="project-date">
@@ -790,12 +814,12 @@
 
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-6 order-md-1">
+            <div class="col-md-6 order-md-1" data-animation="slideInRight" data-animation-delay="200ms">
               <div class="project-img mt-5">
                 <img src="./img/pro.png" alt="" />
               </div>
             </div>
-            <div class="col-md-6 mt-5 right-whole-project">
+            <div class="col-md-6 mt-5 right-whole-project" data-animation="slideInLeft" data-animation-delay="200ms" >
 
               <div id="project-right" class="project-right mt-5">
                 <div class="project-date">
@@ -839,7 +863,7 @@
           </div>
         </div>
 
-        <div class="project-view-btn">
+        <div class="project-view-btn" data-animation="slideInUp" data-animation-delay="100ms">
           <div class="about-contact-btn project-inner-btn mt-5">
             <a href="">View More</a>
             <svg
@@ -872,11 +896,11 @@
 
     <div class="container-fluid mt-5 pt-4">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" data-animation="slideInRight" >
         <?php include 'contact-form.php'; ?>
         </div>
 
-        <div class="col-md-6 mt-5 mt-md-0">
+        <div class="col-md-6 mt-5 mt-md-0" data-animation="slideInLeft" data-animation-delay="200ms">
           <div class="testimonial">
             <div class="testimonial-bg">
               <img src="./img/testimonail-img.png" alt="" />
@@ -1075,10 +1099,10 @@
 
     <div class="container mt-5">
       <div class="row">
-        <div class="faq-heading">
+        <div class="faq-heading" data-animation="slideInRight" data-animation-delay="200ms">
           <h1>FAQs</h1>
         </div>
-        <div class="faq-subheading">
+        <div class="faq-subheading" data-animation="slideInRight" data-animation-delay="200ms">
           <p>People commonly asks</p>
         </div>
       </div>
@@ -1089,7 +1113,7 @@
             <div class="w-lg-50 mx-auto">
               <div class="accordion accordion-flush" id="accordionExample">
                 <!-- 1: coll1 -->
-                <div class="accordion-item">
+                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="200ms">
                   <h2 class="accordion-header">
                     <!--   data-bs-target="#coll1",  controls="coll1", id="coll1", aria-expanded="true"      -->
                     <button
@@ -1118,7 +1142,7 @@
                 </div>
 
                 <!-- 2: coll2 -->
-                <div class="accordion-item">
+                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="400ms">
                   <h2 class="accordion-header">
                     <!--       collapsed,   aria-expanded="false"   -->
                     <button
@@ -1152,7 +1176,7 @@
                 </div>
 
                 <!-- 3: coll3 -->
-                <div class="accordion-item">
+                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="600ms">
                   <h2 class="accordion-header">
                     <button
                       class="accordion-button collapsed"
@@ -1185,7 +1209,7 @@
                 </div>
 
                 <!-- 4: coll4 -->
-                <div class="accordion-item">
+                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="800ms">
                   <h2 class="accordion-header">
                     <!--   target="#coll4",  id="coll4"  -->
                     <button
@@ -1214,7 +1238,7 @@
                 </div>
 
                 <!-- 5: coll5 -->
-                <div class="accordion-item">
+                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="1000ms">
                   <h2 class="accordion-header">
                     <!--   target="#coll5",  id="coll5"  -->
                     <button
@@ -1263,9 +1287,21 @@
     </div>
 
     <?php include 'footer.php';?>
+
+    <script>
+    window.addEventListener('load', function () {
+        // Delay to add a smooth transition (optional)
+        setTimeout(function () {
+            document.body.classList.remove('no-scroll-y');
+            document.getElementById('preloader').classList.add('preloader-hidden');
+        }, 1000);  // Optional delay
+    });
+</script>
+
     
     <script src="js/contact-detail.js"></script>
 
+    <script src="js/aos.js"></script>
     <script src="js/popup.js"></script>
     <script src="js/counting.js"></script>
     <script src="js/landing-slide.js"></script>
