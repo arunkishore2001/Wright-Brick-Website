@@ -3,7 +3,7 @@
         <div class="footer-bg">
           <div class="footer-img">
             <img src="./img/footer-img.png" alt="" />
-            <div class="overlay-footer-text">
+            <div class="overlay-footer-text" >
               <h1>Have A Project In Mind?</h1>
             </div>
           </div>
@@ -36,10 +36,10 @@
         <div class="container">
           <div class="end-top-footer">
             <div class="end-left-intro">
-              <div class="end-text">
+              <div class="end-text" data-animation="slideInRight" >
                 <h4>WE WONDER TO CREATE INTERIORS</h4>
               </div>
-              <div class="end-para mt-4">
+              <div class="end-para mt-4" data-animation="slideInRight" data-animation-delay="200ms">
                 <p class="grey-text">
                   Founded in 2007, Sparch is specializing in providing
                   innovative services such as websites. Founded in 2007.
@@ -47,7 +47,7 @@
               </div>
             </div>
 
-            <div class="links d-flex">
+            <div class="links d-flex" data-animation="slideInLeft" >
               <div class="company-link">
                 <p>Company</p>
                 <ul>
@@ -58,7 +58,7 @@
                 </ul>
               </div>
 
-              <div class="follow-us-link">
+              <div class="follow-us-link" data-animation="slideInLeft" data-animation-delay="200ms">
                 <p>Follow Us</p>
                 <ul>
                   <li>Facebook</li>
@@ -74,12 +74,12 @@
         <div class="end-line">
           <div class="container">
             <div class="message">
-              <div class="call">
+              <div class="call" data-animation="slideInRight" >
                 <h6>Call our office</h6>
                 <p class="grey-text">+91 999999999</p>
               </div>
 
-              <div class="send">
+              <div class="send" data-animation="slideInRight" data-animation-delay="200ms">
                 <h6>Send a message</h6>
                 <p class="grey-text">info@gmail.com</p>
               </div>

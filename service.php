@@ -22,74 +22,76 @@
     <link rel="stylesheet" href="./css/about.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/service.css" />
+    <link rel="stylesheet" href="./css/aos.css" />
   </head>
 
   <body>
    
 
-    <div class="container pt-5">
-      <div class="entry-screen mt-5 ">
-        <div class="entry-left">
-          <div class="entry-heading">
-            <h2>SERVICES</h2>
+  <div class="container pt-5">
+        <div class="entry-screen mt-5 " data-animation="slideInRight" data-animation-delay="200ms">
+          <div class="entry-left">
+            <div class="entry-heading" data-animation="slideInRight" data-animation-delay="200ms">
+              <h2>ABOUT US</h2>
+            </div>
+
+            <div class="entry-link" data-animation="slideInRight" data-animation-delay="400ms">
+              <h6>Home</h6>
+              <p></p>
+              <h6>About Us</h6>
+            </div>
           </div>
 
-          <div class="entry-link">
-            <h6>Home</h6>
-            <p></p>
-            <h6>Services</h6>
-          </div>
-        </div>
-
-        <div class="entry-right">
-          <div class="entry-img">
-            <img src="./img/entry-img.png" alt="" />
+          <div class="entry-right" data-animation="slideInLeft" data-animation-delay="700ms">
+            <div class="entry-img">
+              <img src="./img/entry-img.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="container text-entity mt-5 pt-4">
-      <div class="work-entry">
-        <div class="para-entry">
-          <p>Wright Brick</p>
-        </div>
-        <div class="design-entry">
-          <h4>
-            We care a lot,<br />
-            about our craft
-          </h4>
-        </div>
+      <div class="container text-entity mt-5 pt-4">
+        <div class="work-entry">
+          <div class="para-entry" data-animation="slideInRight">
+            <p>Wright Brick</p>
+          </div>
+          <div class="design-entry" data-animation="slideInUp">
+            <h4>
+              We care a lot,<br />
+              about our craft
+            </h4>
+          </div>
 
-        <div class="main-entry-para">
-          <p>
-            Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus t
-          </p>
+          <div class="main-entry-para" data-animation="slideInLeft">
+            <p>
+              Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+              turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+              t
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="container-fluid-max mt-5">
-      <div class="entry-whole-image">
-        <img src="./img/about.png" alt="" />
+      <div class="container-fluid-max mt-5">
+        <div class="entry-whole-image" data-animation="slideInDown" data-animation-delay="200ms">
+          <img src="./img/about.png" alt="" />
+        </div>
       </div>
-    </div>
     <main>
       <section class="services-section">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-3">
-              <div class="service-heading">
+              <div class="service-heading" data-animation="slideInRight" >
                 <h6 class="mb-2">We Offer</h6>
                 <h1 class="services-title mb-5">SERVICES</h1>
               </div>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-1" data-animation="slideInDown">
               <div class="divider"></div>
             </div>
             <div class="col-md-8">
-              <div class="service-item">
+              <div class="service-item" data-animation="slideInDown" data-animation-delay="100ms">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="66"
@@ -126,7 +128,7 @@
                   </p>
                 </div>
               </div>
-              <div class="service-item">
+              <div class="service-item" data-animation="slideInDown" data-animation-delay="300ms">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="66"
@@ -167,7 +169,7 @@
                   </p>
                 </div>
               </div>
-              <div class="service-item">
+              <div class="service-item" data-animation="slideInDown" data-animation-delay="500ms">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="66"
@@ -200,23 +202,23 @@
       <div class="container-fluid mb-5">
         <div class="row">
           <div class="col-md-6 mt-5 order-1 order-md-0">
-            <div class="arch-line"></div>
-            <div class="arch-img mt-5 mt-md-5 pt-0 pt-md-5">
+            <div class="arch-line" data-animation="slideInRight" ></div>
+            <div class="arch-img mt-5 mt-md-5 pt-0 pt-md-5" data-animation="slideInRight" data-animation-delay="100ms">
               <img src="./img/service1.png" alt="Architecture Image" />
 
-              <div class="arch-no">
+              <div class="arch-no" data-animation="slideInLeft" data-animation-delay="300ms">
                 <h3>01</h3>
               </div>
             </div>
           </div>
           <div class="col-md-6 order-0 order-md-1">
-            <div class="arch-right">
+            <div class="arch-right" >
               <div class="arch-box">
                 <div class="arch-heading">
                   <h2>ARCHITECTURE</h2>
                 </div>
               </div>
-              <div class="arch-para">
+              <div class="arch-para" data-animation="slideInLeft" data-animation-delay="100ms">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                   eu turpis molestie, dictum est a, mattis tellus. Sed
@@ -234,12 +236,12 @@
         <div class="row">
           <div class="col-md-6 mt-5 order-1">
             <div class="arch-main-line">
-              <div class="arch-line"></div>
+              <div class="arch-line" data-animation="slideInLeft" data-animation-delay="100ms"></div>
             </div>
 
-            <div class="arch-img mt-5 mt-md-5 pt-0 pt-md-5">
+            <div class="arch-img mt-5 mt-md-5 pt-0 pt-md-5" data-animation="slideInRight" data-animation-delay="100ms">
               <img src="./img/service2.png" alt="Architecture Image" />
-              <div class="arch-no">
+              <div class="arch-no" data-animation="slideInLeft" data-animation-delay="300ms" >
                 <h3>02</h3>
               </div>
             </div>
@@ -268,6 +270,7 @@
   
     <?php include 'footer.php'; ?>
 
+    <script src="js/aos.js"></script>
     <script src="js/counting.js"></script>
     <script src="js/landing-slide.js"></script>
     <script src="js/textslide.js"></script>

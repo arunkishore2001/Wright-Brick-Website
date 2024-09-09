@@ -28,11 +28,35 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/aos.css" />
+    <link rel="stylesheet" href="./css/preloader.css" />
 </head>
 
-<body>
+  <body>
+  
+  <section>
+        <div id="preloader" class="ctn-preloader">
+            <div id="ctn-preloader" class="ctn-preloader">
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                    <div class="txt-loading">
+                        <span data-text-preloader="L" class="letters-loading">L</span>
+                        <span data-text-preloader="O" class="letters-loading">O</span>
+                        <span data-text-preloader="A" class="letters-loading">A</span>
+                        <span data-text-preloader="D" class="letters-loading">D</span>
+                        <span data-text-preloader="I" class="letters-loading">I</span>
+                        <span data-text-preloader="N" class="letters-loading">N</span>
+                        <span data-text-preloader="G" class="letters-loading">G</span>
+                    </div>
+                </div>
+                <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+            </div>
+        </div>
+    </section>
 
-  <?php include 'header.php'; ?>
+  <?php include 'header.php';?>
+
 
   <div class="container-fluid-max whole-slider">
     <div class="slider-container">
@@ -55,7 +79,7 @@ session_start();
     <div class="row">
       <div class="col-md-8">
         <div class="left-landing-wrapper d-flex flex-column justify-content-center h-100 w-100">
-          <div class="left-header d-flex align-items-center">
+          <div class="left-header d-flex align-items-center" data-animation="slideInRight" data-animation-delay="1000ms">
             <h1 class="slide">
               Best
               <span class="highlight" id="dynamic-text">Interiors</span> In
@@ -64,13 +88,13 @@ session_start();
           </div>
         </div>
       </div>
-      <div class="col-md-4 d-md-flex d-none justify-content-end mt-5">
+      <div class="col-md-4 d-md-flex d-none justify-content-end mt-5" data-animation="slideInLeft" data-animation-delay="1000ms">
         <?php include 'contact-form.php'; ?>
       </div>
     </div>
   </div>
   <div class="container">
-    <div class="crafting-heading my-5">
+    <div class="crafting-heading my-5 " data-animation="slideInDown">
       <h1>
         Crafting Luxury, Redefining <br />
         Spaces
@@ -78,16 +102,16 @@ session_start();
     </div>
   </div>
   <div class="container experience">
-    <div class="experience-box">
-      <div class="exp-content">
-        <div class="exp-count">
+    <div class="experience-box" data-animation="slideInUp">
+      <div class="exp-content" data-animation="slideInRight" data-animation-delay="300ms">
+        <div class="exp-count" >
           <h5>
             <span class="count" data-target="5">0</span>+
             <span class="count-year">YEARS</span>
           </h5>
         </div>
 
-        <div class="exp-value">
+        <div class="exp-value" data-animation="slideInRight" data-animation-delay="600ms">
           <h6>EXPERIENCE</h6>
         </div>
 
@@ -111,8 +135,8 @@ session_start();
 
 
 
-      <div class="exp-content">
-        <div class="exp-count">
+      <div class="exp-content" data-animation="slideInRight" data-animation-delay="900ms">
+        <div class="exp-count" >
           <h5>
             <span class="count" data-target="5">0</span>+
             <span class="count-year">YEARS</span>
@@ -150,7 +174,7 @@ session_start();
         </div>
       </div>
 
-      <div class="exp-content">
+      <div class="exp-content" data-animation="slideInRight" data-animation-delay="1200ms">
         <div class="exp-count">
           <h5>
             <span class="count" data-target="5">0</span>+
@@ -185,7 +209,7 @@ session_start();
 
   <div class="container my-5 py-md-4">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" data-animation="slideInRight">
         <div class="about-heading mb-5">
           <h2>About Wright Brick</h2>
         </div>
@@ -213,7 +237,7 @@ session_start();
           </svg>
         </div>
       </div>
-      <div class="col-md-6 mt-5 mt-md-0">
+      <div class="col-md-6 mt-5 mt-md-0" data-animation="slideInLeft">
         <section class="">
           <div class="slider-images">
             <div class="slider-img slider-img-b active">
@@ -240,7 +264,7 @@ session_start();
     </div>
   </div>
 
-  <div class="container-fluid-max rolling-text">
+  <div class="container-fluid-max rolling-text" data-animation="slideInUp" data-animation-delay="900ms">
     <div class="wrapper">
       <ul class="tabs-box">
         <li class="tab">FARM LAND</li>
@@ -265,12 +289,12 @@ session_start();
   <div class="container-fluid-max mt-5">
     <div class="grid-background py-5">
       <div class="container-fluid">
-        <div class="standout-heading">
+        <div class="standout-heading" data-animation="slideInDown">
           <h2 class="text-center">What Makes Us Standout ?</h2>
         </div>
 
-        <div class="standout-container jumping-container mt-5">
-          <div class="standout-box jumping-div">
+        <div class="standout-container jumping-container mt-5 " data-animation="slideInDown" data-animation-delay="200ms">
+          <div class="standout-box jumping-div" >
             <div class="box-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
                 <path
@@ -289,7 +313,7 @@ session_start();
             </div>
           </div>
 
-          <div class="standout-box jumping-div">
+          <div class="standout-box jumping-div" >
             <div class="box-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75" fill="none">
                 <path
@@ -314,7 +338,7 @@ session_start();
             </div>
           </div>
 
-          <div class="standout-box jumping-div">
+          <div class="standout-box jumping-div" >
             <div class="box-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75" fill="none">
                 <path
@@ -333,7 +357,7 @@ session_start();
             </div>
           </div>
 
-          <div class="standout-box jumping-div">
+          <div class="standout-box jumping-div" >
             <div class="box-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="66" height="78" viewBox="0 0 66 78" fill="none">
                 <path
@@ -346,7 +370,7 @@ session_start();
             </div>
           </div>
 
-          <div class="standout-box jumping-div">
+          <div class="standout-box jumping-div" >
             <div class="box-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" fill="none">
                 <g clip-path="url(#clip0_3_73)">
@@ -379,7 +403,7 @@ session_start();
   <div class="container-fluid-max step-count py-5">
     <div class="container-fluid stacking">
       <div class="row">
-        <div class="col-md-6 order-1 order-md-0">
+        <div class="col-md-6 order-1 order-md-0" data-animation="slideInRight" >
           <div class="scard-deck-js">
             <div class="card">
               <div class="card-img">
@@ -479,7 +503,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-md-6 order-0 order-md-1">
+        <div class="col-md-6 order-0 order-md-1" data-animation="slideInLeft">
           <div class="step-right">
             <div class="step-right-heading">
               <h2>Just A Few Step</h2>
@@ -514,7 +538,7 @@ session_start();
 
   <div class="container-fluid mt-5">
     <div class="row">
-      <div class="service-container">
+      <div class="service-container" data-animation="slideInRight">
         <h1>
           We Provide The Services <br />
           <span class="service-line">At Top Most Level</span>
@@ -524,7 +548,7 @@ session_start();
   </div>
 
   <div class="container-fluid interior-section mt-5 pt-2">
-    <div class="interior-design py-4">
+    <div class="interior-design py-4" data-animation="slideInRight" data-animation-delay="200ms">
       <div class="interior-heading">
         <h3 class="text-center">Architecture</h3>
       </div>
@@ -551,7 +575,7 @@ session_start();
       </div>
     </div>
 
-    <div class="interior-design py-4">
+    <div class="interior-design py-4" data-animation="slideInRight" data-animation-delay="400ms">
       <div class="interior-heading">
         <h3 class="text-center">Architecture</h3>
       </div>
@@ -578,7 +602,7 @@ session_start();
       </div>
     </div>
 
-    <div class="interior-design py-4">
+    <div class="interior-design py-4" data-animation="slideInRight" data-animation-delay="600ms">
       <div class="interior-heading">
         <h3 class="text-center">Architecture</h3>
       </div>
@@ -607,12 +631,12 @@ session_start();
   </div>
 
   <div class="container mt-5">
-    <div class="partner-heading">
+    <div class="partner-heading" data-animation="slideInDown">
       <h4 class="text-center">OUR TRUSTED PARTNER</h4>
     </div>
   </div>
 
-  <div class="scroll-container my-5 py-5">
+  <div class="scroll-container my-5 py-5" data-animation="slideInUp">
     <div class="scroll-inner">
       <div class="partner-detail">
         <img loading="lazy" src="./img/partnership.png" />
@@ -640,7 +664,7 @@ session_start();
   <div class="container-fluid-max project-grid">
     <div class="grid-background py-5">
       <div class="container-fluid">
-        <div class="project-heading">
+        <div class="project-heading" data-animation="slideInRight">
           <h1>OUR PROJECTS</h1>
         </div>
 
@@ -681,12 +705,12 @@ session_start();
             ?>
 
             <div class="row">
-              <div class="col-md-6 <?php echo $order ?>">
+              <div class="col-md-6 <?php echo $order ?>" data-animation="slideInLeft" data-animation-delay="200ms">
                 <div class="project-img mt-5">
                   <img src="<?php echo $firstImage ?>" alt="" />
                 </div>
               </div>
-              <div class="<?php echo $colSize ?> mt-5 pt-5 right-whole-project">
+              <div class="<?php echo $colSize ?> mt-5 pt-5 right-whole-project" data-animation="slideInRight" data-animation-delay="200ms">
 
                 <div id="project-right" class="project-right mt-5">
                   <div class="project-date">
@@ -719,7 +743,7 @@ session_start();
       </div>
 
       <a href="./project.php">
-        <div class="project-view-btn">
+        <div class="project-view-btn" data-animation="slideInUp" data-animation-delay="100ms">
           <div class="about-contact-btn project-inner-btn mt-5">
             View More
             <svg xmlns="http://www.w3.org/2000/svg" width="41" height="19" viewBox="0 0 41 19" fill="none">
@@ -735,7 +759,7 @@ session_start();
 
   <div class="container-fluid mt-5 pt-4">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" data-animation="slideInRight" >
         <div class="right-header">
           <div class="right-inside-header text-center">
             <h4>Specialized Design For You</h4>
@@ -769,7 +793,7 @@ session_start();
         </div>
       </div>
 
-      <div class="col-md-6 mt-5 mt-md-0">
+      <div class="col-md-6 mt-5 mt-md-0" data-animation="slideInLeft" data-animation-delay="200ms">
         <div class="testimonial">
           <div class="testimonial-bg">
             <img src="./img/testimonail-img.png" alt="" />
@@ -958,10 +982,10 @@ session_start();
 
   <div class="container mt-5">
     <div class="row">
-      <div class="faq-heading">
+      <div class="faq-heading" data-animation="slideInRight" data-animation-delay="200ms">
         <h1>FAQs</h1>
       </div>
-      <div class="faq-subheading">
+      <div class="faq-subheading" data-animation="slideInRight" data-animation-delay="200ms">
         <p>People commonly asks</p>
       </div>
     </div>
@@ -972,7 +996,7 @@ session_start();
           <div class="w-lg-50 mx-auto">
             <div class="accordion accordion-flush" id="accordionExample">
               <!-- 1: coll1 -->
-              <div class="accordion-item">
+              <div class="accordion-item" data-animation="slideInDown" data-animation-delay="200ms">
                 <h2 class="accordion-header">
                   <!--   data-bs-target="#coll1",  controls="coll1", id="coll1", aria-expanded="true"      -->
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#coll1"
@@ -991,7 +1015,7 @@ session_start();
               </div>
 
               <!-- 2: coll2 -->
-              <div class="accordion-item">
+              <div class="accordion-item" data-animation="slideInDown" data-animation-delay="400ms">
                 <h2 class="accordion-header">
                   <!--       collapsed,   aria-expanded="false"   -->
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -1015,7 +1039,7 @@ session_start();
               </div>
 
               <!-- 3: coll3 -->
-              <div class="accordion-item">
+              <div class="accordion-item" data-animation="slideInDown" data-animation-delay="600ms">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#coll3" aria-expanded="false" aria-controls="coll3">
@@ -1038,7 +1062,7 @@ session_start();
               </div>
 
               <!-- 4: coll4 -->
-              <div class="accordion-item">
+              <div class="accordion-item" data-animation="slideInDown" data-animation-delay="800ms">
                 <h2 class="accordion-header">
                   <!--   target="#coll4",  id="coll4"  -->
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -1057,7 +1081,7 @@ session_start();
               </div>
 
               <!-- 5: coll5 -->
-              <div class="accordion-item">
+              <div class="accordion-item" data-animation="slideInDown" data-animation-delay="1000ms">
                 <h2 class="accordion-header">
                   <!--   target="#coll5",  id="coll5"  -->
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -1097,7 +1121,19 @@ session_start();
 
   <?php include 'footer.php'; ?>
 
+    <script>
+    window.addEventListener('load', function () {
+        // Delay to add a smooth transition (optional)
+        setTimeout(function () {
+            document.body.classList.remove('no-scroll-y');
+            document.getElementById('preloader').classList.add('preloader-hidden');
+        }, 1000);  // Optional delay
+    });
+</script>
+
+
   <script src="js/contact-detail.js"></script>
+    <script src="js/aos.js"></script>
   <script src="js/popup.js"></script>
   <script src="js/counting.js"></script>
   <script src="js/landing-slide.js"></script>

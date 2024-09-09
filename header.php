@@ -1,4 +1,4 @@
-<header class="nav-bar-container">
+<header class="nav-bar-container" data-animation="slideInDown" data-animation-delay="1000ms">
   <div class="container-fluid">
     <div class="navigation mt-3 d-flex justify-content-between align-items-center">
       <div class="nav-main-wrapper">

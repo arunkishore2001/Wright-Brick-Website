@@ -27,6 +27,7 @@ session_start();
   <link rel="stylesheet" href="./css/index.css" />
   <link rel="stylesheet" href="./css/about.css" />
   <link rel="stylesheet" href="./css/gallery.css" />
+    <link rel="stylesheet" href="./css/aos.css" />
 </head>
 
 <body>
@@ -39,47 +40,48 @@ session_start();
           <h2>PROJECTS</h2>
         </div>
 
-        <div class="entry-link">
-          <h6>Home</h6>
-          <p></p>
-          <h6>Projects</h6>
+          <div class="entry-link" data-animation="slideInRight" data-animation-delay="400ms">
+            <h6>Home</h6>
+            <p></p>
+            <h6>About Us</h6>
+          </div>
+        </div>
+
+        <div class="entry-right" data-animation="slideInLeft" data-animation-delay="700ms">
+          <div class="entry-img">
+            <img src="./img/entry-img.png" alt="" />
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="entry-right">
-        <div class="entry-img">
-          <img src="./img/entry-img.png" alt="" />
+    <div class="container text-entity mt-5 pt-4">
+      <div class="work-entry">
+        <div class="para-entry" data-animation="slideInRight">
+          <p>Wright Brick</p>
+        </div>
+        <div class="design-entry" data-animation="slideInUp">
+          <h4>
+            We care a lot,<br />
+            about our craft
+          </h4>
+        </div>
+
+        <div class="main-entry-para" data-animation="slideInLeft">
+          <p>
+            Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+              t
+          </p>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="container text-entity mt-5 pt-4">
-    <div class="work-entry">
-      <div class="para-entry">
-        <p>Wright Brick</p>
-      </div>
-      <div class="design-entry">
-        <h4>
-          We care a lot,<br />
-          about our craft
-        </h4>
-      </div>
-
-      <div class="main-entry-para">
-        <p>
-          Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-          turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus t
-        </p>
+    <div class="container-fluid-max mt-5">
+      <div class="entry-whole-image" data-animation="slideInDown" data-animation-delay="200ms">
+        <img src="./img/about.png" alt="" />
       </div>
     </div>
-  </div>
-
-  <div class="container-fluid-max mt-5">
-    <div class="entry-whole-image">
-      <img src="./img/about.png" alt="" />
-    </div>
-  </div>
 
   <div class="container-fluid-max project-grid">
     <div class="grid-background py-5">
@@ -146,7 +148,7 @@ session_start();
                     <p><?php echo $project['description'] ?></p>
                   </div>
 
-                  <div class="view-more view-project mt-4">
+                  <div class="view-more view-project mt-4" >
                     <p>View More</p>
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -164,11 +166,11 @@ session_start();
   </div>
 
   <div class="container-fluid mt-5">
-    <div class="project-heading my-5">
+    <div class="project-heading my-5" data-animation="slideInRight">
       <h1>Gallery</h1>
     </div>
 
-    <section class="main-gallery">
+    <section class="main-gallery" data-animation="slideInUp">
       <div id="gallery" class="container-lg">
         <?php
         // Fetch all image URLs from the database
