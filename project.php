@@ -26,8 +26,7 @@ session_start();
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="stylesheet" href="./css/index.css" />
   <link rel="stylesheet" href="./css/about.css" />
-  <link rel="stylesheet" href="./css/gallery.css" />
-    <link rel="stylesheet" href="./css/aos.css" />
+  <link rel="stylesheet" href="./css/aos.css" />
 </head>
 
 <body>
@@ -211,7 +210,7 @@ session_start();
   <!-- Bootstrap JavaScript Libraries -->
 
   <script src="js/footerImg.js"></script>
-  <script src="js/textparallax.js"></script>
+  <script src="js/aos.js"></script>
 
   <script>
     function toggleMenu() {

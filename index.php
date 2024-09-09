@@ -28,34 +28,39 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/aos.css" />
-    <link rel="stylesheet" href="./css/preloader.css" />
+  <link rel="stylesheet" href="./css/aos.css" />
+  <link rel="stylesheet" href="./css/preloader.css" />
 </head>
 
-  <body>
-  
-  <section>
-        <div id="preloader" class="ctn-preloader">
-            <div id="ctn-preloader" class="ctn-preloader">
-                <div class="animation-preloader">
-                    <div class="spinner"></div>
-                    <div class="txt-loading">
-                        <span data-text-preloader="L" class="letters-loading">L</span>
-                        <span data-text-preloader="O" class="letters-loading">O</span>
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                        <span data-text-preloader="D" class="letters-loading">D</span>
-                        <span data-text-preloader="I" class="letters-loading">I</span>
-                        <span data-text-preloader="N" class="letters-loading">N</span>
-                        <span data-text-preloader="G" class="letters-loading">G</span>
-                    </div>
-                </div>
-                <div class="loader-section section-left"></div>
-                <div class="loader-section section-right"></div>
-            </div>
-        </div>
-    </section>
+<body>
 
-  <?php include 'header.php';?>
+  <section>
+    <div id="preloader" class="ctn-preloader">
+      <div id="ctn-preloader" class="ctn-preloader">
+        <div class="animation-preloader">
+          <div class="spinner"></div>
+          <div class="txt-loading">
+            <span data-text-preloader="W" class="letters-loading">W</span>
+            <span data-text-preloader="r" class="letters-loading">r</span>
+            <span data-text-preloader="i" class="letters-loading">i</span>
+            <span data-text-preloader="g" class="letters-loading">g</span>
+            <span data-text-preloader="h" class="letters-loading">h</span>
+            <span data-text-preloader="t" class="letters-loading">t</span>
+            <span data-text-preloader=" " class="letters-loading"> </span>
+            <span data-text-preloader="B" class="letters-loading">B</span>
+            <span data-text-preloader="r" class="letters-loading">r</span>
+            <span data-text-preloader="i" class="letters-loading">i</span>
+            <span data-text-preloader="c" class="letters-loading">c</span>
+            <span data-text-preloader="k" class="letters-loading">k</span>
+          </div>
+        </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+      </div>
+    </div>
+  </section>
+
+  <?php include 'header.php'; ?>
 
 
   <div class="container-fluid-max whole-slider">
@@ -79,7 +84,8 @@ session_start();
     <div class="row">
       <div class="col-md-8">
         <div class="left-landing-wrapper d-flex flex-column justify-content-center h-100 w-100">
-          <div class="left-header d-flex align-items-center" data-animation="slideInRight" data-animation-delay="1000ms">
+          <div class="left-header d-flex align-items-center" data-animation="slideInRight"
+            data-animation-delay="1000ms">
             <h1 class="slide">
               Best
               <span class="highlight" id="dynamic-text">Interiors</span> In
@@ -88,7 +94,8 @@ session_start();
           </div>
         </div>
       </div>
-      <div class="col-md-4 d-md-flex d-none justify-content-end mt-5" data-animation="slideInLeft" data-animation-delay="1000ms">
+      <div class="col-md-4 d-md-flex d-none justify-content-end mt-5" data-animation="slideInLeft"
+        data-animation-delay="1000ms">
         <?php include 'contact-form.php'; ?>
       </div>
     </div>
@@ -104,7 +111,7 @@ session_start();
   <div class="container experience">
     <div class="experience-box" data-animation="slideInUp">
       <div class="exp-content" data-animation="slideInRight" data-animation-delay="300ms">
-        <div class="exp-count" >
+        <div class="exp-count">
           <h5>
             <span class="count" data-target="5">0</span>+
             <span class="count-year">YEARS</span>
@@ -136,7 +143,7 @@ session_start();
 
 
       <div class="exp-content" data-animation="slideInRight" data-animation-delay="900ms">
-        <div class="exp-count" >
+        <div class="exp-count">
           <h5>
             <span class="count" data-target="5">0</span>+
             <span class="count-year">YEARS</span>
@@ -293,8 +300,9 @@ session_start();
           <h2 class="text-center">What Makes Us Standout ?</h2>
         </div>
 
-        <div class="standout-container jumping-container mt-5 " data-animation="slideInDown" data-animation-delay="200ms">
-          <div class="standout-box jumping-div" >
+        <div class="standout-container jumping-container mt-5 " data-animation="slideInDown"
+          data-animation-delay="200ms">
+          <div class="standout-box jumping-div">
             <div class="box-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
                 <path
@@ -313,7 +321,7 @@ session_start();
             </div>
           </div>
 
-          <div class="standout-box jumping-div" >
+          <div class="standout-box jumping-div">
             <div class="box-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75" fill="none">
                 <path
@@ -338,7 +346,7 @@ session_start();
             </div>
           </div>
 
-          <div class="standout-box jumping-div" >
+          <div class="standout-box jumping-div">
             <div class="box-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75" fill="none">
                 <path
@@ -357,7 +365,7 @@ session_start();
             </div>
           </div>
 
-          <div class="standout-box jumping-div" >
+          <div class="standout-box jumping-div">
             <div class="box-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="66" height="78" viewBox="0 0 66 78" fill="none">
                 <path
@@ -370,7 +378,7 @@ session_start();
             </div>
           </div>
 
-          <div class="standout-box jumping-div" >
+          <div class="standout-box jumping-div">
             <div class="box-img">
               <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" fill="none">
                 <g clip-path="url(#clip0_3_73)">
@@ -403,7 +411,7 @@ session_start();
   <div class="container-fluid-max step-count py-5">
     <div class="container-fluid stacking">
       <div class="row">
-        <div class="col-md-6 order-1 order-md-0" data-animation="slideInRight" >
+        <div class="col-md-6 order-1 order-md-0" data-animation="slideInRight">
           <div class="scard-deck-js">
             <div class="card">
               <div class="card-img">
@@ -710,7 +718,8 @@ session_start();
                   <img src="<?php echo $firstImage ?>" alt="" />
                 </div>
               </div>
-              <div class="<?php echo $colSize ?> mt-5 pt-5 right-whole-project" data-animation="slideInRight" data-animation-delay="200ms">
+              <div class="<?php echo $colSize ?> mt-5 pt-5 right-whole-project" data-animation="slideInRight"
+                data-animation-delay="200ms">
 
                 <div id="project-right" class="project-right mt-5">
                   <div class="project-date">
@@ -759,7 +768,7 @@ session_start();
 
   <div class="container-fluid mt-5 pt-4">
     <div class="row">
-      <div class="col-md-6" data-animation="slideInRight" >
+      <div class="col-md-6" data-animation="slideInRight">
         <div class="right-header">
           <div class="right-inside-header text-center">
             <h4>Specialized Design For You</h4>
@@ -1121,19 +1130,24 @@ session_start();
 
   <?php include 'footer.php'; ?>
 
-    <script>
+  <script>
     window.addEventListener('load', function () {
-        // Delay to add a smooth transition (optional)
-        setTimeout(function () {
-            document.body.classList.remove('no-scroll-y');
-            document.getElementById('preloader').classList.add('preloader-hidden');
-        }, 1000);  // Optional delay
+      setTimeout(function () {
+        $('#ctn-preloader').addClass('loaded');
+        $('body').removeClass('no-scroll-y');
+
+        if ($('#ctn-preloader').hasClass('loaded')) {
+          $('#preloader').delay(1000).queue(function () {
+            $(this).remove();
+          });
+        }
+      }, 2000);
     });
-</script>
+  </script>
 
 
   <script src="js/contact-detail.js"></script>
-    <script src="js/aos.js"></script>
+  <script src="js/aos.js"></script>
   <script src="js/popup.js"></script>
   <script src="js/counting.js"></script>
   <script src="js/landing-slide.js"></script>
