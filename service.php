@@ -271,15 +271,7 @@
     <?php include 'footer.php'; ?>
 
     <script src="js/aos.js"></script>
-    <script src="js/counting.js"></script>
-    <script src="js/landing-slide.js"></script>
-    <script src="js/textslide.js"></script>
-    <script src="js/stack.js"></script>
-    <script src="js/slider.js"></script>
-    <script src="js/jQuery.js"></script>
-    <script src="js/testmonial.js"></script>
     <script src="js/footerImg.js"></script>
-    <script src="js/textparallax.js"></script>
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

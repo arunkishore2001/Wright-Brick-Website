@@ -26,6 +26,7 @@ session_start();
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="stylesheet" href="./css/index.css" />
   <link rel="stylesheet" href="./css/about.css" />
+  <link rel="stylesheet" href="./css/gallery.css" />
   <link rel="stylesheet" href="./css/aos.css" />
 </head>
 
@@ -165,11 +166,11 @@ session_start();
   </div>
 
   <div class="container-fluid mt-5">
-    <div class="project-heading my-5" data-animation="slideInRight">
+    <div class="project-heading my-5">
       <h1>Gallery</h1>
     </div>
 
-    <section class="main-gallery" data-animation="slideInUp">
+    <section class="main-gallery">
       <div id="gallery" class="container-lg">
         <?php
         // Fetch all image URLs from the database
