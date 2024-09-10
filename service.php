@@ -23,10 +23,12 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/service.css" />
     <link rel="stylesheet" href="./css/aos.css" />
+    <link rel="stylesheet" href="./css/preloader.css" />
   </head>
 
   <body>
    
+  <?php include('preloader.html'); ?>
 
   <div class="container pt-5">
         <div class="entry-screen mt-5 " data-animation="slideInRight" data-animation-delay="200ms">
@@ -270,6 +272,7 @@
   
     <?php include 'footer.php'; ?>
 
+    <script src="js/preloader.js"></script>
     <script src="js/aos.js"></script>
     <script src="js/counting.js"></script>
     <script src="js/landing-slide.js"></script>

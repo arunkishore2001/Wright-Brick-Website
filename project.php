@@ -27,9 +27,12 @@ session_start();
   <link rel="stylesheet" href="./css/index.css" />
   <link rel="stylesheet" href="./css/about.css" />
   <link rel="stylesheet" href="./css/aos.css" />
+  <link rel="stylesheet" href="./css/preloader.css" />
 </head>
 
 <body>
+<?php include('preloader.html'); ?>
+
   <?php include 'subheader.php'; ?>
 
   <div class="container pt-5">
@@ -211,6 +214,7 @@ session_start();
 
   <script src="js/footerImg.js"></script>
   <script src="js/aos.js"></script>
+  <script src="js/preloader.js"></script>
 
   <script>
     function toggleMenu() {

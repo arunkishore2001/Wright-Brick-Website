@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="./css/about.css" />
   <link rel="stylesheet" href="./css/gallery.css" />
   <link rel="stylesheet" href="./css/contact.css" />
-
+  <link rel="stylesheet" href="./css/preloader.css" />
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
@@ -38,6 +38,8 @@
 </head>
 
 <body>
+<?php include('preloader.html'); ?>
+
   <main>
   <div class="container pt-5">
         <div class="entry-screen mt-5 " data-animation="slideInRight" data-animation-delay="200ms">
@@ -346,6 +348,7 @@
 
   <script src="js/aos.js"></script>
   <script src="js/footerImg.js"></script>
+  <script src="js/preloader.js"></script>
 
   <script>
     function toggleMenu() {

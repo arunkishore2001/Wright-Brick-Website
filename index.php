@@ -30,35 +30,14 @@ session_start();
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./css/aos.css" />
   <link rel="stylesheet" href="./css/preloader.css" />
+
 </head>
 
-<body>
 
-  <section>
-    <div id="preloader" class="ctn-preloader">
-      <div id="ctn-preloader" class="ctn-preloader">
-        <div class="animation-preloader">
-          <div class="spinner"></div>
-          <div class="txt-loading">
-            <span data-text-preloader="W" class="letters-loading">W</span>
-            <span data-text-preloader="r" class="letters-loading">r</span>
-            <span data-text-preloader="i" class="letters-loading">i</span>
-            <span data-text-preloader="g" class="letters-loading">g</span>
-            <span data-text-preloader="h" class="letters-loading">h</span>
-            <span data-text-preloader="t" class="letters-loading">t</span>
-            <span data-text-preloader=" " class="letters-loading"> </span>
-            <span data-text-preloader="B" class="letters-loading">B</span>
-            <span data-text-preloader="r" class="letters-loading">r</span>
-            <span data-text-preloader="i" class="letters-loading">i</span>
-            <span data-text-preloader="c" class="letters-loading">c</span>
-            <span data-text-preloader="k" class="letters-loading">k</span>
-          </div>
-        </div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-      </div>
-    </div>
-  </section>
+
+
+<body>
+<?php include('preloader.html'); ?>
 
   <?php include 'header.php'; ?>
 
@@ -1128,8 +1107,71 @@ session_start();
     </div>
   </div>
 
-  <?php include 'footer.php'; ?>
 
+  <div class="container mt-5">
+        <h2>Video Gallery</h2>
+        <div class="row">
+            <?php
+            include './admin_php/config.php';
+
+            // Fetch videos
+            $sql = "SELECT id, video_id FROM videos";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    $video_id = $row["video_id"];
+                    $id = $row["id"];
+                    // Get YouTube thumbnail URL
+                    $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
+                    echo "<div class='col-lg-3 col-md-4 col-sm-6 mb-4'>
+                            <div class='card'>
+                                <div class='card-body'>
+                                    <img class='yt-thumbnail' src='$thumbnail_url' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id' alt='Video Thumbnail'>
+                                </div>
+                               
+                            </div>
+                          </div>
+
+                          <!-- Modal for Lightbox -->
+                          <div class='modal fade' id='ytLightboxModal$video_id' tabindex='-1' aria-labelledby='ytLightboxModalLabel$video_id' aria-hidden='true'>
+                              <div class='modal-dialog modal-lg'>
+                                  <div class='modal-content custom-modal-content'>
+                                      <div class='modal-header'>
+                                          <h5 class='modal-title' id='ytLightboxModalLabel$video_id'>Preview Video</h5>
+                                          <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                      </div>
+                                      <div class='modal-body'>
+                                          <iframe class='yt-modal-frame' id='videoFrame$video_id' src='' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>";
+                }
+            } else {
+                echo "<p class='text-center'>No videos found</p>";
+            }
+
+            // Close connection
+            $conn->close();
+            ?>
+        </div>
+    </div>
+
+    <?php include 'footer.php'; ?>
+
+   
+  <!-- <script>
+        function openPopup(videoId) {
+            const width = 800;
+            const height = 450;
+            const left = (window.innerWidth / 2) - (width / 2);
+            const top = (window.innerHeight / 2) - (height / 2);
+            const url = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            window.open(url, 'popupWindow', `width=${width},height=${height},top=${top},left=${left}`);
+        }
+    </script> -->
   <script>
     window.addEventListener('load', function () {
       setTimeout(function () {
@@ -1144,7 +1186,28 @@ session_start();
       }, 2000);
     });
   </script>
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all modal elements
+            var modals = document.querySelectorAll('.modal');
 
+            // Add event listeners to each modal
+            modals.forEach(function(modal) {
+                // Handle when the modal is shown (to start the video)
+                modal.addEventListener('show.bs.modal', function () {
+                    var iframe = modal.querySelector('iframe');
+                    var videoId = iframe.id.replace('videoFrame', '');
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;  // Autoplay the video when modal opens
+                });
+
+                // Handle when the modal is hidden (to stop the video)
+                modal.addEventListener('hidden.bs.modal', function() {
+                    var iframe = modal.querySelector('iframe');
+                    iframe.src = ''; // Stop the video by clearing the src
+                });
+            });
+        });
+    </script>
 
   <script src="js/contact-detail.js"></script>
   <script src="js/aos.js"></script>

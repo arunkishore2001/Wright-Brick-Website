@@ -7,13 +7,15 @@
         </div>
 
         <div class="nav-link navigation-pages-wrapper d-md-flex align-items-center">
-          <nav class="d-md-flex">
-            <a class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active-nav' : ''; ?>" href="index.php">Home</a>
-            <a class="<?php echo basename($_SERVER['PHP_SELF']) == 'about.php' ? 'active-nav' : ''; ?>" href="about.php">About Us</a>
-            <a class="<?php echo basename($_SERVER['PHP_SELF']) == 'service.php' ? 'active-nav' : ''; ?>" href="service.php">Services</a>
-            <a class="<?php echo basename($_SERVER['PHP_SELF']) == 'project.php' ? 'active-nav' : ''; ?>" href="project.php">Projects</a>
-            <a class="<?php echo basename($_SERVER['PHP_SELF']) == 'contact.php' ? 'active-nav' : ''; ?>" href="contact.php">Contact</a>
-          </nav>
+        <nav class="d-md-flex">
+    <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'home' || basename($_SERVER['REQUEST_URI'], '.php') == 'home' || basename($_SERVER['REQUEST_URI'], '.php') == 'index' ? 'active-nav' : ''; ?>" href="home">Home</a>
+    <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'about' ? 'active-nav' : ''; ?>" href="about">About Us</a>
+    <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'service' ? 'active-nav' : ''; ?>" href="service">Services</a>
+    <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'project' ? 'active-nav' : ''; ?>" href="project">Projects</a>
+    <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'contact' ? 'active-nav' : ''; ?>" href="contact">Contact</a>
+</nav>
+
+
         </div>
 
         <div class="contact-btn">

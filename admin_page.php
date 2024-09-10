@@ -2,8 +2,27 @@
 include './admin_php/config.php';
 include './admin_php/functions.php';
 
+
+// Handle delete request
+if (isset($_GET['delete_id'])) {
+    $delete_id = $_GET['delete_id'];
+
+    // SQL query to delete the video
+    $delete_sql = "DELETE FROM videos WHERE id = ?";
+    $stmt = $conn->prepare($delete_sql);
+    $stmt->bind_param("i", $delete_id);
+    $stmt->execute();
+    $stmt->close();
+    
+    // Redirect after deletion
+    header("Location: admin_page.php");
+    exit();
+}
+
 session_start();
 requireLogin();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +65,69 @@ requireLogin();
 </head>
 
 <body>
+
+
+<div class="container mt-5">
+    <h2>Manage Video Gallery</h2>
+
+    <!-- Add Video Form -->
+    <form action="./admin_php/add_video.php" method="post" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="video_link" class="form-control" placeholder="Enter YouTube video link" required>
+            <button class="btn btn-primary" type="submit">Add Video</button>
+        </div>
+    </form>
+
+    <div class="row">
+        <?php
+        // Fetch videos
+        $sql = "SELECT id, video_id FROM videos";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $video_id = $row["video_id"];
+                $id = $row["id"];
+                echo "<div class='col-lg-3 col-md-4 col-sm-6 mb-4'>
+                        <div class='card h-100'>
+                            <div class='card-body p-0'>
+                                <iframe width='100%' height='215' src='https://www.youtube.com/embed/$video_id' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+                            </div>
+                            <div class='card-footer'>
+                                <!-- Preview Button (opens video in modal) -->
+                                <button class='btn btn-secondary btn-sm' data-bs-toggle='modal' data-bs-target='#previewModal$video_id'>Preview</button>
+                                
+                                <!-- Delete Button -->
+                                <a href='admin_page.php?delete_id=$id' class='btn btn-danger btn-sm'>Delete</a>
+                            </div>
+                        </div>
+                      </div>
+
+                      <!-- Modal for Preview -->
+                      <div class='modal fade' id='previewModal$video_id' tabindex='-1' aria-labelledby='previewModalLabel$video_id' aria-hidden='true'>
+                          <div class='modal-dialog modal-lg'>
+                              <div class='modal-content'>
+                                  <div class='modal-header'>
+                                      <h5 class='modal-title' id='previewModalLabel$video_id'>Preview Video</h5>
+                                      <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                  </div>
+                                  <div class='modal-body'>
+                                      <iframe width='100%' height='400' src='https://www.youtube.com/embed/$video_id' frameborder='0' allowfullscreen></iframe>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>";
+            }
+        } else {
+            echo "<p>No videos found</p>";
+        }
+
+        // Close connection
+    
+        ?>
+    </div>
+</div>
+
 
     <div class="container">
         <h2 class="text-center">Hello, Admin</h2>
