@@ -1199,13 +1199,13 @@ session_start();
     });
   </script>
 
+  <script src="js/textslide.js"></script>
   <script src="js/preloader.js"></script>
   <script src="js/contact-detail.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/popup.js"></script>
   <script src="js/counting.js"></script>
   <script src="js/landing-slide.js"></script>
-  <script src="js/textslide.js"></script>
   <script src="js/stack.js"></script>
   <script src="js/slider.js"></script>
   <script src="js/testmonial.js"></script>
