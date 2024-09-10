@@ -270,7 +270,7 @@ h6 {
 .slider-container {
   min-width: 100px;
   height: 500px;
-  background-image: url("img/bg-img.png");
+  background-image: url("../img/bg-img.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

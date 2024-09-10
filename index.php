@@ -19,25 +19,29 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./css/styles.css" />
-  <link rel="stylesheet" href="./css/index.css" />
-  <link rel="stylesheet" href="./css/popup.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/popup.css" />
   <link rel="stylesheet" href="./css/aos.css" />
   <link rel="stylesheet" href="./css/preloader.css" />
-
 </head>
 
-
-
-
 <body>
-<?php include('preloader.html'); ?>
+  <?php include 'preloader.html'; ?>
 
   <?php include 'header.php'; ?>
 
@@ -1109,23 +1113,23 @@ session_start();
 
 
   <div class="container mt-5">
-        <h2>Video Gallery</h2>
-        <div class="row">
-            <?php
-            include './admin_php/config.php';
+    <h2>Video Gallery</h2>
+    <div class="row">
+      <?php
+      include './admin_php/config.php';
 
-            // Fetch videos
-            $sql = "SELECT id, video_id FROM videos";
-            $result = $conn->query($sql);
+      // Fetch videos
+      $sql = "SELECT id, video_id FROM videos";
+      $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-                // Output data of each row
-                while ($row = $result->fetch_assoc()) {
-                    $video_id = $row["video_id"];
-                    $id = $row["id"];
-                    // Get YouTube thumbnail URL
-                    $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
-                    echo "<div class='col-lg-3 col-md-4 col-sm-6 mb-4'>
+      if ($result->num_rows > 0) {
+        // Output data of each row
+        while ($row = $result->fetch_assoc()) {
+          $video_id = $row["video_id"];
+          $id = $row["id"];
+          // Get YouTube thumbnail URL
+          $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
+          echo "<div class='col-lg-3 col-md-4 col-sm-6 mb-4'>
                             <div class='card'>
                                 <div class='card-body'>
                                     <img class='yt-thumbnail' src='$thumbnail_url' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id' alt='Video Thumbnail'>
@@ -1148,20 +1152,20 @@ session_start();
                                   </div>
                               </div>
                           </div>";
-                }
-            } else {
-                echo "<p class='text-center'>No videos found</p>";
-            }
+        }
+      } else {
+        echo "<p class='text-center'>No videos found</p>";
+      }
 
-            // Close connection
-            $conn->close();
-            ?>
-        </div>
+      // Close connection
+      $conn->close();
+      ?>
     </div>
+  </div>
 
-    <?php include 'footer.php'; ?>
+  <?php include 'footer.php'; ?>
 
-   
+
   <!-- <script>
         function openPopup(videoId) {
             const width = 800;
@@ -1173,42 +1177,29 @@ session_start();
         }
     </script> -->
   <script>
-    window.addEventListener('load', function () {
-      setTimeout(function () {
-        $('#ctn-preloader').addClass('loaded');
-        $('body').removeClass('no-scroll-y');
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get all modal elements
+      var modals = document.querySelectorAll('.modal');
 
-        if ($('#ctn-preloader').hasClass('loaded')) {
-          $('#preloader').delay(1000).queue(function () {
-            $(this).remove();
-          });
-        }
-      }, 2000);
+      // Add event listeners to each modal
+      modals.forEach(function (modal) {
+        // Handle when the modal is shown (to start the video)
+        modal.addEventListener('show.bs.modal', function () {
+          var iframe = modal.querySelector('iframe');
+          var videoId = iframe.id.replace('videoFrame', '');
+          iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;  // Autoplay the video when modal opens
+        });
+
+        // Handle when the modal is hidden (to stop the video)
+        modal.addEventListener('hidden.bs.modal', function () {
+          var iframe = modal.querySelector('iframe');
+          iframe.src = ''; // Stop the video by clearing the src
+        });
+      });
     });
   </script>
- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all modal elements
-            var modals = document.querySelectorAll('.modal');
 
-            // Add event listeners to each modal
-            modals.forEach(function(modal) {
-                // Handle when the modal is shown (to start the video)
-                modal.addEventListener('show.bs.modal', function () {
-                    var iframe = modal.querySelector('iframe');
-                    var videoId = iframe.id.replace('videoFrame', '');
-                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;  // Autoplay the video when modal opens
-                });
-
-                // Handle when the modal is hidden (to stop the video)
-                modal.addEventListener('hidden.bs.modal', function() {
-                    var iframe = modal.querySelector('iframe');
-                    iframe.src = ''; // Stop the video by clearing the src
-                });
-            });
-        });
-    </script>
-
+  <script src="js/preloader.js"></script>
   <script src="js/contact-detail.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/popup.js"></script>
@@ -1238,14 +1229,6 @@ session_start();
       }, 4000);
     });
   </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
-    </script>
 
   <script>
     function toggleMenu() {
