@@ -33,6 +33,9 @@ session_start();
   <link rel="stylesheet" href="./css/aos.css" />
   <link rel="stylesheet" href="./css/preloader.css" />
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -158,14 +161,15 @@ session_start();
                     <p><?php echo $project['description'] ?></p>
                   </div>
 
-                  <div class="view-more view-project mt-4" >
-                    <p>View More</p>
+                  <div class="view-more view-project mt-4">
+    <a  style="text-decoration:none;" href="best-project.php?project_id=<?php echo $project['project_id'] ?>" class="view-more-link">
+        <p>View More</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    </svg>
-                  </div>
                 </div>
               </div>
             </div>
@@ -181,41 +185,45 @@ session_start();
     </div>
 
     <section class="main-gallery">
-      <div id="gallery" class="container-lg">
-        <?php
-        // Fetch all image URLs from the database
-        $imgSql = "SELECT image_url FROM images";
-        $imgResult = $conn->query($imgSql);
+  <div id="gallery" class="container-lg">
+    <?php
+    // Fetch all image URLs from the database
+    $imgSql = "SELECT image_url FROM images";
+    $imgResult = $conn->query($imgSql);
 
-        if ($imgResult->num_rows > 0) {
-          // Loop through each image
-          while ($row = $imgResult->fetch_assoc()) {
-            $imageUrl = $row['image_url'];
-            // If the URL starts with '../', remove it
-            $imageUrl = (strpos($imageUrl, '../') === 0) ? substr($imageUrl, 3) : $imageUrl;
-            ?>
-            <img loading="lazy" src="<?php echo $imageUrl; ?>" class="img-responsive" />
-          <?php }
-        } else {
-          echo "<p>No images found.</p>";
-        }
-
-        $conn->close();
+    if ($imgResult->num_rows > 0) {
+      // Loop through each image
+      while ($row = $imgResult->fetch_assoc()) {
+        $imageUrl = $row['image_url'];
+        // If the URL starts with '../', remove it
+        $imageUrl = (strpos($imageUrl, '../') === 0) ? substr($imageUrl, 3) : $imageUrl;
         ?>
-      </div>
-    </section>
+        <!-- Each image will have a click event to show the modal -->
+        <img loading="lazy" src="<?php echo $imageUrl; ?>" class="img-responsive img-thumbnail" style="width:200px; height:auto; cursor:pointer;" 
+             data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage('<?php echo $imageUrl; ?>')" />
+      <?php }
+    } else {
+      echo "<p>No images found.</p>";
+    }
+
+    $conn->close();
+    ?>
+  </div>
+</section>
 
 
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-body"></div>
-        </div>
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body position-relative">
+      
+        <button type="button" class="btn-close position-absolute top-0 end-0 p-3" data-bs-dismiss="modal" aria-label="Close"></button>
+        <img id="modalImage" class="img-fluid" />
       </div>
     </div>
-    </section>
   </div>
+</div>
+
 
   <?php include 'footer.php'; ?>
   <!-- Bootstrap JavaScript Libraries -->
@@ -223,6 +231,12 @@ session_start();
   <script src="js/footerImg.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/preloader.js"></script>
+
+  <script>
+function showImage(imageUrl) {
+  document.getElementById('modalImage').src = imageUrl;
+}
+</script>
 
   <script>
     function toggleMenu() {

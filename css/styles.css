@@ -1572,3 +1572,33 @@ h6 {
 .modal-dialog {
   max-width: 900px;
 }
+
+
+
+
+#testimonialForm {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#testimonialForm input, #testimonialForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+#testimonialForm button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#testimonialForm button:hover {
+  background-color: #45a049;
+}

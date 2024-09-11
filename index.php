@@ -785,7 +785,62 @@ session_start();
         </div>
       </div>
 
+
+
+
+
+        
+
+
+
+
+
       <div class="col-md-6 mt-5 mt-md-0" data-animation="slideInLeft" data-animation-delay="200ms">
+      <div class="container mt-4">
+      <div class="container mt-4">
+        <!-- Review Button -->
+        <button id="reviewBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#testimonialModal">Write a Review</button>
+    </div>
+
+    <!-- Testimonial Modal -->
+    <div class="modal fade" id="testimonialModal" tabindex="-1" aria-labelledby="testimonialModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="testimonialModalLabel">Submit a Testimonial</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="./admin_php/submit_testimonial.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role:</label>
+                            <input type="text" id="role" name="role" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Testimonial:</label>
+                            <textarea id="text" name="text" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="img">Upload Photo:</label>
+                            <input type="file" id="img" name="img" class="form-control-file" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
         <div class="testimonial">
           <div class="testimonial-bg">
             <img src="./img/testimonail-img.png" alt="" />
@@ -838,6 +893,29 @@ session_start();
       </div>
     </div>
   </div>
+
+
+  <script>
+    // Get references to the buttons and form
+const reviewBtn = document.getElementById("reviewBtn");
+const testimonialForm = document.getElementById("testimonialForm");
+const cancelBtn = document.getElementById("cancelBtn");
+
+// Toggle form visibility when the "Review" button is clicked
+reviewBtn.addEventListener("click", function () {
+    if (testimonialForm.style.display === "none" || testimonialForm.style.display === "") {
+        testimonialForm.style.display = "block";  // Show form
+    } else {
+        testimonialForm.style.display = "none";  // Hide form
+    }
+});
+
+// Hide form when "Cancel" button is clicked
+cancelBtn.addEventListener("click", function () {
+    testimonialForm.style.display = "none";  // Hide form
+});
+
+  </script>
 
   <!-- Popup Modal -->
 
