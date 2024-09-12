@@ -64,7 +64,7 @@ session_start();
     overflow: hidden;
     position: relative;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -72,20 +72,9 @@ session_start();
     width: 100%;
     height: 220px;
     object-fit: cover;
-    border-radius: 10px;
+
     transition: transform 0.3s ease;
 }
-
-.image-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-
-.image-item:hover img {
-    transform: scale(1.1);
-}
-
 
 
 
@@ -193,8 +182,8 @@ if ($result && $result->num_rows > 0) {
 </div>
 
 
-<div class="container mt-4">
-    <div class="image-grid mt-4">
+<div class="container mt-5">
+    <div class="image-grid mt-5">
         <?php foreach ($images as $image): ?>
             <div class="image-item">
                 <img src="<?php echo htmlspecialchars($image); ?>" alt="Project Image" class="img-fluid" />
