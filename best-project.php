@@ -1,4 +1,5 @@
 <?php
+include 'subheader.php';
 include './admin_php/config.php';
 session_start();
 
@@ -44,10 +45,47 @@ session_start();
 
 .entry-img img {
     max-width: 100%;
-    height: 200px;
+    height: 150px;
     border-radius: 100px;
     object-fit: cover;
 }
+
+.container {
+    padding: 0 15px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.image-item {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+.image-item:hover img {
+    transform: scale(1.1);
+}
+
 
 
 
@@ -57,11 +95,7 @@ session_start();
 </head>
 
 <body>
-<?php include('preloader.html'); ?>
-
-  <?php include 'subheader.php'; ?>
-
-  <?php
+<?php
 // Assuming you pass the project_id via GET request
 $projectId = isset($_GET['project_id']) ? intval($_GET['project_id']) : 0;
 
@@ -82,6 +116,15 @@ if ($result && $result->num_rows > 0) {
         $firstImage = 'default-image.jpg'; // Fallback image
     }
 
+    // Fetch additional images
+    $imagesSql = "SELECT image_url FROM images WHERE project_id = $projectId";
+    $imagesResult = $conn->query($imagesSql);
+    $images = [];
+    while ($row = $imagesResult->fetch_assoc()) {
+        $imageUrl = $row['image_url'];
+        $images[] = strpos($imageUrl, '../') === 0 ? substr($imageUrl, 3) : $imageUrl;
+    }
+
     // Format the date
     $timestamp = strtotime($project['date']);
     $day = date('j', $timestamp);
@@ -98,9 +141,13 @@ if ($result && $result->num_rows > 0) {
     // Handle case where project ID is invalid or not found
     $project = ['project_name' => 'Not Found', 'description' => 'No description available.', 'date' => ''];
     $firstImage = 'default-image.jpg';
+    $images = [];
     $formattedDate = '';
 }
 ?>
+
+
+
 
 <div class="container pt-5">
     <div class="entry-screen mt-5">
@@ -117,10 +164,11 @@ if ($result && $result->num_rows > 0) {
         </div>
 
         <div class="entry-right" data-animation="slideInLeft" data-animation-delay="700ms">
-            <div class="entry-img">
-                <img src="<?php echo htmlspecialchars($firstImage); ?>" alt="Project Image" />
-            </div>
-        </div>
+    <div class="entry-img">
+        <img src="<?php echo htmlspecialchars($firstImage); ?>" alt="Project Image" class="img-fluid" />
+    </div>
+</div>
+
     </div>
 </div>
 
@@ -139,12 +187,22 @@ if ($result && $result->num_rows > 0) {
             <p><?php echo htmlspecialchars($project['description']); ?></p>
             
         </div>
+
+       
     </div>
 </div>
 
 
+<div class="container mt-4">
+    <div class="image-grid mt-4">
+        <?php foreach ($images as $image): ?>
+            <div class="image-item">
+                <img src="<?php echo htmlspecialchars($image); ?>" alt="Project Image" class="img-fluid" />
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
 
-  
 
      
 
