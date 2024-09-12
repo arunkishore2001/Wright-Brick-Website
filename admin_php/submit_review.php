@@ -6,11 +6,10 @@ session_start();
 $name = mysqli_real_escape_string($conn, $_POST['name']);
 $designation = mysqli_real_escape_string($conn, $_POST['designation']);
 $review = mysqli_real_escape_string($conn, $_POST['review']);
-$title = mysqli_real_escape_string($conn, $_POST['title']);
 $visible = 0;
 
 // Default picture if photo is not selected
-$defaultPicture = "uploads/ag-creation.png";
+$defaultPicture = "uploads/default-profile.png";
 
 if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == UPLOAD_ERR_OK) {
     $target_dir = "../uploads/";
@@ -46,8 +45,8 @@ if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == UPLOAD_ERR_OK) {
     $photoPath = $defaultPicture;
 }
 
-$sql = "INSERT INTO reviews (name, designation, photo, review, visible, title)
-VALUES ('$name', '$designation', '$photoPath', '$review', '$visible', '$title')";
+$sql = "INSERT INTO reviews (name, designation, photo, review, visible)
+VALUES ('$name', '$designation', '$photoPath', '$review', '$visible')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Thanks For Your Valuable Review !";

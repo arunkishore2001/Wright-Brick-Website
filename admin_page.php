@@ -341,6 +341,29 @@ requireLogin();
         </div>
     </div>
 
+    <!-- Reviews table -->
+
+    <?php
+
+    $result = mysqli_query($conn, "SELECT * FROM reviews");
+
+    if (mysqli_num_rows($result) > 0) {
+        // Fetch and display the reviews
+    } else {
+        echo "No reviews found.";
+    }
+
+    ?>
+
+    <div class="container">
+        <h2>Reviews</h2>
+        <br>
+        <div id="ReviewMessage"></div>
+        <div id="reviewsTable" class="table-responsive">
+            <!-- The reviews will be loaded here -->
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
@@ -348,6 +371,38 @@ requireLogin();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
+
+        
+function confirmAction(message, action) {
+    $('#confirmationText').text(message);
+    $('#confirmBtn').off('click').click(function() {
+        action();
+        $('#confirmationModal').modal('hide');
+    });
+    $('#confirmationModal').modal('show');
+}
+
+function deleteReview(id) {
+    if (confirm('Are you sure you want to delete this review?')) {
+        $.post('./admin_php/delete_review.php', {
+            id: id
+        }, function(data) {
+            $("#message").html('<div class="alert alert-success">' + data + '</div>');
+            loadReviews();
+        }).fail(function() {
+            $("#message").html('<div class="alert alert-danger">An error occurred.</div>');
+        });
+    }
+}
+function loadReviews() {
+    $("#reviewsTable").load('./admin_php/fetch_reviews.php');
+}
+
+$(document).ready(function() {
+    loadReviews();
+   
+});
+
         function loadContact() {
             $("#contact-table").load('./admin_php/fetch_contact.php');
         }
