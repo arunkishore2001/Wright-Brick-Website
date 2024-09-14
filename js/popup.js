@@ -2,7 +2,7 @@
 var modal = document.getElementById("popupModal");
 
 // Get the link that opens the modal
-var link = document.getElementById("contactLink");
+// var link = document.getElementById("contactLink"); need to use
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];

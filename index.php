@@ -21,11 +21,11 @@ session_start();
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
+        </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
-    </script>
+        </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
@@ -43,7 +43,7 @@ session_start();
 <body>
     <?php include 'preloader.html'; ?>
 
-    <?php include 'header.php'; ?>
+    <?php include 'subheader.php'; ?>
 
 
     <div class="container-fluid-max whole-slider">
@@ -67,8 +67,7 @@ session_start();
         <div class="row">
             <div class="col-md-8">
                 <div class="left-landing-wrapper d-flex flex-column justify-content-center h-100 w-100">
-                    <div class="left-header d-flex align-items-center" data-animation="slideInRight"
-                        data-animation-delay="1000ms">
+                    <div class="left-header d-flex align-items-center" data-animation="slideInRight">
                         <h1 class="slide">
                             Best
                             <span class="highlight" id="dynamic-text">Interiors</span> In
@@ -77,8 +76,7 @@ session_start();
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-md-flex d-none justify-content-end mt-5" data-animation="slideInLeft"
-                data-animation-delay="1000ms">
+            <div class="col-md-4 d-md-flex d-none justify-content-end mt-5" data-animation="slideInLeft">
                 <?php include 'contact-form.php'; ?>
             </div>
         </div>
@@ -93,7 +91,7 @@ session_start();
     </div>
     <div class="container experience">
         <div class="experience-box" data-animation="slideInUp">
-            <div class="exp-content" data-animation="slideInRight" data-animation-delay="300ms">
+            <div class="exp-content" data-animation="flipInY" data-animation-delay="50ms">
                 <div class="exp-count">
                     <h5>
                         <span class="count" data-target="5">0</span>+
@@ -101,7 +99,7 @@ session_start();
                     </h5>
                 </div>
 
-                <div class="exp-value" data-animation="slideInRight" data-animation-delay="600ms">
+                <div class="exp-value">
                     <h6>EXPERIENCE</h6>
                 </div>
 
@@ -125,7 +123,7 @@ session_start();
 
 
 
-            <div class="exp-content" data-animation="slideInRight" data-animation-delay="900ms">
+            <div class="exp-content" data-animation="flipInY" data-animation-delay="50ms">
                 <div class="exp-count">
                     <h5>
                         <span class="count" data-target="5">0</span>+
@@ -164,7 +162,7 @@ session_start();
                 </div>
             </div>
 
-            <div class="exp-content" data-animation="slideInRight" data-animation-delay="1200ms">
+            <div class="exp-content" data-animation="flipInY" data-animation-delay="50ms">
                 <div class="exp-count">
                     <h5>
                         <span class="count" data-target="5">0</span>+
@@ -231,19 +229,19 @@ session_start();
                 <section class="">
                     <div class="slider-images">
                         <div class="slider-img slider-img-b active">
-                            <img src="img/1.png" alt="1" />
+                            <img loading="lazy" src="img/1.png" alt="1" />
                             <span>
                                 <h3>Interior</h3>
                             </span>
                         </div>
                         <div class="slider-img">
-                            <img src="img/2.png" alt="2" />
+                            <img loading="lazy" src="img/2.png" alt="2" />
                             <span>
                                 <h3>Architecture</h3>
                             </span>
                         </div>
                         <div class="slider-img">
-                            <img src="img/3.png" alt="3" />
+                            <img loading="lazy" src="img/3.png" alt="3" />
                             <span>
                                 <h3>Turnkey</h3>
                             </span>
@@ -254,7 +252,7 @@ session_start();
         </div>
     </div>
 
-    <div class="container-fluid-max rolling-text" data-animation="slideInUp" data-animation-delay="900ms">
+    <div class="container-fluid-max rolling-text" data-animation="flipInY">
         <div class="wrapper">
             <ul class="tabs-box">
                 <li class="tab">FARM LAND</li>
@@ -284,7 +282,7 @@ session_start();
                 </div>
 
                 <div class="standout-container jumping-container mt-5 " data-animation="slideInDown"
-                    data-animation-delay="200ms">
+                    data-animation-delay="100ms">
                     <div class="standout-box jumping-div">
                         <div class="box-img">
                             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"
@@ -546,13 +544,13 @@ session_start();
     </div>
 
     <div class="container-fluid interior-section mt-5 pt-2">
-        <div class="interior-design py-4" data-animation="slideInRight" data-animation-delay="200ms">
+        <div class="interior-design py-4" data-animation="zoomIn" data-animation-delay="100ms">
             <div class="interior-heading">
                 <h3 class="text-center">Architecture</h3>
             </div>
 
             <div class="interior-img">
-                <img src="./img/archi.png" alt="" />
+                <img loading="lazy" src="./img/archi.png" alt="" />
             </div>
 
             <div class="interior-para">
@@ -573,13 +571,13 @@ session_start();
             </div>
         </div>
 
-        <div class="interior-design py-4" data-animation="slideInRight" data-animation-delay="400ms">
+        <div class="interior-design py-4" data-animation="zoomIn" data-animation-delay="200ms">
             <div class="interior-heading">
                 <h3 class="text-center">Architecture</h3>
             </div>
 
             <div class="interior-img">
-                <img src="./img/archi.png" alt="" />
+                <img loading="lazy" src="./img/archi.png" alt="" />
             </div>
 
             <div class="interior-para">
@@ -600,13 +598,13 @@ session_start();
             </div>
         </div>
 
-        <div class="interior-design py-4" data-animation="slideInRight" data-animation-delay="600ms">
+        <div class="interior-design py-4" data-animation="zoomIn" data-animation-delay="300ms">
             <div class="interior-heading">
                 <h3 class="text-center">Architecture</h3>
             </div>
 
             <div class="interior-img">
-                <img src="./img/archi.png" alt="" />
+                <img loading="lazy" src="./img/archi.png" alt="" />
             </div>
 
             <div class="interior-para">
@@ -629,12 +627,12 @@ session_start();
     </div>
 
     <div class="container mt-5">
-        <div class="partner-heading" data-animation="slideInDown">
+        <div class="partner-heading" data-animation="flipInY">
             <h4 class="text-center">OUR TRUSTED PARTNER</h4>
         </div>
     </div>
 
-    <div class="scroll-container my-5 py-5" data-animation="slideInUp">
+    <div class="scroll-container my-5 py-5" data-animation="zoomIn">
         <div class="scroll-inner">
             <div class="partner-detail">
                 <img loading="lazy" src="./img/partnership.png" />
@@ -662,90 +660,90 @@ session_start();
     <div class="container-fluid-max project-grid">
         <div class="grid-background py-5">
             <div class="container-fluid">
-                <div class="project-heading" data-animation="slideInRight">
+                <div class="project-heading" data-animation="flipInY">
                     <h1>OUR PROJECTS</h1>
                 </div>
 
                 <?php
-        // Fetch all projects
-        $sql = "SELECT * FROM projects LIMIT 5";
-        $result = $conn->query($sql);
+                // Fetch all projects
+                $sql = "SELECT * FROM projects LIMIT 5";
+                $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-          $i = 0;
-          while ($project = $result->fetch_assoc()) {
-            // Fetch images for the current project
-            $projectId = $project['project_id'];
-            $imgSql = "SELECT image_url FROM images WHERE project_id = $projectId LIMIT 1";
-            $imgResult = $conn->query($imgSql);
-            // Fetch the first image
-            if ($imgResult && $imgResult->num_rows > 0) {
-              $firstImage = $imgResult->fetch_assoc()['image_url'];
-              $firstImage = strpos($firstImage, '../') === 0 ? substr($firstImage, 3) : $firstImage;
-            } else {
-              $firstImage = 'default-image.jpg'; // Fallback if no image found
-            }
-            $timestamp = strtotime($project['date']);
-            $day = date('j', $timestamp);
-            $suffix = 'th';
-            if ($day == 1 || $day == 21 || $day == 31)
-              $suffix = 'st';
-            elseif ($day == 2 || $day == 22)
-              $suffix = 'nd';
-            elseif ($day == 3 || $day == 23)
-              $suffix = 'rd';
+                if ($result->num_rows > 0) {
+                    $i = 0;
+                    while ($project = $result->fetch_assoc()) {
+                        // Fetch images for the current project
+                        $projectId = $project['project_id'];
+                        $imgSql = "SELECT image_url FROM images WHERE project_id = $projectId LIMIT 1";
+                        $imgResult = $conn->query($imgSql);
+                        // Fetch the first image
+                        if ($imgResult && $imgResult->num_rows > 0) {
+                            $firstImage = $imgResult->fetch_assoc()['image_url'];
+                            $firstImage = strpos($firstImage, '../') === 0 ? substr($firstImage, 3) : $firstImage;
+                        } else {
+                            $firstImage = 'default-image.jpg'; // Fallback if no image found
+                        }
+                        $timestamp = strtotime($project['date']);
+                        $day = date('j', $timestamp);
+                        $suffix = 'th';
+                        if ($day == 1 || $day == 21 || $day == 31)
+                            $suffix = 'st';
+                        elseif ($day == 2 || $day == 22)
+                            $suffix = 'nd';
+                        elseif ($day == 3 || $day == 23)
+                            $suffix = 'rd';
 
-            $formattedDate = date('j', $timestamp) . $suffix . ' ' . date('F Y', $timestamp);
+                        $formattedDate = date('j', $timestamp) . $suffix . ' ' . date('F Y', $timestamp);
 
-            $order = $i % 2 == 0 ? 'order-md-1' : '';
-            $colSize = $i % 2 == 0 ? 'col-md-5 offset-md-1' : 'col-md-6';
-            $i++;
-            ?>
+                        $order = $i % 2 == 0 ? 'order-md-1' : '';
+                        $colSize = $i % 2 == 0 ? 'col-md-5 offset-md-1' : 'col-md-6';
+                        $i++;
+                        ?>
 
-                <div class="row">
-                    <div class="col-md-6 <?php echo $order ?>" data-animation="slideInLeft"
-                        data-animation-delay="200ms">
-                        <div class="project-img mt-5">
-                            <img src="<?php echo $firstImage ?>" alt="" />
-                        </div>
-                    </div>
-                    <div class="<?php echo $colSize ?> mt-5 pt-5 right-whole-project" data-animation="slideInRight"
-                        data-animation-delay="200ms">
-
-                        <div id="project-right" class="project-right mt-5">
-                            <div class="project-date">
-                                <p><?php echo $formattedDate ?></p>
-                            </div>
-
-                            <div class="project-right-line mt-4"></div>
-
-                            <div class="project-right-heading mt-4">
-                                <h3><?php echo $project['project_name'] ?></h3>
-                            </div>
-
-                            <div class="project-right-para mt-3">
-                                <p><?php echo $project['description'] ?></p>
-                            </div>
-
-                            <a style="text-decoration:none;"
-                                href="best-project.php?project_id=<?php echo $project['project_id'] ?>"
-                                class="view-more-link">
-                                <div class="view-more view-project mt-4">
-
-                                    <p class="mb-0">View More</p>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-
+                        <div class="row">
+                            <div class="col-md-6 <?php echo $order ?>" data-animation="slideInLeft"
+                                data-animation-delay="100ms">
+                                <div class="project-img mt-5">
+                                    <img loading="lazy" src="<?php echo $firstImage ?>" alt="" />
                                 </div>
-                            </a>
+                            </div>
+                            <div class="<?php echo $colSize ?> mt-5 pt-5 right-whole-project" data-animation="slideInRight"
+                                data-animation-delay="100ms">
+
+                                <div id="project-right" class="project-right mt-5">
+                                    <div class="project-date">
+                                        <p><?php echo $formattedDate ?></p>
+                                    </div>
+
+                                    <div class="project-right-line mt-4"></div>
+
+                                    <div class="project-right-heading mt-4">
+                                        <h3><?php echo $project['project_name'] ?></h3>
+                                    </div>
+
+                                    <div class="project-right-para mt-3">
+                                        <p><?php echo $project['description'] ?></p>
+                                    </div>
+
+                                    <a style="text-decoration:none;"
+                                        href="best-project.php?project_id=<?php echo $project['project_id'] ?>"
+                                        class="view-more-link">
+                                        <div class="view-more view-project mt-4">
+
+                                            <p class="mb-0">View More</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <?php }
-        } ?>
+                    <?php }
+                } ?>
             </div>
 
             <a href="./project.php">
@@ -763,7 +761,61 @@ session_start();
         </div>
     </div>
 
+    <!-- modal for testimonial -->
+    <div class="modal p-3" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title text-dark">Add My Review</h4>
+                    <div type="button" class="close" data-bs-dismiss="modal">X</div>
+                </div>
+
+                <div class="modal-body p-3">
+                    <form id="reviewForm" action="./admin_php/submit_review.php" method="post"
+                        enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="mb-1" for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="mb-1" for="designation">Designation:</label>
+                            <input type="text" class="form-control" id="designation" name="designation">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="mb-1" for="photo">Upload Profile Photo: (Optional)</label>
+                            <div class="mt-2">
+                                <input type="file" class="form-control-file border" id="photo" name="photo">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="mb-1" for="review">Write a Review:</label>
+                            <textarea class="form-control" id="review" name="review"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid mt-5 pt-4">
+        <!-- Review Button -->
+        <div class="d-md-flex flex-md-row-reverse" data-animation="flipInY">
+            <div class="view-more custom-button mb-2" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+                <p>Add My Review</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <div class="line contacts-line"></div>
+        </div>
         <div class="row">
             <div class="col-md-6" data-animation="slideInRight">
                 <div class="right-header">
@@ -777,7 +829,8 @@ session_start();
                             <input type="text" placeholder="Name" id="name" name='name' />
                             <input type="email" placeholder="Email" id="email" name='email' />
                             <div class="phone-input">
-                                <span><input type="text" class="country-code-input" value="+91" maxlength="4" /></span>
+                                <span><input type="text" class="country-code-input" value="+91" maxlength="4"
+                                        id="country" name='country' /></span>
                                 <input type="tel" placeholder="Mobile Number" id="phone" name='phone' />
                             </div>
                             <textarea id="message" placeholder="Message..." name='message'></textarea>
@@ -799,80 +852,9 @@ session_start();
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-            <!-- modal for testimonial -->
-            <div class="modal p-3" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <div class="modal-header">
-                            <h4 class="modal-title text-dark">Add My Review</h4>
-                            <div type="button" class="close" data-bs-dismiss="modal">X</div>
-                        </div>
-
-                        <div class="modal-body p-3">
-                            <form id="reviewForm" action="./admin_php/submit_review.php" method="post"
-                                enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <label class="mb-1" for="name">Name:</label>
-                                    <input type="text" class="form-control" id="name" name="name">
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label class="mb-1" for="designation">Designation:</label>
-                                    <input type="text" class="form-control" id="designation" name="designation">
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label class="mb-1" for="photo">Upload Profile Photo: (Optional)</label>
-                                    <div class="mt-2">
-                                        <input type="file" class="form-control-file border" id="photo" name="photo">
-                                    </div>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <label class="mb-1" for="review">Write a Review:</label>
-                                    <textarea class="form-control" id="review" name="review"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
             <div class="col-md-6 mt-5 mt-md-0" data-animation="slideInLeft" data-animation-delay="200ms">
                 <div class="container mt-4">
-                    <div class="container mt-4">
-                        <!-- Review Button -->
-                        <div class="d-md-flex flex-md-row-reverse">
-                          
-
-                            <div class="view-more custom-button mb-2" type="button" data-bs-toggle="modal"
-                            data-bs-target="#myModal">
-                                <p>Add My Review</p>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-
-                            <div class="line contacts-line"></div>
-                        </div>
-                    </div>
                     <div class="" id="ReviewSubmitMessage"></div>
-
-
                     <div class="testimonial">
                         <div class="testimonial-bg">
                             <img src="./img/testimonail-img.png" alt="" />
@@ -898,7 +880,7 @@ session_start();
                                     <div class="testimonial-details">
                                         <div class="photo-name">
                                             <div class="user-photo">
-                                                <img id="reviewPic" src="./img/user-photo.png" alt="" />
+                                                <img loading="lazy" id="reviewPic" src="./img/user-photo.png" alt="" />
                                             </div>
 
                                             <div class="user-name">
@@ -927,16 +909,17 @@ session_start();
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <script>
+    <script>
         // Get references to the buttons and form
         const reviewBtn = document.getElementById("reviewBtn");
         const testimonialForm = document.getElementById("testimonialForm");
         const cancelBtn = document.getElementById("cancelBtn");
 
         // Toggle form visibility when the "Review" button is clicked
-        reviewBtn.addEventListener("click", function() {
+        reviewBtn.addEventListener("click", function () {
             if (testimonialForm.style.display === "none" || testimonialForm.style.display === "") {
                 testimonialForm.style.display = "block"; // Show form
             } else {
@@ -945,317 +928,312 @@ session_start();
         });
 
         // Hide form when "Cancel" button is clicked
-        cancelBtn.addEventListener("click", function() {
+        cancelBtn.addEventListener("click", function () {
             testimonialForm.style.display = "none"; // Hide form
         });
-        </script>
+    </script>
 
-        <!-- Popup Modal -->
+    <!-- Popup Modal -->
 
-        <div id="popupModal" class="modal">
-            <!-- Left Modal Section -->
-            <div class="left-modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-
-                    <!-- Popup Content -->
-                    <h2 class="step-header">Basic Information</h2>
-                    <h3 class="step-subheader">STEP 1 of 3</h3>
-
-                    <div class="form-content">
-                        <div class="left-section">
-                            <p class="section-title">I own a...</p>
-                            <div class="own-a">
-
-                                <button class="property-type" id="apartment">Apartment</button>
-                                <button class="property-type" id="villa">Villa</button>
-                                <button class="property-type" id="independent-home">Independent Home</button>
-                            </div>
-
-
-                            <p class="section-title">My property type...</p>
-                            <div class="input-container">
-                                <input type="text" id="property-name" placeholder="Property type">
-                            </div>
-
-                            <p class="section-title">My floorplan type is...</p>
-                            <div class="floorplane-whole">
-                                <button class="floorplan-type ">1BHK</button>
-                                <button class="floorplan-type">2BHK</button>
-                                <button class="floorplan-type">3BHK</button>
-                                <button class="floorplan-type">3+BHK</button>
-                            </div>
-
-                        </div>
-
-                        <div class="right-section">
-                            <img src="./img/about.png" alt="Apartment Illustration">
-                            <p class="info-text">About your home</p>
-                            <p class="info-description">The details that you enter here help us understand more about
-                                your
-                                property.</p>
-                        </div>
-                    </div>
-
-                    <div class="buttons-step-2">
-
-                        <button class="next-button">NEXT</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Right Modal Section -->
-            <div class="right-modal left-modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-
-                    <!-- Right Modal Content -->
-                    <h2 class="step-header">Usage</h2>
-                    <h3 class="step-subheader">STEP 2 of 3</h3>
-
-                    <div class="form-content">
-                        <div class="left-section">
-                            <div class="right-modal-form">
-                                <div class="form-group ">
-                                    <p class="section-title">I am planning to..</p>
-                                    <div class="planning-form own-a">
-                                        <button class="planning-type" id="move-in">Move In</button>
-                                        <button class="planning-type" id="move-out">Move Out</button>
-                                        <button class="planning-type" id="renovate">Renovate</button>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <p class="section-title">I am looking for..</p>
-                                    <div class="looking-form own-a">
-                                        <button class="looking-type" id="end-to-end">End to End Interior</button>
-                                        <button class="looking-type" id="kitchen-wardrobe">Kitchen and
-                                            Wardrobes</button>
-                                        <button class="looking-type" id="only-kitchen">Only Kitchen</button>
-                                    </div>
-
-                                </div>
-
-                                <div class="form-group">
-                                    <p class="section-title">I have a budget</p>
-                                    <select>
-                                        <option>Select Budget</option>
-                                        <option>Less than $10,000</option>
-                                        <option>$10,000 - $20,000</option>
-                                        <option>$20,000 - $30,000</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <p class="section-title">Possession in..</p>
-                                    <select>
-                                        <option>Select Possession</option>
-                                        <option>1-3 Months</option>
-                                        <option>3-6 Months</option>
-                                        <option>6-12 Months</option>
-                                    </select>
-                                </div>
-
-                                <div class="buttons-step-2">
-                                    <button class="btn-back">BACK</button>
-                                    <button class="btn-next">Submit</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="right-section">
-                            <img src="./img/dream.png" alt="Interior Design Illustration">
-                            <p class="info-text">About your project</p>
-                            <p class="info-description">The details that you enter here help us understand more about
-                                your
-                                interior project.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Thank You Modal -->
-        <div id="thankYouModal" class="thank-you-modal">
+    <div id="popupModal" class="modal">
+        <!-- Left Modal Section -->
+        <div class="left-modal">
             <div class="modal-content">
-                <span class="close-thank-you">&times;</span>
-                <h2>Thank You!</h2>
-                <p>Thank you so much for your submission. We will contact you soon.</p>
+                <span class="close">&times;</span>
+
+                <!-- Popup Content -->
+                <h2 class="step-header">Basic Information</h2>
+                <h3 class="step-subheader">STEP 1 of 3</h3>
+
+                <div class="form-content">
+                    <div class="left-section">
+                        <p class="section-title">I own a...</p>
+                        <div class="own-a">
+
+                            <button class="property-type" id="apartment">Apartment</button>
+                            <button class="property-type" id="villa">Villa</button>
+                            <button class="property-type" id="independent-home">Independent Home</button>
+                        </div>
+
+
+                        <p class="section-title">My property type...</p>
+                        <div class="input-container">
+                            <input type="text" id="property-name" placeholder="Property type">
+                        </div>
+
+                        <p class="section-title">My floorplan type is...</p>
+                        <div class="floorplane-whole">
+                            <button class="floorplan-type ">1BHK</button>
+                            <button class="floorplan-type">2BHK</button>
+                            <button class="floorplan-type">3BHK</button>
+                            <button class="floorplan-type">3+BHK</button>
+                        </div>
+
+                    </div>
+
+                    <div class="right-section">
+                        <img loading="lazy" src="./img/about.png" alt="Apartment Illustration">
+                        <p class="info-text">About your home</p>
+                        <p class="info-description">The details that you enter here help us understand more about
+                            your
+                            property.</p>
+                    </div>
+                </div>
+
+                <div class="buttons-step-2">
+
+                    <button class="next-button">NEXT</button>
+                </div>
             </div>
         </div>
 
-        <div class="container mt-5">
-            <div class="row">
-                <div class="faq-heading" data-animation="slideInRight" data-animation-delay="200ms">
-                    <h1>FAQs</h1>
-                </div>
-                <div class="faq-subheading" data-animation="slideInRight" data-animation-delay="200ms">
-                    <p>People commonly asks</p>
+
+        <!-- Right Modal Section -->
+        <div class="right-modal left-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+                <!-- Right Modal Content -->
+                <h2 class="step-header">Usage</h2>
+                <h3 class="step-subheader">STEP 2 of 3</h3>
+
+                <div class="form-content">
+                    <div class="left-section">
+                        <div class="right-modal-form">
+                            <div class="form-group ">
+                                <p class="section-title">I am planning to..</p>
+                                <div class="planning-form own-a">
+                                    <button class="planning-type" id="move-in">Move In</button>
+                                    <button class="planning-type" id="move-out">Move Out</button>
+                                    <button class="planning-type" id="renovate">Renovate</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <p class="section-title">I am looking for..</p>
+                                <div class="looking-form own-a">
+                                    <button class="looking-type" id="end-to-end">End to End Interior</button>
+                                    <button class="looking-type" id="kitchen-wardrobe">Kitchen and
+                                        Wardrobes</button>
+                                    <button class="looking-type" id="only-kitchen">Only Kitchen</button>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <p class="section-title">I have a budget</p>
+                                <select>
+                                    <option>Select Budget</option>
+                                    <option>Less than $10,000</option>
+                                    <option>$10,000 - $20,000</option>
+                                    <option>$20,000 - $30,000</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <p class="section-title">Possession in..</p>
+                                <select>
+                                    <option>Select Possession</option>
+                                    <option>1-3 Months</option>
+                                    <option>3-6 Months</option>
+                                    <option>6-12 Months</option>
+                                </select>
+                            </div>
+
+                            <div class="buttons-step-2">
+                                <button class="btn-back">BACK</button>
+                                <button class="btn-next">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-section">
+                        <img loading="lazy" src="./img/dream.png" alt="Interior Design Illustration">
+                        <p class="info-text">About your project</p>
+                        <p class="info-description">The details that you enter here help us understand more about
+                            your
+                            interior project.</p>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="faq-whole mt-4">
-                <section class="faq-section py-3">
-                    <div class="container">
-                        <div class="w-lg-50 mx-auto">
-                            <div class="accordion accordion-flush" id="accordionExample">
-                                <!-- 1: coll1 -->
-                                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="200ms">
-                                    <h2 class="accordion-header">
-                                        <!--   data-bs-target="#coll1",  controls="coll1", id="coll1", aria-expanded="true"      -->
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#coll1" aria-expanded="true" aria-controls="coll1">
-                                            <h5>What is Semantic HTML and how does it work?</h5>
-                                        </button>
-                                    </h2>
-                                    <!-- show : by default Always open -->
-                                    <div id="coll1" class="accordion-collapse collapse show"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Semantic HTML refers to a method of coding where HTML
-                                            markup is used to emphasise the meaning or semantics of
-                                            the existing content.
-                                        </div>
-                                    </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="thank-you-modal">
+        <div class="modal-content">
+            <span class="close-thank-you">&times;</span>
+            <h2>Thank You!</h2>
+            <p>Thank you so much for your submission. We will contact you soon.</p>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="faq-heading" data-animation="slideInRight">
+                <h1>FAQs</h1>
+            </div>
+            <div class="faq-subheading" data-animation="slideInRight" data-animation-delay="50ms">
+                <p>People commonly asks</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-whole mt-4">
+        <section class="faq-section py-3">
+            <div class="container">
+                <div class="w-lg-50 mx-auto">
+                    <div class="accordion accordion-flush" id="accordionExample">
+                        <!-- 1: coll1 -->
+                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="10ms">
+                            <h2 class="accordion-header">
+                                <!--   data-bs-target="#coll1",  controls="coll1", id="coll1", aria-expanded="true"      -->
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#coll1" aria-expanded="true" aria-controls="coll1">
+                                    <h5>What is Semantic HTML and how does it work?</h5>
+                                </button>
+                            </h2>
+                            <!-- show : by default Always open -->
+                            <div id="coll1" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Semantic HTML refers to a method of coding where HTML
+                                    markup is used to emphasise the meaning or semantics of
+                                    the existing content.
                                 </div>
+                            </div>
+                        </div>
 
-                                <!-- 2: coll2 -->
-                                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="400ms">
-                                    <h2 class="accordion-header">
-                                        <!--       collapsed,   aria-expanded="false"   -->
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#coll2" aria-expanded="false"
-                                            aria-controls="coll2">
-                                            <h5>What do you know about the Box Sizing property?</h5>
-                                        </button>
-                                    </h2>
-                                    <div id="coll2" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            The Box Sizing property in CSS defines how developers
-                                            should calculate the width and height of a box. Content
-                                            Box is when the default height and width get applied to
-                                            the content of an element. The border and padding lie
-                                            outside the box. Padding Box is when the developer adds
-                                            the dimensions to include the padding and content of the
-                                            element. This adds a border outside the given box. Border
-                                            Box is when the box dimensions apply to the border,
-                                            padding and content.
-                                        </div>
-                                    </div>
+                        <!-- 2: coll2 -->
+                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="20ms">
+                            <h2 class="accordion-header">
+                                <!--       collapsed,   aria-expanded="false"   -->
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#coll2" aria-expanded="false" aria-controls="coll2">
+                                    <h5>What do you know about the Box Sizing property?</h5>
+                                </button>
+                            </h2>
+                            <div id="coll2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    The Box Sizing property in CSS defines how developers
+                                    should calculate the width and height of a box. Content
+                                    Box is when the default height and width get applied to
+                                    the content of an element. The border and padding lie
+                                    outside the box. Padding Box is when the developer adds
+                                    the dimensions to include the padding and content of the
+                                    element. This adds a border outside the given box. Border
+                                    Box is when the box dimensions apply to the border,
+                                    padding and content.
                                 </div>
+                            </div>
+                        </div>
 
-                                <!-- 3: coll3 -->
-                                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="600ms">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#coll3" aria-expanded="false"
-                                            aria-controls="coll3">
-                                            <h5>
-                                                Define the ways in which you can hide an element using
-                                                CSS.
-                                            </h5>
-                                        </button>
-                                    </h2>
-                                    <div id="coll3" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            There are three ways to hide elements with CSS.
-                                            display:none can hide the content so that it doesn’t get
-                                            stored in the DOM. visibility:hidden adds an element to
-                                            the DOM and occupies space. However, the user cannot see
-                                            it. position:absolute makes the element appear outside the
-                                            screen, not on the screen.
-                                        </div>
-                                    </div>
+                        <!-- 3: coll3 -->
+                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="30ms">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#coll3" aria-expanded="false" aria-controls="coll3">
+                                    <h5>
+                                        Define the ways in which you can hide an element using
+                                        CSS.
+                                    </h5>
+                                </button>
+                            </h2>
+                            <div id="coll3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    There are three ways to hide elements with CSS.
+                                    display:none can hide the content so that it doesn’t get
+                                    stored in the DOM. visibility:hidden adds an element to
+                                    the DOM and occupies space. However, the user cannot see
+                                    it. position:absolute makes the element appear outside the
+                                    screen, not on the screen.
                                 </div>
+                            </div>
+                        </div>
 
-                                <!-- 4: coll4 -->
-                                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="800ms">
-                                    <h2 class="accordion-header">
-                                        <!--   target="#coll4",  id="coll4"  -->
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#coll4" aria-expanded="false"
-                                            aria-controls="coll4">
-                                            <h5>What does Callback mean in JavaScript?</h5>
-                                        </button>
-                                    </h2>
-                                    <div id="coll4" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Callback is a JavaScript function that developers send as
-                                            a parameter or argument to other functions. You can call
-                                            this function whenever the function it is provided to gets
-                                            called.
-                                        </div>
-                                    </div>
+                        <!-- 4: coll4 -->
+                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="40ms">
+                            <h2 class="accordion-header">
+                                <!--   target="#coll4",  id="coll4"  -->
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#coll4" aria-expanded="false" aria-controls="coll4">
+                                    <h5>What does Callback mean in JavaScript?</h5>
+                                </button>
+                            </h2>
+                            <div id="coll4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Callback is a JavaScript function that developers send as
+                                    a parameter or argument to other functions. You can call
+                                    this function whenever the function it is provided to gets
+                                    called.
                                 </div>
+                            </div>
+                        </div>
 
-                                <!-- 5: coll5 -->
-                                <div class="accordion-item" data-animation="slideInDown" data-animation-delay="1000ms">
-                                    <h2 class="accordion-header">
-                                        <!--   target="#coll5",  id="coll5"  -->
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#coll5" aria-expanded="false"
-                                            aria-controls="coll5">
-                                            <h5>
-                                                Differences between Undefined, Undeclared and Null in
-                                                JavaScript.
-                                            </h5>
-                                        </button>
-                                    </h2>
-                                    <div id="coll5" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Undefined refers to a situation where a variable is
-                                            declared but no value has been assigned to the variable
-                                            yet.<br />
-                                            ex. let a; console.log(a); // Output: undefined
+                        <!-- 5: coll5 -->
+                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="50ms">
+                            <h2 class="accordion-header">
+                                <!--   target="#coll5",  id="coll5"  -->
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#coll5" aria-expanded="false" aria-controls="coll5">
+                                    <h5>
+                                        Differences between Undefined, Undeclared and Null in
+                                        JavaScript.
+                                    </h5>
+                                </button>
+                            </h2>
+                            <div id="coll5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Undefined refers to a situation where a variable is
+                                    declared but no value has been assigned to the variable
+                                    yet.<br />
+                                    ex. let a; console.log(a); // Output: undefined
 
-                                            <br />
+                                    <br />
 
-                                            Null refers to the assignment of value to a variable that
-                                            isn’t meant to contain any value.<br />
-                                            ex. let b = null; console.log(b); // Output: null
-                                            <br />
+                                    Null refers to the assignment of value to a variable that
+                                    isn’t meant to contain any value.<br />
+                                    ex. let b = null; console.log(b); // Output: null
+                                    <br />
 
-                                            Undeclared refers to variables that don’t exist in an
-                                            application or program or haven’t been declared. <br />
-                                            ex. console.log(c); // ReferenceError: c is not defined
-                                        </div>
-                                    </div>
+                                    Undeclared refers to variables that don’t exist in an
+                                    application or program or haven’t been declared. <br />
+                                    ex. console.log(c); // ReferenceError: c is not defined
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="faq-heading" data-animation="slideInLeft">
+                <h1>Clips Of Clients</h1>
+            </div>
+            <div class="faq-subheading" data-animation="slideInLeft">
+                <p>Our proof of delivered</p>
             </div>
         </div>
+        <div class="row mt-5">
+            <?php
+            // Fetch videos
+            $sql = "SELECT id, video_id FROM videos";
+            $result = $conn->query($sql);
 
-
-        <div class="container mt-5">
-            <h2>Video Gallery</h2>
-            <div class="row">
-                <?php
-      include './admin_php/config.php';
-
-      // Fetch videos
-      $sql = "SELECT id, video_id FROM videos";
-      $result = $conn->query($sql);
-
-      if ($result->num_rows > 0) {
-        // Output data of each row
-        while ($row = $result->fetch_assoc()) {
-          $video_id = $row["video_id"];
-          $id = $row["id"];
-          // Get YouTube thumbnail URL
-          $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
-          echo "<div class='col-lg-3 col-md-4 col-sm-6 mb-4'>
-                            <div class='card'>
-                                <div class='card-body'>
-                                    <img class='yt-thumbnail' src='$thumbnail_url' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id' alt='Video Thumbnail'>
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    $video_id = $row["video_id"];
+                    $id = $row["id"];
+                    // Get YouTube thumbnail URL
+                    $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
+                    echo "<div class='col-md-4 col-sm-6 mb-4'>
+                            <div class='video-card'>
+                                <div class='video-card-body'>
+                                    <img loading='lazy' class='yt-thumbnail' src='$thumbnail_url' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id' alt='Video Thumbnail'>
                                 </div>
                                
                             </div>
@@ -1264,50 +1242,47 @@ session_start();
                           <!-- Modal for Lightbox -->
                           <div class='modal fade' id='ytLightboxModal$video_id' tabindex='-1' aria-labelledby='ytLightboxModalLabel$video_id' aria-hidden='true'>
                               <div class='modal-dialog modal-lg'>
-                                  <div class='modal-content custom-modal-content'>
-                                      <div class='modal-header'>
-                                          <h5 class='modal-title' id='ytLightboxModalLabel$video_id'>Preview Video</h5>
-                                          <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                      </div>
-                                      <div class='modal-body'>
+                                  <div class='modal-content custom-modal-content p-0'>
+                                          <div class='modal-body' style='background: #dddddd; border-radius: 10px'>
+                                          <button type='button' class='btn-close mb-2' data-bs-dismiss='modal' aria-label='Close' style='float: right;'></button>
                                           <iframe class='yt-modal-frame' id='videoFrame$video_id' src='' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
                                       </div>
                                   </div>
                               </div>
                           </div>";
-        }
-      } else {
-        echo "<p class='text-center'>No videos found</p>";
-      }
+                }
+            } else {
+                echo "<p class='text-center'>No videos found</p>";
+            }
 
-      // Close connection
-      $conn->close();
-      ?>
-            </div>
+            // Close connection
+            $conn->close();
+            ?>
         </div>
+    </div>
 
-        <?php include 'footer.php'; ?>
+    <?php include 'footer.php'; ?>
 
-        <script>
+    <script>
         let reviewData = [];
 
-        $.get('./admin_php/fetch_userReview.php', function(data) {
+        $.get('./admin_php/fetch_userReview.php', function (data) {
             var reviews = JSON.parse(data); // Assuming your data is in JSON format
 
             console.log(reviews);
             reviewData = reviews;
         });
-        </script>
-        <script src="js/testmonial.js"></script>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    </script>
+    <script src="js/testmonial.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
             // Get all modal elements
             var modals = document.querySelectorAll('.modal');
 
             // Add event listeners to each modal
-            modals.forEach(function(modal) {
+            modals.forEach(function (modal) {
                 // Handle when the modal is shown (to start the video)
-                modal.addEventListener('show.bs.modal', function() {
+                modal.addEventListener('show.bs.modal', function () {
                     var iframe = modal.querySelector('iframe');
                     var videoId = iframe.id.replace('videoFrame', '');
                     iframe.src =
@@ -1315,36 +1290,36 @@ session_start();
                 });
 
                 // Handle when the modal is hidden (to stop the video)
-                modal.addEventListener('hidden.bs.modal', function() {
+                modal.addEventListener('hidden.bs.modal', function () {
                     var iframe = modal.querySelector('iframe');
                     iframe.src = ''; // Stop the video by clearing the src
                 });
             });
         });
-        </script>
+    </script>
 
-        <script src="js/textslide.js"></script>
-        <script src="js/preloader.js"></script>
-        <script src="js/contact-detail.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/popup.js"></script>
-        <script src="js/counting.js"></script>
-        <script src="js/landing-slide.js"></script>
-        <script src="js/stack.js"></script>
-        <script src="js/slider.js"></script>
+    <script src="js/textslide.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/contact-detail.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/counting.js"></script>
+    <script src="js/landing-slide.js"></script>
+    <script src="js/stack.js"></script>
+    <script src="js/slider.js"></script>
 
-        <script src="js/footerImg.js"></script>
-        <script src="js/textparallax.js"></script>
+    <script src="js/footerImg.js"></script>
+    <script src="js/textparallax.js"></script>
 
-        <script>
-        jQuery(document).ready(function($) {
-            $(".slider-img").on("mouseover", function() {
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".slider-img").on("mouseover", function () {
                 $(".slider-img").removeClass("active");
                 $(this).addClass("active");
             });
 
             setInterval(() => {
-                $(".jumping-div").each(function(index) {
+                $(".jumping-div").each(function (index) {
                     $(this).css("animation", "");
                     setTimeout(() => {
                         $(this).css("animation", "jump 1.5s ease-in-out");
@@ -1352,16 +1327,16 @@ session_start();
                 });
             }, 4000);
         });
-        </script>
+    </script>
 
-        <script>
+    <script>
         function toggleMenu() {
             const mobileNav = document.querySelector(".mobile-nav-wrapper");
             const burgerMenu = document.querySelector(".burger-menu");
             mobileNav.classList.toggle("active");
             burgerMenu.classList.toggle("active");
         }
-        </script>
+    </script>
 </body>
 
 </html>

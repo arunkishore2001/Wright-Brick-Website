@@ -9,7 +9,7 @@
       <input type="text" placeholder="Name" id="name" name='name' />
       <input type="email" placeholder="Email" id="email" name='email' />
       <div class="phone-input">
-        <span><input type="text" class="country-code-input" value="+91" maxlength="4" /></span>
+        <span><input type="text" class="country-code-input" value="+91" maxlength="4" id="country" name='country' /></span>
         <input type="tel" placeholder="Mobile Number" id="phone" name='phone' />
       </div>
       <textarea id="message" placeholder="Message..." name='message'></textarea>
@@ -33,8 +33,8 @@
 <script>
   $(document).ready(function () {
     // modal
-    var modal = document.getElementById("popupModal");
-    var rightModal = document.querySelector('.right-modal');
+    // var modal = document.getElementById("popupModal"); use later
+    // var rightModal = document.querySelector('.right-modal');
 
     $("#contactForm").on('submit', function (e) {
       e.preventDefault();
