@@ -34,16 +34,13 @@ session_start();
     <link rel="stylesheet" href="./css/preloader.css" />
     <link rel="stylesheet" href="./css/project.css" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <?php include('preloader.html'); ?>
+    <?php include 'preloader.html'; ?>
 
     <?php include 'subheader.php'; ?>
 
@@ -136,6 +133,7 @@ session_start();
                         $formattedDate = date('j', $timestamp) . $suffix . ' ' . date('F Y', $timestamp);
 
                         $order = $i % 2 == 0 ? 'order-md-1' : '';
+                        $colSize = $i % 2 == 0 ? 'col-md-5 offset-md-1' : 'col-md-6';
                         $i++;
                         ?>
 
@@ -145,27 +143,27 @@ session_start();
                                     <img src="<?php echo $firstImage ?>" alt="" />
                                 </div>
                             </div>
-                            <div class="col-md-6 mt-5 pt-5 right-whole-project">
+                            <div class="<?php echo $colSize ?> col-md-6 mt-md-5 pt-md-5 right-whole-project">
 
-                                <div id="project-right" class="project-right mt-5">
+                                <div id="project-right" class="project-right mt-md-5 mt-3">
                                     <div class="project-date">
                                         <p><?php echo $formattedDate ?></p>
                                     </div>
 
-                                    <div class="project-right-line mt-4"></div>
+                                    <div class="project-right-line mt-4 d-none d-md-block"></div>
 
-                                    <div class="project-right-heading mt-4">
-                                        <h3><?php echo $project['project_name'] ?></h3>
+                                    <div class="project-right-heading mt-3 mt-md-4">
+                                        <h3 class="text-uppercase"><?php echo $project['project_name'] ?></h3>
                                     </div>
 
-                                    <div class="project-right-para mt-3">
+                                    <div class="project-right-para mt-3 d-none d-md-block">
                                         <p><?php echo $project['description'] ?></p>
                                     </div>
 
                                     <a style="text-decoration:none;"
                                         href="best-project.php?project_id=<?php echo $project['project_id'] ?>"
                                         class="view-more-link">
-                                        <div class="view-more view-project mt-4">
+                                        <div class="view-more view-project mt-3 mt-md-4">
 
                                             <p class="mb-0">View More</p>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -206,9 +204,8 @@ session_start();
                         $imageUrl = (strpos($imageUrl, '../') === 0) ? substr($imageUrl, 3) : $imageUrl;
                         ?>
                         <!-- Each image will have a click event to show the modal -->
-                        <img loading="lazy" src="<?php echo $imageUrl; ?>" class="img-responsive"
-                            data-bs-toggle="modal" data-bs-target="#imageModal"
-                            onclick="showImage('<?php echo $imageUrl; ?>')" />
+                        <img loading="lazy" src="<?php echo $imageUrl; ?>" class="img-responsive" data-bs-toggle="modal"
+                            data-bs-target="#imageModal" onclick="showImage('<?php echo $imageUrl; ?>')" />
                     <?php }
                 } else {
                     echo "<p>No images found.</p>";
@@ -240,14 +237,13 @@ session_start();
         <script src="js/footerImg.js"></script>
         <script src="js/aos.js"></script>
         <script src="js/preloader.js"></script>
+        <script src="js/textparallax.js"></script>
 
         <script>
-            function showImage(imageUrl) {
-                document.getElementById('modalImage').src = imageUrl;
+            function toggleMenu() {
+                const mobileNav = document.querySelector(".mobile-nav");
+                mobileNav.classList.toggle("active");
             }
-        </script>
-
-        <script>
             function toggleMenu() {
                 const mobileNav = document.querySelector(".mobile-nav-wrapper");
                 const burgerMenu = document.querySelector(".burger-menu");

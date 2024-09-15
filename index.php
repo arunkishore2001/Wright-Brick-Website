@@ -1,7 +1,6 @@
 <?php
 include './admin_php/config.php';
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -50,13 +49,13 @@ session_start();
         <div class="slider-container">
             <div class="slider">
                 <div class="slide">
-                    <img src="./img/landing.png" alt="Slide 1" />
+                    <img src="./img/LIVING ROOM.jpg" alt="Wright Brick" />
                 </div>
                 <div class="slide">
-                    <img src="./img/pro.png" alt="Slide 2" />
+                    <img src="./img/BEDROOM.jpg" alt="Wright Brick" />
                 </div>
                 <div class="slide">
-                    <img src="./img/pro.png" alt="Slide 2" />
+                    <img src="./img/KITCHEN.jpg" alt="Wright Brick" />
                 </div>
             </div>
         </div>
@@ -126,7 +125,7 @@ session_start();
             <div class="exp-content" data-animation="flipInY" data-animation-delay="50ms">
                 <div class="exp-count">
                     <h5>
-                        <span class="count" data-target="5">0</span>+
+                        <span class="count" data-target="75">0</span>+
                         <span class="count-year">YEARS</span>
                     </h5>
                 </div>
@@ -165,7 +164,7 @@ session_start();
             <div class="exp-content" data-animation="flipInY" data-animation-delay="50ms">
                 <div class="exp-count">
                     <h5>
-                        <span class="count" data-target="5">0</span>+
+                        <span class="count" data-target="150">0</span>+
                         <span class="count-year">YEARS</span>
                     </h5>
                 </div>
@@ -229,19 +228,19 @@ session_start();
                 <section class="">
                     <div class="slider-images">
                         <div class="slider-img slider-img-b active">
-                            <img loading="lazy" src="img/1.png" alt="1" />
+                            <img loading="lazy" src="img/default/01.jpg" alt="1" />
                             <span>
                                 <h3>Interior</h3>
                             </span>
                         </div>
                         <div class="slider-img">
-                            <img loading="lazy" src="img/2.png" alt="2" />
+                            <img loading="lazy" src="img/default/04.png" alt="2" />
                             <span>
                                 <h3>Architecture</h3>
                             </span>
                         </div>
                         <div class="slider-img">
-                            <img loading="lazy" src="img/3.png" alt="3" />
+                            <img loading="lazy" src="img/default/07.jpg" alt="3" />
                             <span>
                                 <h3>Turnkey</h3>
                             </span>
@@ -255,21 +254,21 @@ session_start();
     <div class="container-fluid-max rolling-text" data-animation="flipInY">
         <div class="wrapper">
             <ul class="tabs-box">
-                <li class="tab">FARM LAND</li>
                 <li class="tab">INTERIOR</li>
-                <li class="tab">HOTELS</li>
-                <li class="tab">CONSTRUCTIONS</li>
-                <li class="tab">RENOVATIONS</li>
-                <li class="tab">Unboxing</li>
-                <li class="tab">History</li>
-                <li class="tab">Programming</li>
-                <li class="tab">Gadgets</li>
-                <li class="tab">Algorithms</li>
-                <li class="tab">Comedy</li>
-                <li class="tab">Gaming</li>
-                <li class="tab">Share Market</li>
-                <li class="tab">Smartphones</li>
-                <li class="tab">Data Structure</li>
+                <li class="tab">ARCHITECTURE</li>
+                <li class="tab">TURNKEY</li>
+                <li class="tab">KITCHEN</li>
+                <li class="tab">BED ROOM</li>
+                <li class="tab">LIVING ROOM</li>
+                <li class="tab">OFFICE DESIGNS</li>
+                <li class="tab">ELEVATIONS</li>
+                <li class="tab">GYM</li>
+                <li class="tab">HOME THEATRE</li>
+                <li class="tab">CEILING</li>
+                <li class="tab">KIDS ROOM</li>
+                <li class="tab">POOJA ROOM</li>
+                <li class="tab">CONSTRUCTION</li>
+                <li class="tab">TECH INTEGRATED</li>
             </ul>
         </div>
     </div>
@@ -325,7 +324,7 @@ session_start();
                             </svg>
                         </div>
                         <div class="standout-text">
-                            <h6>30-45 Day Project Handover</h6>
+                            <h6>Premium Quality Material</h6>
                         </div>
                     </div>
 
@@ -345,21 +344,28 @@ session_start();
                             </svg>
                         </div>
                         <div class="standout-text">
-                            <h6>30-45 Day Project Handover</h6>
+                            <h6>Tech Integrated Services</h6>
                         </div>
                     </div>
 
                     <div class="standout-box jumping-div">
                         <div class="box-img">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="66" height="78" viewBox="0 0 66 78"
-                                fill="none">
+                            <svg width="66" height="81" viewBox="0 0 66 81" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M32.4154 5.67065C21.8526 15.9272 16.7335 18.4042 2 20.0679C2.99297 47.9493 9.49322 57.4416 32.4154 77.9999C53.4961 58.8725 62.4082 49.2601 63.9435 20.0679C50.0585 17.8452 41.3812 15.0126 32.4154 5.67065Z"
+                                    stroke="#C40000" stroke-width="3.56098" />
                                 <path
                                     d="M32.4154 3C21.8526 13.2565 16.7335 15.7335 2 17.3973C2.99297 45.2787 9.49322 54.771 32.4154 75.3293C53.4961 56.2018 62.4082 46.5894 63.9435 17.3973C50.0585 15.1746 41.3812 12.342 32.4154 3Z"
                                     stroke="black" stroke-width="3.56098" />
+                                <path
+                                    d="M19.0949 44.3679V42.9436H21.0534V36.2492H18.0979V34.7003H18.5786C19.3383 34.7003 19.9317 34.6172 20.359 34.451C20.7982 34.273 21.1187 34.0178 21.3205 33.6854C21.5222 33.3531 21.6528 32.9377 21.7121 32.4392V32.2255H23.813V42.9436H25.273V44.3679H19.0949ZM32.6112 44.546C31.4836 44.546 30.4866 44.3026 29.6201 43.816C28.7655 43.3175 28.0949 42.6053 27.6082 41.6795C27.1335 40.7418 26.8961 39.6142 26.8961 38.2967C26.8961 36.9792 27.1335 35.8575 27.6082 34.9317C28.0949 33.994 28.7655 33.2819 29.6201 32.7952C30.4866 32.2967 31.4836 32.0475 32.6112 32.0475C33.7388 32.0475 34.7299 32.2967 35.5845 32.7952C36.4391 33.2819 37.1038 33.994 37.5785 34.9317C38.0652 35.8575 38.3085 36.9792 38.3085 38.2967C38.3085 39.6142 38.0652 40.7418 37.5785 41.6795C37.1038 42.6053 36.4391 43.3175 35.5845 43.816C34.7418 44.3026 33.7507 44.546 32.6112 44.546ZM32.6112 42.997C33.1691 42.997 33.6438 42.813 34.0355 42.4451C34.4272 42.0653 34.7299 41.5311 34.9435 40.8427C35.1572 40.1424 35.264 39.2937 35.264 38.2967C35.264 37.2997 35.1572 36.457 34.9435 35.7685C34.7299 35.0682 34.4272 34.5341 34.0355 34.1662C33.6438 33.7863 33.1691 33.5964 32.6112 33.5964C32.0652 33.5964 31.5904 33.7863 31.1869 34.1662C30.7833 34.5341 30.4747 35.0682 30.2611 35.7685C30.0474 36.457 29.9406 37.2997 29.9406 38.2967C29.9406 39.2937 30.0474 40.1424 30.2611 40.8427C30.4747 41.5311 30.7833 42.0653 31.1869 42.4451C31.5904 42.813 32.0652 42.997 32.6112 42.997ZM43.6171 42.5341V34.0415H45.896V42.5341H43.6171ZM40.5904 39.3472V37.2107H48.9405V39.3472H40.5904Z"
+                                    fill="#C40000" />
                             </svg>
+
                         </div>
                         <div class="standout-text">
-                            <h6>30-45 Day Project Handover</h6>
+                            <h6>Upto 10 Years Warrenty</h6>
                         </div>
                     </div>
 
@@ -387,7 +393,7 @@ session_start();
                             </svg>
                         </div>
                         <div class="standout-text">
-                            <h6>30-45 Day Project Handover</h6>
+                            <h6>Price Match Guarentee</h6>
                         </div>
                     </div>
                 </div>
@@ -401,12 +407,9 @@ session_start();
                 <div class="col-md-6 order-1 order-md-0" data-animation="slideInRight">
                     <div class="scard-deck-js">
                         <div class="card">
-                            <div class="card-img">
-                                <img src="./img/step-1.png" alt="" />
-                            </div>
                             <div class="card-body">
                                 <div class="card-design">
-                                    <h5 class="card-title">Special title treatment</h5>
+                                    <h5 class="card-title">DESIGN CONSULTATION & ESTIMATE</h5>
 
                                     <div class="step">
                                         <h6>Step 1</h6>
@@ -414,85 +417,70 @@ session_start();
                                 </div>
 
                                 <p class="card-text">
-                                    With supporting text below as a natural lead-in to
-                                    additional content.
+                                    Talk to our design team and get a tentative estimate to cater to your requirements
                                 </p>
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-img">
-                                <img src="./img/step-1.png" alt="" />
-                            </div>
                             <div class="card-body">
                                 <div class="card-design">
-                                    <h5 class="card-title">Special title treatment</h5>
+                                    <h5 class="card-title">DESIGN & HIGH QUALITY 3D RENDERS</h5>
 
                                     <div class="step">
-                                        <h6>Step 1</h6>
+                                        <h6>Step 2</h6>
                                     </div>
                                 </div>
 
                                 <p class="card-text">
-                                    With supporting text below as a natural lead-in to
-                                    additional content.
+                                    Our Expert designers will create a Furniture layout and Realistic 3D renders
                                 </p>
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-img">
-                                <img src="./img/step-1.png" alt="" />
-                            </div>
                             <div class="card-body">
                                 <div class="card-design">
-                                    <h5 class="card-title">Special title treatment</h5>
+                                    <h5 class="card-title">PRODUCTION & PRE-ASSEMBLY</h5>
 
                                     <div class="step">
-                                        <h6>Step 1</h6>
+                                        <h6>Step 3</h6>
                                     </div>
                                 </div>
 
                                 <p class="card-text">
-                                    With supporting text below as a natural lead-in to
-                                    additional content.
+                                    Production in our finest State-of the art factory will be inititated and
+                                    pre-assembly post production for quality checking
                                 </p>
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-img">
-                                <img src="./img/step-1.png" alt="" />
-                            </div>
                             <div class="card-body">
                                 <div class="card-design">
-                                    <h5 class="card-title">Special title treatment</h5>
+                                    <h5 class="card-title">MATERIAL DELIVERY AND EXECUTION</h5>
 
                                     <div class="step">
-                                        <h6>Step 1</h6>
+                                        <h6>Step 4</h6>
                                     </div>
                                 </div>
 
                                 <p class="card-text">
-                                    With supporting text below as a natural lead-in to
-                                    additional content.
+                                    The material’s will undergo 7+ stages of quality checks and delivered on-site to be
+                                    installed by our expertised Team
                                 </p>
                             </div>
                         </div>
 
                         <div class="card">
-                            <div class="card-img">
-                                <img src="./img/step-1.png" alt="" />
-                            </div>
                             <div class="card-body">
                                 <div class="card-design">
-                                    <h5 class="card-title">Special title treatment</h5>
+                                    <h5 class="card-title">TIMELY PROJECT HANDOVER</h5>
 
                                     <div class="step">
-                                        <h6>Step 1</h6>
+                                        <h6>Step 5</h6>
                                     </div>
                                 </div>
 
                                 <p class="card-text">
-                                    With supporting text below as a natural lead-in to
-                                    additional content.
+                                    Step into your dream home—where your vision becomes a reality.
                                 </p>
                             </div>
                         </div>
@@ -515,17 +503,17 @@ session_start();
                                 sollicitudin lacus, ut interdptos himenae
                             </p>
                         </div>
-
-                        <div class="about-contact-btn mt-5">
-                            <a href="">Contact Us</a>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" width="41" height="19" viewBox="0 0 41 19"
-                                fill="none">
-                                <line y1="9.5" x2="40" y2="9.5" stroke="white" />
-                                <line x1="30.3345" y1="0.628353" x2="40.3345" y2="9.62835" stroke="white" />
-                                <line x1="29.672" y1="18.4491" x2="39.8256" y2="9.62269" stroke="white" />
-                            </svg>
-                        </div>
+                        <a href="./contact">
+                            <div class="about-contact-btn mt-5">
+                                Contact Us
+                                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="19" viewBox="0 0 41 19"
+                                    fill="none">
+                                    <line y1="9.5" x2="40" y2="9.5" stroke="white" />
+                                    <line x1="30.3345" y1="0.628353" x2="40.3345" y2="9.62835" stroke="white" />
+                                    <line x1="29.672" y1="18.4491" x2="39.8256" y2="9.62269" stroke="white" />
+                                </svg>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -561,19 +549,20 @@ session_start();
                 </p>
             </div>
 
-            <div class="view-more">
-                <p>View More</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </div>
+            <a href="./service">
+                <div class="view-more">
+                    <p>View More</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </a>
         </div>
 
         <div class="interior-design py-4" data-animation="zoomIn" data-animation-delay="200ms">
             <div class="interior-heading">
-                <h3 class="text-center">Architecture</h3>
+                <h3 class="text-center">Interior</h3>
             </div>
 
             <div class="interior-img">
@@ -588,19 +577,20 @@ session_start();
                 </p>
             </div>
 
-            <div class="view-more">
-                <p>View More</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </div>
+            <a href="./service">
+                <div class="view-more">
+                    <p>View More</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </a>
         </div>
 
         <div class="interior-design py-4" data-animation="zoomIn" data-animation-delay="300ms">
             <div class="interior-heading">
-                <h3 class="text-center">Architecture</h3>
+                <h3 class="text-center">Turnkey</h3>
             </div>
 
             <div class="interior-img">
@@ -615,14 +605,15 @@ session_start();
                 </p>
             </div>
 
-            <div class="view-more">
-                <p>View More</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </div>
+            <a href="./service">
+                <div class="view-more">
+                    <p>View More</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -635,24 +626,32 @@ session_start();
     <div class="scroll-container my-5 py-5" data-animation="zoomIn">
         <div class="scroll-inner">
             <div class="partner-detail">
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
+                <img loading="lazy" src="./img/partners/ADVANCE LOGO.png" />
+                <img loading="lazy" src="./img/partners/aristo-logo.png" />
+                <img loading="lazy" src="./img/partners/ASIAN PAINTS.png" />
+                <img loading="lazy" src="./img/partners/CENTURY.png" />
+                <img loading="lazy" src="./img/partners/Elica_logo.png" />
+                <img loading="lazy" src="./img/partners/GREENPLY.png" />
+                <img loading="lazy" src="./img/partners/HAFELE LOGO.png" />
+                <img loading="lazy" src="./img/partners/HETTICH LOGO.png" />
+                <img loading="lazy" src="./img/partners/JAQUAR LOGO.png" />
+                <img loading="lazy" src="./img/partners/philips-logo.png" />
+                <img loading="lazy" src="./img/partners/PIDILITE LOGO.png" />
+                <img loading="lazy" src="./img/partners/REHAU.png" />
             </div>
             <div class="partner-detail">
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
-                <img loading="lazy" src="./img/partnership.png" />
+                <img loading="lazy" src="./img/partners/ADVANCE LOGO.png" />
+                <img loading="lazy" src="./img/partners/aristo-logo.png" />
+                <img loading="lazy" src="./img/partners/ASIAN PAINTS.png" />
+                <img loading="lazy" src="./img/partners/CENTURY.png" />
+                <img loading="lazy" src="./img/partners/Elica_logo.png" />
+                <img loading="lazy" src="./img/partners/GREENPLY.png" />
+                <img loading="lazy" src="./img/partners/HAFELE LOGO.png" />
+                <img loading="lazy" src="./img/partners/HETTICH LOGO.png" />
+                <img loading="lazy" src="./img/partners/JAQUAR LOGO.png" />
+                <img loading="lazy" src="./img/partners/philips-logo.png" />
+                <img loading="lazy" src="./img/partners/PIDILITE LOGO.png" />
+                <img loading="lazy" src="./img/partners/REHAU.png" />
             </div>
         </div>
     </div>
@@ -701,34 +700,33 @@ session_start();
                         ?>
 
                         <div class="row">
-                            <div class="col-md-6 <?php echo $order ?>" data-animation="slideInLeft"
-                                data-animation-delay="100ms">
+                            <div class="col-md-6 <?php echo $order ?>" data-animation="slideInLeft">
                                 <div class="project-img mt-5">
                                     <img loading="lazy" src="<?php echo $firstImage ?>" alt="" />
                                 </div>
                             </div>
-                            <div class="<?php echo $colSize ?> mt-5 pt-5 right-whole-project" data-animation="slideInRight"
-                                data-animation-delay="100ms">
+                            <div class="<?php echo $colSize ?> mt-md-5 pt-md-5 right-whole-project"
+                                data-animation="slideInRight">
 
-                                <div id="project-right" class="project-right mt-5">
+                                <div id="project-right" class="project-right mt-md-5 mt-3">
                                     <div class="project-date">
                                         <p><?php echo $formattedDate ?></p>
                                     </div>
 
-                                    <div class="project-right-line mt-4"></div>
+                                    <div class="project-right-line mt-4 d-none d-md-block"></div>
 
-                                    <div class="project-right-heading mt-4">
-                                        <h3><?php echo $project['project_name'] ?></h3>
+                                    <div class="project-right-heading mt-3 mt-md-4">
+                                        <h3 class="text-uppercase"><?php echo $project['project_name'] ?></h3>
                                     </div>
 
-                                    <div class="project-right-para mt-3">
+                                    <div class="project-right-para mt-3 d-none d-md-block">
                                         <p><?php echo $project['description'] ?></p>
                                     </div>
 
                                     <a style="text-decoration:none;"
                                         href="best-project.php?project_id=<?php echo $project['project_id'] ?>"
                                         class="view-more-link">
-                                        <div class="view-more view-project mt-4">
+                                        <div class="view-more view-project mt-3 mt-md-4">
 
                                             <p class="mb-0">View More</p>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -1091,15 +1089,15 @@ session_start();
                                 <!--   data-bs-target="#coll1",  controls="coll1", id="coll1", aria-expanded="true"      -->
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#coll1" aria-expanded="true" aria-controls="coll1">
-                                    <h5>What is Semantic HTML and how does it work?</h5>
+                                    <h5>What is Wright Brick?</h5>
                                 </button>
                             </h2>
                             <!-- show : by default Always open -->
                             <div id="coll1" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    Semantic HTML refers to a method of coding where HTML
-                                    markup is used to emphasise the meaning or semantics of
-                                    the existing content.
+                                    At Wright Brick, we specialize in creating interiors that are uniquely yours. Each
+                                    home reflects your distinct style, crafted with exceptional precision and care by
+                                    our expert team. Our designs are more than spaces—they're a true extension of you
                                 </div>
                             </div>
                         </div>
@@ -1110,20 +1108,13 @@ session_start();
                                 <!--       collapsed,   aria-expanded="false"   -->
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#coll2" aria-expanded="false" aria-controls="coll2">
-                                    <h5>What do you know about the Box Sizing property?</h5>
+                                    <h5>Does Wright Brick charge taxes? </h5>
                                 </button>
                             </h2>
                             <div id="coll2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    The Box Sizing property in CSS defines how developers
-                                    should calculate the width and height of a box. Content
-                                    Box is when the default height and width get applied to
-                                    the content of an element. The border and padding lie
-                                    outside the box. Padding Box is when the developer adds
-                                    the dimensions to include the padding and content of the
-                                    element. This adds a border outside the given box. Border
-                                    Box is when the box dimensions apply to the border,
-                                    padding and content.
+                                    Yes, Wright Brick is a reputable organization compliant with all statutory
+                                    requirements. The quoted cost includes GST, with no additional taxes.
                                 </div>
                             </div>
                         </div>
@@ -1133,20 +1124,14 @@ session_start();
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#coll3" aria-expanded="false" aria-controls="coll3">
-                                    <h5>
-                                        Define the ways in which you can hide an element using
-                                        CSS.
+                                    <h5>Does Wright Brick offer any Warranty?
                                     </h5>
                                 </button>
                             </h2>
                             <div id="coll3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    There are three ways to hide elements with CSS.
-                                    display:none can hide the content so that it doesn’t get
-                                    stored in the DOM. visibility:hidden adds an element to
-                                    the DOM and occupies space. However, the user cannot see
-                                    it. position:absolute makes the element appear outside the
-                                    screen, not on the screen.
+                                <div class="accordion-body">Wright Brick guarantees that all products will be free from
+                                    manufacturing defects and installation issues, with a warranty of up to 10 years,
+                                    provided they are properly maintained and used for standard domestic purposes
                                 </div>
                             </div>
                         </div>
@@ -1157,15 +1142,14 @@ session_start();
                                 <!--   target="#coll4",  id="coll4"  -->
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#coll4" aria-expanded="false" aria-controls="coll4">
-                                    <h5>What does Callback mean in JavaScript?</h5>
+                                    <h5>What is the timeline to complete an interior Project?</h5>
                                 </button>
                             </h2>
                             <div id="coll4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    Callback is a JavaScript function that developers send as
-                                    a parameter or argument to other functions. You can call
-                                    this function whenever the function it is provided to gets
-                                    called.
+                                    Every home is unique with its own needs. At Wright Brick, we aim to finish your
+                                    project in the shortest time possible. Once the design is finalized, we will provide
+                                    a clear timeline and ensure timely delivery as promised.
                                 </div>
                             </div>
                         </div>
@@ -1176,29 +1160,13 @@ session_start();
                                 <!--   target="#coll5",  id="coll5"  -->
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#coll5" aria-expanded="false" aria-controls="coll5">
-                                    <h5>
-                                        Differences between Undefined, Undeclared and Null in
-                                        JavaScript.
+                                    <h5>Does Wright Brick take any hidden charges?
                                     </h5>
                                 </button>
                             </h2>
                             <div id="coll5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Undefined refers to a situation where a variable is
-                                    declared but no value has been assigned to the variable
-                                    yet.<br />
-                                    ex. let a; console.log(a); // Output: undefined
-
-                                    <br />
-
-                                    Null refers to the assignment of value to a variable that
-                                    isn’t meant to contain any value.<br />
-                                    ex. let b = null; console.log(b); // Output: null
-                                    <br />
-
-                                    Undeclared refers to variables that don’t exist in an
-                                    application or program or haven’t been declared. <br />
-                                    ex. console.log(c); // ReferenceError: c is not defined
+                                <div class="accordion-body">Wright Brick has no hidden charges beyond those specified in
+                                    the quote.
                                 </div>
                             </div>
                         </div>
@@ -1233,7 +1201,7 @@ session_start();
                     echo "<div class='col-md-4 col-sm-6 mb-4'>
                             <div class='video-card'>
                                 <div class='video-card-body'>
-                                    <img loading='lazy' class='yt-thumbnail' src='$thumbnail_url' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id' alt='Video Thumbnail'>
+                                    <img loading='lazy' data-animation='zoomIn' class='yt-thumbnail' src='$thumbnail_url' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id' alt='Video Thumbnail'>
                                 </div>
                                
                             </div>

@@ -319,6 +319,11 @@ a{
   animation: slideFromTop 1s ease-in-out forwards;
 }
 
+.step-count .card {
+  background: url('../img/steps-bg.png') no-repeat;
+  background-size: cover;
+}
+
 @keyframes slideFromTop {
   0% {
     transform: translateY(-100%);

@@ -124,6 +124,13 @@
   animation-delay: 2s;
 }
 
+.ctn-preloader
+  .animation-preloader
+  .txt-loading
+  .letters-loading:nth-child(11):before {
+  animation-delay: 2.2s;
+}
+
 .ctn-preloader .loader-section {
   background-color: #ffffff;
   height: 100%;

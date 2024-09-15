@@ -1,4 +1,3 @@
-<?php include 'subheader.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +34,9 @@
 
 <body>
 
-  <?php include('preloader.html'); ?>
+  <?php include 'preloader.html'; ?>
+
+  <?php include 'subheader.php'; ?>
 
   <div class="container pt-5">
     <div class="entry-screen mt-5 " data-animation="slideInRight" data-animation-delay="200ms">

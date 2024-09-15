@@ -1,4 +1,3 @@
-<?php include 'subheader.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +33,9 @@
 </head>
 
 <body>
-  <?php include('preloader.html'); ?>
+  <?php include 'preloader.html'; ?>
+
+  <?php include 'subheader.php'; ?>
 
   <main>
     <div class="container pt-5">

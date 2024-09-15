@@ -3,7 +3,7 @@
     <div class="whole-footer">
       <div class="footer-bg">
         <div class="footer-img">
-          <img src="./img/footer-img.png" alt="" />
+          <img src="./img/default/16.jpg" alt="" />
           <div class="overlay-footer-text">
             <h1>Have A Project In Mind?</h1>
           </div>

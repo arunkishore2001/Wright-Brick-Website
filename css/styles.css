@@ -23,7 +23,7 @@ html {
   max-width: 1400px;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
 
@@ -202,7 +202,7 @@ h6 {
   .experience-box {
     flex-direction: row;
     height: auto;
-   
+    gap: 10px;
     flex-wrap: wrap;
     padding: 15px;
     border-radius: 20px;
@@ -254,7 +254,7 @@ h6 {
   align-items: center;
 }
 
-.about-contact-btn svg{
+.about-contact-btn svg {
   margin-left: 20px;
   margin-top: 2px;
 }
@@ -460,7 +460,7 @@ h6 {
   padding: 20px;
 }
 
-.box-img{
+.box-img {
   margin-bottom: 10px;
 }
 
@@ -479,7 +479,7 @@ h6 {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .testimonial-main{
+  .testimonial-main {
     margin-top: -40px;
   }
 }
@@ -528,6 +528,9 @@ h6 {
 
 .step-count {
   background-color: #000;
+  background-image: url("../img/stop-overall-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
 }
 .card {
@@ -535,11 +538,12 @@ h6 {
   top: 100px;
   transform-origin: center top;
   width: 100%;
-  height: 150px;
+  min-height: 150px;
+  height: min-content;
   border: 1px solid #fff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 15px 15px 0 hsla(0, 64%, 79%, 0.15);
+  box-shadow: 1px 0px 15px 2px #c400004d;
 }
 
 .card-design {
@@ -572,7 +576,7 @@ h6 {
   gap: 10px;
 }
 
-.video-card{
+.video-card {
   width: 100%;
   height: 250px;
   border: 1px solid #fff;
@@ -834,8 +838,7 @@ h6 {
 }
 
 .grid-background {
-  width: 98vw;
-
+  width: 100%;
   background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.08) 1px,
@@ -912,7 +915,7 @@ h6 {
 
 .right-whole-project {
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .project-right {
@@ -921,7 +924,7 @@ h6 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: transform 10ms ease-out; 
+  transition: transform 10ms ease-out;
 }
 
 .project-view-btn {
@@ -931,6 +934,16 @@ h6 {
 
 .project-inner-btn {
   background: #000;
+}
+
+@media (max-width: 768px){
+  .view-more{
+    padding: 8px 6px;
+    gap: 8px;
+  }
+  .view-project{
+    max-width: 150px;
+  }
 }
 
 /* Scrool */
@@ -1024,7 +1037,6 @@ h6 {
 .faq-whole::-webkit-scrollbar {
   width: 8px;
 }
-
 
 .faq-whole::-webkit-scrollbar-thumb {
   background-color: var(--primary-text);
@@ -1188,7 +1200,7 @@ h6 {
   font-size: 3.5rem;
 }
 
-.overlay-footer-text h1{
+.overlay-footer-text h1 {
   font-size: 3.5rem;
 }
 
@@ -1456,7 +1468,7 @@ h6 {
   text-align: justify;
 }
 
-.user-photo img{
+.user-photo img {
   width: 50px;
   height: 50px;
 }
@@ -1493,7 +1505,7 @@ h6 {
 }
 
 @media (max-width: 1000px) {
-  .testimonial-main{
+  .testimonial-main {
     margin-top: -60px;
   }
 }
@@ -1511,7 +1523,7 @@ h6 {
     font-size: 14px;
   }
 
-  .testimonial-main{
+  .testimonial-main {
     margin-top: -120px;
   }
 
@@ -1534,13 +1546,13 @@ h6 {
     padding: 5px;
     font-size: 12px;
   }
-  
-  .testimonial-bg img{
+
+  .testimonial-bg img {
     height: 180px;
     border-radius: 0 0 0 50px;
   }
 
-  .testimonial-main{
+  .testimonial-main {
     margin-top: -80px;
   }
 
@@ -1553,7 +1565,7 @@ h6 {
   }
 }
 
-.modal{
+.modal {
   position: relative;
   z-index: 1000;
 }
@@ -1561,35 +1573,31 @@ h6 {
 .yt-thumbnail {
   width: 100%;
   height: auto;
- 
+
   cursor: pointer;
 }
-.fade{
+.fade {
   z-index: -5000;
 }
-
 
 .yt-modal-frame {
   width: 100%;
   height: 500px;
 }
 
-
 .custom-modal-content {
-  z-index: 1060; 
+  z-index: 1060;
 }
-
 
 .modal-backdrop.show {
-  opacity: 0.8; 
+  opacity: 0.8;
 }
-
 
 .modal-dialog {
   max-width: 900px;
 }
 
-#reviewForm .error{
+#reviewForm .error {
   font-size: 13px;
   color: red;
 }

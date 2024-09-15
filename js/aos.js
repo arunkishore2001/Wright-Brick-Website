@@ -6,7 +6,7 @@ var Animation = function ({
     var _elements;
   
     // Define a dobra superior, inferior e laterais da tela
-    var windowTop = offset * window.innerHeight / 90;
+    var windowTop = offset * window.innerHeight / 98;
     var windowBottom = window.innerHeight - windowTop;
     var windowLeft = 0;
     var windowRight = window.innerWidth;

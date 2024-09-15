@@ -64,7 +64,7 @@ p {
   .entry-screen {
     flex-direction: column;
     height: auto;
-    border-radius: 0;
+    border-radius: 5px;
     padding: 20px;
   }
 
