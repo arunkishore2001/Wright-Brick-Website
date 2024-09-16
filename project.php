@@ -48,19 +48,19 @@ session_start();
         <div class="entry-screen mt-5">
             <div class="entry-left">
                 <div class="entry-heading">
-                    <h2>PROJECTS</h2>
+                    <h2>OUR PROJECTS</h2>
                 </div>
 
                 <div class="entry-link" data-animation="slideInRight" data-animation-delay="400ms">
                     <h6>Home</h6>
                     <p></p>
-                    <h6>About Us</h6>
+                    <h6>Projects</h6>
                 </div>
             </div>
 
             <div class="entry-right" data-animation="slideInLeft" data-animation-delay="700ms">
                 <div class="entry-img">
-                    <img src="./img/entry-img.png" alt="" />
+                    <img src="./img/default/28.jpg" alt="" />
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@ session_start();
 
     <div class="container-fluid-max mt-5">
         <div class="entry-whole-image" data-animation="slideInDown" data-animation-delay="200ms">
-            <img src="./img/about.png" alt="" />
+            <img src="./img/default/31.jpg" alt="" />
         </div>
     </div>
 
@@ -143,7 +143,7 @@ session_start();
                                     <img src="<?php echo $firstImage ?>" alt="" />
                                 </div>
                             </div>
-                            <div class="<?php echo $colSize ?> col-md-6 mt-md-5 pt-md-5 right-whole-project">
+                            <div class="<?php echo $colSize ?> mt-md-5 pt-md-5 right-whole-project">
 
                                 <div id="project-right" class="project-right mt-md-5 mt-3">
                                     <div class="project-date">

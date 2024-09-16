@@ -16,7 +16,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
     integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
     </script>
@@ -54,7 +53,7 @@
 
         <div class="entry-right" data-animation="slideInLeft" data-animation-delay="700ms">
           <div class="entry-img">
-            <img src="./img/entry-img.png" alt="" />
+            <img src="./img/default/21.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -83,8 +82,8 @@
     </div>
 
     <div class="container-fluid-max mt-5">
-      <div class="entry-whole-image" data-animation="slideInDown" data-animation-delay="200ms">
-        <img src="./img/about.png" alt="" />
+      <div class="entry-whole-image" data-animation="slideInDown">
+        <img src="./img/default/11.jpg" alt="" />
       </div>
     </div>
 
@@ -97,13 +96,13 @@
               <p></p>
             </div>
           </div>
-          <div class="left-about my-5" data-animation="slideInRight" data-animation-delay="200ms">
+          <div class="left-about my-5" data-animation="slideInRight">
             <div class="text-image-container">
               <img src="./img/text-img.png" alt="" />
             </div>
           </div>
         </div>
-        <div class="col-md-6" data-animation="slideInLeft" data-animation-delay="200ms">
+        <div class="col-md-6" data-animation="slideInLeft">
           <div class="right-about">
             <div class="right-about-heading mt-2 mb-5">
               <h2>
@@ -127,24 +126,24 @@
       </div>
     </div>
 
-    <div class="container-fluid-max rolling-text my-5" data-animation="slideInUp" data-animation-delay="200ms">
+    <div class="container-fluid-max rolling-text my-5" data-animation="flipInY">
       <div class="wrapper">
         <ul class="tabs-box">
-          <li class="tab">FARM LAND</li>
           <li class="tab">INTERIOR</li>
-          <li class="tab">HOTELS</li>
-          <li class="tab">CONSTRUCTIONS</li>
-          <li class="tab">RENOVATIONS</li>
-          <li class="tab">Unboxing</li>
-          <li class="tab">History</li>
-          <li class="tab">Programming</li>
-          <li class="tab">Gadgets</li>
-          <li class="tab">Algorithms</li>
-          <li class="tab">Comedy</li>
-          <li class="tab">Gaming</li>
-          <li class="tab">Share Market</li>
-          <li class="tab">Smartphones</li>
-          <li class="tab">Data Structure</li>
+          <li class="tab">ARCHITECTURE</li>
+          <li class="tab">TURNKEY</li>
+          <li class="tab">KITCHEN</li>
+          <li class="tab">BED ROOM</li>
+          <li class="tab">LIVING ROOM</li>
+          <li class="tab">OFFICE DESIGNS</li>
+          <li class="tab">ELEVATIONS</li>
+          <li class="tab">GYM</li>
+          <li class="tab">HOME THEATRE</li>
+          <li class="tab">CEILING</li>
+          <li class="tab">KIDS ROOM</li>
+          <li class="tab">POOJA ROOM</li>
+          <li class="tab">CONSTRUCTION</li>
+          <li class="tab">TECH INTEGRATED</li>
         </ul>
       </div>
     </div>
@@ -158,7 +157,7 @@
           <!-- Column 1: Image and Mission Title -->
           <div class="col-md-6">
             <div class="about-img" data-animation="slideInRight">
-              <img src="./img/mission.png" alt="Interior Design" class="img-fluid mt-3" />
+              <img src="./img/default/23.jpg" alt="Interior Design" class="img-fluid mt-3" />
             </div>
           </div>
           <!-- Column 2: Paragraph Text -->
@@ -187,7 +186,7 @@
           <!-- Column 1: Image and Mission Title -->
           <div class="col-md-6 order-md-1">
             <div class="about-img" data-animation="slideInLeft">
-              <img src="./img/vission.png" alt="Interior Design" class="img-fluid mt-3" />
+              <img src="./img/default/24.jpg" alt="Interior Design" class="img-fluid mt-3" />
             </div>
           </div>
           <!-- Column 2: Paragraph Text -->
@@ -210,7 +209,7 @@
     <div class="container-fluid-max mt-5 pt-4">
       <div class="dream-build">
         <div class="dream-image left-image" data-animation="slideInRight">
-          <img src="./img/dream.png" alt="Interior design image left" />
+          <img src="./img/default/25.jpg" alt="Interior design image left" />
         </div>
 
         <div class="middle-content my-5" data-animation="slideInDown" data-animation-delay="500ms">
@@ -242,7 +241,7 @@
         </div>
 
         <div class="dream-image right-image mt-0 pt-0" data-animation="slideInLeft">
-          <img src="./img/build.png" alt="Interior design image right" />
+          <img src="./img/default/26.jpg" alt="Interior design image right" />
         </div>
       </div>
     </div>
@@ -253,27 +252,35 @@
       </div>
     </div>
 
-    <div class="scroll-container my-5 py-5" data-animation="slideInDown">
+    <div class="scroll-container my-5 pt-3 pb-5" data-animation="zoomIn">
       <div class="scroll-inner">
         <div class="partner-detail">
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
+          <img loading="lazy" src="./img/partners/ADVANCE LOGO.png" />
+          <img loading="lazy" src="./img/partners/aristo-logo.png" />
+          <img loading="lazy" src="./img/partners/ASIAN PAINTS.png" />
+          <img loading="lazy" src="./img/partners/CENTURY.png" />
+          <img loading="lazy" src="./img/partners/Elica_logo.png" />
+          <img loading="lazy" src="./img/partners/GREENPLY.png" />
+          <img loading="lazy" src="./img/partners/HAFELE LOGO.png" />
+          <img loading="lazy" src="./img/partners/HETTICH LOGO.png" />
+          <img loading="lazy" src="./img/partners/JAQUAR LOGO.png" />
+          <img loading="lazy" src="./img/partners/philips-logo.png" />
+          <img loading="lazy" src="./img/partners/PIDILITE LOGO.png" />
+          <img loading="lazy" src="./img/partners/REHAU.png" />
         </div>
         <div class="partner-detail">
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
-          <img loading="lazy" src="./img/partnership.png" />
+          <img loading="lazy" src="./img/partners/ADVANCE LOGO.png" />
+          <img loading="lazy" src="./img/partners/aristo-logo.png" />
+          <img loading="lazy" src="./img/partners/ASIAN PAINTS.png" />
+          <img loading="lazy" src="./img/partners/CENTURY.png" />
+          <img loading="lazy" src="./img/partners/Elica_logo.png" />
+          <img loading="lazy" src="./img/partners/GREENPLY.png" />
+          <img loading="lazy" src="./img/partners/HAFELE LOGO.png" />
+          <img loading="lazy" src="./img/partners/HETTICH LOGO.png" />
+          <img loading="lazy" src="./img/partners/JAQUAR LOGO.png" />
+          <img loading="lazy" src="./img/partners/philips-logo.png" />
+          <img loading="lazy" src="./img/partners/PIDILITE LOGO.png" />
+          <img loading="lazy" src="./img/partners/REHAU.png" />
         </div>
       </div>
     </div>

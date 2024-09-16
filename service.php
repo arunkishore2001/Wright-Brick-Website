@@ -42,19 +42,19 @@
     <div class="entry-screen mt-5 " data-animation="slideInRight" data-animation-delay="200ms">
       <div class="entry-left">
         <div class="entry-heading" data-animation="slideInRight" data-animation-delay="200ms">
-          <h2>ABOUT US</h2>
+          <h2>OUR SERVICES</h2>
         </div>
 
         <div class="entry-link" data-animation="slideInRight" data-animation-delay="400ms">
           <h6>Home</h6>
           <p></p>
-          <h6>About Us</h6>
+          <h6>Services</h6>
         </div>
       </div>
 
       <div class="entry-right" data-animation="slideInLeft" data-animation-delay="700ms">
         <div class="entry-img">
-          <img src="./img/entry-img.png" alt="" />
+          <img src="./img/default/27.jpg" alt="" />
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@
 
   <div class="container-fluid-max mt-5">
     <div class="entry-whole-image" data-animation="slideInDown" data-animation-delay="200ms">
-      <img src="./img/about.png" alt="" />
+      <img src="./img/default/29.jpg" alt="" />
     </div>
   </div>
   <main>
@@ -249,13 +249,6 @@
   <script src="js/preloader.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/footerImg.js"></script>
-
-  <script>
-    function toggleMenu() {
-      const mobileNav = document.querySelector(".mobile-nav");
-      mobileNav.classList.toggle("active");
-    }
-  </script>
 
   <script>
     function toggleMenu() {

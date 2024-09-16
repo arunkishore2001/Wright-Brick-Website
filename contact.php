@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <title>Project</title>
+  <title>Contact</title>
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -38,26 +38,26 @@
 </head>
 
 <body>
-<?php include('preloader.html'); ?>
+<?php include 'preloader.html'; ?>
 
   <main>
     <div class="container pt-5">
       <div class="entry-screen mt-5 " data-animation="slideInRight" data-animation-delay="200ms">
         <div class="entry-left">
           <div class="entry-heading" data-animation="slideInRight" data-animation-delay="200ms">
-            <h2>ABOUT US</h2>
+            <h2>CONTACT</h2>
           </div>
 
           <div class="entry-link" data-animation="slideInRight" data-animation-delay="400ms">
             <h6>Home</h6>
             <p></p>
-            <h6>About Us</h6>
+            <h6>Contact Us</h6>
           </div>
         </div>
 
         <div class="entry-right" data-animation="slideInLeft" data-animation-delay="700ms">
           <div class="entry-img">
-            <img src="./img/entry-img.png" alt="" />
+            <img src="./img//default/33.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@
 
     <div class="container-fluid-max mt-5">
       <div class="entry-whole-image" data-animation="slideInDown" data-animation-delay="200ms">
-        <img src="./img/about.png" alt="" />
+        <img src="./img//default/32.jpg" alt="" />
       </div>
     </div>
 
