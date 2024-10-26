@@ -73,7 +73,7 @@
 
           <div class="send" data-animation="slideInRight" data-animation-delay="200ms">
             <h6>Send a message</h6>
-            <p class="grey-text">info@gmail.com</p>
+            <p class="grey-text">admin@wrightbrick.com</p>
           </div>
         </div>
       </div>

@@ -464,6 +464,16 @@ h6 {
   margin-bottom: 10px;
 }
 
+.box-img img{
+  width: 40%;
+}
+
+.card-design img{
+  width: 10%;
+}
+.card-design h5{
+  padding-top: 20px;
+}
 .standout-box {
   padding: 30px;
 
@@ -1600,4 +1610,41 @@ h6 {
 #reviewForm .error {
   font-size: 13px;
   color: red;
+}
+
+
+/*Float icon message*/
+
+/* Begin float */
+
+.float {
+  position:fixed;
+  bottom:60px;
+  right:24px;
+  text-align:center;
+  z-index:1000;
+}
+
+.float .trigger {
+  border-radius:50%;
+ 
+  position:relative;
+ 
+  color:#fff;
+  height:60px;
+  width:60px;
+  vertical-align:middle;
+  animation: 1.5s linear 0s infinite normal pulse;
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+}
+
+.float .trigger:hover{
+  transform:scale(1.1);
+}
+
+
+.float svg{
+
+  width: 100%;
 }
