@@ -93,12 +93,12 @@ session_start();
     <div class="container">
         <div class="crafting-heading my-5 " data-animation="slideInDown">
             <h1>
-                Crafting Luxury, Redefining <br />
-                Spaces
+                We Delivered Personalaized, Luxury <br />
+                designs that align with your vision
             </h1>
         </div>
     </div>
-    <div class="container experience">
+    <!-- <div class="container experience">
         <div class="experience-box" data-animation="slideInUp">
             <div class="exp-content" data-animation="flipInY" data-animation-delay="50ms">
                 <div class="exp-count" >
@@ -202,11 +202,11 @@ session_start();
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="container my-5 py-md-4">
         <div class="row">
-            <div class="col-md-6" data-animation="slideInRight">
+            <!-- <div class="col-md-6" data-animation="slideInRight">
                 <div class="about-heading mb-5">
                     <h2>About Wright Brick</h2>
                 </div>
@@ -233,8 +233,8 @@ session_start();
                         <line x1="29.672" y1="18.4491" x2="39.8256" y2="9.62269" stroke="white" />
                     </svg>
                 </div>
-            </div>
-            <div class="col-md-6 mt-5 mt-md-0" data-animation="slideInLeft">
+            </div> -->
+            <div class="col-md-12 mt-5 mt-md-0" data-animation="slideInLeft">
                 <section class="">
                     <div class="slider-images">
                         <div class="slider-img slider-img-b active">
@@ -249,6 +249,20 @@ session_start();
                                 <h3>Architecture</h3>
                             </span>
                         </div>
+                        <div class="slider-img">
+                            <img loading="lazy" src="img/default/07.jpg" alt="3" />
+                            <span>
+                                <h3>Turnkey</h3>
+                            </span>
+                        </div>
+
+                        <div class="slider-img">
+                            <img loading="lazy" src="img/default/07.jpg" alt="3" />
+                            <span>
+                                <h3>Turnkey</h3>
+                            </span>
+                        </div>
+
                         <div class="slider-img">
                             <img loading="lazy" src="img/default/07.jpg" alt="3" />
                             <span>
@@ -534,7 +548,7 @@ session_start();
         </div>
     </div>
 
-    <div class="container-fluid interior-section mt-5 pt-2">
+    <!-- <div class="container-fluid interior-section mt-5 pt-2">
         <div class="interior-design py-4" data-animation="zoomIn" data-animation-delay="100ms">
             <div class="interior-heading">
                 <h3 class="text-center">Architecture</h3>
@@ -618,7 +632,77 @@ session_start();
                 </div>
             </a>
         </div>
+    </div> -->
+
+
+    <div class="container card-panel-container">
+    <!-- Architecture Card -->
+    <div class="card-panel">
+      <div class="card-inner-panel">
+        <div class="card-front">
+            <h3 class="text-center p-2">Architecute</h3>
+          <img src="./img/service1.png" alt="Architecture">
+        </div>
+        <div class="card-back">
+            
+          <h3 class="card-title-panel">Architecture</h3>
+          <p class="card-description-panel">
+            Expert architectural design services for modern homes and commercial spaces. 
+            We bring your vision to life with detailed planning and precision.
+          </p>
+          <a href="#" class="view-more-panel">View More    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg></a>
+        </div>
+      </div>
     </div>
+
+    <!-- Interior Card -->
+    <div class="card-panel">
+      <div class="card-inner-panel">
+        <div class="card-front">
+        <h3 class="text-center p-2">Interior</h3>
+          <img src="./img/archi.png" alt="Interior">
+        </div>
+        <div class="card-back">
+          <h3 class="card-title-panel">Interior</h3>
+          <p class="card-description-panel">
+            Transform your space with our professional interior design services. 
+            Creating comfortable and stylish environments tailored to your needs.
+          </p>
+          <a href="#" class="view-more-panel">View More    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Turnkey Card -->
+    <div class="card-panel">
+      <div class="card-inner-panel">
+        <div class="card-front">
+        <h3 class="text-center p-2">Turnkey</h3>
+          <img src="./img/build.png" alt="Turnkey">
+        </div>
+        <div class="card-back">
+          <h3 class="card-title-panel">Turnkey</h3>
+          <p class="card-description-panel">
+            Complete end-to-end project management and execution. 
+            From concept to completion, we handle every detail of your construction project.
+          </p>
+          <a href="#" class="view-more-panel">View More    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div class="container mt-5">
         <div class="partner-heading" data-animation="flipInY">
@@ -662,9 +746,9 @@ session_start();
     <div class="container-fluid-max project-grid">
         <div class="grid-background py-5">
             <div class="container-fluid">
-                <div class="project-heading" data-animation="flipInY">
+                <!-- <div class="project-heading" data-animation="flipInY">
                     <h1>OUR PROJECTS</h1>
-                </div>
+                </div> -->
 
                 <?php
                 // Fetch all projects
@@ -712,7 +796,7 @@ session_start();
                                 data-animation="slideInRight">
 
                                 <div id="project-right" class="project-right mt-md-5 mt-3">
-                                    <div class="project-date">
+                                    <!-- <div class="project-date">
                                         <p><?php echo $formattedDate ?></p>
                                     </div>
 
@@ -724,8 +808,13 @@ session_start();
 
                                     <div class="project-right-para mt-3 d-none d-md-block">
                                         <p><?php echo $project['description'] ?></p>
+                                    </div> -->
+                                    <div class="project-heading-outer" data-animation="flipInY">
+                                     <h1>OUR OUR CLIENT</h1>
                                     </div>
-
+                                    <div class="project-heading-inner" data-animation="flipInY">
+                                     <h1>OUR PROJECTS</h1>
+                                    </div>
                                     <a style="text-decoration:none;"
                                         href="best-project.php?project_id=<?php echo $project['project_id'] ?>"
                                         class="view-more-link">
@@ -761,6 +850,92 @@ session_start();
             </a>
         </div>
     </div>
+
+
+
+
+
+    <!-- Testimonal -->
+
+    <div class="testimonials-container">
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">Impressed by the professionalism and attention to detail.</p>
+                <div class="testimonial-author">
+                    <img src="./img/1.png" alt="Guy Hawkins" class="author-avatar">
+                    <div class="author-info">
+                        <span class="author-name">Guy Hawkins</span>
+                        <span class="author-handle">@guyhawkins</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">A seamless experience from start to finish. Highly recommend!</p>
+                <div class="testimonial-author">
+                    <img src="./img/1.png" alt="Karla Lynn" class="author-avatar">
+                    <div class="author-info">
+                        <span class="author-name">Karla Lynn</span>
+                        <span class="author-handle">@karlalynn28</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">Reliable and trustworthy. Made my life so much easier!</p>
+                <div class="testimonial-author">
+                    <img src="./img/1.png" alt="Jane Cooper" class="author-avatar">
+                    <div class="author-info">
+                        <span class="author-name">Jane Cooper</span>
+                        <span class="author-handle">@janecooper</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="reviewBtn" class="add-review-btn">Add Review →</button>
+
+        <form id="testimonialForm" class="testimonial-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required minlength="4">
+                <div class="error-message" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="handle">Handle</label>
+                <input type="text" id="handle" name="handle" required>
+                <div class="error-message" id="handleError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="photo">Photo</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+                <div class="error-message" id="photoError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="review">Review</label>
+                <textarea id="review" name="review" required minlength="10"></textarea>
+                <div class="error-message" id="reviewError"></div>
+            </div>
+
+            <div class="form-buttons">
+                <button type="button" id="cancelBtn" class="btn btn-cancel">Cancel</button>
+                <button type="submit" class="btn btn-submit">Submit Review</button>
+            </div>
+        </form>
+    </div>
+
+
+               
+
+
+
+
 
     <!-- modal for testimonial -->
     <div class="modal p-3" id="myModal">
@@ -1182,11 +1357,9 @@ session_start();
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="faq-heading" data-animation="slideInLeft">
-                <h1>Clips Of Clients</h1>
+                <h1>Interior Tour</h1>
             </div>
-            <div class="faq-subheading" data-animation="slideInLeft">
-                <p>Our proof of delivered</p>
-            </div>
+            
         </div>
         <div class="row mt-5">
             <?php
@@ -1280,7 +1453,7 @@ session_start();
     <script src="js/slider.js"></script>
 
     <script src="js/footerImg.js"></script>
-    <script src="js/textparallax.js"></script>
+    <!-- <script src="js/textparallax.js"></script> -->
 
     <script>
         jQuery(document).ready(function ($) {
