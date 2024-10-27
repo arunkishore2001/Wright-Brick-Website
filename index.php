@@ -640,7 +640,7 @@ session_start();
     <div class="card-panel">
       <div class="card-inner-panel">
         <div class="card-front">
-            <h3 class="text-center p-2">Architecute</h3>
+            <!-- <h3 class="text-center p-2">Architecute</h3> -->
           <img src="./img/service1.png" alt="Architecture">
         </div>
         <div class="card-back">
@@ -663,7 +663,7 @@ session_start();
     <div class="card-panel">
       <div class="card-inner-panel">
         <div class="card-front">
-        <h3 class="text-center p-2">Interior</h3>
+        <!-- <h3 class="text-center p-2">Interior</h3> -->
           <img src="./img/archi.png" alt="Interior">
         </div>
         <div class="card-back">
@@ -685,7 +685,7 @@ session_start();
     <div class="card-panel">
       <div class="card-inner-panel">
         <div class="card-front">
-        <h3 class="text-center p-2">Turnkey</h3>
+        <!-- <h3 class="text-center p-2">Turnkey</h3> -->
           <img src="./img/build.png" alt="Turnkey">
         </div>
         <div class="card-back">
