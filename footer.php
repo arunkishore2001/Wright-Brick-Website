@@ -1,4 +1,4 @@
-<div class="container-fluid-max">
+<!-- <div class="container-fluid-max">
   <a href="./contact.php">
     <div class="whole-footer">
       <div class="footer-bg">
@@ -11,7 +11,7 @@
       </div>
     </div>
   </a>
-</div>
+</div> -->
 
 <div class="container-fluid-max position-relative">
   <div class="footer-background-svg">
@@ -68,7 +68,7 @@
         <div class="message">
           <div class="call" data-animation="slideInRight">
             <h6>Call our office</h6>
-            <p class="grey-text">+91 999999999</p>
+            <p class="grey-text">+91 89863 97497</p>
           </div>
 
           <div class="send" data-animation="slideInRight" data-animation-delay="200ms">

@@ -5,6 +5,69 @@ include './admin_php/functions.php';
 session_start();
 requireLogin();
 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
+    $targetDir = "img/"; // Directory where images will be uploaded
+    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+    // Check if image file is a actual image or fake image
+    $check = getimagesize($_FILES["image"]["tmp_name"]);
+    if ($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+
+    // Check if file already exists
+    if (file_exists($targetFile)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Check file size
+    if ($_FILES["image"]["size"] > 500000) { // Limit to 500KB
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats
+    if (!in_array($imageFileType, ['jpg', 'png', 'jpeg', 'gif'])) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    } else {
+        // If everything is ok, try to upload file
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+            // Insert image path into the database
+            $sql = "INSERT INTO landing_images (image_path) VALUES ('$targetFile')";
+            if ($conn->query($sql) === TRUE) {
+                echo "The file ". htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+}
+
+// Fetch images from the database
+$sql = "SELECT * FROM landing_images"; // Adjust this SQL as per your table structure
+$result = $conn->query($sql);
+
+
+
+
+
+
 // Upload Image
 if (isset($_POST['upload'])) {
     $category = 'commercial';
@@ -94,7 +157,7 @@ if (isset($_POST['delete'])) {
     exit;
 }
 
-$projectQuery = mysqli_query($conn, "SELECT DISTINCT project_name FROM images");
+// $projectQuery = mysqli_query($conn, "SELECT DISTINCT project_name FROM images");
 ?>
 
 <!DOCTYPE html>
@@ -111,6 +174,12 @@ $projectQuery = mysqli_query($conn, "SELECT DISTINCT project_name FROM images");
 <body>
     <div class="container mt-5">
         <h2>Welcome, Admin!</h2>
+
+
+        
+
+
+
         <div id="message"></div>
 
         <?php if (isset($_SESSION['error'])): ?>
@@ -127,6 +196,47 @@ $projectQuery = mysqli_query($conn, "SELECT DISTINCT project_name FROM images");
             </div>
         <?php endif; ?>
 
+
+        <div class="container mt-5">
+    <h1 class="text-center">Image Upload</h1>
+
+    <!-- Image Upload Form -->
+    <form action="" method="POST" enctype="multipart/form-data" class="mb-4">
+        <div class="form-group">
+            <label for="image">Select image:</label>
+            <input type="file" name="image" id="image" class="form-control-file" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload Image</button>
+    </form>
+
+    <!-- Display Existing Images -->
+    <h2 class="text-center">Existing Images</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["id"] . "</td>";
+                    echo "<td><img src='" . htmlspecialchars($row["image_path"]) . "' alt='Image' style='width: 100px; height: auto;'></td>";
+                    echo "<td><a href='./admin_php/delete.php?id=" . $row["id"] . "' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this image?\")'>Delete</a></td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3' class='text-center'>No images found</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+        
         <!-- Upload Image Form -->
         <form method="post" enctype="multipart/form-data" class="mt-4">
 

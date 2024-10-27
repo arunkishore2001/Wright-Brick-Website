@@ -1,3 +1,5 @@
+
+
 const reviewPic = document.querySelector("#reviewPic");
 const btnNext = document.querySelector(".btn-right");
 const btnPrevious = document.querySelector(".btn-left");

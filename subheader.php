@@ -1,6 +1,6 @@
 <header class="nav-bar-container" data-animation="slideInDown">
-  <div class="container-fluid">
-    <div class="navigation mt-3 d-flex justify-content-between align-items-center">
+  <div class="container-fluid-max">
+    <div class="navigation mt-2 d-flex justify-content-between align-items-center">
       <div class="nav-main-wrapper">
         <div class="nav-image d-md-block">
           <img src="./img/logo.png" alt="Logo" />
@@ -10,12 +10,12 @@
           <nav class="d-md-flex">
             <a class="<?php echo ($_SERVER['REQUEST_URI'] == '/' || substr($_SERVER['REQUEST_URI'], -1) == '/' || basename($_SERVER['REQUEST_URI'], '.php') == 'home' || basename($_SERVER['REQUEST_URI'], '.php') == 'index') ? 'active-nav' : ''; ?>"
               href="home">Home</a>
-            <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'about' ? 'active-nav' : ''; ?>"
+            <!-- <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'about' ? 'active-nav' : ''; ?>"
               href="about">About Us</a>
             <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'service' ? 'active-nav' : ''; ?>"
               href="service">Services</a>
             <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'project' ? 'active-nav' : ''; ?>"
-              href="project">Projects</a>
+              href="project">Projects</a> -->
             <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'contact' ? 'active-nav' : ''; ?>"
               href="contact">Contact</a>
           </nav>
