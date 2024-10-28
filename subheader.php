@@ -1,6 +1,6 @@
 <header class="nav-bar-container" data-animation="slideInDown">
   <div class="container-fluid-max">
-    <div class="navigation mt-2 d-flex justify-content-between align-items-center">
+    <div class="navigation  d-flex justify-content-between align-items-center">
       <div class="nav-main-wrapper">
         <div class="nav-image d-md-block">
           <img src="./img/logo.png" alt="Logo" />

@@ -5,6 +5,8 @@ include './admin_php/functions.php';
 session_start();
 requireLogin();
 
+$sql = "SELECT * FROM properties";
+$result = $conn->query($sql);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
     $targetDir = "img/"; // Directory where images will be uploaded
@@ -236,6 +238,38 @@ if (isset($_POST['delete'])) {
         </tbody>
     </table>
 </div>
+
+
+<div class="container">
+        <h1 class="mt-4">Properties</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Property Type</th>
+                    <th>Property Name</th>
+                    <th>Floorplan Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td>{$row['id']}</td>
+                                <td>{$row['property_type']}</td>
+                                <td>{$row['property_name']}</td>
+                                <td>{$row['floorplan_type']}</td>
+                              </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4'>No properties found</td></tr>";
+                }
+                $conn->close();
+                ?>
+            </tbody>
+        </table>
+    </div>
         
         <!-- Upload Image Form -->
         <form method="post" enctype="multipart/form-data" class="mt-4">

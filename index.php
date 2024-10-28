@@ -5,6 +5,24 @@ include './admin_php/config.php';
 // Fetch images from the database
 $sql = "SELECT * FROM landing_images"; // Adjust the SQL as needed
 $result = $conn->query($sql);
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $propertyType = $_POST['property_type'];
+    $propertyName = $_POST['property_name'];
+    $floorplanType = $_POST['floorplan_type'];
+
+    $stmt = $conn->prepare("INSERT INTO properties (property_type, property_name, floorplan_type) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $propertyType, $propertyName, $floorplanType);
+
+    if ($stmt->execute()) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +48,7 @@ $result = $conn->query($sql);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
         </script>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
@@ -49,7 +67,7 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-   
+
 
     <?php include 'subheader.php'; ?>
 
@@ -101,7 +119,7 @@ $result = $conn->query($sql);
         <div class="container-fluid best-design">
             <div class="row">
                 <div class="col-md-8">
-                    
+
                 </div>
                 <div class="col-md-4 d-md-flex d-none justify-content-end mt-5" data-animation="slideInLeft">
                     <?php include 'contact-form.php'; ?>
@@ -320,8 +338,7 @@ $result = $conn->query($sql);
                         <h2 class="text-center">What Makes Us Standout ?</h2>
                     </div>
 
-                    <div class="standout-container  mt-5 " data-animation="slideInDown"
-                        data-animation-delay="100ms">
+                    <div class="standout-container  mt-5 " data-animation="slideInDown" data-animation-delay="100ms">
                         <div class="standout-box ">
                             <div class="box-img">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"
@@ -542,7 +559,7 @@ $result = $conn->query($sql);
                             </div>
                             <a href="./contact">
                                 <div class="about-contact-btn brick mt-5">
-                                    Start Your Journey 
+                                    Start Your Journey
                                     <svg xmlns="http://www.w3.org/2000/svg" width="41" height="19" viewBox="0 0 41 19"
                                         fill="none">
                                         <line y1="9.5" x2="40" y2="9.5" stroke="white" />
@@ -561,18 +578,18 @@ $result = $conn->query($sql);
             <div class="row">
                 <div class="service-container" data-animation="slideInRight">
                     <h1>
-                    Your One Stop Solution <br />
-                    <span class="service-span">Service</span>
-    
+                        Your One Stop Solution <br />
+                        <span class="service-span">Service</span>
+
                         <span class="service-line"></span>
                     </h1>
                 </div>
             </div>
         </div>
 
-       
 
-        <div class="container card-panel-container">
+
+        <div class="container-fluid-max card-panel-container">
             <!-- Architecture Card -->
             <div class="card-panel">
                 <div class="card-inner-panel">
@@ -681,66 +698,70 @@ $result = $conn->query($sql);
         </div>
 
         <div class="container-fluid project-grid">
-    <div class="grid-background py-5">
-        <div class="row">
-            <div class="col-md-6 d-flex flex-column justify-content-center">
-                <div class="project-new-heading text-center">
-                    <div class="project-light-heading">
-                        <h4>For Our Clients</h4>
-                    </div>
-                    <div class="project-dark-main">
-                        <h5>PROJECTS</h5>
-                    </div>
-                    <a class="view-more-link" href="./best-project.php">
-                        <div class="view-more view-project mt-3">
-                            <p class="mb-0">View More</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 casa-grand">
-                <div id="projectImagesCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-                    <div class="carousel-inner">
-                        <?php
-                        // Fetch all project images
-                        $sql = "SELECT images.image_url, projects.project_name FROM images 
-                                JOIN projects ON images.project_id = projects.project_id";
-                        $result = $conn->query($sql);
-                        $isFirst = true;
-
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                $image_url = strpos($row['image_url'], '../') === 0 ? substr($row['image_url'], 3) : $row['image_url'];
-                                ?>
-                                <div class="carousel-item <?php echo $isFirst ? 'active' : ''; ?>">
-                                    <div class="project-sliding-img">
-                                        <img src="<?php echo $image_url; ?>" alt="Project Image">
-                                    </div>
-                                    <div class="project-sliding-img-name">
-                                        <h5><?php echo $row['project_name']; ?></h5>
-                                    </div>
-                                    <div class="project-sliding-img-para">
-                                        <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                                    </div>
+            <div class="grid-background py-5">
+                <div class="row">
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <div class="project-new-heading text-center">
+                            <div class="project-light-heading">
+                                <h4>For Our Clients</h4>
+                            </div>
+                            <div class="project-dark-main">
+                                <h5>PROJECTS</h5>
+                            </div>
+                            <a class="view-more-link" href="./best-project.php">
+                                <div class="view-more view-project mt-3">
+                                    <p class="mb-0">View More</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
                                 </div>
-                                <?php
-                                $isFirst = false;
-                            }
-                        } else {
-                            echo '<div class="carousel-item active"><p>No images available.</p></div>';
-                        }
-                        ?>
+                            </a>
+                        </div>
                     </div>
+                    <div class="col-md-6 casa-grand">
+                        <div id="projectImagesCarousel" class="carousel slide" data-bs-ride="carousel"
+                            data-bs-interval="2000">
+                            <div class="carousel-inner">
+                                <?php
+                                // Fetch all project images
+                                $sql = "SELECT images.image_url, projects.project_name FROM images 
+                                JOIN projects ON images.project_id = projects.project_id";
+                                $result = $conn->query($sql);
+                                $isFirst = true;
 
-                   
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        $image_url = strpos($row['image_url'], '../') === 0 ? substr($row['image_url'], 3) : $row['image_url'];
+                                        ?>
+                                        <div class="carousel-item <?php echo $isFirst ? 'active' : ''; ?>">
+                                            <div class="project-sliding-img">
+                                                <img src="<?php echo $image_url; ?>" alt="Project Image">
+                                            </div>
+                                            <div class="project-sliding-img-name">
+                                                <h5><?php echo $row['project_name']; ?></h5>
+                                            </div>
+                                            <div class="project-sliding-img-para">
+                                                <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <?php
+                                        $isFirst = false;
+                                    }
+                                } else {
+                                    echo '<div class="carousel-item active"><p>No images available.</p></div>';
+                                }
+                                ?>
+                            </div>
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
 
         <!-- Testimonal -->
@@ -860,138 +881,100 @@ $result = $conn->query($sql);
         <!-- Popup Modal -->
 
         <div id="popupModal" class="modal">
-            <!-- Left Modal Section -->
-            <div class="left-modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
+    <div class="left-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
 
-                    <!-- Popup Content -->
-                    <h2 class="step-header">Basic Information</h2>
-                    <h3 class="step-subheader">STEP 1 of 3</h3>
+            <h2 class="step-header">Basic Information</h2>
+            <h3 class="step-subheader">STEP 1 of 3</h3>
 
-                    <div class="form-content">
-                        <div class="left-section">
-                            <p class="section-title">I own a...</p>
-                            <div class="own-a">
-
-                                <button class="property-type" id="apartment">Apartment</button>
-                                <button class="property-type" id="villa">Villa</button>
-                                <button class="property-type" id="independent-home">Independent Home</button>
-                            </div>
-
-
-                            <p class="section-title">My property type...</p>
-                            <div class="input-container">
-                                <input type="text" id="property-name" placeholder="Property type">
-                            </div>
-
-                            <p class="section-title">My floorplan type is...</p>
-                            <div class="floorplane-whole">
-                                <button class="floorplan-type ">1BHK</button>
-                                <button class="floorplan-type">2BHK</button>
-                                <button class="floorplan-type">3BHK</button>
-                                <button class="floorplan-type">3+BHK</button>
-                            </div>
-
+            <form id="propertyForm" onsubmit="return submitForm(event);">
+                <div class="form-content">
+                    <div class="left-section">
+                        <p class="section-title">I own a...</p>
+                        <div class="own-a">
+                            <button type="button" class="property-type" id="apartment" onclick="setPropertyType('Apartment')">Apartment</button>
+                            <button type="button" class="property-type" id="villa" onclick="setPropertyType('Villa')">Villa</button>
+                            <button type="button" class="property-type" id="independent-home" onclick="setPropertyType('Independent Home')">Independent Home</button>
                         </div>
 
-                        <div class="right-section">
-                            <img loading="lazy" src="./img/about.png" alt="Apartment Illustration">
-                            <p class="info-text">About your home</p>
-                            <p class="info-description">The details that you enter here help us understand more about
-                                your
-                                property.</p>
+                        <input type="hidden" name="property_type" id="property_type">
+                        
+                        <p class="section-title">My property name...</p>
+                        <div class="input-container">
+                            <input type="text" name="property_name" id="property-name" placeholder="Property name" required>
                         </div>
+
+                        <p class="section-title">My floorplan type is...</p>
+                        <div class="floorplane-whole">
+                            <button type="button" class="floorplan-type" onclick="setFloorplanType('1BHK')">1BHK</button>
+                            <button type="button" class="floorplan-type" onclick="setFloorplanType('2BHK')">2BHK</button>
+                            <button type="button" class="floorplan-type" onclick="setFloorplanType('3BHK')">3BHK</button>
+                            <button type="button" class="floorplan-type" onclick="setFloorplanType('3+BHK')">3+BHK</button>
+                        </div>
+
+                        <input type="hidden" name="floorplan_type" id="floorplan_type">
                     </div>
 
-                    <div class="buttons-step-2">
-
-                        <button class="next-button">NEXT</button>
+                    <div class="right-section">
+                        <img loading="lazy" src="./img/about.png" alt="Apartment Illustration">
+                        <p class="info-text">About your home</p>
+                        <p class="info-description">The details that you enter here help us understand more about your property.</p>
                     </div>
                 </div>
-            </div>
 
-
-            <!-- Right Modal Section -->
-            <div class="right-modal left-modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-
-                    <!-- Right Modal Content -->
-                    <h2 class="step-header">Usage</h2>
-                    <h3 class="step-subheader">STEP 2 of 3</h3>
-
-                    <div class="form-content">
-                        <div class="left-section">
-                            <div class="right-modal-form">
-                                <div class="form-group ">
-                                    <p class="section-title">I am planning to..</p>
-                                    <div class="planning-form own-a">
-                                        <button class="planning-type" id="move-in">Move In</button>
-                                        <button class="planning-type" id="move-out">Move Out</button>
-                                        <button class="planning-type" id="renovate">Renovate</button>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <p class="section-title">I am looking for..</p>
-                                    <div class="looking-form own-a">
-                                        <button class="looking-type" id="end-to-end">End to End Interior</button>
-                                        <button class="looking-type" id="kitchen-wardrobe">Kitchen and
-                                            Wardrobes</button>
-                                        <button class="looking-type" id="only-kitchen">Only Kitchen</button>
-                                    </div>
-
-                                </div>
-
-                                <div class="form-group">
-                                    <p class="section-title">I have a budget</p>
-                                    <select>
-                                        <option>Select Budget</option>
-                                        <option>Less than $10,000</option>
-                                        <option>$10,000 - $20,000</option>
-                                        <option>$20,000 - $30,000</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <p class="section-title">Possession in..</p>
-                                    <select>
-                                        <option>Select Possession</option>
-                                        <option>1-3 Months</option>
-                                        <option>3-6 Months</option>
-                                        <option>6-12 Months</option>
-                                    </select>
-                                </div>
-
-                                <div class="buttons-step-2">
-                                    <button class="btn-back">BACK</button>
-                                    <button class="btn-next">Submit</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="right-section">
-                            <img loading="lazy" src="./img/dream.png" alt="Interior Design Illustration">
-                            <p class="info-text">About your project</p>
-                            <p class="info-description">The details that you enter here help us understand more about
-                                your
-                                interior project.</p>
-                        </div>
-                    </div>
+                <div class="buttons-step-2">
+                    <button type="submit" class="btn-next">NEXT</button>
                 </div>
-            </div>
-
+            </form>
         </div>
+    </div>
+</div>
 
-        <!-- Thank You Modal -->
-        <div id="thankYouModal" class="thank-you-modal">
-            <div class="modal-content">
-                <span class="close-thank-you">&times;</span>
-                <h2>Thank You!</h2>
-                <p>Thank you so much for your submission. We will contact you soon.</p>
-            </div>
-        </div>
+<script>
+    function setPropertyType(type) {
+        document.getElementById('property_type').value = type;
+    }
+
+    function setFloorplanType(type) {
+        document.getElementById('floorplan_type').value = type;
+    }
+
+    function submitForm(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const formData = new FormData(document.getElementById('propertyForm'));
+
+        fetch('./admin_php/submit_property.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Show the thank you modal
+                document.getElementById('thankYouModal').style.display = 'block';
+            } else {
+                console.error('Error:', data.error);
+                alert('There was an error submitting your form. Please try again.');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('There was a problem with your submission. Please try again.');
+        });
+    }
+</script>
+
+<!-- Thank You Modal -->
+<div id="thankYouModal" class="thank-you-modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-thank-you" onclick="document.getElementById('thankYouModal').style.display='none'">&times;</span>
+        <h2>Thank You!</h2>
+        <p>Thank you so much for your submission. We will contact you soon.</p>
+    </div>
+</div>
+
 
         <div class="container mt-5">
             <div class="row">

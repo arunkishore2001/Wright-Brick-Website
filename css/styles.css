@@ -1651,15 +1651,15 @@ h6 {
 
 .card-panel-container {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 50px;
+  justify-content: space-evenly;
+  
+ padding-top: 40px;
   flex-wrap: wrap;
 }
 
 .card-panel {
-  width: 300px;
-  height: 400px;
+  width: 390px;
+  height: 500px;
   position: relative;
   perspective: 1000px;
   cursor: pointer;
@@ -1701,6 +1701,7 @@ h6 {
   transform: translateX(-50%);
  margin-bottom: 20px;
  width: 100%;
+ height: 60px;
  background-color: #D9D9D9;
  z-index: 8;
 }
@@ -2099,4 +2100,9 @@ h6 {
 
 .service-span{
   font-size: 32px;
+}
+#popupModal, #thankYouModal {
+  display: none;
+  position: fixed;
+  /* Additional styles */
 }
