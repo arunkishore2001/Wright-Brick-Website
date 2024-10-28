@@ -549,14 +549,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <h5>Journey</h5>
                             </div>
 
-                            <div class="step-right-para mt-4">
-                                <p>
-                                    Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                                    e u turpis molestie, dictum est a, mattis tellus. Sed
-                                    dignissim, metus nec fringilla accumsan, risus sem
-                                    sollicitudin lacus, ut interdptos himenae
-                                </p>
-                            </div>
+                           
                             <a href="./contact">
                                 <div class="about-contact-btn brick mt-5">
                                     Start Your Journey

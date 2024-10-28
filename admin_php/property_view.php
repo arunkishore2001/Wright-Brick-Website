@@ -4,6 +4,21 @@ include 'config.php';
 // Fetch data from the properties table
 $sql = "SELECT * FROM properties";
 $result = $conn->query($sql);
+
+// Fetch data from the contact_form table
+$query_contact = "SELECT name, email, phone FROM contact_form"; // Adjust query if needed
+$result_contact = mysqli_query($conn, $query_contact);
+
+// Get contact information
+$contact_info = [];
+if ($result_contact && mysqli_num_rows($result_contact) > 0) {
+    while ($row_contact = mysqli_fetch_assoc($result_contact)) {
+        $contact_info[] = $row_contact; // Store contact information in an array
+    }
+}
+
+// Get the current date and time
+$current_date_time = date('Y-m-d H:i:s'); // Format as 'YYYY-MM-DD HH:MM:SS'
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +50,12 @@ $result = $conn->query($sql);
 <body>
 <div class="container">
     <h1 class="text-center">Property Listings</h1>
+    <button onclick="window.print()" class="btn btn-primary">Print</button>
+    <!-- Display current date and time -->
     <div class="text-right mb-3">
-        <button onclick="window.print()" class="btn btn-primary">Print</button>
+        <p><strong>Date and Time:</strong> <?php echo $current_date_time; ?></p>
     </div>
+
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
@@ -66,6 +84,33 @@ $result = $conn->query($sql);
             <?php else: ?>
                 <tr>
                     <td colspan="5" class="text-center">No properties found</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+
+    <!-- Display contact information -->
+    <h2 class="text-center">Contact Information</h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (!empty($contact_info)): ?>
+                <?php foreach ($contact_info as $contact): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($contact['name']); ?></td>
+                        <td><?php echo htmlspecialchars($contact['email']); ?></td>
+                        <td><?php echo htmlspecialchars($contact['phone']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="3" class="text-center">No contact information available</td>
                 </tr>
             <?php endif; ?>
         </tbody>
