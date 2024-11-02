@@ -5,9 +5,6 @@ include './admin_php/functions.php';
 session_start();
 requireLogin();
 
-$sql = "SELECT * FROM properties";
-$result = $conn->query($sql);
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
     $targetDir = "img/"; // Directory where images will be uploaded
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
@@ -51,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
             // Insert image path into the database
             $sql = "INSERT INTO landing_images (image_path) VALUES ('$targetFile')";
             if ($conn->query($sql) === TRUE) {
-                echo "The file ". htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
+                echo "The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
@@ -64,11 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
 // Fetch images from the database
 $sql = "SELECT * FROM landing_images"; // Adjust this SQL as per your table structure
 $result = $conn->query($sql);
-
-
-
-
-
 
 // Upload Image
 if (isset($_POST['upload'])) {
@@ -159,7 +151,7 @@ if (isset($_POST['delete'])) {
     exit;
 }
 
-// $projectQuery = mysqli_query($conn, "SELECT DISTINCT project_name FROM images");
+$projectQuery = mysqli_query($conn, "SELECT DISTINCT project_name FROM images");
 ?>
 
 <!DOCTYPE html>
@@ -176,11 +168,6 @@ if (isset($_POST['delete'])) {
 <body>
     <div class="container mt-5">
         <h2>Welcome, Admin!</h2>
-
-
-        
-
-
 
         <div id="message"></div>
 
@@ -200,77 +187,45 @@ if (isset($_POST['delete'])) {
 
 
         <div class="container mt-5">
-    <h1 class="text-center">Image Upload</h1>
+            <h1 class="text-center">Image Upload</h1>
 
-    <!-- Image Upload Form -->
-    <form action="" method="POST" enctype="multipart/form-data" class="mb-4">
-        <div class="form-group">
-            <label for="image">Select image:</label>
-            <input type="file" name="image" id="image" class="form-control-file" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Upload Image</button>
-    </form>
+            <!-- Image Upload Form -->
+            <form action="" method="POST" enctype="multipart/form-data" class="mb-4">
+                <div class="form-group">
+                    <label for="image">Select image:</label>
+                    <input type="file" name="image" id="image" class="form-control-file" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload Image</button>
+            </form>
 
-    <!-- Display Existing Images -->
-    <h2 class="text-center">Existing Images</h2>
-    <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th>ID</th>
-                <th>Image</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["id"] . "</td>";
-                    echo "<td><img src='" . htmlspecialchars($row["image_path"]) . "' alt='Image' style='width: 100px; height: auto;'></td>";
-                    echo "<td><a href='./admin_php/delete.php?id=" . $row["id"] . "' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this image?\")'>Delete</a></td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='3' class='text-center'>No images found</td></tr>";
-            }
-            ?>
-        </tbody>
-    </table>
-</div>
-
-
-<div class="container">
-        <h1 class="mt-4">Properties</h1>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Property Type</th>
-                    <th>Property Name</th>
-                    <th>Floorplan Type</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>
-                                <td>{$row['id']}</td>
-                                <td>{$row['property_type']}</td>
-                                <td>{$row['property_name']}</td>
-                                <td>{$row['floorplan_type']}</td>
-                              </tr>";
+            <!-- Display Existing Images -->
+            <h2 class="text-center">Existing Images</h2>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $row["id"] . "</td>";
+                            echo "<td><img src='" . htmlspecialchars($row["image_path"]) . "' alt='Image' style='width: 100px; height: auto;'></td>";
+                            echo "<td><a href='./admin_php/delete.php?id=" . $row["id"] . "' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this image?\")'>Delete</a></td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='3' class='text-center'>No images found</td></tr>";
                     }
-                } else {
-                    echo "<tr><td colspan='4'>No properties found</td></tr>";
-                }
-                $conn->close();
-                ?>
-            </tbody>
-        </table>
-    </div>
-        
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
         <!-- Upload Image Form -->
         <form method="post" enctype="multipart/form-data" class="mt-4">
 

@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
 
   // Output each review as a table row
   while ($row = $result->fetch_assoc()) {
-    echo "<tr><td>" . $row["name"] . "</td><td>" . $row["designation"] . "</td><td><img src='" . $row["photo"] . "' alt='Profile Photo' width='50' height='50'></td><td>" . $row["review"] . "</td><td><button class='btn btn-danger mr-2' onclick='deleteReview(" . $row["id"] . ")'>Delete</button><button class='btn btn-primary' onclick='toggleVisibility(" . $row["id"] . ")'>" . ($row['visible'] ? 'Hide' : 'Show') . "</button></td></tr>";
+    echo "<tr><td>" . $row["name"] . "</td><td>" . $row["designation"] . "</td><td><img src='" . $row["photo"] . "' alt='Profile Photo' width='50' height='50'></td><td>" . $row["review"] . "</td><td><button class='btn btn-danger mr-2' onclick='deleteReview(" . $row["id"] . ")'>Delete</button><button class='btn btn-primary mt-2' onclick='toggleVisibility(" . $row["id"] . ")'>" . ($row['visible'] ? 'Hide' : 'Show') . "</button></td></tr>";
   }
 
   // Close the table
