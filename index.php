@@ -3,9 +3,8 @@ session_start();
 include './admin_php/config.php';
 
 // Fetch images from the database
-$sql = "SELECT * FROM landing_images"; // Adjust the SQL as needed
-$result = $conn->query($sql);
-
+$landing_page_query = "SELECT * FROM landing_page ORDER BY created_at DESC"; // Adjust the SQL as needed
+$landing_page_images = $conn->query($landing_page_query);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $propertyType = $_POST['property_type'];
@@ -100,11 +99,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="slider-container">
                 <div class="slider">
                     <?php
-                    if ($result->num_rows > 0) {
+                    if ($landing_page_images->num_rows > 0) {
                         // Output data of each row
-                        while ($row = $result->fetch_assoc()) {
+                        while ($row = $landing_page_images->fetch_assoc()) {
                             echo '<div class="slide">';
-                            echo '<img src="' . htmlspecialchars($row['image_path']) . '" alt="Image" />';
+                            echo '<img src="' . htmlspecialchars($row['imageUrl']) . '" alt="Image" />';
                             echo '</div>';
                         }
                     } else {
@@ -270,7 +269,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </svg>
                 </div>
             </div> -->
-                <div class="col-md-12 mt-5 mt-md-0" data-animation="slideInLeft">
+                <div class="col-md-12 mt-5 mt-md-0">
                     <section class="">
                         <div class="slider-images">
                             <div class="slider-img slider-img-b active">
@@ -450,7 +449,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container-fluid-max step-count py-5">
             <div class="container-fluid stacking">
                 <div class="row">
-                    <div class="col-md-6 order-1 order-md-0" data-animation="slideInRight">
+                    <div class="col-md-6 order-1 order-md-0">
                         <div class="scard-deck-js">
                             <div class="card">
                                 <div class="card-body">
@@ -540,7 +539,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 order-0 order-md-1" data-animation="slideInLeft">
+                    <div class="col-md-6 order-0 order-md-1">
                         <div class="step-right">
                             <div class="step-right-heading">
                                 <h2>BRIGHT BRICKS</h2>

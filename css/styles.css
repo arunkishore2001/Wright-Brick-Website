@@ -468,11 +468,10 @@ h6 {
 }
 
 .card-design img{
-  width: 10%;
+  width: 50px;
+  object-fit: contain;
 }
-.card-design h5{
-  padding-top: 20px;
-}
+
 .standout-box {
   padding: 30px;
 
@@ -480,6 +479,12 @@ h6 {
   background: #fff;
   box-shadow: 3.481px 3.481px 7.224px 0px rgba(0, 0, 0, 0.05) inset,
     -3.481px 3.481px 15.578px 0px rgba(0, 0, 0, 0.11);
+}
+
+.standout-box img{
+  height: 80px;
+  width: 100%;
+  object-fit: contain;
 }
 
 @media (max-width: 1000px) {
@@ -547,7 +552,7 @@ h6 {
   top: 100px;
   transform-origin: center top;
   width: 100%;
-  min-height: 150px;
+  min-height: 180px;
   height: min-content;
   border: 1px solid #fff;
   border-radius: 10px;
@@ -558,7 +563,9 @@ h6 {
 .card-design {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-bottom: 10px;
+  gap: 5px;
 }
 
 .card-img {
@@ -583,6 +590,7 @@ h6 {
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+  padding: 20px;
 }
 
 .video-card {
@@ -1264,9 +1272,15 @@ h6 {
   
 }
 
+.follow-us-link ul li{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
 .follow-us-link ul li svg{
   margin-right: 10px;
-  margin-top: 10px;
 }
 
 .end-line {
@@ -1786,6 +1800,7 @@ h6 {
   border-radius: 16px;
   padding: 32px;
   margin: 10px;
+  min-height: 300px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -2046,7 +2061,7 @@ h6 {
 }
 
 .project-light-heading h4 {
-  color: #606060;
+  color: #bebebe;
   font-family: Syne;
   font-size: 60px;
   margin-bottom: -40px;

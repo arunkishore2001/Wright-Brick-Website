@@ -13,10 +13,10 @@ if (isset($_POST['action'])) {
     if ($action == 'fetch') {
         $project_id = $_POST['project_id'];
         $sql = "SELECT * FROM projects WHERE project_id = $project_id";
-        $result = $conn->query($sql);
+        $landing_page_images = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            $project = $result->fetch_assoc();
+        if ($landing_page_images->num_rows > 0) {
+            $project = $landing_page_images->fetch_assoc();
             echo json_encode(['status' => 'success', 'data' => $project]);
         } else {
             echo json_encode(['status' => 'error']);

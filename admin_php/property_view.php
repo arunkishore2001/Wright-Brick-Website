@@ -3,7 +3,7 @@ include 'config.php';
 
 // Fetch data from the properties table
 $sql = "SELECT * FROM properties";
-$result = $conn->query($sql);
+$landing_page_images = $conn->query($sql);
 
 // Fetch data from the contact_form table
 $query_contact = "SELECT name, email, phone FROM contact_form"; // Adjust query if needed
@@ -67,8 +67,8 @@ $current_date_time = date('Y-m-d H:i:s'); // Format as 'YYYY-MM-DD HH:MM:SS'
             </tr>
         </thead>
         <tbody>
-            <?php if ($result->num_rows > 0): ?>
-                <?php while($row = $result->fetch_assoc()): ?>
+            <?php if ($landing_page_images->num_rows > 0): ?>
+                <?php while($row = $landing_page_images->fetch_assoc()): ?>
                     <tr>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo htmlspecialchars($row['property_type']); ?></td>

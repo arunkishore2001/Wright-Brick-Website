@@ -1,4 +1,4 @@
-<header class="nav-bar-container" data-animation="slideInDown">
+<header class="nav-bar-container">
   <div class="container-fluid-max">
     <div class="navigation  d-flex justify-content-between align-items-center">
       <div class="nav-main-wrapper">
