@@ -258,6 +258,10 @@ h6 {
   margin-top: 2px;
 }
 
+.about-contact-btn svg path{
+stroke: white;
+}
+
 .about-contact-btn a {
   text-decoration: none;
   color: white;
@@ -596,7 +600,7 @@ h6 {
 
 .video-card {
   width: 100%;
-  height: 250px;
+  height: auto;
   border: 1px solid #fff;
   border-radius: 2px;
   overflow: hidden;
@@ -936,6 +940,11 @@ h6 {
   
 }
 
+
+.connect-now-btn svg path {
+  stroke: #fff;
+}
+
 .project-right {
   position: relative;
   top: 0;
@@ -950,9 +959,11 @@ h6 {
   justify-content: center;
 }
 
-/* .project-inner-btn {
-  background: #000;
-} */
+.project-inner-btn svg path {
+  
+    stroke: #fff;
+  
+}
 
 @media (max-width: 768px){
   .view-more{
@@ -2052,13 +2063,13 @@ h6 {
 
 .project-sliding-img {
   width: 100%;
-  max-width: 500px; 
+ 
   height: 300px;
 }
 
 .project-sliding-img img {
   width: 100%;
-  height: 200px; 
+  height: 400px; 
 }
 
 .project-light-heading h4 {
@@ -2151,8 +2162,58 @@ padding-bottom: 40px;
 .project-description{
   margin-top: 20px;
 }
+.project-description p{
+  color: #606060;
+text-align: center;
+font-style: normal;
+font-weight: 500;
+
+}
 
 .sliding-area img{
   width: 100%;
   height: 100vh !important;
 }
+
+
+.connect-now-contact {
+
+  position: relative;
+  display: inline-block;
+ 
+  font-size: clamp(16px, 4vw, 24px);
+}
+
+.connect-now-contact::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 55%;
+  width: clamp(30px, 8vw, 90px);
+  height: clamp(1px, 0.3vw, 2px);
+  background-color: #ff0000;
+  margin-left: clamp(5px, 2vw, 10px);
+}
+
+
+@media (max-width: 320px) {
+  .connect-now-contact {
+
+    font-size: 14px;
+  }
+  
+  .connect-now-contact::after {
+    width: 25px;
+    height: 1px;
+    margin-left: 5px;
+  }
+}
+
+.container-contact{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+

@@ -1,4 +1,8 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include 'config.php';
 include 'functions.php';
 
@@ -16,10 +20,7 @@ $email = $_POST['email'];
 $country = $_POST['country'];
 $phone = $_POST['phone'];
 $message = $_POST['message'];
-
 $fullPhone = "{$country} {$phone}";  // Adds a space
-
-// Check if the WhatsApp option is selected
 $whatsapp = isset($_POST['whatsapp']) ? 1 : 0;
 
 // Prepare an SQL statement for safe insertion
@@ -29,6 +30,7 @@ $insertQuery->bind_param("ssssi", $name, $email, $fullPhone, $message, $whatsapp
 // Execute the prepared statement
 if ($insertQuery->execute()) {
     $_SESSION['form_submitted'] = true;
+    $_SESSION['contact_form_id'] = $conn->insert_id;  // Save the inserted ID in the session
     echo "Form submitted successfully.";
 } else {
     echo "Error: " . $insertQuery->error;

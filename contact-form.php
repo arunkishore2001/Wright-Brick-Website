@@ -17,7 +17,7 @@
         <input type="checkbox" id="whatsapp" name="whatsapp" value="1" />
         <label for="whatsapp">You can reach me on WhatsApp</label>
       </div>
-      <button type="submit"  >
+      <button type="submit" >
         Get Free Quote
         <span>
           <svg xmlns="http://www.w3.org/2000/svg" width="41" height="19" viewBox="0 0 41 19" fill="none">
@@ -32,85 +32,101 @@
 
 <script>
   $(document).ready(function () {
-  $("#contactForm").on('submit', function (e) {
-    e.preventDefault();
+    $("#contactForm").on('submit', function (e) {
+      e.preventDefault();
 
-    // Prevent double submission by disabling the button
-    $("#contactForm button[type=submit]").prop("disabled", true);
+      // Prevent double submission by disabling the button
+      $("#contactForm button[type=submit]").prop("disabled", true);
 
-    if ($(this).valid()) {
-      // Open the contactLink only after successful validation
-      $("#contactLink")[0].click();
-      
-      $.ajax({
-        url: './admin_php/process_form.php',
-        type: 'POST',
-        data: new FormData(this),
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: function (data) {
-          $("#ContactSubmitMessage").html(
-            '<div class="alert alert-success my-1 p-2 px-3">' + data + '</div>'
-          );
-          $("#contactForm")[0].reset();
-          // Re-enable the button after the form has been successfully submitted
+      if ($(this).valid()) {
+        // Show the existing popup modal after successful validation
+        document.getElementById("popupModal").style.display = "block";
+
+        // If you want to proceed with form submission only after the modal is confirmed
+        // Make sure to handle that logic in the modal's submit button
+
+        // Example: If you want to keep the form submission within the modal
+        $("#propertyForm").on('submit', function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          // Now proceed with the AJAX form submission
+          $.ajax({
+            url: './admin_php/process_form.php',
+            type: 'POST',
+            data: new FormData($("#contactForm")[0]),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function (data) {
+              $("#ContactSubmitMessage").html(
+                '<div class="alert alert-success my-1 p-2 px-3">' + data + '</div>'
+              );
+              $("#contactForm")[0].reset();
+              // Hide the modal after submission
+              document.getElementById("popupModal").style.display = "none";
+            },
+            error: function () {
+              $("#ContactSubmitMessage").html(
+                '<div class="alert alert-danger">An error occurred.</div>'
+              );
+            }
+          });
+
+          // Re-enable the button after the form has been submitted
           $("button[type=submit]").prop("disabled", false);
+        });
+
+      } else {
+        // Re-enable the button if validation fails
+        $("button[type=submit]").prop("disabled", false);
+      }
+    });
+
+    $("#contactForm").validate({
+      rules: {
+        name: {
+          required: true,
+          minlength: 2
         },
-        error: function () {
-          $("#ContactSubmitMessage").html(
-            '<div class="alert alert-danger">An error occurred.</div>'
-          );
-          // Re-enable the button in case of error
-          $("button[type=submit]").prop("disabled", false);
+        email: {
+          required: true,
+          email: true
+        },
+        phone: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 10
+        },
+        message: {
+          required: true,
+          minlength: 10
         }
-      });
-    } else {
-      // Re-enable the button if validation fails
-      $("button[type=submit]").prop("disabled", false);
-    }
-  });
-
-  $("#contactForm").validate({
-    rules: {
-      name: {
-        required: true,
-        minlength: 2
       },
-      email: {
-        required: true,
-        email: true
-      },
-      phone: {
-        required: true,
-        digits: true,
-        minlength: 10,
-        maxlength: 10
-      },
-      message: {
-        required: true,
-        minlength: 10
+      messages: {
+        name: {
+          required: "Please enter your name",
+          minlength: "Your name must consist of at least 2 characters"
+        },
+        email: {
+          required: "Please enter your email",
+          email: "Please enter a valid email address"
+        },
+        phone: {
+          required: "Please enter your phone number",
+          digits: "Please enter a valid phone number"
+        },
+        message: {
+          required: "Please write a message",
+          minlength: "Your message must consist of at least 10 characters"
+        }
       }
-    },
-    messages: {
-      name: {
-        required: "Please enter your name",
-        minlength: "Your name must consist of at least 2 characters"
-      },
-      email: {
-        required: "Please enter your email",
-        email: "Please enter a valid email address"
-      },
-      phone: {
-        required: "Please enter your phone number",
-        digits: "Please enter a valid phone number"
-      },
-      message: {
-        required: "Please write a message",
-        minlength: "Your message must consist of at least 10 characters"
-      }
-    }
-  });
-});
+    });
 
+   
+
+   
+  });
 </script>
+
+

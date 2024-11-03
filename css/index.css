@@ -434,14 +434,21 @@ a{
 
 /* Right Header */
 
+.connect-now-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .right-header {
   position: relative;
   border-radius: 16px;
   background: #fff;
   width: 100%;
   height: auto;
+  
   padding: 30px 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 .right-inside-header h4 {

@@ -1,32 +1,40 @@
 <?php
-// Include your database configuration file here
 include 'config.php';
-include 'functions.php';
-
 session_start();
-requireLogin();
 
-// Check if form data is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $propertyType = $_POST['property_type'];
-    $propertyName = $_POST['property_name'];
-    $floorplanType = $_POST['floorplan_type'];
+// Set response header as JSON
+header('Content-Type: application/json');
 
-    // Prepare and bind the SQL statement
-    $stmt = $conn->prepare("INSERT INTO properties (property_type, property_name, floorplan_type) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $propertyType, $propertyName, $floorplanType);
-
-    // Execute the statement and check for success
-    if ($stmt->execute()) {
-        // If successful, redirect to a thank you page or return a success response
-        echo json_encode(["success" => true]);
-    } else {
-        echo json_encode(["success" => false, "error" => $stmt->error]);
-    }
-
-    // Close the statement and connection
-    $stmt->close();
+// Check if the form has been submitted from this session
+if (isset($_SESSION['form_submitted']) && $_SESSION['form_submitted'] === true) {
+    echo json_encode(["status" => "error", "message" => "You've already submitted the form."]);
+    exit();
 }
 
+// Check if the session variable for contact form ID exists
+if (!isset($_SESSION['contact_form_id'])) {
+    echo json_encode(["status" => "error", "message" => "No contact form ID found in session."]);
+    exit();
+}
+
+// Get form data
+$property_type = $_POST['property_type'];
+$property_name = $_POST['property_name'];
+$floorplan_type = $_POST['floorplan_type'];
+$contact_form_id = $_SESSION['contact_form_id']; // Get the contact form ID from session
+
+// Prepare an SQL statement for updating the existing entry
+$updateQuery = $conn->prepare("UPDATE contact_form SET property_type = ?, property_name = ?, floorplan_type = ? WHERE id = ?");
+$updateQuery->bind_param("sssi", $property_type, $property_name, $floorplan_type, $contact_form_id);
+
+// Execute the prepared statement and return JSON response
+if ($updateQuery->execute()) {
+    echo json_encode(["status" => "success", "message" => "Property details updated successfully."]);
+} else {
+    echo json_encode(["status" => "error", "message" => "Error: " . $updateQuery->error]);
+}
+
+// Close the statement and connection
+$updateQuery->close();
 $conn->close();
 ?>

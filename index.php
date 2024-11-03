@@ -532,15 +532,14 @@ $landing_page_images = $conn->query($landing_page_query);
                                 <h5>Journey</h5>
                             </div>
 
-                           
+
                             <a href="./contact">
                                 <div class="about-contact-btn brick mt-5">
                                     Start Your Journey
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="41" height="19" viewBox="0 0 41 19"
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none">
-                                        <line y1="9.5" x2="40" y2="9.5" stroke="white" />
-                                        <line x1="30.3345" y1="0.628353" x2="40.3345" y2="9.62835" stroke="white" />
-                                        <line x1="29.672" y1="18.4491" x2="39.8256" y2="9.62269" stroke="white" />
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                             </a>
@@ -697,43 +696,44 @@ $landing_page_images = $conn->query($landing_page_query);
                         </div>
                     </div>
                     <div class="col-md-6 casa-grand">
-                    <div id="projectImagesCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-    <div class="carousel-inner">
-        <?php
-        // Fetch all project images
-        $sql = "SELECT images.image_url, projects.project_name, projects.description FROM images 
+                        <div id="projectImagesCarousel" class="carousel slide" data-bs-ride="carousel"
+                            data-bs-interval="2000">
+                            <div class="carousel-inner">
+                                <?php
+                                // Fetch all project images
+                                $sql = "SELECT images.image_url, projects.project_name, projects.description FROM images 
                 JOIN projects ON images.project_id = projects.project_id";
-        $result = $conn->query($sql);
-        $isFirst = true;
+                                $result = $conn->query($sql);
+                                $isFirst = true;
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $image_url = strpos($row['image_url'], '../') === 0 ? substr($row['image_url'], 3) : $row['image_url'];
-                ?>
-                <div class="carousel-item <?php echo $isFirst ? 'active' : ''; ?>">
-                    <div class="project-heading text-center">
-                    <h5><?php echo $row['project_name']; ?></h5>
-                    </div>
-                    <div class="project-sliding-img">
-                        <img src="<?php echo $image_url; ?>" alt="Project Image" class="d-block w-100">
-                    </div>
-                  <!-- Only the description here -->
-                   <div class="project-description">
-                   <p class="text-center"><?php echo $row['description']; ?></p> 
-                   </div>
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        $image_url = strpos($row['image_url'], '../') === 0 ? substr($row['image_url'], 3) : $row['image_url'];
+                                        ?>
+                                        <div class="carousel-item <?php echo $isFirst ? 'active' : ''; ?>">
+                                            <div class="project-heading text-center">
+                                                <h5><?php echo $row['project_name']; ?></h5>
+                                            </div>
+                                            <div class="project-sliding-img">
+                                                <img src="<?php echo $image_url; ?>" alt="Project Image" class="d-block w-100">
+                                            </div>
+                                            <!-- Only the description here -->
+                                            <div class="project-description">
+                                                <p class="text-center"><?php echo $row['description']; ?></p>
+                                            </div>
 
-                </div>
+                                        </div>
 
-                
-                <?php
-                $isFirst = false;
-            }
-        } else {
-            echo '<div class="carousel-item active"><p>No images available.</p></div>';
-        }
-        ?>
-    </div>
-</div>
+
+                                        <?php
+                                        $isFirst = false;
+                                    }
+                                } else {
+                                    echo '<div class="carousel-item active"><p>No images available.</p></div>';
+                                }
+                                ?>
+                            </div>
+                        </div>
 
 
                     </div>
@@ -766,10 +766,9 @@ $landing_page_images = $conn->query($landing_page_query);
 
                     Add Reviews
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="41" height="19" viewBox="0 0 41 19" fill="none">
-                        <line y1="9.5" x2="40" y2="9.5" stroke="white" />
-                        <line x1="30.3345" y1="0.628353" x2="40.3345" y2="9.62835" stroke="white" />
-                        <line x1="29.672" y1="18.4491" x2="39.8256" y2="9.62269" stroke="white" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
 
 
@@ -794,269 +793,317 @@ $landing_page_images = $conn->query($landing_page_query);
                     </div>
 
                     <div class="modal-body p-3">
-                        <form id="reviewForm" action="./admin_php/submit_review.php" method="post"
-                            enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label class="mb-1" for="name">Name:</label>
-                                <input type="text" class="form-control" id="name" name="name">
-                            </div>
-                            <div class="form-group mt-3">
-                                <label class="mb-1" for="designation">Designation:</label>
-                                <input type="text" class="form-control" id="designation" name="designation">
-                            </div>
-                            <div class="form-group mt-3">
-                                <label class="mb-1" for="photo">Upload Profile Photo: (Optional)</label>
-                                <div class="mt-2">
-                                    <input type="file" class="form-control-file border" id="photo" name="photo">
-                                </div>
-                            </div>
-                            <div class="form-group mt-3">
-                                <label class="mb-1" for="review">Write a Review:</label>
-                                <textarea class="form-control" id="review" name="review"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                        </form>
+                        <form id="reviewForm"">
+                            <div class=" form-group">
+                            <label class="mb-1" for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name">
                     </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <div class="form-group mt-3">
+                        <label class="mb-1" for="designation">Designation:</label>
+                        <input type="text" class="form-control" id="designation" name="designation">
                     </div>
-
+                    <div class="form-group mt-3">
+                        <label class="mb-1" for="photo">Upload Profile Photo: (Optional)</label>
+                        <div class="mt-2">
+                            <input type="file" class="form-control-file border" id="photo" name="photo">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="mb-1" for="review">Write a Review:</label>
+                        <textarea class="form-control" id="review" name="review"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
                 </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-        <script>
-            // Get references to the buttons and form
-            const reviewBtn = document.getElementById("reviewBtn");
-            const testimonialForm = document.getElementById("testimonialForm");
-            const cancelBtn = document.getElementById("cancelBtn");
-
-            // Toggle form visibility when the "Review" button is clicked
-            reviewBtn.addEventListener("click", function () {
-                if (testimonialForm.style.display === "none" || testimonialForm.style.display === "") {
-                    testimonialForm.style.display = "block"; // Show form
-                } else {
-                    testimonialForm.style.display = "none"; // Hide form
-                }
-            });
-
-            // Hide form when "Cancel" button is clicked
-            cancelBtn.addEventListener("click", function () {
-                testimonialForm.style.display = "none"; // Hide form
-            });
-        </script>
-
-        <!-- Popup Modal -->
-
-        <div id="popupModal" class="modal">
-  <div class="left-modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-
-          <h2 class="step-header">Basic Information</h2>
-          <h3 class="step-subheader">STEP 1 of 3</h3>
-
-          <form id="propertyForm"  onsubmit="return submitCombinedForm(event);">
-              <div class="form-content">
-                  <div class="left-section">
-                      <p class="section-title">I own a...</p>
-                      <div class="own-a">
-                          <button type="button" class="property-type" id="apartment" onclick="setPropertyType('Apartment')">Apartment</button>
-                          <button type="button" class="property-type" id="villa" onclick="setPropertyType('Villa')">Villa</button>
-                          <button type="button" class="property-type" id="independent-home" onclick="setPropertyType('Independent Home')">Independent Home</button>
-                      </div>
-
-                      <input type="hidden" name="property_type" id="property_type">
-                      
-                      <p class="section-title">My property name...</p>
-                      <div class="input-container">
-                          <input type="text" name="property_name" id="property-name" placeholder="Property name" required>
-                      </div>
-
-                      <p class="section-title">My floorplan type is...</p>
-                      <div class="floorplane-whole">
-                          <button type="button" class="floorplan-type" onclick="setFloorplanType('1BHK')">1BHK</button>
-                          <button type="button" class="floorplan-type" onclick="setFloorplanType('2BHK')">2BHK</button>
-                          <button type="button" class="floorplan-type" onclick="setFloorplanType('3BHK')">3BHK</button>
-                          <button type="button" class="floorplan-type" onclick="setFloorplanType('3+BHK')">3+BHK</button>
-                      </div>
-
-                      <input type="hidden" name="floorplan_type" id="floorplan_type">
-                  </div>
-
-                  <div class="right-section">
-                      <img loading="lazy" src="./img/about.png" alt="Apartment Illustration">
-                      <p class="info-text">About your home</p>
-                      <p class="info-description">The details that you enter here help us understand more about your property.</p>
-                  </div>
-              </div>
-
-              <div class="buttons-step-2">
-                  <button type="submit" class="btn-next">NEXT</button>
-              </div>
-          </form>
-      </div>
-  </div>
-</div>
-
-<!-- Thank You Modal -->
-<div id="thankYouModal" class="thank-you-modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close-thank-you" onclick="document.getElementById('thankYouModal').style.display='none'">&times;</span>
-        <h2>Thank You!</h2>
-        <p>Thank you so much for your submission. We will contact you soon.</p>
     </div>
-</div>
 
 
-        <div class="container mt-5">
-            <div class="row">
-                <div class="faq-heading" data-animation="slideInRight">
-                    <h1>FAQs</h1>
-                </div>
-                <div class="faq-subheading" data-animation="slideInRight" data-animation-delay="50ms">
-                    <p>People commonly asks</p>
-                </div>
+
+
+
+
+
+
+
+
+    <script>
+        // Get references to the buttons and form
+        const reviewBtn = document.getElementById("reviewBtn");
+        const testimonialForm = document.getElementById("testimonialForm");
+        const cancelBtn = document.getElementById("cancelBtn");
+
+        // Toggle form visibility when the "Review" button is clicked
+        reviewBtn.addEventListener("click", function () {
+            if (testimonialForm.style.display === "none" || testimonialForm.style.display === "") {
+                testimonialForm.style.display = "block"; // Show form
+            } else {
+                testimonialForm.style.display = "none"; // Hide form
+            }
+        });
+
+        // Hide form when "Cancel" button is clicked
+        cancelBtn.addEventListener("click", function () {
+            testimonialForm.style.display = "none"; // Hide form
+        });
+    </script>
+
+    <!-- Popup Modal -->
+
+    <div id="popupModal" class="modal">
+        <div class="left-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+                <h2 class="step-header">Basic Information</h2>
+                <h3 class="step-subheader">STEP 1 of 3</h3>
+
+                <form id="propertyForm" onsubmit="onProperty(event)">
+                    <div class="form-content">
+                        <div class="left-section">
+                            <p class="section-title">I own a...</p>
+                            <div class="own-a">
+                                <button type="button" class="property-type" id="apartment"
+                                    onclick="setPropertyType('Apartment')">Apartment</button>
+                                <button type="button" class="property-type" id="villa"
+                                    onclick="setPropertyType('Villa')">Villa</button>
+                                <button type="button" class="property-type" id="independent-home"
+                                    onclick="setPropertyType('Independent Home')">Independent Home</button>
+                            </div>
+
+                            <input type="hidden" name="property_type" id="property_type">
+
+                            <p class="section-title">My property name...</p>
+                            <div class="input-container">
+                                <input type="text" name="property_name" id="property-name" placeholder="Property name"
+                                    required>
+                            </div>
+
+                            <p class="section-title">My floorplan type is...</p>
+                            <div class="floorplane-whole">
+                                <button type="button" class="floorplan-type"
+                                    onclick="setFloorplanType('1BHK')">1BHK</button>
+                                <button type="button" class="floorplan-type"
+                                    onclick="setFloorplanType('2BHK')">2BHK</button>
+                                <button type="button" class="floorplan-type"
+                                    onclick="setFloorplanType('3BHK')">3BHK</button>
+                                <button type="button" class="floorplan-type"
+                                    onclick="setFloorplanType('3+BHK')">3+BHK</button>
+                            </div>
+
+                            <input type="hidden" name="floorplan_type" id="floorplan_type">
+                        </div>
+
+                        <div class="right-section">
+                            <img loading="lazy" src="./img/about.png" alt="Apartment Illustration">
+                            <p class="info-text">About your home</p>
+                            <p class="info-description">The details that you enter here help us understand more about
+                                your property.</p>
+                        </div>
+                    </div>
+
+                    <div class="buttons-step-2">
+                        <button type="submit" class="btn-next">NEXT</button>
+                    </div>
+                </form>
+
+
+                </form>
+
+
             </div>
         </div>
+    </div>
 
-        <div class="faq-whole mt-4">
-            <section class="faq-section py-3">
-                <div class="container">
-                    <div class="w-lg-50 mx-auto">
-                        <div class="accordion accordion-flush" id="accordionExample">
-                            <!-- 1: coll1 -->
-                            <div class="accordion-item" data-animation="slideInDown" data-animation-delay="10ms">
-                                <h2 class="accordion-header">
-                                    <!--   data-bs-target="#coll1",  controls="coll1", id="coll1", aria-expanded="true"      -->
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#coll1" aria-expanded="true" aria-controls="coll1">
-                                        <h5>What is Wright Brick?</h5>
-                                    </button>
-                                </h2>
-                                <!-- show : by default Always open -->
-                                <div id="coll1" class="accordion-collapse collapse show"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        At Wright Brick, we specialize in creating interiors that are uniquely yours.
-                                        Each
-                                        home reflects your distinct style, crafted with exceptional precision and care
-                                        by
-                                        our expert team. Our designs are more than spaces—they're a true extension of
-                                        you
-                                    </div>
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="thank-you-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-thank-you"
+                onclick="document.getElementById('thankYouModal').style.display='none'">&times;</span>
+            <h2>Thank You!</h2>
+            <p>Thank you so much for your submission. We will contact you soon.</p>
+        </div>
+    </div>
+
+    <!-- <script>
+        function submitPropertyForm(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Collect form data
+            const formData = new FormData(document.getElementById("propertyForm"));
+            console.log("Form data being submitted:", Array.from(formData.entries())); // Log form data
+
+            // Send data to PHP file using fetch
+            fetch("./admin_php/submit_property.php", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => {
+                    console.log("Response status:", response.status); // Log the HTTP response status
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok: ' + response.statusText);
+                    }
+                    return response.json(); // Parse JSON response
+                })
+                .then(data => {
+                    console.log("Response data from PHP:", data); // Log the parsed response data
+                    if (data.status === "success") {
+                        console.log("Success:", data.message); // Log success message
+                    } else {
+                        console.error("Error:", data.message); // Log error message
+                    }
+                })
+                .catch(error => {
+                    console.error("Fetch error:", error); // Log any fetch errors
+                });
+        }
+
+
+    </script> -->
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="faq-heading" data-animation="slideInRight">
+                <h1>FAQs</h1>
+            </div>
+            <div class="faq-subheading" data-animation="slideInRight" data-animation-delay="50ms">
+                <p>People commonly asks</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-whole mt-4">
+        <section class="faq-section py-3">
+            <div class="container">
+                <div class="w-lg-50 mx-auto">
+                    <div class="accordion accordion-flush" id="accordionExample">
+                        <!-- 1: coll1 -->
+                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="10ms">
+                            <h2 class="accordion-header">
+                                <!--   data-bs-target="#coll1",  controls="coll1", id="coll1", aria-expanded="true"      -->
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#coll1" aria-expanded="true" aria-controls="coll1">
+                                    <h5>What is Wright Brick?</h5>
+                                </button>
+                            </h2>
+                            <!-- show : by default Always open -->
+                            <div id="coll1" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    At Wright Brick, we specialize in creating interiors that are uniquely yours.
+                                    Each
+                                    home reflects your distinct style, crafted with exceptional precision and care
+                                    by
+                                    our expert team. Our designs are more than spaces—they're a true extension of
+                                    you
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- 2: coll2 -->
-                            <div class="accordion-item" data-animation="slideInDown" data-animation-delay="20ms">
-                                <h2 class="accordion-header">
-                                    <!--       collapsed,   aria-expanded="false"   -->
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#coll2" aria-expanded="false" aria-controls="coll2">
-                                        <h5>Does Wright Brick charge taxes? </h5>
-                                    </button>
-                                </h2>
-                                <div id="coll2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Yes, Wright Brick is a reputable organization compliant with all statutory
-                                        requirements. The quoted cost includes GST, with no additional taxes.
-                                    </div>
+                        <!-- 2: coll2 -->
+                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="20ms">
+                            <h2 class="accordion-header">
+                                <!--       collapsed,   aria-expanded="false"   -->
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#coll2" aria-expanded="false" aria-controls="coll2">
+                                    <h5>Does Wright Brick charge taxes? </h5>
+                                </button>
+                            </h2>
+                            <div id="coll2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Yes, Wright Brick is a reputable organization compliant with all statutory
+                                    requirements. The quoted cost includes GST, with no additional taxes.
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- 3: coll3 -->
-                            <div class="accordion-item" data-animation="slideInDown" data-animation-delay="30ms">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#coll3" aria-expanded="false" aria-controls="coll3">
-                                        <h5>Does Wright Brick offer any Warranty?
-                                        </h5>
-                                    </button>
-                                </h2>
-                                <div id="coll3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">Wright Brick guarantees that all products will be free
-                                        from
-                                        manufacturing defects and installation issues, with a warranty of up to 10
-                                        years,
-                                        provided they are properly maintained and used for standard domestic purposes
-                                    </div>
+                        <!-- 3: coll3 -->
+                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="30ms">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#coll3" aria-expanded="false" aria-controls="coll3">
+                                    <h5>Does Wright Brick offer any Warranty?
+                                    </h5>
+                                </button>
+                            </h2>
+                            <div id="coll3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">Wright Brick guarantees that all products will be free
+                                    from
+                                    manufacturing defects and installation issues, with a warranty of up to 10
+                                    years,
+                                    provided they are properly maintained and used for standard domestic purposes
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- 4: coll4 -->
-                            <div class="accordion-item" data-animation="slideInDown" data-animation-delay="40ms">
-                                <h2 class="accordion-header">
-                                    <!--   target="#coll4",  id="coll4"  -->
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#coll4" aria-expanded="false" aria-controls="coll4">
-                                        <h5>What is the timeline to complete an interior Project?</h5>
-                                    </button>
-                                </h2>
-                                <div id="coll4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Every home is unique with its own needs. At Wright Brick, we aim to finish your
-                                        project in the shortest time possible. Once the design is finalized, we will
-                                        provide
-                                        a clear timeline and ensure timely delivery as promised.
-                                    </div>
+                        <!-- 4: coll4 -->
+                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="40ms">
+                            <h2 class="accordion-header">
+                                <!--   target="#coll4",  id="coll4"  -->
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#coll4" aria-expanded="false" aria-controls="coll4">
+                                    <h5>What is the timeline to complete an interior Project?</h5>
+                                </button>
+                            </h2>
+                            <div id="coll4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Every home is unique with its own needs. At Wright Brick, we aim to finish your
+                                    project in the shortest time possible. Once the design is finalized, we will
+                                    provide
+                                    a clear timeline and ensure timely delivery as promised.
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- 5: coll5 -->
-                            <div class="accordion-item" data-animation="slideInDown" data-animation-delay="50ms">
-                                <h2 class="accordion-header">
-                                    <!--   target="#coll5",  id="coll5"  -->
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#coll5" aria-expanded="false" aria-controls="coll5">
-                                        <h5>Does Wright Brick take any hidden charges?
-                                        </h5>
-                                    </button>
-                                </h2>
-                                <div id="coll5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">Wright Brick has no hidden charges beyond those
-                                        specified in
-                                        the quote.
-                                    </div>
+                        <!-- 5: coll5 -->
+                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="50ms">
+                            <h2 class="accordion-header">
+                                <!--   target="#coll5",  id="coll5"  -->
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#coll5" aria-expanded="false" aria-controls="coll5">
+                                    <h5>Does Wright Brick take any hidden charges?
+                                    </h5>
+                                </button>
+                            </h2>
+                            <div id="coll5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">Wright Brick has no hidden charges beyond those
+                                    specified in
+                                    the quote.
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-
-        <div class="container-fluid mt-5">
-            <div class="row">
-                <div class="faq-heading" data-animation="slideInLeft">
-                    <h1>Interior Tour</h1>
-                </div>
-
             </div>
-            <div class="row mt-5">
-                <?php
-                // Fetch videos
-                $sql = "SELECT id, video_id FROM videos";
-                $result = $conn->query($sql);
+        </section>
+    </div>
 
-                if ($result->num_rows > 0) {
-                    // Output data of each row
-                    while ($row = $result->fetch_assoc()) {
-                        $video_id = $row["video_id"];
-                        $id = $row["id"];
-                        // Get YouTube thumbnail URL
-                        $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
-                        echo "<div class='col-md-4 col-sm-6 mb-4'>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="faq-heading" data-animation="slideInLeft">
+                <h1>Interior Tour</h1>
+            </div>
+
+        </div>
+        <div class="row mt-5">
+            <?php
+            // Fetch videos
+            $sql = "SELECT id, video_id FROM videos";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    $video_id = $row["video_id"];
+                    $id = $row["id"];
+                    // Get YouTube thumbnail URL
+                    $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
+                    echo "<div class='col-md-4 col-sm-6 mb-4'>
                             <div class='video-card'>
                                 <div class='video-card-body'>
                                     <img loading='lazy' data-animation='zoomIn' class='yt-thumbnail' src='$thumbnail_url' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id' alt='Video Thumbnail'>
@@ -1076,90 +1123,204 @@ $landing_page_images = $conn->query($landing_page_query);
                                   </div>
                               </div>
                           </div>";
-                    }
-                } else {
-                    echo "<p class='text-center'>No videos found</p>";
                 }
+            } else {
+                echo "<p class='text-center'>No videos found</p>";
+            }
 
-                // Close connection
-                $conn->close();
-                ?>
-            </div>
+            // Close connection
+            $conn->close();
+            ?>
         </div>
+    </div>
 
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Left side with image and text -->
-                <div class="col-md-6 p-0">
-                    <div class="bg-image">
-                        <div class="overlay-text">
-                            Have A<br>
-                            Project In<br>
-                            Mind?
-                        </div>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left side with image and text -->
+            <div class="col-md-6 ">
+                <div class="bg-image">
+                    <div class="overlay-text">
+                        Have A<br>
+                        Project In<br>
+                        Mind?
                     </div>
                 </div>
+            </div>
 
-                <!-- Right side with form -->
-                <div class="col-md-6 p-0">
-                <?php include 'contact-form.php'; ?>
+            <!-- Right side with form -->
+            <div class="col-md-6 connect-now-form ">
+                <div class="right-header ">
+                    <div class="right-inside-header text-center">
+                        <div class="container-contact">
+                            <div class="connect-now-contact">Connect Now</div>
+                        </div>
+                    </div>
+                    <div id="ContactSubmitMessage2"></div>
+                    <div class="form-filling">
+                        <form method="post" id="contactForm2">
+                            <input type="text" placeholder="Name" id="name" name='name' />
+                            <input type="email" placeholder="Email" id="email" name='email' />
+                            <div class="phone-input">
+                                <span><input type="text" class="country-code-input" value="+91" maxlength="4"
+                                        id="country" name='country' /></span>
+                                <input type="tel" placeholder="Mobile Number" id="phone" name='phone' />
+                            </div>
+                            <textarea id="message" placeholder="Message..." name='message'></textarea>
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="whatsapp" name="whatsapp" value="1" />
+                                <label for="whatsapp">You can reach me on WhatsApp</label>
+                            </div>
+                            <button class="bg-black" type="submit">
+                                Get Free Quote
+                                <span class="connect-now-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-
-
-        <?php include 'footer.php'; ?>
-
+    </div>
 
 
 
-        
 
-       
-        <script>
-            function reloadReviews() {
-                const swiper = new Swiper(".swiper-container", {
-                    loop: true,
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                        renderBullet: function (index, className) {
-                            return '<span class="' + className + '"></span>';
-                        },
+
+    <?php include 'footer.php'; ?>
+
+
+
+    <script>
+        $("#reviewForm").on('submit', function (e) {
+            e.preventDefault();
+            if ($("#reviewForm").valid()) { // Check if the form is valid
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: 'POST',
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+                        $("#ReviewSubmitMessage").html('<div class="alert alert-success my-4">' + data +
+                            '</div>'); // Display success message
+                        $("#reviewForm")[0].reset(); // Clear the form fields
+                        $('.modal-footer button').click();
+                        $("#myModal").modal('hide'); // Close the modal
                     },
-                    breakpoints: {
-                        0: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        },
-                        550: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        900: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        1200: {
-                            slidesPerView: 3,
-                            spaceBetween: 50,
-                        },
-                    },
+                    error: function () {
+                        $("#ReviewSubmitMessage").html(
+                            '<div class="alert alert-danger">An error occurred.</div>'
+                        ); // Display error message
+                    }
                 });
-            };
+            }
+        });
 
-            jQuery(document).ready(function ($) {
-                $.get('./admin_php/fetch_userReview.php', function (data) {
-                    var reviews = JSON.parse(data); // Assuming your data is in JSON format
+        $.validator.addMethod('filesize', function (value, element, param) {
+            return this.optional(element) || (element.files[0].size <= param * 1024)
+        }, 'File size must be less than {0}KB');
 
-                    console.log('THe Data', reviews);
 
-                    var reviewsWrapper = $('#reviewsWrapper');
+        $("#reviewForm").validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 4
+                },
+                designation: {
+                    required: true,
+                    minlength: 3,
+                },
+                photo: {
+                    extension: "jpg|jpeg|png|gif",
+                    filesize: 200
+                },
+                title: {
+                    required: true,
+                    minlength: 5
+                },
+                review: {
+                    required: true,
+                    minlength: 10
+                }
+            },
+            messages: {
+                name: {
+                    required: "Please enter your name",
+                    minlength: "Your name must consist of at least 4 characters"
+                },
+                designation: {
+                    required: "Please enter your designation",
+                    minlength: "Your designation must consist of at least 3 characters"
+                },
+                photo: {
+                    extension: "Invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed",
+                    filesize: "File size must be less than 200KB"
+                },
+                title: {
+                    required: "Please enter your review title",
+                    minlength: "Review title must consist of at least 5 characters"
+                },
+                review: {
+                    required: "Please write a review",
+                    minlength: "Your review must consist of at least 10 characters"
+                }
+            },
+        });
+    </script>
 
-                    reviews.forEach(function (review) {
-                        var totalReviews = `
+
+
+
+    <script>
+        function reloadReviews() {
+            const swiper = new Swiper(".swiper-container", {
+                loop: true,
+                slidesPerView: 3,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '"></span>';
+                    },
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    550: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    900: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    },
+                },
+            });
+        };
+
+        jQuery(document).ready(function ($) {
+            $.get('./admin_php/fetch_userReview.php', function (data) {
+                var reviews = JSON.parse(data); // Assuming your data is in JSON format
+
+                console.log('THe Data', reviews);
+
+                var reviewsWrapper = $('#reviewsWrapper');
+
+                reviews.forEach(function (review) {
+                    var totalReviews = `
                   <div class="swiper-slide">
                     <div class="testimonial">
                         <div class="testimonial-box">
@@ -1178,93 +1339,93 @@ $landing_page_images = $conn->query($landing_page_query);
                     </div>
                 </div>
           `
-                        reviewsWrapper.append(totalReviews);
-                    });
-                    reloadReviews();
+                    reviewsWrapper.append(totalReviews);
+                });
+                reloadReviews();
+            });
+        });
+
+
+
+
+    </script>
+
+
+    <script>
+        let reviewData = [];
+
+        $.get('./admin_php/fetch_userReview.php', function (data) {
+            var reviews = JSON.parse(data); // Assuming your data is in JSON format
+
+            console.log(reviews);
+            reviewData = reviews;
+        });
+    </script>
+    <script src="js/testmonial.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all modal elements
+
+            var modals = document.querySelectorAll('.modal');
+
+            // Add event listeners to each modal
+            modals.forEach(function (modal) {
+                // Handle when the modal is shown (to start the video)
+                modal.addEventListener('show.bs.modal', function () {
+                    var iframe = modal.querySelector('iframe');
+                    var videoId = iframe.id.replace('videoFrame', '');
+                    iframe.src =
+                        `https://www.youtube.com/embed/${videoId}?autoplay=1`; // Autoplay the video when modal opens
+                });
+
+                // Handle when the modal is hidden (to stop the video)
+                modal.addEventListener('hidden.bs.modal', function () {
+                    var iframe = modal.querySelector('iframe');
+                    iframe.src = ''; // Stop the video by clearing the src
                 });
             });
-
-
-
-
-        </script>
-
-
-        <script>
-            let reviewData = [];
-
-            $.get('./admin_php/fetch_userReview.php', function (data) {
-                var reviews = JSON.parse(data); // Assuming your data is in JSON format
-
-                console.log(reviews);
-                reviewData = reviews;
-            });
-        </script>
-        <script src="js/testmonial.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                // Get all modal elements
-
-                var modals = document.querySelectorAll('.modal');
-
-                // Add event listeners to each modal
-                modals.forEach(function (modal) {
-                    // Handle when the modal is shown (to start the video)
-                    modal.addEventListener('show.bs.modal', function () {
-                        var iframe = modal.querySelector('iframe');
-                        var videoId = iframe.id.replace('videoFrame', '');
-                        iframe.src =
-                            `https://www.youtube.com/embed/${videoId}?autoplay=1`; // Autoplay the video when modal opens
-                    });
-
-                    // Handle when the modal is hidden (to stop the video)
-                    modal.addEventListener('hidden.bs.modal', function () {
-                        var iframe = modal.querySelector('iframe');
-                        iframe.src = ''; // Stop the video by clearing the src
-                    });
-                });
-            });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
-        <script>
-            const swiper = new Swiper('.swiper', {
-                slidesPerView: 1,
-                spaceBetween: 24,
-                loop: true,
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false,
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
                 },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
+                1024: {
+                    slidesPerView: 3,
                 },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                },
-            });
+            },
+        });
 
-            // Fetch testimonials from PHP file
-            async function fetchTestimonials() {
-                try {
-                    const response = await fetch('./admin_php/fetch_userReview.php');
-                    const testimonials = await response.json();
+        // Fetch testimonials from PHP file
+        async function fetchTestimonials() {
+            try {
+                const response = await fetch('./admin_php/fetch_userReview.php');
+                const testimonials = await response.json();
 
-                    const swiperWrapper = document.querySelector('.swiper-wrapper');
+                const swiperWrapper = document.querySelector('.swiper-wrapper');
 
-                    testimonials.forEach(testimonial => {
-                        const slide = document.createElement('div');
-                        slide.className = 'swiper-slide';
+                testimonials.forEach(testimonial => {
+                    const slide = document.createElement('div');
+                    slide.className = 'swiper-slide';
 
-                        // Create a handle from the name (for demonstration)
-                        const handle = testimonial.name.toLowerCase().replace(/\s+/g, '');
+                    // Create a handle from the name (for demonstration)
+                    const handle = testimonial.name.toLowerCase().replace(/\s+/g, '');
 
-                        slide.innerHTML = `
+                    slide.innerHTML = `
                         <div class="testimonial-card">
                             <div class="quote-mark"> <svg fill="#929696" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 349.078 349.078" xml:space="preserve" stroke="#929696"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M150.299,26.634v58.25c0,7.9-6.404,14.301-14.304,14.301c-28.186,0-43.518,28.909-45.643,85.966h45.643 c7.9,0,14.304,6.407,14.304,14.304v122.992c0,7.896-6.404,14.298-14.304,14.298H14.301C6.398,336.745,0,330.338,0,322.447V199.455 c0-27.352,2.754-52.452,8.183-74.611c5.568-22.721,14.115-42.587,25.396-59.048c11.608-16.917,26.128-30.192,43.16-39.44 C93.886,17.052,113.826,12.333,136,12.333C143.895,12.333,150.299,18.734,150.299,26.634z M334.773,99.186 c7.896,0,14.305-6.407,14.305-14.301v-58.25c0-7.9-6.408-14.301-14.305-14.301c-22.165,0-42.108,4.72-59.249,14.023 c-17.035,9.248-31.563,22.523-43.173,39.44c-11.277,16.461-19.824,36.328-25.393,59.054c-5.426,22.166-8.18,47.266-8.18,74.605 v122.992c0,7.896,6.406,14.298,14.304,14.298h121.69c7.896,0,14.299-6.407,14.299-14.298V199.455 c0-7.896-6.402-14.304-14.299-14.304h-44.992C291.873,128.095,306.981,99.186,334.773,99.186z"></path> </g> </g></svg> </div>
                             <div class="testimonial-text">${testimonial.review}</div>
@@ -1278,61 +1439,61 @@ $landing_page_images = $conn->query($landing_page_query);
                         </div>
                     `;
 
-                        swiperWrapper.appendChild(slide);
-                    });
-
-                    // Update Swiper after adding slides
-                    swiper.update();
-                } catch (error) {
-                    console.error('Error fetching testimonials:', error);
-                }
-            }
-
-            // Load testimonials when page loads
-            document.addEventListener('DOMContentLoaded', fetchTestimonials);
-        </script>
-
-        <script src="js/testmonial.js"></script>
-        <script src="js/textslide.js"></script>
-        <script src="js/preloader.js"></script>
-        <script src="js/contact-detail.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/popup.js"></script>
-        <script src="js/counting.js"></script>
-        <script src="js/landing-slide.js"></script>
-        <script src="js/stack.js"></script>
-        <script src="js/slider.js"></script>
-
-
-        <script src="js/footerImg.js"></script>
-        <!-- <script src="js/textparallax.js"></script> -->
-
-        <script>
-            jQuery(document).ready(function ($) {
-                $(".slider-img").on("mouseover", function () {
-                    $(".slider-img").removeClass("active");
-                    $(this).addClass("active");
+                    swiperWrapper.appendChild(slide);
                 });
 
-                setInterval(() => {
-                    $(".jumping-div").each(function (index) {
-                        $(this).css("animation", "");
-                        setTimeout(() => {
-                            $(this).css("animation", "jump 1.5s ease-in-out");
-                        }, (index + 1) * 500);
-                    });
-                }, 4000);
-            });
-        </script>
-
-        <script>
-            function toggleMenu() {
-                const mobileNav = document.querySelector(".mobile-nav-wrapper");
-                const burgerMenu = document.querySelector(".burger-menu");
-                mobileNav.classList.toggle("active");
-                burgerMenu.classList.toggle("active");
+                // Update Swiper after adding slides
+                swiper.update();
+            } catch (error) {
+                console.error('Error fetching testimonials:', error);
             }
-        </script>
+        }
+
+        // Load testimonials when page loads
+        document.addEventListener('DOMContentLoaded', fetchTestimonials);
+    </script>
+    <script src="js/contact-submission.js"></script>
+    <script src="js/testmonial.js"></script>
+    <!-- <script src="js/textslide.js"></script> -->
+    <script src="js/preloader.js"></script>
+    <script src="js/contact-detail.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/counting.js"></script>
+    <script src="js/landing-slide.js"></script>
+    <script src="js/stack.js"></script>
+    <script src="js/slider.js"></script>
+
+
+    <script src="js/footerImg.js"></script>
+    <!-- <script src="js/textparallax.js"></script> -->
+
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".slider-img").on("mouseover", function () {
+                $(".slider-img").removeClass("active");
+                $(this).addClass("active");
+            });
+
+            setInterval(() => {
+                $(".jumping-div").each(function (index) {
+                    $(this).css("animation", "");
+                    setTimeout(() => {
+                        $(this).css("animation", "jump 1.5s ease-in-out");
+                    }, (index + 1) * 500);
+                });
+            }, 4000);
+        });
+    </script>
+
+    <script>
+        function toggleMenu() {
+            const mobileNav = document.querySelector(".mobile-nav-wrapper");
+            const burgerMenu = document.querySelector(".burger-menu");
+            mobileNav.classList.toggle("active");
+            burgerMenu.classList.toggle("active");
+        }
+    </script>
 
 </body>
 
