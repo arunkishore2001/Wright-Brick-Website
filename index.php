@@ -2,26 +2,10 @@
 session_start();
 include './admin_php/config.php';
 
-// Fetch images from the database
 $landing_page_query = "SELECT * FROM landing_page ORDER BY created_at DESC"; // Adjust the SQL as needed
 $landing_page_images = $conn->query($landing_page_query);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $propertyType = $_POST['property_type'];
-    $propertyName = $_POST['property_name'];
-    $floorplanType = $_POST['floorplan_type'];
 
-    $stmt = $conn->prepare("INSERT INTO properties (property_type, property_name, floorplan_type) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $propertyType, $propertyName, $floorplanType);
-
-    if ($stmt->execute()) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-
-    $stmt->close();
-}
 ?>
 
 <!DOCTYPE html>
@@ -102,12 +86,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if ($landing_page_images->num_rows > 0) {
                         // Output data of each row
                         while ($row = $landing_page_images->fetch_assoc()) {
-                            echo '<div class="slide">';
+                            echo '<div class="slide sliding-area">';
                             echo '<img src="' . htmlspecialchars($row['imageUrl']) . '" alt="Image" />';
                             echo '</div>';
                         }
                     } else {
-                        echo '<div class="slide"><img src="./img/default.jpg" alt="No images available" /></div>'; // Default image if no records found
+                        echo '<div class="slide sliding-area"><img src="./img/default.jpg" alt="No images available" /></div>'; // Default image if no records found
                     }
                     ?>
                 </div>
@@ -713,43 +697,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
                     <div class="col-md-6 casa-grand">
-                        <div id="projectImagesCarousel" class="carousel slide" data-bs-ride="carousel"
-                            data-bs-interval="2000">
-                            <div class="carousel-inner">
-                                <?php
-                                // Fetch all project images
-                                $sql = "SELECT images.image_url, projects.project_name FROM images 
-                                JOIN projects ON images.project_id = projects.project_id";
-                                $result = $conn->query($sql);
-                                $isFirst = true;
+                    <div id="projectImagesCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+    <div class="carousel-inner">
+        <?php
+        // Fetch all project images
+        $sql = "SELECT images.image_url, projects.project_name, projects.description FROM images 
+                JOIN projects ON images.project_id = projects.project_id";
+        $result = $conn->query($sql);
+        $isFirst = true;
 
-                                if ($result->num_rows > 0) {
-                                    while ($row = $result->fetch_assoc()) {
-                                        $image_url = strpos($row['image_url'], '../') === 0 ? substr($row['image_url'], 3) : $row['image_url'];
-                                        ?>
-                                        <div class="carousel-item <?php echo $isFirst ? 'active' : ''; ?>">
-                                            <div class="project-sliding-img">
-                                                <img src="<?php echo $image_url; ?>" alt="Project Image">
-                                            </div>
-                                            <div class="project-sliding-img-name">
-                                                <h5><?php echo $row['project_name']; ?></h5>
-                                            </div>
-                                            <div class="project-sliding-img-para">
-                                                <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <?php
-                                        $isFirst = false;
-                                    }
-                                } else {
-                                    echo '<div class="carousel-item active"><p>No images available.</p></div>';
-                                }
-                                ?>
-                            </div>
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $image_url = strpos($row['image_url'], '../') === 0 ? substr($row['image_url'], 3) : $row['image_url'];
+                ?>
+                <div class="carousel-item <?php echo $isFirst ? 'active' : ''; ?>">
+                    <div class="project-heading text-center">
+                    <h5><?php echo $row['project_name']; ?></h5>
+                    </div>
+                    <div class="project-sliding-img">
+                        <img src="<?php echo $image_url; ?>" alt="Project Image" class="d-block w-100">
+                    </div>
+                  <!-- Only the description here -->
+                   <div class="project-description">
+                   <p class="text-center"><?php echo $row['description']; ?></p> 
+                   </div>
+
+                </div>
+
+                
+                <?php
+                $isFirst = false;
+            }
+        } else {
+            echo '<div class="carousel-item active"><p>No images available.</p></div>';
+        }
+        ?>
+    </div>
+</div>
 
 
-                        </div>
                     </div>
                 </div>
             </div>
@@ -873,90 +859,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Popup Modal -->
 
         <div id="popupModal" class="modal">
-    <div class="left-modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
+  <div class="left-modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
 
-            <h2 class="step-header">Basic Information</h2>
-            <h3 class="step-subheader">STEP 1 of 3</h3>
+          <h2 class="step-header">Basic Information</h2>
+          <h3 class="step-subheader">STEP 1 of 3</h3>
 
-            <form id="propertyForm" onsubmit="return submitForm(event);">
-                <div class="form-content">
-                    <div class="left-section">
-                        <p class="section-title">I own a...</p>
-                        <div class="own-a">
-                            <button type="button" class="property-type" id="apartment" onclick="setPropertyType('Apartment')">Apartment</button>
-                            <button type="button" class="property-type" id="villa" onclick="setPropertyType('Villa')">Villa</button>
-                            <button type="button" class="property-type" id="independent-home" onclick="setPropertyType('Independent Home')">Independent Home</button>
-                        </div>
+          <form id="propertyForm"  onsubmit="return submitCombinedForm(event);">
+              <div class="form-content">
+                  <div class="left-section">
+                      <p class="section-title">I own a...</p>
+                      <div class="own-a">
+                          <button type="button" class="property-type" id="apartment" onclick="setPropertyType('Apartment')">Apartment</button>
+                          <button type="button" class="property-type" id="villa" onclick="setPropertyType('Villa')">Villa</button>
+                          <button type="button" class="property-type" id="independent-home" onclick="setPropertyType('Independent Home')">Independent Home</button>
+                      </div>
 
-                        <input type="hidden" name="property_type" id="property_type">
-                        
-                        <p class="section-title">My property name...</p>
-                        <div class="input-container">
-                            <input type="text" name="property_name" id="property-name" placeholder="Property name" required>
-                        </div>
+                      <input type="hidden" name="property_type" id="property_type">
+                      
+                      <p class="section-title">My property name...</p>
+                      <div class="input-container">
+                          <input type="text" name="property_name" id="property-name" placeholder="Property name" required>
+                      </div>
 
-                        <p class="section-title">My floorplan type is...</p>
-                        <div class="floorplane-whole">
-                            <button type="button" class="floorplan-type" onclick="setFloorplanType('1BHK')">1BHK</button>
-                            <button type="button" class="floorplan-type" onclick="setFloorplanType('2BHK')">2BHK</button>
-                            <button type="button" class="floorplan-type" onclick="setFloorplanType('3BHK')">3BHK</button>
-                            <button type="button" class="floorplan-type" onclick="setFloorplanType('3+BHK')">3+BHK</button>
-                        </div>
+                      <p class="section-title">My floorplan type is...</p>
+                      <div class="floorplane-whole">
+                          <button type="button" class="floorplan-type" onclick="setFloorplanType('1BHK')">1BHK</button>
+                          <button type="button" class="floorplan-type" onclick="setFloorplanType('2BHK')">2BHK</button>
+                          <button type="button" class="floorplan-type" onclick="setFloorplanType('3BHK')">3BHK</button>
+                          <button type="button" class="floorplan-type" onclick="setFloorplanType('3+BHK')">3+BHK</button>
+                      </div>
 
-                        <input type="hidden" name="floorplan_type" id="floorplan_type">
-                    </div>
+                      <input type="hidden" name="floorplan_type" id="floorplan_type">
+                  </div>
 
-                    <div class="right-section">
-                        <img loading="lazy" src="./img/about.png" alt="Apartment Illustration">
-                        <p class="info-text">About your home</p>
-                        <p class="info-description">The details that you enter here help us understand more about your property.</p>
-                    </div>
-                </div>
+                  <div class="right-section">
+                      <img loading="lazy" src="./img/about.png" alt="Apartment Illustration">
+                      <p class="info-text">About your home</p>
+                      <p class="info-description">The details that you enter here help us understand more about your property.</p>
+                  </div>
+              </div>
 
-                <div class="buttons-step-2">
-                    <button type="submit" class="btn-next">NEXT</button>
-                </div>
-            </form>
-        </div>
-    </div>
+              <div class="buttons-step-2">
+                  <button type="submit" class="btn-next">NEXT</button>
+              </div>
+          </form>
+      </div>
+  </div>
 </div>
-
-<script>
-    function setPropertyType(type) {
-        document.getElementById('property_type').value = type;
-    }
-
-    function setFloorplanType(type) {
-        document.getElementById('floorplan_type').value = type;
-    }
-
-    function submitForm(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const formData = new FormData(document.getElementById('propertyForm'));
-
-        fetch('./admin_php/submit_property.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Show the thank you modal
-                document.getElementById('thankYouModal').style.display = 'block';
-            } else {
-                console.error('Error:', data.error);
-                alert('There was an error submitting your form. Please try again.');
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('There was a problem with your submission. Please try again.');
-        });
-    }
-</script>
 
 <!-- Thank You Modal -->
 <div id="thankYouModal" class="thank-you-modal" style="display: none;">
@@ -1151,31 +1102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <!-- Right side with form -->
                 <div class="col-md-6 p-0">
-                    <div class="form-container">
-                        <div class="contact-heading">
-                            <h3>Connect Now</h3> <span class="heading-line"></span>
-                        </div>
-                        <form>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" placeholder="Email">
-                                </div>
-                            </div>
-                            <input type="tel" class="form-control" placeholder="Mobile Number">
-                            <textarea class="form-control" rows="4" placeholder="Message"></textarea>
-                            <button type="submit" class="contact-btn-contact btn">Contact Us <svg
-                                    xmlns="http://www.w3.org/2000/svg" width="41" height="19" viewBox="0 0 41 19"
-                                    fill="none">
-                                    <line y1="9.5" x2="40" y2="9.5" stroke="white" />
-                                    <line x1="30.3345" y1="0.628353" x2="40.3345" y2="9.62835" stroke="white" />
-                                    <line x1="29.672" y1="18.4491" x2="39.8256" y2="9.62269" stroke="white" />
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
+                <?php include 'contact-form.php'; ?>
                 </div>
             </div>
         </div>
@@ -1183,6 +1110,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <?php include 'footer.php'; ?>
 
+
+
+
+        
+
+       
         <script>
             function reloadReviews() {
                 const swiper = new Swiper(".swiper-container", {

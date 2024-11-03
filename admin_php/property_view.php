@@ -1,4 +1,5 @@
 <?php
+// Include the database connection file
 include 'config.php';
 
 // Fetch data from the properties table
@@ -26,24 +27,24 @@ $current_date_time = date('Y-m-d H:i:s'); // Format as 'YYYY-MM-DD HH:MM:SS'
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Admin Page</title>
+    <title>Property Submissions</title>
+    <link rel="stylesheet" href="style.css"> <!-- Optional: Link to your CSS file for styling -->
     <style>
-        body {
-            background-color: #f8f9fa;
+        /* Add basic table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
         }
-        .container {
-            margin-top: 50px;
+        table, th, td {
+            border: 1px solid #ddd;
         }
-        h1 {
-            margin-bottom: 30px;
+        th, td {
+            padding: 10px;
+            text-align: left;
         }
-        .btn-delete {
-            background-color: #dc3545;
-            color: white;
-        }
-        .btn-delete:hover {
-            background-color: #c82333;
+        th {
+            background-color: #f4f4f4;
         }
     </style>
 </head>
@@ -71,59 +72,24 @@ $current_date_time = date('Y-m-d H:i:s'); // Format as 'YYYY-MM-DD HH:MM:SS'
                 <?php while($row = $landing_page_images->fetch_assoc()): ?>
                     <tr>
                         <td><?php echo $row['id']; ?></td>
+                        <td><?php echo htmlspecialchars($row['name']); ?></td>
+                        <td><?php echo htmlspecialchars($row['email']); ?></td>
+                        <td><?php echo htmlspecialchars($row['country']); ?></td>
+                        <td><?php echo htmlspecialchars($row['phone']); ?></td>
+                        <td><?php echo htmlspecialchars($row['message']); ?></td>
+                        <td><?php echo $row['whatsapp'] ? 'Yes' : 'No'; ?></td>
                         <td><?php echo htmlspecialchars($row['property_type']); ?></td>
                         <td><?php echo htmlspecialchars($row['property_name']); ?></td>
                         <td><?php echo htmlspecialchars($row['floorplan_type']); ?></td>
-                        <td>
-                            <a href="delete_property.php?id=<?php echo $row['id']; ?>" class="btn btn-delete btn-sm" onclick="return confirm('Are you sure you want to delete this property?');">
-                                <i class="fas fa-trash"></i> Delete
-                            </a>
-                        </td>
+                        <td><?php echo $row['created_at']; ?></td>
                     </tr>
                 <?php endwhile; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="5" class="text-center">No properties found</td>
-                </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>No submissions found.</p>
+    <?php endif; ?>
 
-    <!-- Display contact information -->
-    <h2 class="text-center">Contact Information</h2>
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (!empty($contact_info)): ?>
-                <?php foreach ($contact_info as $contact): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($contact['name']); ?></td>
-                        <td><?php echo htmlspecialchars($contact['email']); ?></td>
-                        <td><?php echo htmlspecialchars($contact['phone']); ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="3" class="text-center">No contact information available</td>
-                </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <?php $conn->close(); // Close the database connection ?>
 </body>
 </html>
-
-<?php
-// Close connection
-$conn->close();
-?>

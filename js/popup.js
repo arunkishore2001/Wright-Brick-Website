@@ -2,19 +2,10 @@
 var modal = document.getElementById("popupModal");
 var thankYouModal = document.getElementById("thankYouModal");
 var contactLink = document.getElementById("contactLink");
-var closeButtons = document.querySelectorAll('.close-thank-you');
-var nextButton = document.querySelector('.next-button');
-var backButton = document.querySelector('.btn-back');
+var closeButtons = document.querySelectorAll('.close, .close-thank-you');
 var submitButton = document.querySelector('.btn-next');
 var leftModal = document.querySelector('.left-modal');
 var rightModal = document.querySelector('.right-modal');
-var reopenButton = document.getElementById("reopenButton");
-
-// Check if essential elements are found
-console.log({
-    modal, thankYouModal, contactLink, closeButtons, nextButton, 
-    backButton, submitButton, leftModal, rightModal, reopenButton
-});
 
 // Function to show a modal
 function openModal(modalElement) {
@@ -31,8 +22,8 @@ if (contactLink) {
     contactLink.onclick = function(event) {
         event.preventDefault();
         openModal(modal);
-        rightModal.style.display = "none"; // Ensure left modal starts
-        leftModal.style.display = "block"; // Show left modal content
+        rightModal.style.display = "none";
+        leftModal.style.display = "block";
     };
 }
 
@@ -41,8 +32,6 @@ closeButtons.forEach(function(button) {
     button.addEventListener('click', function() {
         closeModal(modal);
         closeModal(thankYouModal);
-        closeModal(leftModal);
-        closeModal(rightModal);
     });
 });
 
@@ -54,52 +43,44 @@ window.onclick = function(event) {
     }
 };
 
-// Toggle between left and right modal content
-if (nextButton) {
-    nextButton.onclick = function() {
-        leftModal.style.display = "none";
-        rightModal.style.display = "block";
-    };
-}
-
-if (backButton) {
-    backButton.onclick = function() {
-        rightModal.style.display = "none";
-        leftModal.style.display = "block";
-    };
-}
-
-// Open thank you modal on submit
+// Submit the form and show the thank you modal
 if (submitButton) {
-    submitButton.onclick = function() {
-        // Simulate form submission delay
-        setTimeout(function() {
-            openModal(thankYouModal);
-            closeModal(modal);
-        }, 500); // Delay to simulate
+    submitButton.onclick = function(event) {
+        event.preventDefault();
+        
+        // Validate required fields before submission
+        var propertyName = document.getElementById("property-name").value;
+        var propertyType = document.getElementById("property_type").value;
+        var floorplanType = document.getElementById("floorplan_type").value;
+
+        if (propertyName && propertyType && floorplanType) {
+            // Simulate form submission and open the thank you modal
+            setTimeout(function() {
+                openModal(thankYouModal);
+                closeModal(modal);
+            }, 500); // Delay to simulate form processing
+        } else {
+            alert("Please fill out all required fields.");
+        }
     };
 }
 
-// Reopen main modal if required
-if (reopenButton) {
-    reopenButton.onclick = function() {
-        openModal(modal);
-    };
+// Function to set property type
+function setPropertyType(type) {
+    document.getElementById("property_type").value = type;
+    updateButtonSelection('.property-type', type);
 }
 
-// Utility to handle single-selection for button groups
-function handleButtonSelection(buttons) {
-    if (!buttons.length) return; // Check if buttons are present
+// Function to set floorplan type
+function setFloorplanType(type) {
+    document.getElementById("floorplan_type").value = type;
+    updateButtonSelection('.floorplan-type', type);
+}
+
+// Utility function to handle button selection for types
+function updateButtonSelection(buttonClass, selectedType) {
+    var buttons = document.querySelectorAll(buttonClass);
     buttons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            buttons.forEach(btn => btn.classList.remove('selected'));
-            this.classList.add('selected');
-        });
+        button.classList.toggle('selected', button.textContent === selectedType);
     });
 }
-
-// Initialize button groups for selection handling
-handleButtonSelection(document.querySelectorAll('.property-type'));
-handleButtonSelection(document.querySelectorAll('.floorplan-type'));
-handleButtonSelection(document.querySelectorAll('.planning-type'));
-handleButtonSelection(document.querySelectorAll('.looking-type'));

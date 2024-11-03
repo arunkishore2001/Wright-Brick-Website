@@ -329,6 +329,7 @@ h6 {
   transition: 0.7s ease;
 }
 
+
 .slider-img.active span {
   height: 20%;
   top: unset;
@@ -2051,13 +2052,13 @@ h6 {
 
 .project-sliding-img {
   width: 100%;
-  max-width: 500px; /* Limiting maximum width */
+  max-width: 500px; 
   height: 300px;
 }
 
 .project-sliding-img img {
   width: 100%;
-  height: auto; /* Make the image responsive */
+  height: 200px; 
 }
 
 .project-light-heading h4 {
@@ -2127,4 +2128,31 @@ h6 {
   display: none;
   position: fixed;
   /* Additional styles */
+}
+
+/* .project-sliding-img-para{
+ position: relative;
+ top: 40px;
+ color: #000;
+} */
+
+
+
+.project-heading h5{
+ 
+  color: #000;
+text-shadow: 0px 2px 4px #FFF;
+font-size: 36px;
+font-weight: 600;
+padding-bottom: 40px;
+
+}
+
+.project-description{
+  margin-top: 20px;
+}
+
+.sliding-area img{
+  width: 100%;
+  height: 100vh !important;
 }
