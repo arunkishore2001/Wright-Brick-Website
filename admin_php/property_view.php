@@ -1,95 +1,110 @@
-<?php
-// Include the database connection file
-include 'config.php';
-
-// Fetch data from the properties table
-$sql = "SELECT * FROM properties";
-$landing_page_images = $conn->query($sql);
-
-// Fetch data from the contact_form table
-$query_contact = "SELECT name, email, phone FROM contact_form"; // Adjust query if needed
-$result_contact = mysqli_query($conn, $query_contact);
-
-// Get contact information
-$contact_info = [];
-if ($result_contact && mysqli_num_rows($result_contact) > 0) {
-    while ($row_contact = mysqli_fetch_assoc($result_contact)) {
-        $contact_info[] = $row_contact; // Store contact information in an array
-    }
-}
-
-// Get the current date and time
-$current_date_time = date('Y-m-d H:i:s'); // Format as 'YYYY-MM-DD HH:MM:SS'
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property Submissions</title>
-    <link rel="stylesheet" href="style.css"> <!-- Optional: Link to your CSS file for styling -->
-    <style>
-        /* Add basic table styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-    </style>
+    <title>Property View</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
-<div class="container">
-    <h1 class="text-center">Property Listings</h1>
-    <button onclick="window.print()" class="btn btn-primary">Print</button>
-    <!-- Display current date and time -->
-    <div class="text-right mb-3">
-        <p><strong>Date and Time:</strong> <?php echo $current_date_time; ?></p>
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Property Records</h2>
+        
+        <?php
+        include 'config.php';
+        session_start();
+
+        // Retrieve all entries with specified columns from the contact_form table
+        $query = "SELECT id, name, email, phone, property_type, property_name, floorplan_type FROM contact_form";
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            echo "<table class='table table-bordered table-striped'>
+                    <thead class='thead-dark'>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Property Type</th>
+                            <th>Property Name</th>
+                            <th>Floorplan Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>{$row['id']}</td>
+                        <td>{$row['name']}</td>
+                        <td>{$row['email']}</td>
+                        <td>{$row['phone']}</td>
+                        <td>{$row['property_type']}</td>
+                        <td>{$row['property_name']}</td>
+                        <td>{$row['floorplan_type']}</td>
+                        <td>
+                            <button class='btn btn-danger delete-btn' data-id='{$row['id']}'>Delete</button>
+                        </td>
+                      </tr>";
+            }
+            echo "</tbody></table>";
+        } else {
+            echo "<p class='text-center'>No data available.</p>";
+        }
+
+        $conn->close();
+        ?>
+
     </div>
 
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Property Type</th>
-                <th>Property Name</th>
-                <th>Floorplan Type</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($landing_page_images->num_rows > 0): ?>
-                <?php while($row = $landing_page_images->fetch_assoc()): ?>
-                    <tr>
-                        <td><?php echo $row['id']; ?></td>
-                        <td><?php echo htmlspecialchars($row['name']); ?></td>
-                        <td><?php echo htmlspecialchars($row['email']); ?></td>
-                        <td><?php echo htmlspecialchars($row['country']); ?></td>
-                        <td><?php echo htmlspecialchars($row['phone']); ?></td>
-                        <td><?php echo htmlspecialchars($row['message']); ?></td>
-                        <td><?php echo $row['whatsapp'] ? 'Yes' : 'No'; ?></td>
-                        <td><?php echo htmlspecialchars($row['property_type']); ?></td>
-                        <td><?php echo htmlspecialchars($row['property_name']); ?></td>
-                        <td><?php echo htmlspecialchars($row['floorplan_type']); ?></td>
-                        <td><?php echo $row['created_at']; ?></td>
-                    </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
-    <?php else: ?>
-        <p>No submissions found.</p>
-    <?php endif; ?>
-
-    <?php $conn->close(); // Close the database connection ?>
+    <script>
+        $(document).ready(function() {
+            // Handle delete button click
+            $('.delete-btn').click(function() {
+                var recordId = $(this).data('id');
+                
+                // Show confirmation modal
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: 'This action will permanently delete the record.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Send AJAX request to delete the record
+                        $.ajax({
+                            url: 'delete_record.php',
+                            type: 'POST',
+                            data: { id: recordId },
+                            success: function(response) {
+                                if (response === 'success') {
+                                    Swal.fire(
+                                        'Deleted!',
+                                        'The record has been deleted.',
+                                        'success'
+                                    ).then(() => {
+                                        location.reload(); // Refresh the page to update the table
+                                    });
+                                } else {
+                                    Swal.fire(
+                                        'Error!',
+                                        'There was an issue deleting the record.',
+                                        'error'
+                                    );
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -673,7 +673,7 @@ $landing_page_images = $conn->query($landing_page_query);
         </div>
 
         <div class="container-fluid project-grid">
-            <div class="grid-background py-5">
+            <div class="grid-background  py-5">
                 <div class="row">
                     <div class="col-md-6 d-flex flex-column justify-content-center">
                         <div class="project-new-heading text-center">
@@ -695,7 +695,7 @@ $landing_page_images = $conn->query($landing_page_query);
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-6 casa-grand">
+                    <div class="col-md-6 casa-grand mt-5">
                         <div id="projectImagesCarousel" class="carousel slide" data-bs-ride="carousel"
                             data-bs-interval="2000">
                             <div class="carousel-inner">
@@ -787,13 +787,15 @@ $landing_page_images = $conn->query($landing_page_query);
             <div class="modal-dialog">
                 <div class="modal-content">
 
+                <div class="" id="ReviewSubmitMessage"></div>
+
                     <div class="modal-header">
                         <h4 class="modal-title text-dark">Add My Review</h4>
                         <div type="button" class="close" data-bs-dismiss="modal">X</div>
                     </div>
 
                     <div class="modal-body p-3">
-                        <form id="reviewForm"">
+                        <form id="reviewForm" action="./admin_php/submit_review.php" method="POST">
                             <div class=" form-group">
                             <label class="mb-1" for="name">Name:</label>
                             <input type="text" class="form-control" id="name" name="name">
@@ -931,41 +933,7 @@ $landing_page_images = $conn->query($landing_page_query);
         </div>
     </div>
 
-    <!-- <script>
-        function submitPropertyForm(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Collect form data
-            const formData = new FormData(document.getElementById("propertyForm"));
-            console.log("Form data being submitted:", Array.from(formData.entries())); // Log form data
-
-            // Send data to PHP file using fetch
-            fetch("./admin_php/submit_property.php", {
-                method: "POST",
-                body: formData
-            })
-                .then(response => {
-                    console.log("Response status:", response.status); // Log the HTTP response status
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok: ' + response.statusText);
-                    }
-                    return response.json(); // Parse JSON response
-                })
-                .then(data => {
-                    console.log("Response data from PHP:", data); // Log the parsed response data
-                    if (data.status === "success") {
-                        console.log("Success:", data.message); // Log success message
-                    } else {
-                        console.error("Error:", data.message); // Log error message
-                    }
-                })
-                .catch(error => {
-                    console.error("Fetch error:", error); // Log any fetch errors
-                });
-        }
-
-
-    </script> -->
+    <!
 
     <div class="container mt-5">
         <div class="row">
@@ -1084,55 +1052,57 @@ $landing_page_images = $conn->query($landing_page_query);
     </div>
 
     <div class="container-fluid mt-5">
-        <div class="row">
-            <div class="faq-heading" data-animation="slideInLeft">
-                <h1>Interior Tour</h1>
-            </div>
-
-        </div>
-        <div class="row mt-5">
-            <?php
-            // Fetch videos
-            $sql = "SELECT id, video_id FROM videos";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                // Output data of each row
-                while ($row = $result->fetch_assoc()) {
-                    $video_id = $row["video_id"];
-                    $id = $row["id"];
-                    // Get YouTube thumbnail URL
-                    $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
-                    echo "<div class='col-md-4 col-sm-6 mb-4'>
-                            <div class='video-card'>
-                                <div class='video-card-body'>
-                                    <img loading='lazy' data-animation='zoomIn' class='yt-thumbnail' src='$thumbnail_url' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id' alt='Video Thumbnail'>
-                                </div>
-                               
-                            </div>
-                          </div>
-
-                          <!-- Modal for Lightbox -->
-                          <div class='modal fade' id='ytLightboxModal$video_id' tabindex='-1' aria-labelledby='ytLightboxModalLabel$video_id' aria-hidden='true'>
-                              <div class='modal-dialog modal-lg'>
-                                  <div class='modal-content custom-modal-content p-0'>
-                                          <div class='modal-body' style='background: #dddddd; border-radius: 10px'>
-                                          <button type='button' class='btn-close mb-2' data-bs-dismiss='modal' aria-label='Close' style='float: right;'></button>
-                                          <iframe class='yt-modal-frame' id='videoFrame$video_id' src='' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>";
-                }
-            } else {
-                echo "<p class='text-center'>No videos found</p>";
-            }
-
-            // Close connection
-            $conn->close();
-            ?>
+    <div class="row">
+        <div class="faq-heading" data-animation="slideInLeft">
+            <h1>Interior Tour</h1>
         </div>
     </div>
+    <div class="row mt-5 mb-5">
+        <?php
+        // Fetch videos
+        $sql = "SELECT id, video_id FROM videos";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Output data of each row
+            while ($row = $result->fetch_assoc()) {
+                $video_id = $row["video_id"];
+                $id = $row["id"];
+                // Get YouTube thumbnail URL
+                $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
+                echo "<div class='col-md-4 col-sm-6 mb-4'>
+                        <div class='video-card position-relative'>
+                            <div class='video-card-body'>
+                                <img loading='lazy' data-animation='zoomIn' class='youtube-thumbnail' src='$thumbnail_url' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id' alt='Video Thumbnail'>
+                                <!-- Overlay with YouTube Icon -->
+                                <div class='overlay' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id'>
+                                    <i class='fab fa-youtube'></i>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                      <!-- Modal for Lightbox -->
+                      <div class='modal fade' id='ytLightboxModal$video_id' tabindex='-1' aria-labelledby='ytLightboxModalLabel$video_id' aria-hidden='true'>
+                          <div class='modal-dialog modal-lg'>
+                              <div class='modal-content custom-modal-content p-0'>
+                                  <div class='modal-body' style='background: #dddddd; border-radius: 10px'>
+                                      <button type='button' class='btn-close mb-2' data-bs-dismiss='modal' aria-label='Close' style='float: right;'></button>
+                                      <iframe class='yt-modal-frame' id='videoFrame$video_id' src='https://www.youtube.com/embed/$video_id' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>";
+            }
+        } else {
+            echo "<p class='text-center'>No videos found</p>";
+        }
+
+        // Close connection
+        $conn->close();
+        ?>
+    </div>
+</div>
 
     <div class="container-fluid">
         <div class="row">
@@ -1150,7 +1120,7 @@ $landing_page_images = $conn->query($landing_page_query);
             <!-- Right side with form -->
             <div class="col-md-6 connect-now-form ">
                 <div class="right-header ">
-                    <div class="right-inside-header text-center">
+                    <div class="right-inside-header">
                         <div class="container-contact">
                             <div class="connect-now-contact">Connect Now</div>
                         </div>
@@ -1195,83 +1165,114 @@ $landing_page_images = $conn->query($landing_page_query);
 
 
     <script>
-        $("#reviewForm").on('submit', function (e) {
-            e.preventDefault();
-            if ($("#reviewForm").valid()) { // Check if the form is valid
-                $.ajax({
-                    url: $(this).attr('action'),
-                    type: 'POST',
-                    data: new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success: function (data) {
-                        $("#ReviewSubmitMessage").html('<div class="alert alert-success my-4">' + data +
-                            '</div>'); // Display success message
-                        $("#reviewForm")[0].reset(); // Clear the form fields
-                        $('.modal-footer button').click();
-                        $("#myModal").modal('hide'); // Close the modal
-                    },
-                    error: function () {
-                        $("#ReviewSubmitMessage").html(
-                            '<div class="alert alert-danger">An error occurred.</div>'
-                        ); // Display error message
-                    }
-                });
+
+$.get('./admin_php/fetch_userReview.php', function(data) {
+        var reviews = JSON.parse(data); // Assuming your data is in JSON format
+
+        var reviewsWrapper = $('#reviewsWrapper');
+
+        reviews.forEach(function(review) {
+            var totalReviews = `
+                  <div class="swiper-slide">
+                    <div class="testimonial">
+                        <div class="testimonial-box">
+                            <div class="test-img">
+                                <img src="./images/camaa.png" alt="" />
+                            </div>
+                            <p>${review.review}</p>
+                        </div>
+                        <div class="test-details">
+                            ${review.photo ? ` <img src="${review.photo}" alt="" />` : ``}
+                            <div class="test-proof">
+                                <h6>${review.name}</h6>
+                                <p>${review.designation}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          `
+            reviewsWrapper.append(totalReviews);
+        });
+        reloadReviews();
+    });
+
+    $("#reviewForm").on('submit', function(e) {
+        e.preventDefault();
+        if ($("#reviewForm").valid()) { // Check if the form is valid
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    $("#ReviewSubmitMessage").html('<div class="alert alert-success my-4">' + data +
+                        '</div>'); // Display success message
+                    $("#reviewForm")[0].reset(); // Clear the form fields
+                    $('.modal-footer button').click();
+                    $("#myModal").modal('hide'); // Close the modal
+                },
+                error: function() {
+                    $("#ReviewSubmitMessage").html(
+                        '<div class="alert alert-danger">An error occurred.</div>'
+                    ); // Display error message
+                }
+            });
+        }
+    });
+
+    $.validator.addMethod('filesize', function(value, element, param) {
+        return this.optional(element) || (element.files[0].size <= param * 1024)
+    }, 'File size must be less than {0}KB');
+
+
+    $("#reviewForm").validate({
+        rules: {
+            name: {
+                required: true,
+                minlength: 4
+            },
+            designation: {
+                required: true,
+                minlength: 3,
+            },
+            photo: {
+                extension: "jpg|jpeg|png|gif",
+                filesize: 200
+            },
+            title: {
+                required: true,
+                minlength: 5
+            },
+            review: {
+                required: true,
+                minlength: 10
             }
-        });
-
-        $.validator.addMethod('filesize', function (value, element, param) {
-            return this.optional(element) || (element.files[0].size <= param * 1024)
-        }, 'File size must be less than {0}KB');
-
-
-        $("#reviewForm").validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 4
-                },
-                designation: {
-                    required: true,
-                    minlength: 3,
-                },
-                photo: {
-                    extension: "jpg|jpeg|png|gif",
-                    filesize: 200
-                },
-                title: {
-                    required: true,
-                    minlength: 5
-                },
-                review: {
-                    required: true,
-                    minlength: 10
-                }
+        },
+        messages: {
+            name: {
+                required: "Please enter your name",
+                minlength: "Your name must consist of at least 4 characters"
             },
-            messages: {
-                name: {
-                    required: "Please enter your name",
-                    minlength: "Your name must consist of at least 4 characters"
-                },
-                designation: {
-                    required: "Please enter your designation",
-                    minlength: "Your designation must consist of at least 3 characters"
-                },
-                photo: {
-                    extension: "Invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed",
-                    filesize: "File size must be less than 200KB"
-                },
-                title: {
-                    required: "Please enter your review title",
-                    minlength: "Review title must consist of at least 5 characters"
-                },
-                review: {
-                    required: "Please write a review",
-                    minlength: "Your review must consist of at least 10 characters"
-                }
+            designation: {
+                required: "Please enter your designation",
+                minlength: "Your designation must consist of at least 3 characters"
             },
-        });
+            photo: {
+                extension: "Invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed",
+                filesize: "File size must be less than 200KB"
+            },
+            title: {
+                required: "Please enter your review title",
+                minlength: "Review title must consist of at least 5 characters"
+            },
+            review: {
+                required: "Please write a review",
+                minlength: "Your review must consist of at least 10 characters"
+            }
+        },
+    });
     </script>
 
 

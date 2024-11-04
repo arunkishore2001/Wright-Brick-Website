@@ -1694,6 +1694,7 @@ stroke: white;
   position: relative;
   perspective: 1000px;
   cursor: pointer;
+  margin-bottom: 40px;
 }
 
 .card-inner-panel {
@@ -1786,10 +1787,13 @@ stroke: white;
   color: white;
 }
 
-.view-more-link{
+/* .view-more-link{
   margin-left: 40px;
-}
+} */
 
+.border{
+  width: 100%;
+}
 .project-heading-outer h1{
   font-size: 55px;
   margin-left: -40px;
@@ -2217,3 +2221,39 @@ font-weight: 500;
   box-sizing: border-box;
 }
 
+.end-left-logo{
+  width: 50%;
+}
+
+.end-left-logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-card {
+  position: relative;
+}
+.youtube-thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.overlay i.fab.fa-youtube {
+  color: #ff0000;
+  font-size: 3rem;
+}

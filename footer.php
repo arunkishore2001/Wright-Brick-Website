@@ -28,14 +28,8 @@
     <div class="container">
       <div class="end-top-footer">
         <div class="end-left-intro">
-          <div class="end-text" data-animation="slideInRight">
-            <h4>WE WONDER TO CREATE INTERIORS</h4>
-          </div>
-          <div class="end-para mt-4" data-animation="slideInRight" data-animation-delay="200ms">
-            <p class="grey-text">
-              Founded in 2007, Sparch is specializing in providing
-              innovative services such as websites. Founded in 2007.
-            </p>
+          <div class="end-left-logo">
+            <img src="./img/logo.png" alt="">
           </div>
         </div>
 

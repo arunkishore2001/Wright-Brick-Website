@@ -544,6 +544,7 @@ if (isset($_POST['delete_landing_image'])) {
             });
         }
     }
+    
     $(document).ready(function() {
         loadContact();
         loadReviews();
