@@ -39,7 +39,7 @@ p {
 
 .nav-bar-container {
   position: fixed;
- 
+
   z-index: 999;
   width: 100%;
   height: 100px;
@@ -50,7 +50,7 @@ p {
   height: 100%;
   backdrop-filter: blur(4.65px);
   box-shadow: 0px 3px 23px #f1f1f1;
-  
+
   background: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
@@ -86,11 +86,12 @@ p {
   gap: 40px;
 }
 
-input, textarea {
+input,
+textarea {
   font-family: Montserrat;
 }
 
-a{
+a {
   color: black;
   text-decoration: none;
 }
@@ -321,8 +322,6 @@ a{
   animation: slideFromTop 1s ease-in-out forwards;
 }
 
-
-
 @keyframes slideFromTop {
   0% {
     transform: translateY(-100%);
@@ -354,7 +353,7 @@ a{
 
 .slider {
   display: flex;
-  width: 300%;
+  width: 100%;
   height: 100%;
   transition: transform 0.5s ease-in-out;
 }
@@ -370,14 +369,25 @@ a{
   object-fit: cover;
 }
 
+.single-project {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin: 5px;
+}
 
-.sliding-landing{
+.single-project img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.sliding-landing {
   width: 100%;
   flex: 0 0 100%;
 }
 
-.sliding-landing{
-   width: 100%;
+.sliding-landing {
+  width: 100%;
   height: 300px;
   object-fit: cover;
 }
@@ -434,7 +444,7 @@ a{
 
 /* Right Header */
 
-.connect-now-form{
+.connect-now-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -446,7 +456,7 @@ a{
   background: #fff;
   width: 100%;
   height: auto;
-  
+
   padding: 30px 20px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
@@ -476,14 +486,14 @@ a{
   font-size: 14px;
 }
 
-.form-filling .error{
+.form-filling .error {
   font-size: 12px;
   color: #c40000;
 }
 
 .form-filling input:focus,
 .form-filling textarea:focus {
-  border: none ;
+  border: none;
   border-bottom: 2px solid #000;
   outline: none;
 }
@@ -499,7 +509,7 @@ a{
   width: 100%;
 }
 
-.country-code-input{
+.country-code-input {
   margin: 0 !important;
 }
 
@@ -545,7 +555,7 @@ button[type="submit"] {
   padding: 10px 16px;
   font-size: 16px;
   border: none;
- 
+
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -565,7 +575,6 @@ button[type="submit"]:hover {
   margin-bottom: 0 !important;
   padding-right: 0 !important;
 }
-
 
 /* Testimonal */
 
@@ -664,6 +673,7 @@ button[type="submit"]:hover {
   opacity: 1;
   border-radius: 1px !important;
   position: relative;
+  top: 0;
   margin: 0 2px !important;
 }
 
@@ -674,4 +684,43 @@ button[type="submit"]:hover {
 .swiper-pagination-bullet-active {
   background: #007aff;
   width: 20px !important;
+}
+
+.slider-button-wrap {
+  margin-top: 20px;
+  column-gap: 20px;
+
+  .slider-button-prev,
+  .slider-button-next {
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    color: #ff3d3d;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 30px;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+
+    &.swiper-button-disabled {
+      background: rgba(#ff3d3d, 0.6);
+      border-color: rgba(#ff3d3d, 0.05);
+      pointer-events: none;
+    }
+
+    &:hover {
+      background: #cecece;
+    }
+  }
+  .slider-button-prev{
+    left: 0;
+  }
+  .slider-button-next{
+    right: 0;
+  }
 }

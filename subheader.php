@@ -6,22 +6,6 @@
           <img src="./img/logo.png" alt="Logo" />
         </div>
 
-        <div class="nav-link navigation-pages-wrapper d-md-flex align-items-center">
-          <nav class="d-md-flex">
-            <a class="<?php echo ($_SERVER['REQUEST_URI'] == '/' || substr($_SERVER['REQUEST_URI'], -1) == '/' || basename($_SERVER['REQUEST_URI'], '.php') == 'home' || basename($_SERVER['REQUEST_URI'], '.php') == 'index') ? 'active-nav' : ''; ?>"
-              href="home">Home</a>
-            <!-- <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'about' ? 'active-nav' : ''; ?>"
-              href="about">About Us</a>
-            <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'service' ? 'active-nav' : ''; ?>"
-              href="service">Services</a>
-            <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'project' ? 'active-nav' : ''; ?>"
-              href="project">Projects</a> -->
-            <a class="<?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'contact' ? 'active-nav' : ''; ?>"
-              href="contact">Contact</a>
-          </nav>
-
-        </div>
-
         <div class="contact-btn">
           <a href="contact.php">Contact Us</a>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -41,16 +25,8 @@
       <div class="mobile-nav-wrapper d-md-none">
         <div class="nav-menu-wrapper">
           <div class="flex-column d-flex d-md-none align-items-center">
-            <a class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/' || substr($_SERVER['REQUEST_URI'], -1) == '/' || basename($_SERVER['REQUEST_URI'], '.php') == 'home' || basename($_SERVER['REQUEST_URI'], '.php') == 'index') ? 'active-nav' : ''; ?>"
-              href="home">Home</a>
-            <a class="nav-item <?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'about' ? 'active-nav' : ''; ?>"
-              href="about">About Us</a>
-            <a class="nav-item <?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'service' ? 'active-nav' : ''; ?>"
-              href="service">Services</a>
-            <a class="nav-item <?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'project' ? 'active-nav' : ''; ?>"
-              href="project">Projects</a>
             <a class="nav-item <?php echo basename($_SERVER['REQUEST_URI'], '.php') == 'contact' ? 'active-nav' : ''; ?>"
-              href="contact">Contact</a>
+              href="contact">Contact Us</a>
           </div>
         </div>
       </div>

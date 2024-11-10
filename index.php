@@ -5,6 +5,8 @@ include './admin_php/config.php';
 $landing_page_query = "SELECT * FROM landing_page ORDER BY created_at DESC"; // Adjust the SQL as needed
 $landing_page_images = $conn->query($landing_page_query);
 
+$render_images_query = "SELECT * FROM render_images ORDER BY created_at DESC"; // Adjust the SQL as needed
+$render_images = $conn->query($render_images_query);
 
 ?>
 
@@ -31,7 +33,6 @@ $landing_page_images = $conn->query($landing_page_query);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
         </script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
@@ -45,16 +46,13 @@ $landing_page_images = $conn->query($landing_page_query);
     <link rel="stylesheet" href="./css/popup.css" />
     <link rel="stylesheet" href="./css/aos.css" />
     <link rel="stylesheet" href="./css/preloader.css" />
+    <link rel="stylesheet" href="./css/flexing.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
 
 </head>
 
 <body>
-
-
     <?php include 'subheader.php'; ?>
-
-
     <div class="inside">
 
         <div class="float">
@@ -77,7 +75,6 @@ $landing_page_images = $conn->query($landing_page_query);
                 </div>
             </a>
         </div>
-
 
         <div class="container-fluid-max whole-slider">
             <div class="slider-container">
@@ -109,187 +106,40 @@ $landing_page_images = $conn->query($landing_page_query);
                 </div>
             </div>
         </div>
+
         <div class="container">
-            <div class="crafting-heading my-5 " data-animation="slideInDown">
+            <div class="crafting-heading mt-5 mb-0 mb-md-5" data-animation="slideInDown">
                 <h1>
                     We Delivered Personalaized, Luxury <br />
                     designs that align with your vision
                 </h1>
             </div>
         </div>
-        <!-- <div class="container experience">
-        <div class="experience-box" data-animation="slideInUp">
-            <div class="exp-content" data-animation="flipInY" data-animation-delay="50ms">
-                <div class="exp-count" >
-                    <h5>
-                        <span class="count" data-target="5">0</span>+
-                        <span class="count-year">YEARS</span>
-                    </h5>
-                </div>
 
-                <div class="exp-value">
-                    <h6>EXPERIENCE</h6>
-                </div>
-
-                <div class="exp-svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="73" height="73" viewBox="0 0 73 73" fill="none">
-                        <path
-                            d="M35.2773 60.2711H29.857C29.5472 60.2711 29.2501 60.148 29.0311 59.929C28.8121 59.7099 28.689 59.4129 28.689 59.1031V35.4357C28.689 35.126 28.8121 34.8289 29.0311 34.6098C29.2501 34.3908 29.5472 34.2677 29.857 34.2677H35.278C35.5878 34.2677 35.8848 34.3908 36.1039 34.6098C36.3229 34.8289 36.446 35.126 36.446 35.4357V59.1031C36.446 59.2565 36.4157 59.4085 36.357 59.5502C36.2983 59.692 36.2122 59.8208 36.1036 59.9292C35.9951 60.0377 35.8662 60.1237 35.7245 60.1824C35.5827 60.241 35.4307 60.2712 35.2773 60.2711ZM31.0243 57.9351H34.1093V36.6037H31.025L31.0243 57.9351ZM20.8656 60.2711H15.4453C15.1356 60.2711 14.8385 60.148 14.6194 59.929C14.4004 59.7099 14.2773 59.4129 14.2773 59.1031V42.0751C14.2773 41.7653 14.4004 41.4682 14.6194 41.2492C14.8385 41.0302 15.1356 40.9071 15.4453 40.9071H20.8656C21.1754 40.9071 21.4725 41.0302 21.6915 41.2492C21.9105 41.4682 22.0336 41.7653 22.0336 42.0751V59.1031C22.0336 59.2565 22.0034 59.4083 21.9447 59.5501C21.886 59.6918 21.8 59.8205 21.6915 59.929C21.583 60.0374 21.4543 60.1235 21.3126 60.1822C21.1709 60.2409 21.019 60.2711 20.8656 60.2711ZM16.6133 57.9351H19.6976V43.2431H16.6133V57.9351ZM49.6882 60.431H44.2679C43.9582 60.431 43.6611 60.3079 43.442 60.0888C43.223 59.8698 43.0999 59.5727 43.0999 59.263V29.6016C43.0999 29.2918 43.223 28.9947 43.442 28.7757C43.6611 28.5566 43.9582 28.4336 44.2679 28.4336H49.6882C49.998 28.4336 50.295 28.5566 50.5141 28.7757C50.7331 28.9947 50.8562 29.2918 50.8562 29.6016V59.263C50.8562 59.5727 50.7331 59.8698 50.5141 60.0888C50.295 60.3079 49.998 60.431 49.6882 60.431ZM45.4359 58.095H48.5202V30.7696H45.4359V58.095ZM64.0991 60.5105H58.6789C58.3691 60.5105 58.072 60.3875 57.853 60.1684C57.6339 59.9494 57.5109 59.6523 57.5109 59.3425V23.7857C57.5109 23.4759 57.6339 23.1788 57.853 22.9598C58.072 22.7407 58.3691 22.6177 58.6789 22.6177H64.0991C64.4089 22.6177 64.706 22.7407 64.925 22.9598C65.1441 23.1788 65.2671 23.4759 65.2671 23.7857V59.3425C65.2671 59.6523 65.1441 59.9494 64.925 60.1684C64.706 60.3875 64.4089 60.5105 64.0991 60.5105ZM59.8469 58.1745H62.9311V24.9537H59.8469V58.1745Z"
-                            fill="#343434" />
-                        <path
-                            d="M65.7 66.8678H7.29996C6.99019 66.8678 6.6931 66.7448 6.47406 66.5257C6.25502 66.3067 6.13196 66.0096 6.13196 65.6998V7.29984C6.13196 6.99006 6.25502 6.69298 6.47406 6.47394C6.6931 6.25489 6.99019 6.13184 7.29996 6.13184C7.60973 6.13184 7.90682 6.25489 8.12586 6.47394C8.3449 6.69298 8.46796 6.99006 8.46796 7.29984V64.5318H65.7C66.0097 64.5318 66.3068 64.6549 66.5259 64.8739C66.7449 65.093 66.868 65.3901 66.868 65.6998C66.868 66.0096 66.7449 66.3067 66.5259 66.5257C66.3068 66.7448 66.0097 66.8678 65.7 66.8678Z"
-                            fill="#343434" />
-                        <path
-                            d="M14.7285 36.4227C14.4975 36.4227 14.2717 36.3542 14.0796 36.2259C13.8875 36.0977 13.7378 35.9153 13.6493 35.7019C13.5609 35.4885 13.5377 35.2537 13.5827 35.0271C13.6277 34.8006 13.7388 34.5924 13.9021 34.429L26.2632 22.0672C26.3717 21.9587 26.5005 21.8727 26.6422 21.8139C26.7839 21.7552 26.9358 21.725 27.0892 21.725C27.2426 21.725 27.3945 21.7552 27.5363 21.8139C27.678 21.8727 27.8068 21.9587 27.9152 22.0672L33.1121 27.2641L44.611 15.768C44.7195 15.6595 44.8484 15.5734 44.9901 15.5146C45.1319 15.4559 45.2839 15.4256 45.4374 15.4257C45.7471 15.4258 46.0441 15.549 46.263 15.768L51.5519 21.0569L62.2471 10.3587C62.3556 10.2503 62.4844 10.1642 62.6261 10.1055C62.7678 10.0468 62.9197 10.0166 63.0731 10.0166C63.2265 10.0166 63.3784 10.0468 63.5201 10.1055C63.6619 10.1642 63.7906 10.2503 63.8991 10.3587C64.0076 10.4672 64.0936 10.596 64.1523 10.7377C64.211 10.8794 64.2412 11.0313 64.2412 11.1847C64.2412 11.3381 64.211 11.49 64.1523 11.6318C64.0936 11.7735 64.0076 11.9023 63.8991 12.0107L52.3782 23.5316C52.1587 23.7498 51.8614 23.8719 51.5519 23.871C51.2422 23.8709 50.9452 23.7477 50.7263 23.5287L45.4374 18.2427L33.9377 29.7417C33.7187 29.9606 33.4217 30.0835 33.1121 30.0835C32.8024 30.0835 32.5055 29.9606 32.2865 29.7417L27.0896 24.5456L15.5556 36.0796C15.4472 36.1885 15.3183 36.275 15.1764 36.3338C15.0344 36.3927 14.8822 36.4229 14.7285 36.4227Z"
-                            fill="#343434" />
-                        <path
-                            d="M61.7521 18.6564C61.6711 18.6565 61.5904 18.6479 61.5112 18.6308C61.208 18.5673 60.9425 18.386 60.773 18.1267C60.6035 17.8674 60.544 17.5514 60.6075 17.2482L61.5631 12.6945L57.013 13.6508C56.8628 13.6823 56.708 13.6839 56.5572 13.6555C56.4065 13.6272 56.2628 13.5694 56.1344 13.4855C56.006 13.4016 55.8953 13.2933 55.8088 13.1666C55.7222 13.04 55.6615 12.8975 55.63 12.7474C55.5985 12.5973 55.5969 12.4424 55.6252 12.2917C55.6536 12.1409 55.7114 11.9972 55.7952 11.8688C55.8791 11.7404 55.9875 11.6297 56.1141 11.5432C56.2408 11.4567 56.3832 11.3959 56.5334 11.3644L62.8369 10.0424C63.0269 10.0026 63.2237 10.0108 63.4097 10.0662C63.5957 10.1216 63.765 10.2224 63.9022 10.3597C64.0395 10.4969 64.1403 10.6662 64.1957 10.8522C64.2511 11.0382 64.2593 11.235 64.2195 11.425L62.8975 17.7285C62.8423 17.9913 62.6983 18.227 62.4897 18.396C62.2811 18.5649 62.0206 18.6569 61.7521 18.6564Z"
-                            fill="#343434" />
-                    </svg>
-                </div>
-            </div>
-
-
-
-            <div class="exp-content" data-animation="flipInY" data-animation-delay="50ms">
-                <div class="exp-count">
-                    <h5>
-                        <span class="count" data-target="75">0</span>+
-                        <span class="count-year">YEARS</span>
-                    </h5>
-                </div>
-
-                <div class="exp-value">
-                    <h6>CUSTOMERS</h6>
-                </div>
-
-                <div class="exp-svg hand-shake-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="80" viewBox="0 0 100 100" fill="none">
-                        <path
-                            d="M73.035 66.0539C71.7387 66.0549 70.4811 65.6124 69.471 64.7999L68.219 63.7999C68.0549 63.6686 67.9182 63.5062 67.8168 63.3221C67.7154 63.1379 67.6512 62.9356 67.628 62.7267C67.6048 62.5178 67.623 62.3063 67.6815 62.1044C67.74 61.9025 67.8377 61.7141 67.969 61.5499C68.1003 61.3858 68.2627 61.2491 68.4468 61.1477C68.631 61.0463 68.8333 60.9821 69.0422 60.9589C69.2512 60.9357 69.4626 60.9539 69.6645 61.0124C69.8664 61.0709 70.0549 61.1686 70.219 61.2999L71.471 62.2999C71.7298 62.5107 72.0279 62.6681 72.3479 62.7631C72.6679 62.8581 73.0036 62.8887 73.3355 62.8532C73.6675 62.8177 73.9891 62.7168 74.2818 62.5563C74.5745 62.3958 74.8325 62.1789 75.0409 61.9181C75.2493 61.6573 75.4039 61.3578 75.4959 61.0369C75.5879 60.716 75.6154 60.3801 75.5768 60.0485C75.5383 59.7169 75.4344 59.3963 75.2712 59.1051C75.108 58.8139 74.8887 58.5579 74.626 58.3519L73.575 57.5119C73.2435 57.2467 73.0309 56.8607 72.984 56.4387C72.9371 56.0167 73.0598 55.5934 73.325 55.2619C73.5902 54.9304 73.9763 54.7178 74.3982 54.6709C74.8202 54.624 75.2435 54.7467 75.575 55.0119L76.626 55.8519C77.511 56.559 78.1665 57.5127 78.5094 58.5923C78.8524 59.672 78.8675 60.829 78.5528 61.9173C78.238 63.0055 77.6077 63.9759 76.7414 64.7058C75.8751 65.4357 74.8118 65.8924 73.686 66.0179C73.4698 66.042 73.2525 66.054 73.035 66.0539Z"
-                            fill="#343434" />
-                        <path
-                            d="M67.109 71.8771C65.8114 71.8789 64.552 71.4379 63.539 70.6271L61.369 68.893C61.2048 68.7617 61.0681 68.5994 60.9667 68.4152C60.8653 68.2311 60.8012 68.0288 60.778 67.8198C60.7548 67.6109 60.7729 67.3994 60.8314 67.1975C60.8899 66.9956 60.9876 66.8072 61.119 66.6431C61.2503 66.4789 61.4127 66.3422 61.5968 66.2408C61.7809 66.1394 61.9833 66.0753 62.1922 66.0521C62.4011 66.0288 62.6126 66.047 62.8145 66.1055C63.0164 66.164 63.2048 66.2617 63.369 66.3931L65.539 68.1271C65.7983 68.3342 66.0958 68.4883 66.4147 68.5804C66.7335 68.6726 67.0674 68.7011 67.3972 68.6642C67.727 68.6273 68.0464 68.5259 68.337 68.3656C68.6276 68.2053 68.8838 67.9893 69.091 67.73C69.2981 67.4708 69.4522 67.1732 69.5444 66.8544C69.6365 66.5355 69.665 66.2017 69.6281 65.8718C69.5912 65.542 69.4898 65.2227 69.3295 64.932C69.1692 64.6414 68.9533 64.3852 68.694 64.1781L56.77 54.6521C56.6058 54.5207 56.4691 54.3584 56.3677 54.1742C56.2663 53.9901 56.2022 53.7878 56.179 53.5788C56.1558 53.3699 56.1739 53.1584 56.2324 52.9565C56.2909 52.7546 56.3887 52.5662 56.52 52.4021C56.6513 52.2379 56.8137 52.1012 56.9978 51.9998C57.1819 51.8984 57.3843 51.8343 57.5932 51.8111C57.8021 51.7878 58.0136 51.806 58.2155 51.8645C58.4174 51.923 58.6058 52.0207 58.77 52.1521L70.69 61.6781C71.6184 62.4189 72.2935 63.4302 72.6216 64.5718C72.9496 65.7134 72.9145 66.9288 72.521 68.0495C72.1276 69.1703 71.3952 70.1409 70.4255 70.8268C69.4558 71.5128 68.2968 71.8802 67.109 71.8781V71.8771Z"
-                            fill="#343434" />
-                        <path
-                            d="M60.738 77.3611C59.4417 77.3617 58.1842 76.9193 57.174 76.1071L54.064 73.6221C53.7325 73.3569 53.5199 72.9708 53.473 72.5489C53.4261 72.1269 53.5488 71.7036 53.814 71.3721C54.0792 71.0406 54.4652 70.828 54.8872 70.7811C55.3092 70.7342 55.7325 70.8569 56.064 71.1221L59.175 73.6071C59.6986 74.0255 60.3671 74.2187 61.0332 74.1443C61.6993 74.0698 62.3086 73.7338 62.727 73.2101C63.1454 72.6864 63.3386 72.018 63.2641 71.3519C63.1897 70.6858 62.8536 70.0765 62.33 69.6581L48.809 58.8581C48.4775 58.5929 48.2649 58.2068 48.218 57.7849C48.1711 57.3629 48.2938 56.9396 48.559 56.6081C48.8242 56.2766 49.2102 56.064 49.6322 56.0171C50.0542 55.9702 50.4775 56.0929 50.809 56.3581L64.33 67.1581C65.2149 67.8654 65.8702 68.8191 66.2131 69.8988C66.5559 70.9784 66.571 72.1355 66.2563 73.2237C65.9416 74.3119 65.3114 75.2824 64.4452 76.0125C63.579 76.7425 62.5158 77.1993 61.39 77.3251C61.1735 77.3492 60.9558 77.3612 60.738 77.3611Z"
-                            fill="#343434" />
-                        <path
-                            d="M53.306 81.981C52.0088 81.9826 50.7498 81.5416 49.737 80.731L33.851 68.037C33.5195 67.7717 33.3069 67.3857 33.26 66.9637C33.2132 66.5418 33.3358 66.1185 33.601 65.787C33.8662 65.4554 34.2523 65.2429 34.6743 65.196C35.0962 65.1491 35.5195 65.2717 35.851 65.537L51.734 78.231C51.9925 78.4453 52.2912 78.6059 52.6125 78.7035C52.9337 78.8012 53.2713 78.8338 53.6053 78.7995C53.9393 78.7653 54.2632 78.6648 54.558 78.504C54.8528 78.3432 55.1126 78.1253 55.3222 77.863C55.5319 77.6007 55.6871 77.2992 55.779 76.9762C55.8708 76.6532 55.8974 76.3152 55.8572 75.9818C55.8169 75.6485 55.7107 75.3264 55.5446 75.0346C55.3786 74.7427 55.1561 74.4869 54.89 74.282L46.076 67.239C45.9119 67.1076 45.7752 66.9453 45.6738 66.7611C45.5724 66.577 45.5083 66.3747 45.485 66.1657C45.4618 65.9568 45.48 65.7454 45.5385 65.5434C45.597 65.3415 45.6947 65.1531 45.826 64.989C45.9574 64.8248 46.1197 64.6881 46.3039 64.5867C46.488 64.4853 46.6903 64.4212 46.8993 64.398C47.1082 64.3748 47.3196 64.3929 47.5216 64.4514C47.7235 64.5099 47.9119 64.6076 48.076 64.739L56.89 71.782C57.8185 72.5228 58.4935 73.5341 58.8216 74.6757C59.1497 75.8173 59.1146 77.0327 58.7211 78.1534C58.3276 79.2742 57.5953 80.2448 56.6256 80.9308C55.6559 81.6167 54.4968 81.9841 53.309 81.982L53.306 81.981Z"
-                            fill="#343434" />
-                        <path
-                            d="M34.849 68.3879C34.4746 68.3882 34.112 68.2564 33.825 68.0159C28.52 63.5889 22.625 48.8349 22.376 48.2089C22.2231 47.8152 22.2319 47.3771 22.4007 46.99C22.5695 46.6029 22.8844 46.2982 23.2769 46.1424C23.6694 45.9865 24.1075 45.9921 24.4959 46.158C24.8842 46.3239 25.1913 46.6366 25.35 47.0279C26.96 51.0829 31.989 62.3159 35.875 65.5589C36.1277 65.7695 36.3093 66.0528 36.3951 66.3704C36.4809 66.6879 36.4668 67.0242 36.3547 67.3334C36.2425 67.6426 36.0378 67.9097 35.7684 68.0984C35.499 68.2871 35.1779 68.3882 34.849 68.3879ZM36.753 33.0849C36.3622 33.0851 35.9847 32.9423 35.692 32.6834C35.3992 32.4244 35.2113 32.0673 35.1638 31.6793C35.1163 31.2913 35.2125 30.8994 35.4342 30.5775C35.6558 30.2556 35.9876 30.0259 36.367 29.9319C36.48 29.9039 39.167 29.2509 42.894 29.8059C43.3105 29.8719 43.6841 30.0997 43.9335 30.4397C44.1829 30.7798 44.288 31.2045 44.226 31.6216C44.1639 32.0387 43.9397 32.4145 43.602 32.6671C43.2644 32.9198 42.8407 33.0289 42.423 32.9709C39.367 32.5159 37.163 33.0319 37.142 33.0369C37.0149 33.069 36.8842 33.0851 36.753 33.0849Z"
-                            fill="#343434" />
-                        <path
-                            d="M74.572 57.8621C74.2163 57.862 73.8708 57.7434 73.59 57.5251L54.671 42.8311C54.625 42.7952 54.5809 42.7568 54.539 42.7161C53.497 41.7061 52.418 41.2261 51.239 41.2431C49.28 41.2751 47.549 42.6691 46.952 43.2081C45.917 45.9401 44.378 47.5921 42.372 48.1201C41.9244 48.2393 41.4632 48.2998 41 48.3001C38.486 48.3001 36.458 46.6001 36.2 46.3741C35.9013 46.1125 35.7104 45.7493 35.6646 45.3549C35.6188 44.9605 35.7212 44.5631 35.952 44.2401C37.952 41.4401 37.752 37.1941 37.746 37.1521C37.741 37.0617 37.743 36.9711 37.752 36.8811C38.11 33.5661 41.423 30.3401 41.896 29.8951C43.885 27.9151 46.459 26.6031 49.546 25.9951C51.939 25.5231 54.646 25.4741 57.584 25.8501C60.6595 26.2513 63.6755 27.0211 66.567 28.1431C66.7625 28.2225 66.9403 28.3397 67.0903 28.4881C67.2403 28.6365 67.3594 28.8131 67.4409 29.0077C67.5224 29.2023 67.5645 29.4111 67.565 29.6221C67.5654 29.8331 67.5242 30.0421 67.4435 30.237C67.3629 30.432 67.2445 30.6091 67.0951 30.7581C66.9458 30.9071 66.7685 31.0251 66.5733 31.1053C66.3782 31.1856 66.1691 31.2264 65.9581 31.2255C65.7472 31.2246 65.5384 31.182 65.344 31.1001C65.2 31.0371 51.017 25.3001 44.139 32.1731C44.127 32.1861 44.114 32.1981 44.101 32.2101C43.358 32.9101 41.218 35.2771 40.948 37.1101C40.977 37.9231 41.002 41.4921 39.413 44.6651C40.055 44.9781 40.851 45.2131 41.562 45.0211C42.807 44.6861 43.609 43.0731 44.062 41.7781C44.137 41.564 44.2567 41.3684 44.413 41.2041C44.533 41.0781 47.393 38.1181 51.154 38.0421C53.185 38.0021 55.054 38.7791 56.701 40.3541L73.874 53.6941L75.125 50.5561C75.2822 50.1616 75.5896 49.8456 75.9796 49.6778C76.3697 49.5099 76.8105 49.5039 77.205 49.6611C77.5995 49.8182 77.9154 50.1256 78.0833 50.5157C78.2511 50.9058 78.2571 51.3466 78.1 51.7411L76.061 56.8551C75.9691 57.0853 75.825 57.2911 75.64 57.4561C75.455 57.6212 75.2342 57.741 74.995 57.8061C74.8571 57.8432 74.7149 57.862 74.572 57.8621ZM18.3 53.7671C17.0314 53.7684 15.8003 53.3369 14.81 52.5441L10.542 49.1341C9.96746 48.675 9.48895 48.1072 9.13382 47.4632C8.7787 46.8192 8.5539 46.1115 8.47228 45.3806C8.39066 44.6497 8.4538 43.9099 8.65811 43.2034C8.86242 42.4969 9.20388 41.8376 9.66301 41.2631L26.554 20.1211C27.481 18.9608 28.8309 18.2163 30.3068 18.0513C31.7827 17.8863 33.2637 18.3142 34.424 19.2411L38.693 22.6521C39.8531 23.5792 40.5974 24.9292 40.7622 26.405C40.9271 27.8809 40.499 29.3618 39.572 30.5221L22.678 51.6651C22.1532 52.3219 21.487 52.852 20.729 53.216C19.9711 53.5799 19.1408 53.7682 18.3 53.7671ZM16.808 50.0441C17.3053 50.4413 17.94 50.6248 18.5726 50.5541C19.2051 50.4834 19.7837 50.1643 20.181 49.6671L37.072 28.5251C37.4699 28.0284 37.6542 27.3941 37.5844 26.7616C37.5146 26.129 37.1965 25.5501 36.7 25.1521L32.432 21.7411C31.9347 21.3438 31.3 21.1603 30.6674 21.231C30.0349 21.3017 29.4563 21.6208 29.059 22.1181L12.16 43.2611C11.7627 43.7584 11.5793 44.3931 11.65 45.0257C11.7207 45.6582 12.0398 46.2368 12.537 46.6341L16.805 50.0441H16.808Z"
-                            fill="#343434" />
-                        <path
-                            d="M81.077 56.7352C80.0318 56.7362 79.007 56.445 78.1186 55.8943C77.2301 55.3437 76.5133 54.5557 76.049 53.6192L64.049 29.3642C63.3911 28.0334 63.2886 26.4958 63.764 25.0895C64.2393 23.6831 65.2537 22.523 66.584 21.8642L71.484 19.4412C72.8148 18.7833 74.3524 18.6808 75.7588 19.1562C77.1651 19.6315 78.3252 20.6459 78.984 21.9762L90.984 46.2312C91.6419 47.562 91.7444 49.0996 91.269 50.506C90.7937 51.9123 89.7794 53.0724 88.449 53.7312L83.549 56.1542C82.7808 56.5357 81.9348 56.7345 81.077 56.7352ZM73.958 22.0562C73.5895 22.0567 73.226 22.1422 72.896 22.3062L67.996 24.7292C67.7134 24.869 67.4611 25.063 67.2536 25.3003C67.046 25.5375 66.8872 25.8134 66.7863 26.112C66.6853 26.4107 66.6442 26.7263 66.6653 27.0408C66.6863 27.3554 66.7692 27.6627 66.909 27.9452L78.917 52.2002C79.1994 52.7705 79.6967 53.2052 80.2996 53.4089C80.9025 53.6125 81.5616 53.5684 82.132 53.2862L87.032 50.8632C87.6023 50.5808 88.037 50.0835 88.2407 49.4806C88.4443 48.8777 88.4002 48.2186 88.118 47.6482L76.118 23.3932C75.9791 23.1102 75.7854 22.8575 75.5482 22.6498C75.311 22.4421 75.0349 22.2835 74.736 22.1832C74.4854 22.0985 74.2226 22.0556 73.958 22.0562Z"
-                            fill="#343434" />
-                    </svg>
-                </div>
-            </div>
-
-            <div class="exp-content" data-animation="flipInY" data-animation-delay="50ms">
-                <div class="exp-count">
-                    <h5>
-                        <span class="count" data-target="150">0</span>+
-                        <span class="count-year">YEARS</span>
-                    </h5>
-                </div>
-
-                <div class="exp-value">
-                    <h6>PROJECTS</h6>
-                </div>
-
-                <div class="exp-svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="79" height="79" viewBox="0 0 79 79" fill="none">
-                        <g clip-path="url(#clip0_3_317)">
-                            <path
-                                d="M42.0999 24.8907C40.4121 26.8089 39.2223 28.738 38.5935 30.6392C38.4015 31.2165 38.2609 31.8098 38.1736 32.4119C37.282 32.1924 36.3671 32.0814 35.4489 32.0813C29.1253 32.0813 23.9797 37.2274 23.9797 43.5505C23.9797 49.8745 29.1249 55.019 35.4489 55.019C41.7724 55.019 46.9173 49.8745 46.9173 43.5505C46.9173 42.6124 46.8024 41.6996 46.5875 40.825C48.9946 40.4885 51.5459 39.1566 54.1103 36.9015C54.8711 39.0357 55.2594 41.2848 55.2581 43.5505C55.2581 54.4731 46.371 63.3606 35.4489 63.3606C24.5256 63.3606 15.6388 54.4731 15.6388 43.5505C15.6388 32.6276 24.5256 23.7413 35.4489 23.7413C37.7154 23.7397 39.9653 24.1286 42.0999 24.8907ZM64.2475 22.9067C62.7062 25.8956 61.0852 28.5785 59.4163 30.8995C61.4825 34.7959 62.5603 39.1401 62.555 43.5505C62.555 58.4985 50.3973 70.6578 35.4489 70.6578C20.5021 70.6578 8.34161 58.4985 8.34161 43.5505C8.34161 28.6033 20.5021 16.4429 35.4489 16.4429C39.8603 16.4381 44.2055 17.5165 48.1027 19.5835C50.4158 17.9178 53.0924 16.2975 56.0912 14.7511C50.2736 10.5688 43.1451 8.10205 35.4489 8.10205C15.9023 8.10205 0 24.0051 0 43.5505C0 63.0971 15.9023 78.9994 35.4489 78.9994C54.9939 78.9994 70.8974 63.0971 70.8974 43.5505C70.8974 35.8544 68.4302 28.725 64.2475 22.9067ZM36.4589 38.438C36.1264 38.3711 35.7881 38.3375 35.4489 38.3377C32.5733 38.3377 30.2361 40.6761 30.2361 43.5509C30.2361 46.4257 32.5733 48.7637 35.4489 48.7637C38.3237 48.7637 40.6621 46.4257 40.6621 43.5509C40.6621 43.2053 40.6265 42.868 40.5633 42.5413L37.0234 45.2996C36.6069 45.6238 36.0944 45.8001 35.5666 45.8009C35.2556 45.8015 34.9475 45.7405 34.6602 45.6214C34.3729 45.5024 34.112 45.3276 33.8926 45.1072C33.4849 44.698 33.2405 44.1542 33.2052 43.5776C33.1699 43.0011 33.3462 42.4315 33.701 41.9757L36.4589 38.438Z"
-                                fill="#343434" />
-                            <path
-                                d="M66.5919 14.2227C69.2885 14.7619 74.9765 15.5017 77.6155 12.8623C81.5928 8.88465 76.1133 2.88776 72.3284 6.67107C76.1133 2.88776 70.1153 -2.59326 66.1364 1.38439C63.4986 4.02299 64.2384 9.71059 64.7768 12.4073L63.4184 13.7661C44.3123 21.7842 38.0389 31.2602 40.9761 36.2202L35.4354 43.3294C35.4104 43.3618 35.398 43.4023 35.4007 43.4431C35.4034 43.484 35.4209 43.5225 35.45 43.5513C35.4791 43.5802 35.5177 43.5974 35.5586 43.5997C35.5995 43.6021 35.6399 43.5894 35.672 43.5641L42.7805 38.0254C47.7381 40.9614 57.215 34.6892 65.2338 15.5819L66.5919 14.2227Z"
-                                fill="#343434" />
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_3_317">
-                                <rect width="79" height="79" fill="white" />
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-        <div class="container my-5 py-md-4">
+        <div class="container-lg mt-0 mb-5 py-md-4">
             <div class="row">
-                <!-- <div class="col-md-6" data-animation="slideInRight">
-                <div class="about-heading mb-5">
-                    <h2>About Wright Brick</h2>
-                </div>
-                <div class="about-para">
-                    <p>
-                        A leading interior design firm offering End-to-End Tech enabled
-                        services, delivering exceptional luxury interiors with a focus on
-                        precision and innovation. From concept to completion, we ensure
-                        unparalleled quality and style.
-                    </p>
-                    <br />
-                    <p>
-                        We also offer comprehensive construction and architectural design
-                        services.
-                    </p>
-                </div>
-
-                <div class="about-contact-btn mt-5">
-                    <a href="">Contact Us</a>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="41" height="19" viewBox="0 0 41 19" fill="none">
-                        <line y1="9.5" x2="40" y2="9.5" stroke="white" />
-                        <line x1="30.3345" y1="0.628353" x2="40.3345" y2="9.62835" stroke="white" />
-                        <line x1="29.672" y1="18.4491" x2="39.8256" y2="9.62269" stroke="white" />
-                    </svg>
-                </div>
-            </div> -->
                 <div class="col-md-12 mt-5 mt-md-0">
-                    <section class="">
-                        <div class="slider-images">
-                            <div class="slider-img slider-img-b active">
-                                <img loading="lazy" src="img/default/01.jpg" alt="1" />
-                                <span>
-                                    <h3>Interior</h3>
-                                </span>
-                            </div>
-                            <div class="slider-img">
-                                <img loading="lazy" src="img/default/04.png" alt="2" />
-                                <span>
-                                    <h3>Architecture</h3>
-                                </span>
-                            </div>
-                            <div class="slider-img">
-                                <img loading="lazy" src="img/default/07.jpg" alt="3" />
-                                <span>
-                                    <h3>Turnkey</h3>
-                                </span>
-                            </div>
+                    <div class="custom-carousel-container">
+                        <?php
+                        if ($render_images->num_rows > 0) {
+                            // Output data of each row
+                            $index = 0; // Initialize counter
+                            while ($row = $render_images->fetch_assoc()) {
+                                ?>
+                                <div class="custom-carousel-item" data-order="<?php echo $index; ?>">
+                                    <h3 class="custom-carousel-item-title"><?php echo $row['title']; ?></h3>
+                                    <img src="<?php echo htmlspecialchars($row['imageUrl']); ?>"
+                                        alt="Image <?php echo $index; ?>">
+                                </div>
+                                <?php
+                                $index++; // Increment counter for each item
+                            }
+                        } else {
+                            echo '<div class="slide sliding-area"><img src="./img/default.jpg" alt="No images available" /></div>'; // Default image if no records found
+                        }
+                        ?>
+                    </div>
 
-                            <div class="slider-img">
-                                <img loading="lazy" src="img/default/07.jpg" alt="3" />
-                                <span>
-                                    <h3>Turnkey</h3>
-                                </span>
-                            </div>
-
-                            <div class="slider-img">
-                                <img loading="lazy" src="img/default/07.jpg" alt="3" />
-                                <span>
-                                    <h3>Turnkey</h3>
-                                </span>
-                            </div>
-                        </div>
-                    </section>
                 </div>
             </div>
         </div>
@@ -394,7 +244,7 @@ $landing_page_images = $conn->query($landing_page_query);
 
                             </div>
                             <div class="standout-text">
-                                <h6>Upto 10 Years Warrenty</h6>
+                                <h6>Upto 10 Years Warranty</h6>
                             </div>
                         </div>
 
@@ -437,14 +287,9 @@ $landing_page_images = $conn->query($landing_page_query);
                         <div class="scard-deck-js">
                             <div class="card">
                                 <div class="card-body">
-
                                     <div class="card-design">
-                                        <img src="./img/consultation.png" alt="">
                                         <h5 class="card-title">DESIGN CONSULTATION & ESTIMATE</h5>
-
-                                        <div class="step">
-                                            <h6>Step 1</h6>
-                                        </div>
+                                        <img src="./img/consultation.png" alt="">
                                     </div>
 
                                     <p class="card-text">
@@ -456,12 +301,8 @@ $landing_page_images = $conn->query($landing_page_query);
                             <div class="card">
                                 <div class="card-body">
                                     <div class="card-design">
-                                        <img src="./img/achievement.png" alt="">
                                         <h5 class="card-title">DESIGN & HIGH QUALITY 3D RENDERS</h5>
-
-                                        <div class="step">
-                                            <h6>Step 2</h6>
-                                        </div>
+                                        <img src="./img/achievement.png" alt="">
                                     </div>
 
                                     <p class="card-text">
@@ -472,12 +313,8 @@ $landing_page_images = $conn->query($landing_page_query);
                             <div class="card">
                                 <div class="card-body">
                                     <div class="card-design">
-                                        <img src="./img/quality-control.png" alt="">
                                         <h5 class="card-title">PRODUCTION & PRE-ASSEMBLY</h5>
-
-                                        <div class="step">
-                                            <h6>Step 3</h6>
-                                        </div>
+                                        <img src="./img/quality-control.png" alt="">
                                     </div>
 
                                     <p class="card-text">
@@ -489,12 +326,8 @@ $landing_page_images = $conn->query($landing_page_query);
                             <div class="card">
                                 <div class="card-body">
                                     <div class="card-design">
-                                        <img src="./img/delivery-man.png" alt="">
                                         <h5 class="card-title">MATERIAL DELIVERY AND EXECUTION</h5>
-
-                                        <div class="step">
-                                            <h6>Step 4</h6>
-                                        </div>
+                                        <img src="./img/delivery-man.png" alt="">
                                     </div>
 
                                     <p class="card-text">
@@ -508,12 +341,8 @@ $landing_page_images = $conn->query($landing_page_query);
                             <div class="card">
                                 <div class="card-body">
                                     <div class="card-design">
-                                        <img src="./img/time-left.png" alt="">
                                         <h5 class="card-title">TIMELY PROJECT HANDOVER</h5>
-
-                                        <div class="step">
-                                            <h6>Step 5</h6>
-                                        </div>
+                                        <img src="./img/time-left.png" alt="">
                                     </div>
 
                                     <p class="card-text">
@@ -526,7 +355,7 @@ $landing_page_images = $conn->query($landing_page_query);
                     <div class="col-md-6 order-0 order-md-1">
                         <div class="step-right">
                             <div class="step-right-heading">
-                                <h2>BRIGHT BRICKS</h2>
+                                <h2>WRIGHT BRICKS</h2>
                             </div>
                             <div class="step-right-subheading mt-4">
                                 <h5>Journey</h5>
@@ -562,28 +391,20 @@ $landing_page_images = $conn->query($landing_page_query);
             </div>
         </div>
 
-
-
-        <div class="container-fluid-max card-panel-container">
+        <div class="container-fluid card-panel-container">
             <!-- Architecture Card -->
             <div class="card-panel">
                 <div class="card-inner-panel">
                     <div class="card-front">
-                        <h3 class="text-center p-2">Architecute</h3>
+                        <h3 class="text-center p-2">Architecture</h3>
                         <img src="./img/service1.png" alt="Architecture">
                     </div>
                     <div class="card-back">
-
                         <h3 class="card-title-panel">Architecture</h3>
                         <p class="card-description-panel">
                             Expert architectural design services for modern homes and commercial spaces.
                             We bring your vision to life with detailed planning and precision.
                         </p>
-                        <a href="#" class="view-more-panel">View More <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg></a>
                     </div>
                 </div>
             </div>
@@ -601,11 +422,6 @@ $landing_page_images = $conn->query($landing_page_query);
                             Transform your space with our professional interior design services.
                             Creating comfortable and stylish environments tailored to your needs.
                         </p>
-                        <a href="#" class="view-more-panel">View More <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg></a>
                     </div>
                 </div>
             </div>
@@ -623,23 +439,18 @@ $landing_page_images = $conn->query($landing_page_query);
                             Complete end-to-end project management and execution.
                             From concept to completion, we handle every detail of your construction project.
                         </p>
-                        <a href="#" class="view-more-panel">View More <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg></a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="container mt-5">
+        <div class="container mt-3 mt-md-5">
             <div class="partner-heading" data-animation="flipInY">
                 <h4 class="text-center">OUR TRUSTED PARTNER</h4>
             </div>
         </div>
 
-        <div class="scroll-container my-5 py-5" data-animation="zoomIn">
+        <div class="scroll-container mt-0 mt-md-4 mb-5 py-5" data-animation="zoomIn">
             <div class="scroll-inner">
                 <div class="partner-detail">
                     <img loading="lazy" src="./img/partners/ADVANCE LOGO.png" />
@@ -672,8 +483,8 @@ $landing_page_images = $conn->query($landing_page_query);
             </div>
         </div>
 
-        <div class="container-fluid project-grid">
-            <div class="grid-background  py-5">
+        <div class="grid-background py-5">
+            <div class="container-fluid project-grid">
                 <div class="row">
                     <div class="col-md-6 d-flex flex-column justify-content-center">
                         <div class="project-new-heading text-center">
@@ -683,111 +494,91 @@ $landing_page_images = $conn->query($landing_page_query);
                             <div class="project-dark-main">
                                 <h5>PROJECTS</h5>
                             </div>
-                            <a class="view-more-link" href="./best-project.php">
-                                <div class="view-more view-project mt-3">
-                                    <p class="mb-0">View More</p>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                            </a>
                         </div>
                     </div>
-                    <div class="col-md-6 casa-grand mt-5">
-                        <div id="projectImagesCarousel" class="carousel slide" data-bs-ride="carousel"
-                            data-bs-interval="2000">
-                            <div class="carousel-inner">
+                    <div class="col-md-6 projects-section mt-5 mt-md-0">
+                        <div class="swiper-container position-relative projects-section-container overflow-hidden">
+                            <div class="swiper-wrapper">
                                 <?php
                                 // Fetch all project images
                                 $sql = "SELECT images.image_url, projects.project_name, projects.description FROM images 
-                JOIN projects ON images.project_id = projects.project_id";
+                                        JOIN projects ON images.project_id = projects.project_id";
                                 $result = $conn->query($sql);
-                                $isFirst = true;
 
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
                                         $image_url = strpos($row['image_url'], '../') === 0 ? substr($row['image_url'], 3) : $row['image_url'];
                                         ?>
-                                        <div class="carousel-item <?php echo $isFirst ? 'active' : ''; ?>">
-                                            <div class="project-heading text-center">
-                                                <h5><?php echo $row['project_name']; ?></h5>
+                                        <div class="swiper-slide">
+                                            <div class="single-project">
+                                                <div class="project-heading text-center">
+                                                    <h3><?php echo $row['project_name']; ?></h3>
+                                                </div>
+                                                <div class="project-sliding-img">
+                                                    <img src="<?php echo $image_url; ?>" alt="Project Image"
+                                                        class="d-block w-100">
+                                                </div>
+                                                <div class="project-description">
+                                                    <p class="text-center"><?php echo $row['description']; ?></p>
+                                                </div>
                                             </div>
-                                            <div class="project-sliding-img">
-                                                <img src="<?php echo $image_url; ?>" alt="Project Image" class="d-block w-100">
-                                            </div>
-                                            <!-- Only the description here -->
-                                            <div class="project-description">
-                                                <p class="text-center"><?php echo $row['description']; ?></p>
-                                            </div>
-
                                         </div>
-
-
                                         <?php
-                                        $isFirst = false;
                                     }
                                 } else {
-                                    echo '<div class="carousel-item active"><p>No images available.</p></div>';
+                                    echo '<div class="swiper-slide"><p>No images available.</p></div>';
                                 }
                                 ?>
                             </div>
+
+                            <!-- Swiper Navigation Buttons -->
+                            <div class="slider-button-wrap d-flex justify-content-center">
+                                <div class="slider-button-prev swiperSignpostingPrev"><i class="fas fa-arrow-left"></i>
+                                </div>
+                                <div class="slider-button-next swiperSignpostingNext"><i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
 
-
         <!-- Testimonal -->
 
-
-        <div class="testimonials-container">
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    <!-- Testimonials will be inserted here -->
-
-                </div>
-                <!-- Add pagination -->
-
+        <div class="testimonials-container container-fluid mt-5">
+            <p class="text-center">Testimonials</p>
+            <div class="faq-heading text-center mt-2">
+                <h1>Client Experiences</h1>
             </div>
 
-            <div class="swiper-pagination"></div>
             <div class="review-manual">
-
-
-            </div>
-            <div class="review-manual">
-                <div class="about-contact-btn project-inner-btn review-manual add-review mt-5" type="button"
-                    data-bs-toggle="modal" data-bs-target="#myModal">
-
-                    Add Reviews
-
+                <div class="contact-btn" type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <div>Add Reviews</div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
-
-
                 </div>
             </div>
 
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Testimonials will be inserted here -->
+                </div>
+                <!-- Add pagination -->
+            </div>
+
+            <div class="swiper-pagination position-relative mt-4"></div>
 
         </div>
-
-
-
-
 
         <!-- modal for testimonial -->
         <div class="modal p-3" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
 
-                <div class="" id="ReviewSubmitMessage"></div>
+                    <div class="" id="ReviewSubmitMessage"></div>
 
                     <div class="modal-header">
                         <h4 class="modal-title text-dark">Add My Review</h4>
@@ -797,704 +588,454 @@ $landing_page_images = $conn->query($landing_page_query);
                     <div class="modal-body p-3">
                         <form id="reviewForm" action="./admin_php/submit_review.php" method="POST">
                             <div class=" form-group">
-                            <label class="mb-1" for="name">Name:</label>
-                            <input type="text" class="form-control" id="name" name="name">
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="mb-1" for="designation">Designation:</label>
-                        <input type="text" class="form-control" id="designation" name="designation">
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="mb-1" for="photo">Upload Profile Photo: (Optional)</label>
-                        <div class="mt-2">
-                            <input type="file" class="form-control-file border" id="photo" name="photo">
-                        </div>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="mb-1" for="review">Write a Review:</label>
-                        <textarea class="form-control" id="review" name="review"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-    <script>
-        // Get references to the buttons and form
-        const reviewBtn = document.getElementById("reviewBtn");
-        const testimonialForm = document.getElementById("testimonialForm");
-        const cancelBtn = document.getElementById("cancelBtn");
-
-        // Toggle form visibility when the "Review" button is clicked
-        reviewBtn.addEventListener("click", function () {
-            if (testimonialForm.style.display === "none" || testimonialForm.style.display === "") {
-                testimonialForm.style.display = "block"; // Show form
-            } else {
-                testimonialForm.style.display = "none"; // Hide form
-            }
-        });
-
-        // Hide form when "Cancel" button is clicked
-        cancelBtn.addEventListener("click", function () {
-            testimonialForm.style.display = "none"; // Hide form
-        });
-    </script>
-
-    <!-- Popup Modal -->
-
-    <div id="popupModal" class="modal">
-        <div class="left-modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-
-                <h2 class="step-header">Basic Information</h2>
-                <h3 class="step-subheader">STEP 1 of 3</h3>
-
-                <form id="propertyForm" onsubmit="onProperty(event)">
-                    <div class="form-content">
-                        <div class="left-section">
-                            <p class="section-title">I own a...</p>
-                            <div class="own-a">
-                                <button type="button" class="property-type" id="apartment"
-                                    onclick="setPropertyType('Apartment')">Apartment</button>
-                                <button type="button" class="property-type" id="villa"
-                                    onclick="setPropertyType('Villa')">Villa</button>
-                                <button type="button" class="property-type" id="independent-home"
-                                    onclick="setPropertyType('Independent Home')">Independent Home</button>
+                                <label class="mb-1" for="name">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name">
                             </div>
-
-                            <input type="hidden" name="property_type" id="property_type">
-
-                            <p class="section-title">My property name...</p>
-                            <div class="input-container">
-                                <input type="text" name="property_name" id="property-name" placeholder="Property name"
-                                    required>
+                            <div class="form-group mt-3">
+                                <label class="mb-1" for="designation">Designation:</label>
+                                <input type="text" class="form-control" id="designation" name="designation">
                             </div>
-
-                            <p class="section-title">My floorplan type is...</p>
-                            <div class="floorplane-whole">
-                                <button type="button" class="floorplan-type"
-                                    onclick="setFloorplanType('1BHK')">1BHK</button>
-                                <button type="button" class="floorplan-type"
-                                    onclick="setFloorplanType('2BHK')">2BHK</button>
-                                <button type="button" class="floorplan-type"
-                                    onclick="setFloorplanType('3BHK')">3BHK</button>
-                                <button type="button" class="floorplan-type"
-                                    onclick="setFloorplanType('3+BHK')">3+BHK</button>
-                            </div>
-
-                            <input type="hidden" name="floorplan_type" id="floorplan_type">
-                        </div>
-
-                        <div class="right-section">
-                            <img loading="lazy" src="./img/about.png" alt="Apartment Illustration">
-                            <p class="info-text">About your home</p>
-                            <p class="info-description">The details that you enter here help us understand more about
-                                your property.</p>
-                        </div>
-                    </div>
-
-                    <div class="buttons-step-2">
-                        <button type="submit" class="btn-next">NEXT</button>
-                    </div>
-                </form>
-
-
-                </form>
-
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Thank You Modal -->
-    <div id="thankYouModal" class="thank-you-modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close-thank-you"
-                onclick="document.getElementById('thankYouModal').style.display='none'">&times;</span>
-            <h2>Thank You!</h2>
-            <p>Thank you so much for your submission. We will contact you soon.</p>
-        </div>
-    </div>
-
-    <!
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="faq-heading" data-animation="slideInRight">
-                <h1>FAQs</h1>
-            </div>
-            <div class="faq-subheading" data-animation="slideInRight" data-animation-delay="50ms">
-                <p>People commonly asks</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="faq-whole mt-4">
-        <section class="faq-section py-3">
-            <div class="container">
-                <div class="w-lg-50 mx-auto">
-                    <div class="accordion accordion-flush" id="accordionExample">
-                        <!-- 1: coll1 -->
-                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="10ms">
-                            <h2 class="accordion-header">
-                                <!--   data-bs-target="#coll1",  controls="coll1", id="coll1", aria-expanded="true"      -->
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#coll1" aria-expanded="true" aria-controls="coll1">
-                                    <h5>What is Wright Brick?</h5>
-                                </button>
-                            </h2>
-                            <!-- show : by default Always open -->
-                            <div id="coll1" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    At Wright Brick, we specialize in creating interiors that are uniquely yours.
-                                    Each
-                                    home reflects your distinct style, crafted with exceptional precision and care
-                                    by
-                                    our expert team. Our designs are more than spaces—they're a true extension of
-                                    you
+                            <div class="form-group mt-3">
+                                <label class="mb-1" for="photo">Upload Profile Photo: (Optional)</label>
+                                <div class="mt-2">
+                                    <input type="file" class="form-control-file border" id="photo" name="photo">
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- 2: coll2 -->
-                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="20ms">
-                            <h2 class="accordion-header">
-                                <!--       collapsed,   aria-expanded="false"   -->
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#coll2" aria-expanded="false" aria-controls="coll2">
-                                    <h5>Does Wright Brick charge taxes? </h5>
-                                </button>
-                            </h2>
-                            <div id="coll2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Yes, Wright Brick is a reputable organization compliant with all statutory
-                                    requirements. The quoted cost includes GST, with no additional taxes.
-                                </div>
+                            <div class="form-group mt-3">
+                                <label class="mb-1" for="review">Write a Review:</label>
+                                <textarea class="form-control" id="review" name="review"></textarea>
                             </div>
-                        </div>
-
-                        <!-- 3: coll3 -->
-                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="30ms">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#coll3" aria-expanded="false" aria-controls="coll3">
-                                    <h5>Does Wright Brick offer any Warranty?
-                                    </h5>
-                                </button>
-                            </h2>
-                            <div id="coll3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">Wright Brick guarantees that all products will be free
-                                    from
-                                    manufacturing defects and installation issues, with a warranty of up to 10
-                                    years,
-                                    provided they are properly maintained and used for standard domestic purposes
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 4: coll4 -->
-                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="40ms">
-                            <h2 class="accordion-header">
-                                <!--   target="#coll4",  id="coll4"  -->
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#coll4" aria-expanded="false" aria-controls="coll4">
-                                    <h5>What is the timeline to complete an interior Project?</h5>
-                                </button>
-                            </h2>
-                            <div id="coll4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Every home is unique with its own needs. At Wright Brick, we aim to finish your
-                                    project in the shortest time possible. Once the design is finalized, we will
-                                    provide
-                                    a clear timeline and ensure timely delivery as promised.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 5: coll5 -->
-                        <div class="accordion-item" data-animation="slideInDown" data-animation-delay="50ms">
-                            <h2 class="accordion-header">
-                                <!--   target="#coll5",  id="coll5"  -->
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#coll5" aria-expanded="false" aria-controls="coll5">
-                                    <h5>Does Wright Brick take any hidden charges?
-                                    </h5>
-                                </button>
-                            </h2>
-                            <div id="coll5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">Wright Brick has no hidden charges beyond those
-                                    specified in
-                                    the quote.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="container-fluid mt-5">
-    <div class="row">
-        <div class="faq-heading" data-animation="slideInLeft">
-            <h1>Interior Tour</h1>
-        </div>
-    </div>
-    <div class="row mt-5 mb-5">
-        <?php
-        // Fetch videos
-        $sql = "SELECT id, video_id FROM videos";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while ($row = $result->fetch_assoc()) {
-                $video_id = $row["video_id"];
-                $id = $row["id"];
-                // Get YouTube thumbnail URL
-                $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
-                echo "<div class='col-md-4 col-sm-6 mb-4'>
-                        <div class='video-card position-relative'>
-                            <div class='video-card-body'>
-                                <img loading='lazy' data-animation='zoomIn' class='youtube-thumbnail' src='$thumbnail_url' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id' alt='Video Thumbnail'>
-                                <!-- Overlay with YouTube Icon -->
-                                <div class='overlay' data-bs-toggle='modal' data-bs-target='#ytLightboxModal$video_id'>
-                                    <i class='fab fa-youtube'></i>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-
-                      <!-- Modal for Lightbox -->
-                      <div class='modal fade' id='ytLightboxModal$video_id' tabindex='-1' aria-labelledby='ytLightboxModalLabel$video_id' aria-hidden='true'>
-                          <div class='modal-dialog modal-lg'>
-                              <div class='modal-content custom-modal-content p-0'>
-                                  <div class='modal-body' style='background: #dddddd; border-radius: 10px'>
-                                      <button type='button' class='btn-close mb-2' data-bs-dismiss='modal' aria-label='Close' style='float: right;'></button>
-                                      <iframe class='yt-modal-frame' id='videoFrame$video_id' src='https://www.youtube.com/embed/$video_id' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>";
-            }
-        } else {
-            echo "<p class='text-center'>No videos found</p>";
-        }
-
-        // Close connection
-        $conn->close();
-        ?>
-    </div>
-</div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Left side with image and text -->
-            <div class="col-md-6 ">
-                <div class="bg-image">
-                    <div class="overlay-text">
-                        Have A<br>
-                        Project In<br>
-                        Mind?
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right side with form -->
-            <div class="col-md-6 connect-now-form ">
-                <div class="right-header ">
-                    <div class="right-inside-header">
-                        <div class="container-contact">
-                            <div class="connect-now-contact">Connect Now</div>
-                        </div>
-                    </div>
-                    <div id="ContactSubmitMessage2"></div>
-                    <div class="form-filling">
-                        <form method="post" id="contactForm2">
-                            <input type="text" placeholder="Name" id="name" name='name' />
-                            <input type="email" placeholder="Email" id="email" name='email' />
-                            <div class="phone-input">
-                                <span><input type="text" class="country-code-input" value="+91" maxlength="4"
-                                        id="country" name='country' /></span>
-                                <input type="tel" placeholder="Mobile Number" id="phone" name='phone' />
-                            </div>
-                            <textarea id="message" placeholder="Message..." name='message'></textarea>
-                            <div class="checkbox-container">
-                                <input type="checkbox" id="whatsapp" name="whatsapp" value="1" />
-                                <label for="whatsapp">You can reach me on WhatsApp</label>
-                            </div>
-                            <button class="bg-black" type="submit">
-                                Get Free Quote
-                                <span class="connect-now-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="black" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg></span>
-                            </button>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
                         </form>
                     </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- Popup Modal -->
 
+        <div id="popupModal" class="modal">
+            <div class="left-modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
 
+                    <h2 class="step-header">Basic Information</h2>
+                    <h2 class="step-header">Basic Information</h2>
+                    <h3 class="step-subheader">STEP 1 of 3</h3>
+                    <h2 class="step-header">Basic Information</h2>
+                    <h3 class="step-subheader">STEP 1 of 3</h3>
 
+                    <form id="propertyForm" onsubmit="onProperty(event)">
+                        <div class="form-content">
+                            <div class="left-section">
+                                <p class="section-title">I own a...</p>
+                                <div class="own-a">
+                                    <button type="button" class="property-type" id="apartment"
+                                        onclick="setPropertyType('Apartment')">Apartment</button>
+                                    <button type="button" class="property-type" id="villa"
+                                        onclick="setPropertyType('Villa')">Villa</button>
+                                    <button type="button" class="property-type" id="independent-home"
+                                        onclick="setPropertyType('Independent Home')">Independent
+                                        Home</button>
+                                </div>
 
-    <?php include 'footer.php'; ?>
+                                <input type="hidden" name="property_type" id="property_type">
 
+                                <p class="section-title">My property name...</p>
+                                <div class="input-container">
+                                    <input type="text" name="property_name" id="property-name"
+                                        placeholder="Property name" required>
+                                </div>
 
+                                <p class="section-title">My floorplan type is...</p>
+                                <div class="floorplane-whole">
+                                    <button type="button" class="floorplan-type"
+                                        onclick="setFloorplanType('1BHK')">1BHK</button>
+                                    <button type="button" class="floorplan-type"
+                                        onclick="setFloorplanType('2BHK')">2BHK</button>
+                                    <button type="button" class="floorplan-type"
+                                        onclick="setFloorplanType('3BHK')">3BHK</button>
+                                    <button type="button" class="floorplan-type"
+                                        onclick="setFloorplanType('3+BHK')">3+BHK</button>
+                                </div>
 
-    <script>
-
-$.get('./admin_php/fetch_userReview.php', function(data) {
-        var reviews = JSON.parse(data); // Assuming your data is in JSON format
-
-        var reviewsWrapper = $('#reviewsWrapper');
-
-        reviews.forEach(function(review) {
-            var totalReviews = `
-                  <div class="swiper-slide">
-                    <div class="testimonial">
-                        <div class="testimonial-box">
-                            <div class="test-img">
-                                <img src="./images/camaa.png" alt="" />
+                                <input type="hidden" name="floorplan_type" id="floorplan_type">
                             </div>
-                            <p>${review.review}</p>
-                        </div>
-                        <div class="test-details">
-                            ${review.photo ? ` <img src="${review.photo}" alt="" />` : ``}
-                            <div class="test-proof">
-                                <h6>${review.name}</h6>
-                                <p>${review.designation}</p>
+
+                            <div class="right-section">
+                                <img loading="lazy" src="./img/about.png" alt="Apartment Illustration">
+                                <p class="info-text">About your home</p>
+                                <p class="info-description">The details that you enter here help us
+                                    understand more
+                                    about
+                                    your property.</p>
                             </div>
                         </div>
-                    </div>
+
+                        <div class="buttons-step-2">
+                            <button type="submit" class="btn-next">Submit</button>
+                        </div>
+                    </form>
                 </div>
-          `
-            reviewsWrapper.append(totalReviews);
-        });
-        reloadReviews();
-    });
+            </div>
+        </div>
 
-    $("#reviewForm").on('submit', function(e) {
-        e.preventDefault();
-        if ($("#reviewForm").valid()) { // Check if the form is valid
-            $.ajax({
-                url: $(this).attr('action'),
-                type: 'POST',
-                data: new FormData(this),
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
-                    $("#ReviewSubmitMessage").html('<div class="alert alert-success my-4">' + data +
-                        '</div>'); // Display success message
-                    $("#reviewForm")[0].reset(); // Clear the form fields
-                    $('.modal-footer button').click();
-                    $("#myModal").modal('hide'); // Close the modal
-                },
-                error: function() {
-                    $("#ReviewSubmitMessage").html(
-                        '<div class="alert alert-danger">An error occurred.</div>'
-                    ); // Display error message
-                }
-            });
-        }
-    });
-
-    $.validator.addMethod('filesize', function(value, element, param) {
-        return this.optional(element) || (element.files[0].size <= param * 1024)
-    }, 'File size must be less than {0}KB');
-
-
-    $("#reviewForm").validate({
-        rules: {
-            name: {
-                required: true,
-                minlength: 4
-            },
-            designation: {
-                required: true,
-                minlength: 3,
-            },
-            photo: {
-                extension: "jpg|jpeg|png|gif",
-                filesize: 200
-            },
-            title: {
-                required: true,
-                minlength: 5
-            },
-            review: {
-                required: true,
-                minlength: 10
-            }
-        },
-        messages: {
-            name: {
-                required: "Please enter your name",
-                minlength: "Your name must consist of at least 4 characters"
-            },
-            designation: {
-                required: "Please enter your designation",
-                minlength: "Your designation must consist of at least 3 characters"
-            },
-            photo: {
-                extension: "Invalid file type. Only JPG, JPEG, PNG, and GIF files are allowed",
-                filesize: "File size must be less than 200KB"
-            },
-            title: {
-                required: "Please enter your review title",
-                minlength: "Review title must consist of at least 5 characters"
-            },
-            review: {
-                required: "Please write a review",
-                minlength: "Your review must consist of at least 10 characters"
-            }
-        },
-    });
-    </script>
-
-
-
-
-    <script>
-        function reloadReviews() {
-            const swiper = new Swiper(".swiper-container", {
-                loop: true,
-                slidesPerView: 3,
-                spaceBetween: 30,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                    renderBullet: function (index, className) {
-                        return '<span class="' + className + '"></span>';
-                    },
-                },
-                breakpoints: {
-                    0: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    },
-                    550: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    900: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                    },
-                    1200: {
-                        slidesPerView: 3,
-                        spaceBetween: 50,
-                    },
-                },
-            });
-        };
-
-        jQuery(document).ready(function ($) {
-            $.get('./admin_php/fetch_userReview.php', function (data) {
-                var reviews = JSON.parse(data); // Assuming your data is in JSON format
-
-                console.log('THe Data', reviews);
-
-                var reviewsWrapper = $('#reviewsWrapper');
-
-                reviews.forEach(function (review) {
-                    var totalReviews = `
-                  <div class="swiper-slide">
-                    <div class="testimonial">
-                        <div class="testimonial-box">
-                            <div class="test-img">
-                                <img src="./images/camaa.png" alt="" />
-                            </div>
-                            <p>${review.review}</p>
-                        </div>
-                        <div class="test-details">
-                            ${review.photo ? ` <img src="${review.photo}" alt="" />` : ``}
-                            <div class="test-proof">
-                                <h6>${review.name}</h6>
-                                <p>${review.designation}</p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="faq-heading" data-animation="slideInRight">
+                    <h1>FAQs</h1>
                 </div>
-          `
-                    reviewsWrapper.append(totalReviews);
-                });
-                reloadReviews();
-            });
-        });
+                <div class="faq-subheading" data-animation="slideInRight" data-animation-delay="50ms">
+                    <p>People commonly asks</p>
+                </div>
+            </div>
+        </div>
 
+        <div class="container faq-whole mt-4">
+            <section class="faq-section py-3">
+                <div class="container">
+                    <div class="w-lg-50 mx-auto">
+                        <div class="accordion accordion-flush" id="accordionExample">
+                            <!-- 1: coll1 -->
+                            <div class="accordion-item" data-animation="slideInDown" data-animation-delay="10ms">
+                                <h2 class="accordion-header">
+                                    <!--   data-bs-target="#coll1",  controls="coll1", id="coll1", aria-expanded="true"      -->
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#coll1" aria-expanded="true" aria-controls="coll1">
+                                        <h5>What is Wright Brick?</h5>
+                                    </button>
+                                </h2>
+                                <!-- show : by default Always open -->
+                                <div id="coll1" class="accordion-collapse collapse show"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        At Wright Brick, we specialize in creating interiors that are uniquely
+                                        yours.
+                                        Each
+                                        home reflects your distinct style, crafted with exceptional precision
+                                        and care
+                                        by
+                                        our expert team. Our designs are more than spaces—they're a true
+                                        extension of
+                                        you
+                                    </div>
+                                </div>
+                            </div>
 
+                            <!-- 2: coll2 -->
+                            <div class="accordion-item" data-animation="slideInDown" data-animation-delay="20ms">
+                                <h2 class="accordion-header">
+                                    <!--       collapsed,   aria-expanded="false"   -->
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#coll2" aria-expanded="false" aria-controls="coll2">
+                                        <h5>Does Wright Brick charge taxes? </h5>
+                                    </button>
+                                </h2>
+                                <div id="coll2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Yes, Wright Brick is a reputable organization compliant with all
+                                        statutory
+                                        requirements. The quoted cost includes GST, with no additional taxes.
+                                    </div>
+                                </div>
+                            </div>
 
+                            <!-- 3: coll3 -->
+                            <div class="accordion-item" data-animation="slideInDown" data-animation-delay="30ms">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#coll3" aria-expanded="false" aria-controls="coll3">
+                                        <h5>Does Wright Brick offer any Warranty?
+                                        </h5>
+                                    </button>
+                                </h2>
+                                <div id="coll3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">Wright Brick guarantees that all products will
+                                        be free
+                                        from
+                                        manufacturing defects and installation issues, with a warranty of up to
+                                        10
+                                        years,
+                                        provided they are properly maintained and used for standard domestic
+                                        purposes
+                                    </div>
+                                </div>
+                            </div>
 
-    </script>
+                            <!-- 4: coll4 -->
+                            <div class="accordion-item" data-animation="slideInDown" data-animation-delay="40ms">
+                                <h2 class="accordion-header">
+                                    <!--   target="#coll4",  id="coll4"  -->
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#coll4" aria-expanded="false" aria-controls="coll4">
+                                        <h5>What is the timeline to complete an interior Project?</h5>
+                                    </button>
+                                </h2>
+                                <div id="coll4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Every home is unique with its own needs. At Wright Brick, we aim to
+                                        finish your
+                                        project in the shortest time possible. Once the design is finalized, we
+                                        will
+                                        provide
+                                        a clear timeline and ensure timely delivery as promised.
+                                    </div>
+                                </div>
+                            </div>
 
-
-    <script>
-        let reviewData = [];
-
-        $.get('./admin_php/fetch_userReview.php', function (data) {
-            var reviews = JSON.parse(data); // Assuming your data is in JSON format
-
-            console.log(reviews);
-            reviewData = reviews;
-        });
-    </script>
-    <script src="js/testmonial.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get all modal elements
-
-            var modals = document.querySelectorAll('.modal');
-
-            // Add event listeners to each modal
-            modals.forEach(function (modal) {
-                // Handle when the modal is shown (to start the video)
-                modal.addEventListener('show.bs.modal', function () {
-                    var iframe = modal.querySelector('iframe');
-                    var videoId = iframe.id.replace('videoFrame', '');
-                    iframe.src =
-                        `https://www.youtube.com/embed/${videoId}?autoplay=1`; // Autoplay the video when modal opens
-                });
-
-                // Handle when the modal is hidden (to stop the video)
-                modal.addEventListener('hidden.bs.modal', function () {
-                    var iframe = modal.querySelector('iframe');
-                    iframe.src = ''; // Stop the video by clearing the src
-                });
-            });
-        });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper', {
-            slidesPerView: 1,
-            spaceBetween: 24,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-
-        // Fetch testimonials from PHP file
-        async function fetchTestimonials() {
-            try {
-                const response = await fetch('./admin_php/fetch_userReview.php');
-                const testimonials = await response.json();
-
-                const swiperWrapper = document.querySelector('.swiper-wrapper');
-
-                testimonials.forEach(testimonial => {
-                    const slide = document.createElement('div');
-                    slide.className = 'swiper-slide';
-
-                    // Create a handle from the name (for demonstration)
-                    const handle = testimonial.name.toLowerCase().replace(/\s+/g, '');
-
-                    slide.innerHTML = `
-                        <div class="testimonial-card">
-                            <div class="quote-mark"> <svg fill="#929696" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 349.078 349.078" xml:space="preserve" stroke="#929696"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M150.299,26.634v58.25c0,7.9-6.404,14.301-14.304,14.301c-28.186,0-43.518,28.909-45.643,85.966h45.643 c7.9,0,14.304,6.407,14.304,14.304v122.992c0,7.896-6.404,14.298-14.304,14.298H14.301C6.398,336.745,0,330.338,0,322.447V199.455 c0-27.352,2.754-52.452,8.183-74.611c5.568-22.721,14.115-42.587,25.396-59.048c11.608-16.917,26.128-30.192,43.16-39.44 C93.886,17.052,113.826,12.333,136,12.333C143.895,12.333,150.299,18.734,150.299,26.634z M334.773,99.186 c7.896,0,14.305-6.407,14.305-14.301v-58.25c0-7.9-6.408-14.301-14.305-14.301c-22.165,0-42.108,4.72-59.249,14.023 c-17.035,9.248-31.563,22.523-43.173,39.44c-11.277,16.461-19.824,36.328-25.393,59.054c-5.426,22.166-8.18,47.266-8.18,74.605 v122.992c0,7.896,6.406,14.298,14.304,14.298h121.69c7.896,0,14.299-6.407,14.299-14.298V199.455 c0-7.896-6.402-14.304-14.299-14.304h-44.992C291.873,128.095,306.981,99.186,334.773,99.186z"></path> </g> </g></svg> </div>
-                            <div class="testimonial-text">${testimonial.review}</div>
-                            <div class="user-info">
-                                <img src="${testimonial.photo}" alt="${testimonial.name}" class="user-avatar">
-                                <div class="user-details">
-                                    <span class="user-name">${testimonial.name}</span>
-                                    <span class="user-handle">@${handle}</span>
+                            <!-- 5: coll5 -->
+                            <div class="accordion-item" data-animation="slideInDown" data-animation-delay="50ms">
+                                <h2 class="accordion-header">
+                                    <!--   target="#coll5",  id="coll5"  -->
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#coll5" aria-expanded="false" aria-controls="coll5">
+                                        <h5>Does Wright Brick take any hidden charges?
+                                        </h5>
+                                    </button>
+                                </h2>
+                                <div id="coll5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">Wright Brick has no hidden charges beyond those
+                                        specified in
+                                        the quote.
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    `;
+                    </div>
+                </div>
+            </section>
+        </div>
 
-                    swiperWrapper.appendChild(slide);
+        <!-- Modal structure, with $video_id to create unique modals for each video -->
+        <div class="modal fade" id="ytLightboxModal" tabindex="-1" aria-labelledby="ytLightboxModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content custom-modal-content p-0">
+                    <div class="modal-body" style="background: #dddddd; border-radius: 10px;">
+                        <button type="button" class="btn-close mb-2" data-bs-dismiss="modal" aria-label="Close"
+                            style="float: right;"></button>
+                        <iframe class="yt-modal-frame" id="videoFrame" src="" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="faq-heading">
+                    <h1>Clips of Clients</h1>
+                </div>
+            </div>
+            <div class="row mt-4 mb-5">
+                <div class="swiper-container video-swiper"> <!-- Swiper container specific for videos -->
+                    <div class="swiper-wrapper">
+                        <?php
+                        // Fetch videos
+                        $sql = "SELECT id, video_id FROM videos";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            // Output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                                $video_id = $row["video_id"];
+                                $id = $row["id"];
+                                // Get YouTube thumbnail URL
+                                $thumbnail_url = "https://img.youtube.com/vi/$video_id/0.jpg";
+                                ?>
+                                <div class="swiper-slide col-12 col-md-4 col-sm-6"> <!-- Each video card as a swiper-slide -->
+                                    <div class="video-card position-relative">
+                                        <div class="video-card-body" onclick="openVideoModal('<?php echo $video_id; ?>')">
+                                            <img loading="lazy" data-animation="zoomIn" class="youtube-thumbnail"
+                                                src="<?php echo $thumbnail_url ?>" data-bs-toggle="modal"
+                                                data-bs-target="#ytLightboxModal<?php echo $video_id; ?>" alt="Video Thumbnail">
+                                            <!-- Overlay with YouTube Icon -->
+                                            <div class="overlay" data-bs-toggle="modal"
+                                                data-bs-target="#ytLightboxModal<?php echo $video_id; ?>">
+                                                <i class="fab fa-youtube"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php ;
+                            }
+                        } ?>
+                    </div>
+                    <!-- Swiper Pagination for this specific slider -->
+                    <div class="swiper-pagination video-swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Left side with image and text -->
+                <div class="col-md-6 ">
+                    <div class="bg-image">
+                        <div class="overlay-text text-center">
+                            Have A<br>
+                            Project In<br>
+                            Mind?
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side with form -->
+                <div class="col-md-6">
+                    <div class="right-header w-100 d-flex flex-column h-100 justify-content-center">
+                        <div class="right-inside-header">
+                            <h2>Connect Now</h2>
+                            <p class="mt-2">Fill the details we’ll call you back</p>
+                        </div>
+                        <div id="ContactSubmitMessage2"></div>
+                        <div class="form-filling">
+                            <form method="post" id="contactForm2">
+                                <input type="text" placeholder="Name" id="name" name='name' />
+                                <input type="email" placeholder="Email" id="email" name='email' />
+                                <div class="phone-input">
+                                    <span><input type="text" class="country-code-input" value="+91" maxlength="4"
+                                            id="country" name='country' /></span>
+                                    <input type="tel" placeholder="Mobile Number" id="phone" name='phone' />
+                                </div>
+                                <textarea id="message" placeholder="Message..." name='message'></textarea>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="whatsapp" name="whatsapp" value="1" />
+                                    <label for="whatsapp">You can reach me on WhatsApp</label>
+                                </div>
+                                <button type="submit">
+                                    Submit
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="41" height="19"
+                                            viewBox="0 0 41 19" fill="none">
+                                            <line y1="9.5" x2="40" y2="9.5" stroke="white" />
+                                            <line x1="30.3345" y1="0.628353" x2="40.3345" y2="9.62835" stroke="white" />
+                                            <line x1="29.672" y1="18.4491" x2="39.8256" y2="9.62269" stroke="white" />
+                                        </svg></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php include 'footer.php'; ?>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+
+        <script>
+            function openVideoModal(videoId) {
+                const videoModal = document.getElementById('ytLightboxModal');
+                const iframe = document.getElementById('videoFrame');
+
+                // Set the video URL with autoplay
+                iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autohide=1&showinfo=0&iv_load_policy=3`;
+
+                // Initialize and show the modal using Bootstrap's modal API
+                const modalInstance = new bootstrap.Modal(videoModal);
+                modalInstance.show();
+
+                // Stop video when the modal is hidden
+                videoModal.addEventListener('hidden.bs.modal', () => {
+                    iframe.src = ''; // Clear iframe src to stop playback
+                    modalInstance.hide();
                 });
 
-                // Update Swiper after adding slides
-                swiper.update();
-            } catch (error) {
-                console.error('Error fetching testimonials:', error);
+                document.querySelector('#ytLightboxModal .btn-close').addEventListener('click', function () {
+                    iframe.src = '';
+                    modalInstance.hide();
+                });
             }
-        }
 
-        // Load testimonials when page loads
-        document.addEventListener('DOMContentLoaded', fetchTestimonials);
-    </script>
-    <script src="js/contact-submission.js"></script>
-    <script src="js/testmonial.js"></script>
-    <!-- <script src="js/textslide.js"></script> -->
-    <script src="js/preloader.js"></script>
-    <script src="js/contact-detail.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/popup.js"></script>
-    <script src="js/counting.js"></script>
-    <script src="js/landing-slide.js"></script>
-    <script src="js/stack.js"></script>
-    <script src="js/slider.js"></script>
-
-
-    <script src="js/footerImg.js"></script>
-    <!-- <script src="js/textparallax.js"></script> -->
-
-    <script>
-        jQuery(document).ready(function ($) {
-            $(".slider-img").on("mouseover", function () {
-                $(".slider-img").removeClass("active");
-                $(this).addClass("active");
-            });
-
-            setInterval(() => {
-                $(".jumping-div").each(function (index) {
-                    $(this).css("animation", "");
-                    setTimeout(() => {
-                        $(this).css("animation", "jump 1.5s ease-in-out");
-                    }, (index + 1) * 500);
+            document.addEventListener("DOMContentLoaded", function () {
+                const projectSwiper = new Swiper('.projects-section .swiper-container', {
+                    loop: true,
+                    autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiperSignpostingNext',
+                        prevEl: '.swiperSignpostingPrev',
+                    },
+                    effect: 'slide', // You can also try 'fade', 'cube', 'coverflow', 'flip' for different effects
+                    speed: 800, // Transition speed (ms)
                 });
-            }, 4000);
-        });
-    </script>
 
-    <script>
-        function toggleMenu() {
-            const mobileNav = document.querySelector(".mobile-nav-wrapper");
-            const burgerMenu = document.querySelector(".burger-menu");
-            mobileNav.classList.toggle("active");
-            burgerMenu.classList.toggle("active");
-        }
-    </script>
+                const swiperProjectContainer = document.querySelector('.projects-section .swiper-container');
+                swiperProjectContainer.addEventListener('mouseenter', () => {
+                    projectSwiper.autoplay.stop();
+                });
+
+                // Resume autoplay on mouse leave
+                swiperProjectContainer.addEventListener('mouseleave', () => {
+                    projectSwiper.autoplay.start();
+                });
+
+                // Initialize Swiper for video section
+                const videoSwiper = new Swiper('.video-swiper', {
+                    slidesPerView: 3,          // Show 3 slides at a time
+                    spaceBetween: 20,          // Spacing between slides
+                    loop: true,                // Enable looping
+                    autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.video-swiper-pagination',
+                        clickable: true,
+                    },
+                    breakpoints: {
+                        // Adjust the number of slides based on screen width
+                        0: {
+                            slidesPerView: 1,
+                        },
+                        568: {
+                            slidesPerView: 1,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                        }
+                    }
+                });
+
+                const videoSwiperContainer = document.querySelector('.video-swiper');
+                videoSwiperContainer.addEventListener('mouseenter', () => {
+                    videoSwiper.autoplay.stop();
+                });
+
+                // Resume autoplay on mouse leave
+                videoSwiperContainer.addEventListener('mouseleave', () => {
+                    videoSwiper.autoplay.start();
+                });
+            });
+        </script>
+
+        <script src="js/contact-submission.js"></script>
+        <script src="js/testmonial.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/popup.js"></script>
+        <script src="js/landing-slide.js"></script>
+        <script src="js/stack.js"></script>
+        <script src="js/slider.js"></script>
+        <script src="js/flexing-box.js"></script>
+
+        <script>
+            function toggleMenu() {
+                const mobileNav = document.querySelector(".mobile-nav-wrapper");
+                const burgerMenu = document.querySelector(".burger-menu");
+                mobileNav.classList.toggle("active");
+                burgerMenu.classList.toggle("active");
+            }
+        </script>
 
 </body>
 

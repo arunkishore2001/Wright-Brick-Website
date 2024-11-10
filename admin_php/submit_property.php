@@ -11,10 +11,7 @@ if (!isset($_SESSION['contact_form_id'])) {
     exit();
 }
 
-
-
-
-// Get form data
+// Get form data from JSON input
 $input = json_decode(file_get_contents('php://input'), true);
 $property_type = $input['property_type'] ?? null; // Optional field
 $property_name = $input['property_name'] ?? null; // Optional field

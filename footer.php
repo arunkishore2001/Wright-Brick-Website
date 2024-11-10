@@ -14,7 +14,7 @@
 </div> -->
 
 <div class="container-fluid-max position-relative">
-  <div class="footer-background-svg">
+  <div class="footer-background-svg d-none d-md-block">
     <svg width="200" height="210" viewBox="0 0 293 323" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M6.53888 123.313C7.71042 120.965 10.8033 117.258 15.6455 112.445C20.4232 107.697 26.7211 102.048 34.0824 95.8429C48.801 83.4363 67.6867 68.8791 86.9718 54.9811C106.259 41.0819 125.911 27.8662 142.163 18.1343C150.293 13.2663 157.538 9.2897 163.444 6.53671C166.397 5.15996 168.985 4.10346 171.161 3.39459C173.366 2.67596 175.022 2.35742 176.152 2.35742C177.28 2.35742 178.91 2.6746 181.066 3.39096C183.193 4.09791 185.713 5.15219 188.581 6.52737C194.316 9.27732 201.318 13.2509 209.152 18.1173C224.813 27.8458 243.662 41.0584 262.093 54.9554C280.521 68.8513 298.496 83.405 312.41 95.8067C319.37 102.01 325.291 107.654 329.738 112.395C334.254 117.209 337.051 120.888 338.017 123.193C339.001 125.54 339.83 130.408 340.447 137.447C341.055 144.387 341.439 153.171 341.649 163.149C342.069 183.101 341.789 207.72 341.228 231.694C340.668 255.663 339.827 278.966 339.126 296.278C338.775 304.933 338.46 312.09 338.232 317.083C338.118 319.579 338.026 321.535 337.963 322.865C337.96 322.911 337.958 322.956 337.956 323.001H6.63742C6.63457 322.951 6.63166 322.899 6.62871 322.847C6.55314 321.517 6.44366 319.562 6.30809 317.066C6.03695 312.074 5.66149 304.917 5.24429 296.262C4.40984 278.952 3.40868 255.651 2.74131 231.685C2.07377 207.713 1.74096 183.1 2.24055 163.157C2.49042 153.183 2.94783 144.408 3.67049 137.48C4.40469 130.441 5.38756 125.62 6.53888 123.313Z"
@@ -25,26 +25,16 @@
     </svg>
   </div>
   <div class="end-footer-bg">
-    <div class="container">
+    <div class="container-fluid">
       <div class="end-top-footer">
-        <div class="end-left-intro">
+        <div class="end-left-intro w-100 d-flex align-items-center justify-content-center">
           <div class="end-left-logo">
             <img src="./img/logo.png" alt="">
           </div>
         </div>
 
         <div class="links d-flex" data-animation="slideInLeft">
-          <div class="company-link">
-            <p>Company</p>
-            <ul>
-              <li><a href="./"> Home</a></li>
-              <li><a href="./about"> About Us </a></li>
-              <li><a href="./project"> Projects </a></li>
-              <li><a href="./project"> Portfolio </a></li>
-            </ul>
-          </div>
-
-          <div class="follow-us-link" data-animation="slideInLeft" data-animation-delay="200ms">
+          <div class="follow-us-link w-100 my-3" data-animation="slideInLeft" data-animation-delay="20ms">
             <p>Follow Us</p>
             <ul>
               <li><a href=""> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
@@ -65,6 +55,8 @@
                       d="M18 5.71924C18.2761 5.71924 18.5 5.49538 18.5 5.21924C18.5 4.9431 18.2761 4.71924 18 4.71924C17.7239 4.71924 17.5 4.9431 17.5 5.21924C17.5 5.49538 17.7239 5.71924 18 5.71924Z"
                       stroke="#303C42" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>Instagram </a></li>
+            </ul>
+            <ul>
               <li><a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
                     fill="none">
                     <path
@@ -87,14 +79,14 @@
     </div>
 
     <div class="end-line">
-      <div class="container">
+      <div class="container-fluid">
         <div class="message">
           <div class="call" data-animation="slideInRight">
             <h6>Call our office</h6>
             <p class="grey-text">+91 89863 97497</p>
           </div>
 
-          <div class="send" data-animation="slideInRight" data-animation-delay="200ms">
+          <div class="send mt-3 mt-md-0" data-animation="slideInRight" data-animation-delay="20ms">
             <h6>Send a message</h6>
             <p class="grey-text">admin@wrightbrick.com</p>
           </div>

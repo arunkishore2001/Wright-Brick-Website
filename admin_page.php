@@ -43,7 +43,6 @@ if (isset($_POST['delete_landing_image'])) {
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -56,39 +55,39 @@ if (isset($_POST['delete_landing_image'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-    /* Custom styles */
-    .container {
-        margin-top: 50px;
-    }
+        /* Custom styles */
+        .container {
+            margin-top: 50px;
+        }
 
-    .modal .modal-dialog {
-        max-width: 800px;
-    }
+        .modal .modal-dialog {
+            max-width: 800px;
+        }
 
-    .image-wrapper {
-        position: relative;
-    }
+        .image-wrapper {
+            position: relative;
+        }
 
-    .image-wrapper .fa-times {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: white;
-        border-radius: 50%;
-        padding: 2px;
-    }
+        .image-wrapper .fa-times {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: white;
+            border-radius: 50%;
+            padding: 2px;
+        }
 
-    label.error {
-        font-size: 12px;
-        color: #FF0000;
-    }
+        label.error {
+            font-size: 12px;
+            color: #FF0000;
+        }
 
-    .nav-link.active {
-        color: #007bff !important;
-        /* Adjust color as desired */
-        font-weight: 500;
-        /* Optional: Make active text bold */
-    }
+        .nav-link.active {
+            color: #007bff !important;
+            /* Adjust color as desired */
+            font-weight: 500;
+            /* Optional: Make active text bold */
+        }
     </style>
 </head>
 
@@ -99,17 +98,17 @@ if (isset($_POST['delete_landing_image'])) {
         <div id="message"></div>
 
         <?php if (isset($_SESSION['error'])): ?>
-        <div class="alert alert-danger">
-            <?php echo $_SESSION['error'];
+            <div class="alert alert-danger">
+                <?php echo $_SESSION['error'];
                 unset($_SESSION['error']); ?>
-        </div>
+            </div>
         <?php endif; ?>
 
         <?php if (isset($_SESSION['success'])): ?>
-        <div class="alert alert-success">
-            <?php echo $_SESSION['success'];
+            <div class="alert alert-success">
+                <?php echo $_SESSION['success'];
                 unset($_SESSION['success']); ?>
-        </div>
+            </div>
         <?php endif; ?>
 
         <hr>
@@ -124,6 +123,10 @@ if (isset($_POST['delete_landing_image'])) {
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link text-secondary active" href="#landingSection" data-toggle="tab">Landing
+                                Images</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="#renderSection" data-toggle="tab">Render
                                 Images</a>
                         </li>
                         <li class="nav-item">
@@ -157,25 +160,54 @@ if (isset($_POST['delete_landing_image'])) {
 
                             while ($landingImage = mysqli_fetch_assoc($landingImageQuery)) {
                                 ?>
-                            <div class="col-md-3 mb-4 mt-3">
-                                <div class="card">
-                                    <img src="<?php echo $landingImage['imageUrl']; ?>" class="card-img-top"
-                                        alt="Image">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo htmlspecialchars($landingImage['title']); ?>
-                                        </h5>
-                                        <p class="card-text">
-                                            <?php echo htmlspecialchars($landingImage['description']); ?>
-                                        </p>
-                                        <form method="post">
-                                            <input type="hidden" name="image_id"
-                                                value="<?php echo $landingImage['id']; ?>">
-                                            <button type="submit" name="delete_landing_image"
-                                                class="btn btn-danger btn-sm">Delete</button>
-                                        </form>
+                                <div class="col-md-3 mb-4 mt-3">
+                                    <div class="card">
+                                        <img src="<?php echo $landingImage['imageUrl']; ?>" class="card-img-top"
+                                            alt="Image">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?php echo htmlspecialchars($landingImage['title']); ?>
+                                            </h5>
+                                            <p class="card-text">
+                                                <?php echo htmlspecialchars($landingImage['description']); ?>
+                                            </p>
+                                            <form method="post">
+                                                <input type="hidden" name="image_id"
+                                                    value="<?php echo $landingImage['id']; ?>">
+                                                <button type="submit" name="delete_landing_image"
+                                                    class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="tab-pane show" id="renderSection">
+                        <!-- Add New render images Button -->
+                        <button class="btn btn-success mb-3" data-toggle="modal" data-target="#addRenderModal">Add
+                            Render Images</button>
+                        <div class="row">
+                            <?php
+                            // Fetch all images from the render_images table
+                            $renderImageQuery = mysqli_query($conn, "SELECT * FROM render_images ORDER BY created_at DESC");
+
+                            while ($renderImage = mysqli_fetch_assoc($renderImageQuery)) {
+                                ?>
+                                <div class="col-md-3 mb-4 mt-3 render-image-card"
+                                    id="image-card-<?php echo $renderImage['id']; ?>">
+                                    <div class="card">
+                                        <img src="<?php echo $renderImage['imageUrl']; ?>" class="card-img-top" alt="Image">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?php echo htmlspecialchars($renderImage['title']); ?>
+                                            </h5>
+                                            <p class="card-text">
+                                                <?php echo htmlspecialchars($renderImage['description']); ?>
+                                            </p>
+                                            <button type="button" class="btn btn-danger btn-sm delete-render-image-btn"
+                                                onclick="deleteRenderImage(<?php echo $renderImage['id']; ?>)">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
                             <?php } ?>
                         </div>
                     </div>
@@ -357,6 +389,45 @@ if (isset($_POST['delete_landing_image'])) {
         </div>
     </div>
 
+    <!-- Add Render Images Modal -->
+    <div class="modal fade" id="addRenderModal" tabindex="-1" role="dialog" aria-labelledby="addProjectModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="addRenderForm" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addProjectModalLabel">Add New Render Images</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" class="form-control">
+                        </div>
+
+                        <!-- <div class="form-group">
+                            <label for="description">Description (optional)</label>
+                            <textarea name="description" class="form-control" rows="3"></textarea>
+                        </div> -->
+
+                        <div class="form-group">
+                            <label for="image">Select Image</label>
+                            <input type="file" name="image" class="form-control-file" required>
+                        </div>
+
+                        <div id="preview"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Add Project Modal -->
     <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="addProjectModalLabel"
         aria-hidden="true">
@@ -502,106 +573,106 @@ if (isset($_POST['delete_landing_image'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-    function confirmAction(message, action) {
-        $('#confirmationText').text(message);
-        $('#confirmBtn').off('click').click(function() {
-            action();
-            $('#confirmationModal').modal('hide');
-        });
-        $('#confirmationModal').modal('show');
-    }
-
-    function deleteReview(id) {
-        if (confirm('Are you sure you want to delete this review?')) {
-            $.post('./admin_php/delete_review.php', {
-                id: id
-            }, function(data) {
-                $("#message").html('<div class="alert alert-success">' + data + '</div>');
-                loadReviews();
-            }).fail(function() {
-                $("#message").html('<div class="alert alert-danger">An error occurred.</div>');
+        function confirmAction(message, action) {
+            $('#confirmationText').text(message);
+            $('#confirmBtn').off('click').click(function () {
+                action();
+                $('#confirmationModal').modal('hide');
             });
+            $('#confirmationModal').modal('show');
         }
-    }
 
-    function loadReviews() {
-        $("#reviewsTable").load('./admin_php/fetch_reviews.php');
-    }
-
-    function loadContact() {
-        $("#contact-table").load('./admin_php/fetch_contact.php');
-    }
-
-    function deleteContact(id) {
-        if (confirm('Are you sure you want to delete this contact?')) {
-            $.post('./admin_php/delete_contact.php', {
-                id: id
-            }, function(data) {
-                $("#message").html('<div class="alert alert-success">' + data + '</div>');
-                loadContact();
-            }).fail(function() {
-                $("#message").html('<div class="alert alert-danger">An error occurred.</div>');
-            });
+        function deleteReview(id) {
+            if (confirm('Are you sure you want to delete this review?')) {
+                $.post('./admin_php/delete_review.php', {
+                    id: id
+                }, function (data) {
+                    $("#message").html('<div class="alert alert-success">' + data + '</div>');
+                    loadReviews();
+                }).fail(function () {
+                    $("#message").html('<div class="alert alert-danger">An error occurred.</div>');
+                });
+            }
         }
-    }
-    
-    $(document).ready(function() {
-        loadContact();
-        loadReviews();
-    })
 
-    $(document).ready(function() {
-        var fileArray = [];
-        var existingImageArray = [];
-        var removedImageArray = []; // To track the images that need to be removed
+        function loadReviews() {
+            $("#reviewsTable").load('./admin_php/fetch_reviews.php');
+        }
 
-        // Show the edit modal and fetch project details including images
-        $('.editBtn').on('click', function() {
-            var projectId = $(this).data('id');
+        function loadContact() {
+            $("#contact-table").load('./admin_php/fetch_contact.php');
+        }
 
-            // AJAX request to fetch project details and associated images
-            $.ajax({
-                url: './admin_php/project_edit_handler.php', // The PHP file handling this request
-                type: 'GET',
-                data: {
-                    project_id: projectId
-                },
-                dataType: 'json',
-                success: function(response) {
-                    // Fill the form with the project details                        
-                    $('#edit_project_id').val(response.project.project_id);
-                    $('#edit_project_name').val(response.project.project_name);
-                    $('#edit_description').val(response.project.description);
-                    $('#edit_date').val(response.project.date);
-                    $('#edit_status').val(response.project.status);
-                    $('#edit_category').val(response.project.category);
+        function deleteContact(id) {
+            if (confirm('Are you sure you want to delete this contact?')) {
+                $.post('./admin_php/delete_contact.php', {
+                    id: id
+                }, function (data) {
+                    $("#message").html('<div class="alert alert-success">' + data + '</div>');
+                    loadContact();
+                }).fail(function () {
+                    $("#message").html('<div class="alert alert-danger">An error occurred.</div>');
+                });
+            }
+        }
 
-                    // Reset arrays and previews
-                    fileArray = [];
-                    existingImageArray = response.images; // Set existing images
-                    updateEditPreview(); // Show existing images
-                    $('#editProjectModal').modal('show'); // Show the edit modal
-                }
+        $(document).ready(function () {
+            loadContact();
+            loadReviews();
+        })
+
+        $(document).ready(function () {
+            var fileArray = [];
+            var existingImageArray = [];
+            var removedImageArray = []; // To track the images that need to be removed
+
+            // Show the edit modal and fetch project details including images
+            $('.editBtn').on('click', function () {
+                var projectId = $(this).data('id');
+
+                // AJAX request to fetch project details and associated images
+                $.ajax({
+                    url: './admin_php/project_edit_handler.php', // The PHP file handling this request
+                    type: 'GET',
+                    data: {
+                        project_id: projectId
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        // Fill the form with the project details                        
+                        $('#edit_project_id').val(response.project.project_id);
+                        $('#edit_project_name').val(response.project.project_name);
+                        $('#edit_description').val(response.project.description);
+                        $('#edit_date').val(response.project.date);
+                        $('#edit_status').val(response.project.status);
+                        $('#edit_category').val(response.project.category);
+
+                        // Reset arrays and previews
+                        fileArray = [];
+                        existingImageArray = response.images; // Set existing images
+                        updateEditPreview(); // Show existing images
+                        $('#editProjectModal').modal('show'); // Show the edit modal
+                    }
+                });
             });
-        });
 
-        // Handle new file selection for edit modal
-        $('#edit_images').on('change', function() {
-            var newFiles = Array.from(this.files);
-            fileArray = fileArray.concat(newFiles); // Add new files to fileArray
-            updateEditPreview(); // Update the preview with new and existing images
-        });
+            // Handle new file selection for edit modal
+            $('#edit_images').on('change', function () {
+                var newFiles = Array.from(this.files);
+                fileArray = fileArray.concat(newFiles); // Add new files to fileArray
+                updateEditPreview(); // Update the preview with new and existing images
+            });
 
-        // Function to update the preview area with both existing and new images
-        function updateEditPreview() {
-            $('#editPreview').empty(); // Clear previous previews
+            // Function to update the preview area with both existing and new images
+            function updateEditPreview() {
+                $('#editPreview').empty(); // Clear previous previews
 
-            // Show existing images
-            existingImageArray.forEach(function(image) {
-                var imageSrc = image.image_url.startsWith('../') ? image.image_url.slice(3) : image
-                    .image_url;
+                // Show existing images
+                existingImageArray.forEach(function (image) {
+                    var imageSrc = image.image_url.startsWith('../') ? image.image_url.slice(3) : image
+                        .image_url;
 
-                $('#editPreview').append(`
+                    $('#editPreview').append(`
                         <div class="image-wrapper position-relative d-inline-block">
                             <img src="${imageSrc}" class="m-3" height="100">
                             <span class="position-absolute top-0 end-0 p-1" style="cursor:pointer;">
@@ -609,14 +680,13 @@ if (isset($_POST['delete_landing_image'])) {
                             </span>
                         </div>
                     `);
-            });
+                });
 
-
-            // Show newly selected images
-            fileArray.forEach(function(file, index) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#editPreview').append(`
+                // Show newly selected images
+                fileArray.forEach(function (file, index) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#editPreview').append(`
                             <div class="image-wrapper position-relative d-inline-block">
                                 <img src="${e.target.result}" class="m-3" height="100">
                                 <span class="position-absolute top-0 end-0 p-1">
@@ -624,126 +694,136 @@ if (isset($_POST['delete_landing_image'])) {
                                 </span>
                             </div>
                         `);
-                };
-                reader.readAsDataURL(file);
-            });
-        }
-
-        // Handle removal of images in the preview area
-        $('#editPreview').on('click', '.fa-times', function() {
-            var existingId = $(this).data('existing-id'); // ID of existing image in the database
-            var newIndex = $(this).data('new-index'); // Index of newly added images
-
-            if (existingId !== undefined) {
-                // Add the existing image's ID to the removedImageArray
-                removedImageArray.push(existingId);
-
-                // Filter out the removed image from the existingImageArray
-                existingImageArray = existingImageArray.filter(image => image.image_id != existingId);
-            } else if (newIndex !== undefined) {
-                // Remove the new image from the fileArray
-                fileArray.splice(newIndex, 1);
-                var dataTransfer = new DataTransfer();
-                fileArray.forEach(file => dataTransfer.items.add(file));
-                $('#edit_images')[0].files = dataTransfer.files;
-            }
-
-            // Refresh the preview with the remaining images
-            updateEditPreview();
-        });
-
-        // Handle form submission for edit
-        $('#editProjectForm').on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            formData.append('action', 'update');
-            formData.append('removed_images', JSON.stringify(removedImageArray));
-
-            if ($(this).valid()) {
-                $.ajax({
-                    url: './admin_php/project_handlers.php', // Ensure this points to the correct PHP file
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        // Handle success
-                        console.log('success');
-                        alert(response);
-                        location.reload();
-
-                        // Reload or refresh the project cards/list
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("AJAX Error: " + status + " - " + error);
-                    }
+                    };
+                    reader.readAsDataURL(file);
                 });
             }
-        });
 
-        $('#editProjectForm').validate({
-            rules: {
-                project_name: {
-                    required: true,
-                    minlength: 2
-                },
-                description: {
-                    required: true,
-                    minlength: 10
-                },
-                date: {
-                    required: true,
-                    date: true
-                },
-                status: {
-                    required: true
-                },
-                category: {
-                    required: true
-                },
-                'images[]': {
-                    extension: "jpg|jpeg|png|gif",
-                    filesize: 500 * 1024 // 500 KB
+            // Handle removal of images in the preview area
+            $('#editPreview').on('click', '.fa-times', function () {
+                var existingId = $(this).data('existing-id'); // ID of existing image in the database
+                var newIndex = $(this).data('new-index'); // Index of newly added images
+
+                if (existingId !== undefined) {
+                    // Add the existing image's ID to the removedImageArray
+                    removedImageArray.push(existingId);
+
+                    // Filter out the removed image from the existingImageArray
+                    existingImageArray = existingImageArray.filter(image => image.image_id != existingId);
+                } else if (newIndex !== undefined) {
+                    // Remove the new image from the fileArray
+                    fileArray.splice(newIndex, 1);
+                    var dataTransfer = new DataTransfer();
+                    fileArray.forEach(file => dataTransfer.items.add(file));
+                    $('#edit_images')[0].files = dataTransfer.files;
                 }
-            },
-            messages: {
-                'images[]': {
-                    extension: "Please upload an image file (jpg, jpeg, png, gif).",
-                    filesize: "Each image must be less than 500 KB."
+
+                // Refresh the preview with the remaining images
+                updateEditPreview();
+            });
+
+            // Handle form submission for edit
+            $('#editProjectForm').on('submit', function (e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                formData.append('action', 'update');
+                formData.append('removed_images', JSON.stringify(removedImageArray));
+
+                if ($(this).valid()) {
+                    $.ajax({
+                        url: './admin_php/project_handlers.php', // Ensure this points to the correct PHP file
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+                            // Handle success
+                            console.log('success');
+                            alert(response);
+                            location.reload();
+
+                            // Reload or refresh the project cards/list
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("AJAX Error: " + status + " - " + error);
+                        }
+                    });
                 }
-            }
+            });
+
+            $('#editProjectForm').validate({
+                rules: {
+                    project_name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    description: {
+                        required: true,
+                        minlength: 10
+                    },
+                    date: {
+                        required: true,
+                        date: true
+                    },
+                    status: {
+                        required: true
+                    },
+                    category: {
+                        required: true
+                    },
+                    'images[]': {
+                        extension: "jpg|jpeg|png|gif",
+                        filesize: 500 * 1024 // 500 KB
+                    }
+                },
+                messages: {
+                    'images[]': {
+                        extension: "Please upload an image file (jpg, jpeg, png, gif).",
+                        filesize: "Each image must be less than 500 KB."
+                    }
+                }
+            });
+
+            $.validator.addMethod('filesize', function (value, element, maxSize) {
+                if (element.files.length > 0) {
+                    return element.files[0].size <= maxSize;
+                }
+                return true;
+            }, 'File size must be less than {0} bytes.');
+
         });
-
-        $.validator.addMethod('filesize', function(value, element, maxSize) {
-            if (element.files.length > 0) {
-                return element.files[0].size <= maxSize;
-            }
-            return true;
-        }, 'File size must be less than {0} bytes.');
-
-    });
     </script>
 
     <script>
-    $(document).ready(function() {
+        function toggleVisibility(id) {
+            if (confirm('Are you sure you want to toggle this review?')) {
+                $.post('admin_php/toggle_visibility.php', { id: id }, function (data) {
+                    $("#message").html('<div class="alert alert-success">' + data + '</div>');
+                    loadReviews();
+                }).fail(function () {
+                    $("#message").html('<div class="alert alert-danger">An error occurred.</div>');
+                });
+            }
+        }
+        $(document).ready(function () {
 
-        var fileArray = [];
+            var fileArray = [];
 
-        // Handle file selection
-        $('input[type="file"]').on('change', function() {
-            var newFiles = Array.from(this.files);
-            fileArray = fileArray.concat(newFiles);
-            updatePreview();
-        });
+            // Handle file selection
+            $('input[type="file"]').on('change', function () {
+                var newFiles = Array.from(this.files);
+                fileArray = fileArray.concat(newFiles);
+                updatePreview();
+            });
 
-        // Update the preview with fileArray
-        function updatePreview() {
-            $('#preview').empty(); // Clear previous previews
+            // Update the preview with fileArray
+            function updatePreview() {
+                $('#preview').empty(); // Clear previous previews
 
-            fileArray.forEach((file, index) => {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#preview').append(`
+                fileArray.forEach((file, index) => {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#preview').append(`
                     <div class="image-wrapper position-relative d-inline-block">
                         <img src="${e.target.result}" class="m-3" height="100">
                         <span class="position-absolute top-0 end-0 p-1">
@@ -751,145 +831,181 @@ if (isset($_POST['delete_landing_image'])) {
                         </span>
                     </div>
                 `);
-                };
-                reader.readAsDataURL(file);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            // Handle the removal of files
+            $('#preview').on('click', '.fa-times', function () {
+                var indexToRemove = $(this).data('index');
+                fileArray.splice(indexToRemove, 1); // Remove file from fileArray
+                updatePreview(); // Refresh the preview
+
+                // Update the file input
+                var dataTransfer = new DataTransfer();
+                fileArray.forEach(file => dataTransfer.items.add(file));
+                $('input[type="file"]')[0].files = dataTransfer.files;
             });
-        }
 
-        // Handle the removal of files
-        $('#preview').on('click', '.fa-times', function() {
-            var indexToRemove = $(this).data('index');
-            fileArray.splice(indexToRemove, 1); // Remove file from fileArray
-            updatePreview(); // Refresh the preview
+            // Add New Project
+            $('#addProjectForm').on('submit', function (e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                formData.append('action', 'add');
 
-            // Update the file input
-            var dataTransfer = new DataTransfer();
-            fileArray.forEach(file => dataTransfer.items.add(file));
-            $('input[type="file"]')[0].files = dataTransfer.files;
-        });
+                if ($(this).valid()) {
+                    $.ajax({
+                        url: './admin_php/project_handlers.php',
+                        type: 'POST',
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            alert(response);
+                            location.reload();
+                        }
+                    });
+                }
+            });
 
-        // Add New Project
-        $('#addProjectForm').on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            formData.append('action', 'add');
+            $('#addProjectForm').validate({
+                rules: {
+                    project_name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    description: {
+                        required: true,
+                        minlength: 10
+                    },
+                    date: {
+                        required: true,
+                        date: true
+                    },
+                    status: {
+                        required: true
+                    },
+                    category: {
+                        required: true
+                    },
+                    'images[]': {
+                        extension: "jpg|jpeg|png|gif",
+                        filesize: 500 * 1024 // 500 KB
+                    }
+                },
+                messages: {
+                    'images[]': {
+                        extension: "Please upload an image file (jpg, jpeg, png, gif).",
+                        filesize: "Each image must be less than 500 KB."
+                    }
+                }
+            });
 
-            if ($(this).valid()) {
+            // Delete Project Button Click
+            $('.deleteBtn').on('click', function () {
+                var projectId = $(this).data('id');
+                $('#confirmDeleteBtn').data('id', projectId);
+                $('#deleteConfirmationModal').modal('show');
+            });
+
+            // Confirm Delete
+            $('#confirmDeleteBtn').on('click', function () {
+                var projectId = $(this).data('id');
+
                 $.ajax({
                     url: './admin_php/project_handlers.php',
+                    type: 'POST',
+                    data: {
+                        action: 'delete',
+                        project_id: projectId
+                    },
+                    success: function (response) {
+                        location.reload();
+                    }
+                });
+            });
+
+            $('#addLandingForm').on('submit', function (e) {
+                e.preventDefault();
+
+                let formData = new FormData(this);
+                formData.append('add_landing', true);
+
+                $.ajax({
+                    url: './admin_php/add_landing_image.php',
                     type: 'POST',
                     data: formData,
                     contentType: false,
                     processData: false,
-                    success: function(response) {
+                    success: function (response) {
+                        console.log('success');
                         alert(response);
                         location.reload();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error(textStatus, errorThrown); // Log errors for debugging
+                        alert('Error uploading file, please try again.');
                     }
                 });
-            }
-        });
+            });
 
-        $('#addProjectForm').validate({
-            rules: {
-                project_name: {
-                    required: true,
-                    minlength: 2
-                },
-                description: {
-                    required: true,
-                    minlength: 10
-                },
-                date: {
-                    required: true,
-                    date: true
-                },
-                status: {
-                    required: true
-                },
-                category: {
-                    required: true
-                },
-                'images[]': {
-                    extension: "jpg|jpeg|png|gif",
-                    filesize: 500 * 1024 // 500 KB
-                }
-            },
-            messages: {
-                'images[]': {
-                    extension: "Please upload an image file (jpg, jpeg, png, gif).",
-                    filesize: "Each image must be less than 500 KB."
-                }
-            }
-        });
+            $('#addRenderForm').on('submit', function (e) {
+                e.preventDefault();
 
-        // Delete Project Button Click
-        $('.deleteBtn').on('click', function() {
-            var projectId = $(this).data('id');
-            $('#confirmDeleteBtn').data('id', projectId);
-            $('#deleteConfirmationModal').modal('show');
-        });
+                let formData = new FormData(this);
+                formData.append('add_render', true);
 
-        // Confirm Delete
-        $('#confirmDeleteBtn').on('click', function() {
-            var projectId = $(this).data('id');
-
-            $.ajax({
-                url: './admin_php/project_handlers.php',
-                type: 'POST',
-                data: {
-                    action: 'delete',
-                    project_id: projectId
-                },
-                success: function(response) {
-                    location.reload();
-                }
+                $.ajax({
+                    url: './admin_php/add_render_image.php',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        console.log('success');
+                        alert(response);
+                        location.reload();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error(textStatus, errorThrown); // Log errors for debugging
+                        alert('Error uploading file, please try again.');
+                    }
+                });
             });
         });
 
-        $('#addLandingForm').on('submit', function(e) {
-            e.preventDefault();
+        // Handle the image deletion via AJAX
+        function deleteRenderImage(renderId) {
+            let formData = new FormData();
+            formData.append('delete_render_image', true);
+            formData.append('image_id', renderId);
 
-            let formData = new FormData(this);
-            formData.append('add_landing', true);
-
+            console.log(renderId);
+            // Send AJAX request to delete the image
             $.ajax({
-                url: './admin_php/add_landing_image.php',
+                url: './admin_php/add_render_image.php',
                 type: 'POST',
                 data: formData,
                 contentType: false,
                 processData: false,
-                success: function(response) {
-                    console.log('success');
-                    alert(response);
-                    location.reload();
+                success: function (response) {
+                    // Parse the response if it's JSON
+                    try {
+                        console.log('success');
+                        alert(response);
+                        location.reload();
+                    } catch (e) {
+                        console.error("Error parsing response:", e);
+                        alert("Error processing the request.");
+                    }
                 },
-                error: function(jqXHR, textStatus, errorThrown) {
+                error: function (jqXHR, textStatus, errorThrown) {
                     console.error(textStatus, errorThrown); // Log errors for debugging
-                    alert('Error uploading file, please try again.');
-                }
-            });
-        });
-
-        function deleteLandingImage(imageId) {
-            $.ajax({
-                url: './admin_php/add_landing_image.php',
-                type: 'POST',
-                data: {
-                    delete_landing_image: true,
-                    image_id: imageId
-                },
-                success: function(response) {
-                    console.log('success');
-                    alert(response);
-                    location.reload();
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error('Error:', textStatus, errorThrown);
-                    alert('Failed to delete the image. Please try again.');
+                    alert('Error deleting image, please try again.');
                 }
             });
         }
-    });
     </script>
 
 </body>

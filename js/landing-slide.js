@@ -15,7 +15,7 @@ const newSlides = document.querySelectorAll('.slide');
 const newTotalSlides = newSlides.length;
 
 let currentSlide = 1; // Start from the actual first slide (index 1)
-const slideInterval = 3000; // Time between slides in milliseconds
+const slideInterval = 5000; // Time between slides in milliseconds
 
 // Initialize the slider position
 slider.style.transition = 'none'; // Disable transition for initial setup
@@ -28,7 +28,7 @@ const dotsContainer = document.querySelector('.dots-container');
 const actualSlides = totalSlides; // Only actual slides, not the clones
 
 function createDots() {
-  for (let i = 0; i < actualSlides -1; i++) {
+  for (let i = 0; i < actualSlides; i++) {
     const dot = document.createElement('span');
     dot.classList.add('dot');
     dot.setAttribute('onclick', `goToSlide(${i + 1})`);
@@ -46,7 +46,7 @@ function updateDots() {
 function showSlide(index) {
   slider.style.transform = `translateX(-${index * 100}%)`;
 
-  if (index === newTotalSlides - 2) {
+  if (index === newTotalSlides - 1) {
     setTimeout(() => {
       slider.style.transition = 'none';
       slider.style.transform = `translateX(-${100}%)`;

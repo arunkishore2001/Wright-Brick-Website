@@ -16,6 +16,9 @@ $result_contact = mysqli_query($conn, $query_contact);
             <th>Email</th>
             <th>Phone</th>
             <th>Message</th>
+            <th>Property Type</th>
+            <th>Property Name</th>
+            <th>Floor Plan</th>
             <th>Date/Time</th>
             <th>Action</th>
         </tr>
@@ -29,6 +32,9 @@ $result_contact = mysqli_query($conn, $query_contact);
                 echo "<td>" . $row_contact['email'] . "</td>";
                 echo "<td>" . $row_contact['phone'] . "</td>";
                 echo "<td>" . $row_contact['message'] . "</td>";
+                echo "<td>" . $row_contact['property_type'] . "</td>";
+                echo "<td>" . $row_contact['property_name'] . "</td>";
+                echo "<td>" . $row_contact['floorplan_type'] . "</td>";
                 echo "<td>" . $row_contact['created_at'] . "</td>";
                 echo "<td><button class='btn btn-danger mr-2' onclick='deleteContact(" . $row_contact["id"] . ")'>Delete</button></td>";
                 echo "</tr>";
