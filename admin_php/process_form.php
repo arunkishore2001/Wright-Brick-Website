@@ -7,10 +7,10 @@ include 'config.php';
 session_start();
 
 // Check if the form has been submitted from this session
-// if (isset($_SESSION['form_submitted']) && $_SESSION['form_submitted'] === true) {
-//     echo "You've already submitted the form.";
-//     exit();
-// }
+if (isset($_SESSION['form_submitted']) && $_SESSION['form_submitted'] === true) {
+    echo "You've already submitted the form.";
+    exit();
+}
 
 // Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

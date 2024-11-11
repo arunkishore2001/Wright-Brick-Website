@@ -66,6 +66,10 @@ h6 {
   text-align: center;
 }
 
+.syne-font{
+  font-family: "Syne", sans-serif !important;
+}
+
 @media (max-width: 1200px) {
   .crafting-heading h1 {
     font-size: 67px;
@@ -597,20 +601,19 @@ h6 {
   font-weight: 600;
 }
 
-.step-right-subheading h5 {
-  color: #fff;
-  font-family: Montserrat;
+.step-right-subheading h3 {
+  color: #e6e6e6;
   font-weight: 500;
 }
 
-.step-right-subheading h5::after {
+.step-right-subheading h3::after {
   content: "";
   background: #c40000;
 
-  min-width: 141px;
+  min-width: 200px;
   height: 2px;
   position: absolute;
-  margin-top: 10px;
+  margin-top: 16px;
   margin-left: 40px;
 }
 .step-right-para p {
@@ -687,7 +690,7 @@ h6 {
   }
 }
 @media (max-width: 468px) {
-  .step-right-subheading h5::after {
+  .step-right-subheading h3::after {
     min-width: 58px;
     margin-left: 4px;
     margin-top: 11px;
@@ -1165,6 +1168,7 @@ h6 {
   gap: 100px;
   flex: 1;
   min-width: 250px;
+  padding-left: 44px;
 }
 
 .company-link ul,
@@ -1174,6 +1178,7 @@ h6 {
   flex-direction: row;
   padding: 0;
   grid-template-columns: 1fr 1fr;
+  max-width: 400px;
   margin-bottom: 4px;
 }
 
@@ -1259,6 +1264,7 @@ h6 {
 
   .links {
     align-items: center;
+    padding-left: 0;
   }
 
   .message {
@@ -1880,6 +1886,12 @@ h6 {
   background-position: center;
   min-height: 100vh;
   position: relative;
+}
+
+@media(max-width:576px){
+  .bg-image{
+    min-height: 450px;
+  }
 }
 
 .overlay-text {

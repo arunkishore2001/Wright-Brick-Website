@@ -5,7 +5,7 @@ include 'functions.php';
 
 session_start();
 requireLogin();
-$query_contact = "SELECT * FROM contact_form";
+$query_contact = "SELECT * FROM contact_form ORDER BY created_at DESC";
 $result_contact = mysqli_query($conn, $query_contact);
 ?>
 

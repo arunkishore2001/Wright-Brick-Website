@@ -9,7 +9,7 @@ $review = mysqli_real_escape_string($conn, $_POST['review']);
 $visible = 0;
 
 // Default picture if photo is not selected
-$defaultPicture = "uploads/default-profile.png";
+$defaultPicture = "uploads/avator.png";
 
 if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == UPLOAD_ERR_OK) {
     $target_dir = "../uploads/";

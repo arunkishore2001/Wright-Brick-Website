@@ -358,7 +358,7 @@ $render_images = $conn->query($render_images_query);
                                 <h2>WRIGHT BRICKS</h2>
                             </div>
                             <div class="step-right-subheading mt-4">
-                                <h5>Journey</h5>
+                                <h3 class="syne-font">Journey</h3>
                             </div>
 
 
@@ -827,14 +827,14 @@ $render_images = $conn->query($render_images_query);
             </div>
         </div>
 
-        <div class="container-fluid mt-5">
+        <div class="container-fluid mt-5 overflow-hidden">
             <div class="row">
                 <div class="faq-heading">
                     <h1>Clips of Clients</h1>
                 </div>
             </div>
             <div class="row mt-4 mb-5">
-                <div class="swiper-container video-swiper"> <!-- Swiper container specific for videos -->
+                <div class="col-12 swiper-container video-swiper"> <!-- Swiper container specific for videos -->
                     <div class="swiper-wrapper">
                         <?php
                         // Fetch videos
