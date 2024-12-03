@@ -1517,11 +1517,6 @@ h6 {
   }
 }
 
-.modal {
-  position: relative;
-  z-index: 1000;
-}
-
 .yt-thumbnail {
   width: 100%;
   height: auto;
@@ -1881,7 +1876,7 @@ h6 {
 }
 
 .bg-image {
-  background-image: url("../img/footer-img.png");
+  background-image: url("../img/default/haveProject.jpeg");
   background-size: cover;
   background-position: center;
   min-height: 100vh;

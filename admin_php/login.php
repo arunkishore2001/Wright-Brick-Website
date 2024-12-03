@@ -20,7 +20,7 @@ if (isset($_POST['login'])) {
             $_SESSION['user_id'] = $user['id'];
             session_regenerate_id(true);
             // Redirect to index.php
-            header('Location: ../admin_page.php');
+            header('Location: ../admin');
             exit;
         } else {
             $loginError = "Invalid credentials";

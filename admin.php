@@ -17,7 +17,7 @@ if (isset($_GET['delete_id'])) {
     $stmt->close();
 
     // Redirect after deletion
-    header("Location: admin_page.php");
+    header("Location: admin");
     exit();
 }
 
@@ -182,7 +182,7 @@ if (isset($_POST['delete_landing_image'])) {
                             <?php } ?>
                         </div>
                     </div>
-                    <div class="tab-pane show" id="renderSection">
+                    <div class="tab-pane fade" id="renderSection">
                         <!-- Add New render images Button -->
                         <button class="btn btn-success mb-3" data-toggle="modal" data-target="#addRenderModal">Add
                             Render Images</button>
