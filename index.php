@@ -250,7 +250,7 @@ $render_images = $conn->query($render_images_query);
                                 </svg>
                             </div>
                             <div class="standout-text">
-                                <h6>Price Match Guarentee</h6>
+                                <h6>Price Match Guarantee</h6>
                             </div>
                         </div>
                     </div>
@@ -309,7 +309,7 @@ $render_images = $conn->query($render_images_query);
                                     </div>
 
                                     <p class="card-text">
-                                        The material’s will undergo 7+ stages of quality checks and delivered on-site to
+                                        The materials will undergo 7+ stages of quality checks and delivered on-site to
                                         be
                                         installed by our expertised Team
                                     </p>
@@ -333,7 +333,7 @@ $render_images = $conn->query($render_images_query);
                     <div class="col-md-6 order-0 order-md-1">
                         <div class="step-right">
                             <div class="step-right-heading">
-                                <h2>WRIGHT BRICKS</h2>
+                                <h2>WRIGHT BRICK</h2>
                             </div>
                             <div class="step-right-subheading mt-4">
                                 <h3 class="syne-font">Journey</h3>
@@ -451,10 +451,10 @@ $render_images = $conn->query($render_images_query);
                     <div class="col-md-6 d-flex flex-column justify-content-center">
                         <div class="project-new-heading text-center">
                             <div class="project-light-heading">
-                                <h4>For Our Clients</h4>
+                                <h4>Project Crafted To</h4>
                             </div>
                             <div class="project-dark-main">
-                                <h5>PROJECTS</h5>
+                                <h5>PERFECTION</h5>
                             </div>
                         </div>
                     </div>
@@ -511,9 +511,9 @@ $render_images = $conn->query($render_images_query);
         <!-- Testimonal -->
 
         <div class="testimonials-container container-fluid mt-5">
-            <p class="text-center">Testimonials</p>
+            <p class="text-center">⁠Words From</p>
             <div class="faq-heading text-center mt-2">
-                <h1>Client Experiences</h1>
+                <h1>Our Happy Clients</h1>
             </div>
 
             <div class="review-manual">

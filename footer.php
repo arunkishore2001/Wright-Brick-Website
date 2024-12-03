@@ -103,13 +103,13 @@
       <div class="container-fluid">
         <div class="message">
           <div class="call" data-animation="slideInRight">
-            <h6>Call our office</h6>
+            <h6>Contact Us</h6>
             <p class="grey-text">+91 97428 80461</p>
             <p class="grey-text mt-1">+91 95382 30974</p>
           </div>
 
           <div class="send" data-animation="slideInRight" data-animation-delay="20ms">
-            <h6>Send a message</h6>
+            <h6 style="visibility:hidden;">Send a message</h6>
             <p class="grey-text">sales@wrightbrick.com</p>
           </div>
         </div>
